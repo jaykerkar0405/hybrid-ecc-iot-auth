@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hybrid-ecc-auth"
+version = "0.1.0"
+description = "Reference implementation of a hybrid ECC + symmetric-key mutual authentication protocol for IoT (proof-of-concept, not production)."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+dependencies = [
+    "cryptography>=41.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+    "hypothesis>=6.90",
+]
+bench = [
+    "matplotlib>=3.7",
+]
+
+[project.scripts]
+hea-ta = "hybrid_ecc_auth.demo.ta_cli:main"
+hea-device = "hybrid_ecc_auth.demo.device_node:main"
+hea-server = "hybrid_ecc_auth.demo.server_node:main"
+
+[tool.setuptools.packages.find]
+include = ["hybrid_ecc_auth*"]
+
+[tool.pytest.ini_options]
+testpaths = ["hybrid_ecc_auth/tests"]
+
+[tool.coverage.run]
+source = ["hybrid_ecc_auth/protocol", "hybrid_ecc_auth/crypto"]
