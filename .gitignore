@@ -6,4 +6,7 @@ __pycache__/
 .coverage
 htmlcov/
 bench_output/
+bench_output_*/
+creds/
+manifest.json
 *.last_m1
