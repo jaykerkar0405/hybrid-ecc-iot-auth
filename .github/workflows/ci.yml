@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev,bench]"
+      - name: Test with coverage (>=90% on protocol/ and crypto/, PRD Section 8)
+        run: |
+          pytest hybrid_ecc_auth/tests/ -q \
+            --cov=hybrid_ecc_auth.protocol --cov=hybrid_ecc_auth.crypto \
+            --cov-report=term-missing --cov-fail-under=90
+      - name: Lightweight benchmark (BR-4.2 -- full paper-scale sweep runs on-demand only)
+        run: |
+          python -m hybrid_ecc_auth.bench.harness --out bench_output
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bench-report-py${{ matrix.python-version }}
+          path: bench_output/

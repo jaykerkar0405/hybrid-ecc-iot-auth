@@ -1,0 +1,24 @@
+hybrid-ecc-auth
+Copyright 2026 the project contributors.
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This software is an independent, unofficial reference implementation of
+the mutual authentication protocol described in:
+
+  A. Al-Rasheed, R. Khan, A. Ahmad, A. Saeed, F. Alturise, and S. Alkhalaf,
+  "A Low-Cost Hybrid Elliptic Curve Cryptography Authentication Protocol
+  for Trustworthy Internet of Things Communication," IEEE Transactions on
+  Consumer Electronics, vol. 72, no. 2, pp. 4483-4491, May 2026.
+  DOI: 10.1109/TCE.2026.3662053
+
+A copy of the paper is included for reference at docs/base_paper.pdf
+under fair-use/academic-reference terms; it is not covered by this
+project's Apache-2.0 license and all rights remain with IEEE and the
+original authors. This project is not affiliated with, endorsed by, or
+reviewed by the paper's authors or IEEE.
+
+Third-party dependencies (cryptography, pytest, matplotlib, hypothesis,
+and their transitive dependencies) are used under their own respective
+licenses; see requirements-lock.txt for exact versions used during
+development.
