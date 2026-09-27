@@ -1,0 +1,3 @@
+{'mode': 'auth', 'n': 1000, 'failures': 0, 'unique_session_keys': 1000, 'throughput_hs_per_s': 1232.7464331522117, 'm1_bytes': (216, 216), 'm2_bytes': (136, 136), 'build_ms': (0.0416, 0.0602), 'rtt_ms': (0.6697, 0.929), 'complete_ms': (0.0694, 0.0952), 'total_ms': (0.7908, 1.0473), 'device_crypto_ms': (0.1123, 0.148), 'rss_kb_before_device_load': 17332, 'peak_rss_kb': 29576}
+### device-001 reboots: new process, epoch resets to 0
+REJECTED by server: UnknownPeerError: pseudonym did not resolve to any known, in-window peer (round-trip 2.477 ms)

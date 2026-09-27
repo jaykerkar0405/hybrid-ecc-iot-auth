@@ -1,0 +1,8 @@
+### block-list persistence: device-tamper (blocked before restart), legit request after server restart
+Mutual authentication succeeded with 'server-A'.
+  session key fingerprint: f483c9a0a3834afc (SHA-256[:16] of K_ij,t -- never the raw key)
+  round-trip latency: 4.117 ms
+### impersonation via full-mesh peer-key distribution
+attacker holds credential for 'device-001'; peer lambdas present: ['device-cli-01', 'device-cli-02', 'device-cli-03', 'device-cli-04', 'device-cli-05', 'device-tamper', 'server-A']
+server response ok = True 
+IMPERSONATION SUCCEEDED: server-A accepted the attacker as 'device-cli-05' and a session key was agreed.

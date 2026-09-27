@@ -1,0 +1,5 @@
+### replay of device-cli-01 M1 captured BEFORE server restart
+[replay-demo] resending previously captured M1 (216 bytes) to 172.31.14.202:8443 ...
+warning: server unexpectedly accepted the replayed M1 -- cannot complete the handshake (no local session state for a replayed request). This indicates a freshness-check regression.
+### frame sizes
+M1=216B  M1 frame=220B  M2=136B  response envelope=185B  response frame=189B  total app bytes=409B

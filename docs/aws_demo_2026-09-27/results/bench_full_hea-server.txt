@@ -1,0 +1,10 @@
+Running benchmark (full): processing_trials=1000, population_points=[100, 300, 600, 900, 1200, 1500, 1800], population_trials_per_point=50
+Report written to bench_full/:
+  report_md: bench_full/report.md
+  report_html: bench_full/report.html
+  results_json: bench_full/results.json
+  communication_png: bench_full/communication_cost.png
+  processing_png: bench_full/processing_cost.png
+  processing_csv: bench_full/processing_cost_vs_population.csv
+  storage_png: bench_full/storage_cost.png
+[time] wall=8.27s maxrss=166372KB

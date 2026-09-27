@@ -1,0 +1,62 @@
+== ip-172-31-14-197.ec2.internal
+{
+  "accountId" : "REDACTED",
+  "architecture" : "arm64",
+  "availabilityZone" : "us-east-1a",
+  "billingProducts" : null,
+  "devpayProductCodes" : null,
+  "marketplaceProductCodes" : null,
+  "imageId" : "ami-0eb45f74aa8a20238",
+  "instanceId" : "i-024e434183cb9cef7",
+  "instanceType" : "t4g.nano",
+  "kernelId" : null,
+  "pendingTime" : "2026-09-27T07:50:18Z",
+  "privateIp" : "172.31.14.197",
+  "ramdiskId" : null,
+  "region" : "us-east-1",
+  "version" : "2017-09-30"
+}
+CPU(s):                                  2
+Model name:                              Neoverse-N1
+BogoMIPS:                                243.75
+Flags:                                   fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+               total        used        free      shared  buff/cache   available
+Mem:             412         116         157           0         138         285
+Swap:           1435          30        1405
+Linux ip-172-31-14-197.ec2.internal 6.18.48-109.150.amzn2023.aarch64 #2 SMP Wed Sep 16 22:56:30 UTC 2026 aarch64 aarch64 aarch64 GNU/Linux
+PRETTY_NAME="Amazon Linux 2023.12.20260918"
+3.11.16 (main, Aug 24 2026, 00:00:00) [GCC 11.5.0 20240719 (Red Hat 11.5.0-5)]
+Linux-6.18.48-109.150.amzn2023.aarch64-aarch64-with-glibc2.34
+cryptography 50.0.1
+OpenSSL 4.0.2 25 Aug 2026
+== ip-172-31-14-202.ec2.internal
+{
+  "accountId" : "REDACTED",
+  "architecture" : "arm64",
+  "availabilityZone" : "us-east-1a",
+  "billingProducts" : null,
+  "devpayProductCodes" : null,
+  "marketplaceProductCodes" : null,
+  "imageId" : "ami-0eb45f74aa8a20238",
+  "instanceId" : "i-01436299d1ec1d86f",
+  "instanceType" : "t4g.nano",
+  "kernelId" : null,
+  "pendingTime" : "2026-09-27T07:50:37Z",
+  "privateIp" : "172.31.14.202",
+  "ramdiskId" : null,
+  "region" : "us-east-1",
+  "version" : "2017-09-30"
+}
+CPU(s):                                  2
+Model name:                              Neoverse-N1
+BogoMIPS:                                243.75
+Flags:                                   fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+               total        used        free      shared  buff/cache   available
+Mem:             412         130         128           0         153         271
+Swap:           1435          26        1409
+Linux ip-172-31-14-202.ec2.internal 6.18.48-109.150.amzn2023.aarch64 #2 SMP Wed Sep 16 22:56:30 UTC 2026 aarch64 aarch64 aarch64 GNU/Linux
+PRETTY_NAME="Amazon Linux 2023.12.20260918"
+3.11.16 (main, Aug 24 2026, 00:00:00) [GCC 11.5.0 20240719 (Red Hat 11.5.0-5)]
+Linux-6.18.48-109.150.amzn2023.aarch64-aarch64-with-glibc2.34
+cryptography 50.0.1
+OpenSSL 4.0.2 25 Aug 2026
