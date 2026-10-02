@@ -31,7 +31,7 @@ the server replies M2, and both derive K = KDF(k* || N_i || N_j || t), k* = KDF(
 Table III's constants. Figs. 1-3 compare against a different four schemes.
 
 ## 3. Method
-**Audit.** Tables III-VI were transcribed from a 600-DPI render; Tables III, IV and VI were OCR-verified and Table V checked manually twice
+**Audit.** Tables III-VI were transcribed from 300-DPI renders and re-read at 600 DPI; Tables III, IV and VI were then OCR-verified and Table V checked manually twice
 (`verify_tables.py`). Figures were digitised by eye (about +/-0.2). **Implementation.** A portable C device core (BearSSL AES-256-GCM, SHA-256, HKDF) with the
 paper's JSON/base64 wire format interoperates with the unmodified Python server: 20/20 handshakes on an ESP8266 over Wi-Fi with identical session keys and
 replay rejection; 12/12 natively. **Benchmark.** One C source on every platform; ESP8266 (L106, 80/160 MHz, no crypto hardware, cycle counter),
@@ -47,16 +47,18 @@ bit cost growing with vehicle count; Fig. 1's caption and axis disagree.
 
 **4.2 Measured constants.** ESP8266 @80 MHz: T_H 0.036 ms (paper 0.32), T_SE/D 0.48-1.15 ms (paper 5.6), T_ECM 276 ms for P-256 (paper 17.1; 624 ms for generic code, 131 ms X25519). T_ECM/T_H is 7,600 vs the paper's 53.
 
-**4.3 Recomputed ranking.** Against ECC-based schemes the proposed scheme is about 120-3,000x cheaper. Against Turkanovic, Dhillon-Karla and Jiang, with AES-GCM, all 12 AES-GCM sensitivity cells put the proposed scheme behind on the ESP8266 at both clocks
-(3.8-10.8x; r = T_SE/D/T_H of 6.7-31.6 against a crossover of 2.0-4.5). The result weakens on faster cores with software crypto: 11 of 12 cells on the t4g.nano (r = 4.2-30.3) and only 6 of 12 on the laptop (r = 2.0-16.0). The ranking flips only for unauthenticated AES (which drops the MAC the scheme requires) or with hardware crypto:
-OpenSSL on Graviton2 and on the laptop gives r = 1.06 and 0.82. The op-count model also under-predicts the real implementation (2.4 ms modelled vs 5.3 ms measured for the device).
+**4.3 Recomputed ranking.** Against ECC-based schemes the proposed scheme is about 120-3,000x cheaper. Against Turkanovic, Dhillon-Karla and Jiang the answer depends on whether the session KDF is counted.
+Table V as printed (2 T_H + 2 T_SE/D) omits it, although Eqs. 16 and 22 require it. With Table V as printed, the hash-only schemes win all 12 AES-GCM sensitivity cells on the ESP8266 (r = T_SE/D/T_H of 6.7-31.6 against a crossover of 2.0-4.5),
+11 of 12 on the t4g.nano and 6 of 12 on the laptop. Measured HKDF-SHA256 costs 6-17 T_H on every platform, against 5-7 T_H for the hash-only device columns, so counting it (or reading Table V's "2 T_H" as PID hash plus KDF, the most favourable reading)
+makes all three hash-only schemes cheaper in every column on every platform, including hardware-accelerated OpenSSL (GCM 78 ns, SHA-1 38 ns, HKDF 232 ns per call). The ranking flips only for unauthenticated AES, which drops the MAC the scheme requires.
+The op-count model also under-predicts the real implementation (2.4 ms modelled vs 5.3 ms measured for the device).
 
 **4.4 Protocol-level.** No forward secrecy (5/5 past session keys recovered from recorded traffic once k* is known). ECC appears only in offline provisioning; Eq. 8 is a hash mod n and the public point is optional and unused. Server pseudonym resolution is O(N x W):
 4.8 ms at 1,000 and 23.9 ms at 5,000 devices on a laptop; a precomputed table would need about 800 KB at 1,000 devices x 25 epochs against the paper's 320-bit storage figure.
 
 ## 5. Discussion
 The paper's headline advantage over ECC schemes is real and larger than reported, but it is a comparison with schemes that provide different properties (we have not verified which provide forward secrecy). Its claimed processing advantage over hash-only schemes is a statement about a
-hardware regime: it holds when AES-GCM is cheap relative to SHA-1 (hardware acceleration, or a fast core running table-based AES) and fails on the low-end MCU we measured. Communication and storage claims cannot be checked from the paper because Tables and text disagree. Cost models based on assumed constants should state, and test, the ratio that decides the ranking.
+hardware regime: it holds only if the session KDF is left out of the proposed scheme's cost and AES-GCM is cheap relative to SHA-1; counting the KDF reverses it on every platform we measured. Communication and storage claims cannot be checked from the paper because Tables and text disagree. Cost models based on assumed constants should state, and test, the ratio that decides the ranking.
 
 ## 6. Threats to validity
 One MCU class (32-bit); no 8/16-bit parts, no MCU with hardware AES, no energy measurement. Primitive costs are BearSSL's; other libraries shift constants (the crossover depends on the AES:SHA-1 ratio, not absolute speed). Competitor costs use the paper's operation counts, unverified against the original papers; T_C and T_fe are not measured. The EC benchmark ran on a temporary
@@ -67,7 +69,7 @@ Code, raw data and scripts are in the repository: `research/paper_audit/` (audit
 See `FINDINGS.md` for commands.
 
 ## Before submitting (checklist)
-- [ ] Re-measure on an MCU with hardware AES (and one with AES but no SHA) to settle the 4.3 flip; add a Raspberry Pi 3 point.
+- [ ] Add an MCU with hardware AES/SHA and a Raspberry Pi 3 point; check whether a hardware HKDF/HMAC engine could change 4.3.
 - [ ] Verify competitor operation counts against their original papers; check which provide forward secrecy.
 - [ ] Send the audit to the authors; check for an erratum or an extended version that explains the 17/21/12% derivation.
 - [ ] Fill `[CITE]` with real references; check novelty claims in 1(2) against prior MCU benchmarking literature.
