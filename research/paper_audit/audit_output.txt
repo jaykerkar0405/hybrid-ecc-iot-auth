@@ -1,0 +1,103 @@
+Table III constants (ms): {'ECM': 17.1, 'C': 0.32, 'SE/D': 5.6, 'H': 0.32, 'fe': 17.1}
+
+=== Processing, Table V x Table III, device + server ===
+  Turkanovic [12]            3.84 ms
+  Dhillon-Karla [13]         4.48 ms
+  Jiang [15]                 4.80 ms
+  Proposed scheme           23.68 ms
+  Wazid [17]                36.48 ms
+  Shuai [16]                37.40 ms
+  Cheng-Le [14]             38.04 ms
+  Sadhukhan [18]            51.66 ms
+  Challa et al. [17]       156.14 ms
+  Poorambage [11]          329.70 ms
+  proposed vs best   : -516.7% (Turkanovic [12])
+  proposed vs mean   :   67.8% 
+  proposed vs median :   36.7% 
+  proposed vs worst  :   92.8% (Poorambage [11])
+  schemes CHEAPER than proposed under the paper's own constants: ['Turkanovic [12]', 'Dhillon-Karla [13]', 'Jiang [15]']
+
+=== Processing, Table V x Table III, user + device + server ===
+  Turkanovic [12]            6.08 ms
+  Dhillon-Karla [13]         7.04 ms
+  Jiang [15]                 7.04 ms
+  Proposed scheme           23.68 ms
+  Shuai [16]                56.42 ms
+  Wazid [17]                68.94 ms
+  Cheng-Le [14]             75.12 ms
+  Sadhukhan [18]            80.60 ms
+  Challa et al. [17]       202.84 ms
+  Poorambage [11]          400.66 ms
+  proposed vs best   : -289.5% (Turkanovic [12])
+  proposed vs mean   :   76.4% 
+  proposed vs median :   65.7% 
+  proposed vs worst  :   94.1% (Poorambage [11])
+  schemes CHEAPER than proposed under the paper's own constants: ['Turkanovic [12]', 'Dhillon-Karla [13]', 'Jiang [15]']
+
+=== Communication, Table IV totals ===
+  Proposed scheme         1024.00 bits
+  Sadhukhan [18]          1600.00 bits
+  Jiang [15]              1952.00 bits
+  Cheng-Le [14]           2272.00 bits
+  Fakroon [19]            2304.00 bits
+  Shuai [16]              2368.00 bits
+  Dhillon-Karla [13]      2528.00 bits
+  Wazid [17]              2592.00 bits
+  Turkanovic [12]         2720.00 bits
+  Poorambage [11]         3360.00 bits
+  proposed vs best   :   36.0% (Sadhukhan [18])
+  proposed vs mean   :   57.5% 
+  proposed vs median :   56.8% 
+  proposed vs worst  :   69.5% (Poorambage [11])
+  Table IV says the proposed scheme uses 4 messages; Sec. III-E / Eq. 21 / Sec. V-B say two.
+  Sec. V-B: '128 bits per message, therefore 264 bits total' -> 2 x 128 = 256 (not 264)
+  Table IV total 1024 vs text 264: factor 3.88
+  if 264 bits were used instead: vs best 83.5%, vs mean 89.0%
+
+=== Storage, Table VI, server ===
+  Proposed scheme          320.00 bits
+  Sadhukhan [18]           480.00 bits
+  Wazid [17]               576.00 bits
+  Dhillon-Karla [13]       640.00 bits
+  Fakroon [19]             704.00 bits
+  Turkanovic [12]          768.00 bits
+  proposed vs best   :   33.3% (Sadhukhan [18])
+  proposed vs mean   :   49.5% 
+  proposed vs median :   50.0% 
+  proposed vs worst  :   58.3% (Turkanovic [12])
+
+=== Storage, Table VI, device ===
+  Proposed scheme          320.00 bits
+  Sadhukhan [18]           356.00 bits
+  Turkanovic [12]          512.00 bits
+  Dhillon-Karla [13]       512.00 bits
+  Wazid [17]               512.00 bits
+  Fakroon [19]            1056.00 bits
+  proposed vs best   :   10.1% (Sadhukhan [18])
+  proposed vs mean   :   45.7% 
+  proposed vs median :   37.5% 
+  proposed vs worst  :   69.7% (Fakroon [19])
+
+=== Storage, Table VI, server+device ===
+  Proposed scheme          640.00 bits
+  Sadhukhan [18]           836.00 bits
+  Wazid [17]              1088.00 bits
+  Dhillon-Karla [13]      1152.00 bits
+  Turkanovic [12]         1280.00 bits
+  Fakroon [19]            1760.00 bits
+  proposed vs best   :   23.4% (Sadhukhan [18])
+  proposed vs mean   :   47.7% 
+  proposed vs median :   44.4% 
+  proposed vs worst  :   63.6% (Fakroon [19])
+  Table VI caption reads 'Comparative Analysis of the Communication Cost' (sic).
+
+=== Abstract claims: ~17% communication, ~21% processing, ~12% storage ===
+  Reproducible from Tables IV-VI? compare the 'vs best/mean/median/worst' lines above.
+  Note Figs. 1-3 compare against a DIFFERENT scheme set (Gope, Gupta, Hassan, Zhanfei);
+  their underlying values are not tabulated, so the abstract percentages cannot be recomputed from the paper.
+
+=== Crossover: proposed (2H + 2SE/D per side) vs hash-only schemes, as a function of r = T_SE/D / T_H ===
+  (independent of absolute ms; Table III has r = 17.5)
+  vs Turkanovic [12]     : proposed cheaper iff r < 2.50 (device col only), r < 2.00 (device+server), r < 3.75 (all cols)
+  vs Dhillon-Karla [13]  : proposed cheaper iff r < 2.00 (device col only), r < 2.50 (device+server), r < 4.50 (all cols)
+  vs Jiang [15]          : proposed cheaper iff r < 1.50 (device col only), r < 2.75 (device+server), r < 4.50 (all cols)
