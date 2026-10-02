@@ -1,0 +1,40 @@
+
+=== Fig 1 (caption: processing; axis: communication %)  -- abstract claims ~21% for the matching metric ===
+  vs best, mean over x                                   32.04
+  vs mean-of-others, mean over x                         43.27
+  vs median-of-others, mean over x                       45.13
+  vs worst, mean over x                                  49.14
+  mean over every (scheme, x) pair                       42.62
+  first x only, vs best                                  34.31
+  last x only, vs best                                   24.49
+  ratio of sums vs sum-of-means                          43.06
+  abs. difference vs mean, mean over x (same units)      37.97
+
+=== Fig 2 (communication, bits)  -- abstract claims ~17% for the matching metric ===
+  vs best, mean over x                                   23.11
+  vs mean-of-others, mean over x                         26.82
+  vs median-of-others, mean over x                       26.59
+  vs worst, mean over x                                  30.59
+  mean over every (scheme, x) pair                       26.70
+  first x only, vs best                                  19.13
+  last x only, vs best                                   24.24
+  ratio of sums vs sum-of-means                          27.02
+  abs. difference vs mean, mean over x (same units)       9.38
+
+=== Fig 3 (storage %)  -- abstract claims ~12% for the matching metric ===
+  vs best, mean over x                                    7.02
+  vs mean-of-others, mean over x                         16.80
+  vs median-of-others, mean over x                       15.87
+  vs worst, mean over x                                  25.35
+  mean over every (scheme, x) pair                       16.35
+  first x only, vs best                                   7.02
+  last x only, vs best                                    7.02
+  ratio of sums vs sum-of-means                          16.80
+  abs. difference vs mean, mean over x (same units)       0.11
+
+Other inconsistencies visible in the figures:
+  * Fig. 1/2 x-axis is 'Vehicles in VANET' (300-1800); Table II and the paper's scope are IoT devices (100-1000), static only (conclusion).
+  * Fig. 2 shows the proposed scheme's per-authentication bit cost rising from 22.4 to 28.6 with the number of vehicles;
+    a fixed two-message protocol has a fixed bit count, independent of network size.
+  * Fig. 2 plots 22-41 'bits' while the text says 264 bits and Table IV says 1024 bits for the proposed scheme.
+  * Fig. 1 bars for Gupta 2019 and Hassan 2018 exceed the 100% axis limit and are clipped.
