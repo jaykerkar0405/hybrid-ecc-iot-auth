@@ -1,0 +1,10 @@
+BENCH,apple-silicon-mac-libcrypto,T_H: SHA-1 (1 block; libcrypto),openssl-hw,32,2000,100,0.284,0.252,0.316,0.209,6.473
+BENCH,apple-silicon-mac-libcrypto,T_H: SHA-1 (2 blocks; libcrypto),openssl-hw,100,2000,100,0.234,0.223,0.245,0.209,0.369
+BENCH,apple-silicon-mac-libcrypto,T_H: SHA-1 (1 block; libcrypto low-level),openssl-hw,32,2000,100,0.038,0.038,0.040,0.037,0.044
+BENCH,apple-silicon-mac-libcrypto,T_H: SHA-1 (2 blocks; libcrypto low-level),openssl-hw,100,2000,100,0.056,0.055,0.059,0.055,0.068
+BENCH,apple-silicon-mac-libcrypto,AES-256-GCM encrypt 56 B per message (libcrypto; key cached),openssl-hw,56,2000,100,0.078,0.077,0.080,0.075,0.086
+BENCH,apple-silicon-mac-libcrypto,AES-256-GCM decrypt+verify 56 B per message (libcrypto; key cached),openssl-hw,56,2000,100,0.071,0.070,0.073,0.070,0.087
+BENCH,apple-silicon-mac-libcrypto,AES-256-GCM encrypt 56 B per message (libcrypto; incl. key setup),openssl-hw,56,2000,100,0.382,0.376,0.393,0.372,0.434
+BENCH,apple-silicon-mac-libcrypto,HKDF-SHA256 extract+expand (72 B ikm to 32 B; libcrypto),openssl-hw,72,2000,100,1.766,1.738,1.802,1.708,2.627
+BENCH,apple-silicon-mac-libcrypto,HKDF-SHA256 as 2 HMAC calls (72 B ikm to 32 B; libcrypto),openssl-hw,72,2000,100,1.777,1.766,1.800,1.714,2.269
+BENCH,apple-silicon-mac-libcrypto,HKDF-SHA256 on low-level SHA-256 (72 B ikm to 32 B; libcrypto low-level),openssl-hw,72,2000,100,0.232,0.229,0.237,0.227,0.297
