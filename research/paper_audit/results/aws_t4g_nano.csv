@@ -1,0 +1,87 @@
+b/host/prim_bench
+Model name:                              Neoverse-N1
+Flags:                                   fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+BENCH_HEADER,platform,op,variant,bytes,reps,runs,median_us,p25_us,p75_us,min_us,max_us
+BENCH,aws-t4g.nano-graviton2,T_H: SHA-1 (paper's T_H),bearssl,32,16,100,0.227,0.227,0.227,0.226,0.605
+BENCH_CHECK,aws-t4g.nano-graviton2,sha1_32B,2afd88fe5f0d39e0
+BENCH,aws-t4g.nano-graviton2,T_H: SHA-1 (2 blocks),bearssl,100,16,100,0.438,0.436,0.439,0.434,0.842
+BENCH_CHECK,aws-t4g.nano-graviton2,sha1_100B,bdf5c4dca619aca2
+BENCH,aws-t4g.nano-graviton2,SHA-256 (PID = H2(lambda||t), 40 B),bearssl,40,16,100,0.347,0.346,0.348,0.345,0.354
+BENCH_CHECK,aws-t4g.nano-graviton2,sha256_40B,6778c446118d3450
+BENCH,aws-t4g.nano-graviton2,HMAC-SHA256 (incl. key setup),bearssl,56,8,100,1.778,1.774,1.782,1.769,2.468
+BENCH_CHECK,aws-t4g.nano-graviton2,hmac_sha256,9e3c1fc8b0c59fbb
+BENCH,aws-t4g.nano-graviton2,HKDF-SHA256 extract+expand (64 B ikm to 32 B),bearssl,64,8,100,3.213,3.207,3.380,3.200,4.183
+BENCH_CHECK,aws-t4g.nano-graviton2,hkdf_sha256,c8d5e3b6cb59f67f
+BENCH,aws-t4g.nano-graviton2,AES-256 single block (key schedule cached),aes_ct,16,16,100,0.936,0.935,1.065,0.934,1.271
+BENCH_CHECK,aws-t4g.nano-graviton2,aes_block_aes_ct,64985ee4bc9e01f1
+BENCH,aws-t4g.nano-graviton2,AES-256 single block (key schedule cached),aes_small,16,16,100,0.653,0.650,0.783,0.647,2.594
+BENCH_CHECK,aws-t4g.nano-graviton2,aes_block_aes_small,64985ee4bc9e01f1
+BENCH,aws-t4g.nano-graviton2,AES-256 single block (key schedule cached),aes_big,16,16,100,0.122,0.122,0.122,0.121,0.266
+BENCH_CHECK,aws-t4g.nano-graviton2,aes_block_aes_big,64985ee4bc9e01f1
+BENCH,aws-t4g.nano-graviton2,AES-256-CTR 56 B (key schedule cached; no GHASH),aes_ct,56,8,100,1.832,1.830,2.090,1.826,2.719
+BENCH_CHECK,aws-t4g.nano-graviton2,aes_ctr56_aes_ct,9404f0086e8ab07a
+BENCH,aws-t4g.nano-graviton2,AES-256-CTR 56 B (key schedule cached; no GHASH),aes_small,56,8,100,2.595,2.591,2.866,2.584,3.858
+BENCH_CHECK,aws-t4g.nano-graviton2,aes_ctr56_aes_small,9404f0086e8ab07a
+BENCH,aws-t4g.nano-graviton2,AES-256-CTR 56 B (key schedule cached; no GHASH),aes_big,56,8,100,0.461,0.461,0.462,0.458,0.957
+BENCH_CHECK,aws-t4g.nano-graviton2,aes_ctr56_aes_big,9404f0086e8ab07a
+BENCH,aws-t4g.nano-graviton2,AES-256-GCM encrypt 56 B (key schedule cached),aes_ct,56,4,100,5.815,5.809,6.359,5.790,8.545
+BENCH_CHECK,aws-t4g.nano-graviton2,gcm_cached_ct_aes_ct,b1af0e35aaf47dfd
+BENCH_CHECK,aws-t4g.nano-graviton2,gcm_cached_tag_aes_ct,6bfd0beeaf152cbf
+BENCH,aws-t4g.nano-graviton2,AES-256-GCM encrypt 56 B (key schedule cached),aes_small,56,4,100,5.058,5.052,5.594,5.040,6.638
+BENCH_CHECK,aws-t4g.nano-graviton2,gcm_cached_ct_aes_small,b1af0e35aaf47dfd
+BENCH_CHECK,aws-t4g.nano-graviton2,gcm_cached_tag_aes_small,6bfd0beeaf152cbf
+BENCH,aws-t4g.nano-graviton2,AES-256-GCM encrypt 56 B (key schedule cached),aes_big,56,4,100,1.852,1.848,1.854,1.840,23.883
+BENCH_CHECK,aws-t4g.nano-graviton2,gcm_cached_ct_aes_big,b1af0e35aaf47dfd
+BENCH_CHECK,aws-t4g.nano-graviton2,gcm_cached_tag_aes_big,6bfd0beeaf152cbf
+BENCH,aws-t4g.nano-graviton2,AES-GCM encrypt+tag (incl. key setup),aes_ct(bitsliced,const-time)/AES-256,56,4,100,6.882,6.867,7.612,6.847,9.706
+BENCH_CHECK,aws-t4g.nano-graviton2,gcm_enc_0_256,b1af0e35aaf47dfd
+BENCH_CHECK,aws-t4g.nano-graviton2,gcm_enc_0_256,6bfd0beeaf152cbf
+BENCH,aws-t4g.nano-graviton2,AES-GCM decrypt+tag (incl. key setup),aes_ct(bitsliced,const-time)/AES-256,24,4,100,5.581,5.569,6.111,5.548,7.626
+BENCH,aws-t4g.nano-graviton2,AES-GCM encrypt+tag (incl. key setup),aes_ct(bitsliced,const-time)/AES-128,56,4,100,5.349,5.345,5.358,5.335,6.660
+BENCH_CHECK,aws-t4g.nano-graviton2,gcm_enc_0_128,9b9b4b7eaf5467d1
+BENCH_CHECK,aws-t4g.nano-graviton2,gcm_enc_0_128,042f7820d3f988c4
+BENCH,aws-t4g.nano-graviton2,AES-GCM decrypt+tag (incl. key setup),aes_ct(bitsliced,const-time)/AES-128,24,4,100,4.283,4.277,4.285,4.268,4.988
+BENCH,aws-t4g.nano-graviton2,AES-GCM encrypt+tag (incl. key setup),aes_small(table,small)/AES-256,56,4,100,5.230,5.224,5.236,5.212,15.310
+BENCH_CHECK,aws-t4g.nano-graviton2,gcm_enc_1_256,b1af0e35aaf47dfd
+BENCH_CHECK,aws-t4g.nano-graviton2,gcm_enc_1_256,6bfd0beeaf152cbf
+BENCH,aws-t4g.nano-graviton2,AES-GCM decrypt+tag (incl. key setup),aes_small(table,small)/AES-256,24,4,100,3.501,3.497,3.505,3.489,4.112
+BENCH,aws-t4g.nano-graviton2,AES-GCM encrypt+tag (incl. key setup),aes_small(table,small)/AES-128,56,4,100,4.151,4.143,4.668,4.129,5.669
+BENCH_CHECK,aws-t4g.nano-graviton2,gcm_enc_1_128,9b9b4b7eaf5467d1
+BENCH_CHECK,aws-t4g.nano-graviton2,gcm_enc_1_128,042f7820d3f988c4
+BENCH,aws-t4g.nano-graviton2,AES-GCM decrypt+tag (incl. key setup),aes_small(table,small)/AES-128,24,4,100,2.769,2.765,2.775,2.756,3.831
+BENCH,aws-t4g.nano-graviton2,AES-GCM encrypt+tag (incl. key setup),aes_big(table,fast)/AES-256,56,4,100,2.026,2.024,2.032,2.010,3.331
+BENCH_CHECK,aws-t4g.nano-graviton2,gcm_enc_2_256,b1af0e35aaf47dfd
+BENCH_CHECK,aws-t4g.nano-graviton2,gcm_enc_2_256,6bfd0beeaf152cbf
+BENCH,aws-t4g.nano-graviton2,AES-GCM decrypt+tag (incl. key setup),aes_big(table,fast)/AES-256,24,4,100,1.372,1.370,1.378,1.364,2.580
+BENCH,aws-t4g.nano-graviton2,AES-GCM encrypt+tag (incl. key setup),aes_big(table,fast)/AES-128,56,4,100,1.833,1.829,1.840,1.819,3.163
+BENCH_CHECK,aws-t4g.nano-graviton2,gcm_enc_2_128,9b9b4b7eaf5467d1
+BENCH_CHECK,aws-t4g.nano-graviton2,gcm_enc_2_128,042f7820d3f988c4
+BENCH,aws-t4g.nano-graviton2,AES-GCM decrypt+tag (incl. key setup),aes_big(table,fast)/AES-128,24,4,100,1.230,1.226,1.236,1.222,2.188
+BENCH,aws-t4g.nano-graviton2,AES-256 key schedule only,aes_ct,32,8,100,1.058,1.057,1.060,1.054,1.853
+BENCH,aws-t4g.nano-graviton2,AES-256 key schedule only,aes_small,32,8,100,0.177,0.176,0.178,0.173,0.578
+BENCH,aws-t4g.nano-graviton2,AES-256 key schedule only,aes_big,32,8,100,0.177,0.176,0.178,0.173,14.407
+BENCH,aws-t4g.nano-graviton2,T_ECM: scalar mult (variable base),P-256 ec_p256_m15,32,1,24,1745.822,1720.262,1763.979,1703.631,1807.820
+BENCH_CHECK,aws-t4g.nano-graviton2,P-256 ec_p256_m15,d651401dbc96ba35
+BENCH,aws-t4g.nano-graviton2,scalar mult (fixed base; mulgen),P-256 ec_p256_m15,32,1,24,1180.097,1159.470,1193.430,1146.160,1211.277
+BENCH_CHECK,aws-t4g.nano-graviton2,P-256 ec_p256_m15,d651401dbc96ba35
+BENCH,aws-t4g.nano-graviton2,T_ECM: scalar mult (variable base),P-256 ec_p256_m31,32,1,24,783.285,773.505,798.883,752.787,850.757
+BENCH_CHECK,aws-t4g.nano-graviton2,P-256 ec_p256_m31,d651401dbc96ba35
+BENCH,aws-t4g.nano-graviton2,scalar mult (fixed base; mulgen),P-256 ec_p256_m31,32,1,24,555.050,540.747,567.202,531.886,592.219
+BENCH_CHECK,aws-t4g.nano-graviton2,P-256 ec_p256_m31,d651401dbc96ba35
+BENCH,aws-t4g.nano-graviton2,T_ECM: scalar mult (variable base),P-256 ec_prime_i15(generic),32,1,24,3610.077,3525.268,3684.440,3495.393,3741.008
+BENCH_CHECK,aws-t4g.nano-graviton2,P-256 ec_prime_i15(generic),d651401dbc96ba35
+BENCH,aws-t4g.nano-graviton2,scalar mult (fixed base; mulgen),P-256 ec_prime_i15(generic),32,1,24,3616.674,3585.732,3643.767,3468.357,3734.607
+BENCH_CHECK,aws-t4g.nano-graviton2,P-256 ec_prime_i15(generic),d651401dbc96ba35
+BENCH,aws-t4g.nano-graviton2,T_ECM: scalar mult (variable base),P-256 ec_prime_i31(generic),32,1,24,1188.204,1156.696,1228.426,1151.150,1258.195
+BENCH_CHECK,aws-t4g.nano-graviton2,P-256 ec_prime_i31(generic),d651401dbc96ba35
+BENCH,aws-t4g.nano-graviton2,scalar mult (fixed base; mulgen),P-256 ec_prime_i31(generic),32,1,24,1199.445,1171.916,1205.123,1153.611,1238.404
+BENCH_CHECK,aws-t4g.nano-graviton2,P-256 ec_prime_i31(generic),d651401dbc96ba35
+BENCH,aws-t4g.nano-graviton2,T_ECM: scalar mult (variable base),X25519 ec_c25519_m15,32,1,24,688.187,676.683,698.870,658.952,709.923
+BENCH_CHECK,aws-t4g.nano-graviton2,X25519 ec_c25519_m15,9947774178b2c237
+BENCH,aws-t4g.nano-graviton2,scalar mult (fixed base; mulgen),X25519 ec_c25519_m15,32,1,24,708.905,699.707,717.455,677.676,750.940
+BENCH_CHECK,aws-t4g.nano-graviton2,X25519 ec_c25519_m15,9947774178b2c237
+BENCH,aws-t4g.nano-graviton2,T_ECM: scalar mult (variable base),X25519 ec_c25519_m31,32,1,24,282.505,275.809,287.543,265.217,299.523
+BENCH_CHECK,aws-t4g.nano-graviton2,X25519 ec_c25519_m31,9947774178b2c237
+BENCH,aws-t4g.nano-graviton2,scalar mult (fixed base; mulgen),X25519 ec_c25519_m31,32,1,24,281.717,277.229,286.140,265.980,292.902
+BENCH_CHECK,aws-t4g.nano-graviton2,X25519 ec_c25519_m31,9947774178b2c237
+BENCH_DONE

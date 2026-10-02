@@ -1,0 +1,7 @@
+# OpenSSL on t4g.nano (Graviton2 ARMv8 crypto ext). NOT an MCU. Per-call, key schedule cached.
+OpenSSL 3.5.8 25 Aug 2026 (Library: OpenSSL 3.5.8 25 Aug 2026)
+type             64 bytes
+sha1            215551.62k
+type             64 bytes
+AES-256-GCM     203027.84k
+t4g OpenSSL: SHA-1 64 B 297 ns, AES-256-GCM 64 B 315 ns, r=1.06
