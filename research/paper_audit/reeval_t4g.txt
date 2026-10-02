@@ -1,0 +1,73 @@
+Paper's Table III for reference: {'ECM': 17.1, 'C': 0.32, 'SE/D': 5.6, 'H': 0.32, 'fe': 17.1}
+
+##### aws_t4g_nano
+
+[aes_big | P-256 ec_p256_m15]  T_H=0.2 us  T_SE/D=2.0 us  T_ECM=1.75 ms  r=T_SE/D/T_H=8.9 (paper: 17.5; proposed beats hash-only schemes only if r < 2.0-4.5)
+  scheme                  device+server ms  all roles ms   vs proposed (all roles)
+  Turkanovic [12]                    0.003         0.004     0.48x
+  Dhillon-Karla [13]                 0.003         0.005     0.55x
+  Jiang [15]                         0.003         0.005     0.55x
+  Proposed scheme                    0.009         0.009   (proposed)
+  Sadhukhan [18]                     1.759         3.509   389.37x
+  Shuai [16]                         3.494         5.241   581.57x
+  Cheng-Le [14]                      3.494         6.988   775.42x
+  Wazid [17]                         0.014        17.121   1899.82x
+  Challa et al. [17]                15.714        32.825   3642.39x
+  Poorambage [11]                   33.174        40.159   4456.18x
+  schemes cheaper than proposed: ['Turkanovic [12]', 'Dhillon-Karla [13]', 'Jiang [15]']
+
+[aes_small | P-256 ec_p256_m15]  T_H=0.2 us  T_SE/D=5.2 us  T_ECM=1.75 ms  r=T_SE/D/T_H=23.0 (paper: 17.5; proposed beats hash-only schemes only if r < 2.0-4.5)
+  scheme                  device+server ms  all roles ms   vs proposed (all roles)
+  Turkanovic [12]                    0.003         0.004     0.20x
+  Dhillon-Karla [13]                 0.003         0.005     0.23x
+  Jiang [15]                         0.003         0.005     0.23x
+  Proposed scheme                    0.022         0.022   (proposed)
+  Sadhukhan [18]                     1.778         3.535   161.93x
+  Shuai [16]                         3.494         5.241   240.11x
+  Cheng-Le [14]                      3.494         6.988   320.14x
+  Wazid [17]                         0.033        17.147   785.54x
+  Challa et al. [17]                15.714        32.841   1504.55x
+  Poorambage [11]                   33.174        40.159   1839.80x
+  schemes cheaper than proposed: ['Turkanovic [12]', 'Dhillon-Karla [13]', 'Jiang [15]']
+
+[aes_ct | P-256 ec_p256_m15]  T_H=0.2 us  T_SE/D=6.9 us  T_ECM=1.75 ms  r=T_SE/D/T_H=30.3 (paper: 17.5; proposed beats hash-only schemes only if r < 2.0-4.5)
+  scheme                  device+server ms  all roles ms   vs proposed (all roles)
+  Turkanovic [12]                    0.003         0.004     0.15x
+  Dhillon-Karla [13]                 0.003         0.005     0.18x
+  Jiang [15]                         0.003         0.005     0.18x
+  Proposed scheme                    0.028         0.028   (proposed)
+  Sadhukhan [18]                     1.788         3.548   124.77x
+  Shuai [16]                         3.494         5.241   184.31x
+  Cheng-Le [14]                      3.494         6.988   245.75x
+  Wazid [17]                         0.043        17.160   603.46x
+  Challa et al. [17]                15.714        32.850   1155.21x
+  Poorambage [11]                   33.174        40.159   1412.26x
+  schemes cheaper than proposed: ['Turkanovic [12]', 'Dhillon-Karla [13]', 'Jiang [15]']
+
+##### sensitivity grid: aws_t4g_nano   (r = T_SE/D / T_H; hash-only schemes win when r exceeds ~2.0-4.5; paper r = 17.5)
+  T_SE/D definition                AES impl   T_H def              r  hash-only schemes cheaper than proposed (device+server | all roles)
+  GCM 56 B incl. key schedule      aes_big    SHA-1 1 block      8.9  3/3 | 3/3
+  GCM 56 B incl. key schedule      aes_big    SHA-1 2 blocks     4.6  3/3 | 3/3
+  GCM 56 B incl. key schedule      aes_small  SHA-1 1 block     23.0  3/3 | 3/3
+  GCM 56 B incl. key schedule      aes_small  SHA-1 2 blocks    11.9  3/3 | 3/3
+  GCM 56 B incl. key schedule      aes_ct     SHA-1 1 block     30.3  3/3 | 3/3
+  GCM 56 B incl. key schedule      aes_ct     SHA-1 2 blocks    15.7  3/3 | 3/3
+  GCM 56 B, key schedule cached    aes_big    SHA-1 1 block      8.2  3/3 | 3/3
+  GCM 56 B, key schedule cached    aes_big    SHA-1 2 blocks     4.2  3/3 | 1/3
+  GCM 56 B, key schedule cached    aes_small  SHA-1 1 block     22.3  3/3 | 3/3
+  GCM 56 B, key schedule cached    aes_small  SHA-1 2 blocks    11.5  3/3 | 3/3
+  GCM 56 B, key schedule cached    aes_ct     SHA-1 1 block     25.6  3/3 | 3/3
+  GCM 56 B, key schedule cached    aes_ct     SHA-1 2 blocks    13.3  3/3 | 3/3
+  CTR 56 B, cached key, no GHASH   aes_big    SHA-1 1 block      2.0  1/3 | 0/3
+  CTR 56 B, cached key, no GHASH   aes_big    SHA-1 2 blocks     1.1  0/3 | 0/3
+  CTR 56 B, cached key, no GHASH   aes_small  SHA-1 1 block     11.4  3/3 | 3/3
+  CTR 56 B, cached key, no GHASH   aes_small  SHA-1 2 blocks     5.9  3/3 | 3/3
+  CTR 56 B, cached key, no GHASH   aes_ct     SHA-1 1 block      8.1  3/3 | 3/3
+  CTR 56 B, cached key, no GHASH   aes_ct     SHA-1 2 blocks     4.2  3/3 | 1/3
+  1 AES block, cached key          aes_big    SHA-1 1 block      0.5  0/3 | 0/3
+  1 AES block, cached key          aes_big    SHA-1 2 blocks     0.3  0/3 | 0/3
+  1 AES block, cached key          aes_small  SHA-1 1 block      2.9  3/3 | 0/3
+  1 AES block, cached key          aes_small  SHA-1 2 blocks     1.5  0/3 | 0/3
+  1 AES block, cached key          aes_ct     SHA-1 1 block      4.1  3/3 | 1/3
+  1 AES block, cached key          aes_ct     SHA-1 2 blocks     2.1  1/3 | 0/3
+  cells where the proposed scheme beats at least one hash-only scheme: 10
