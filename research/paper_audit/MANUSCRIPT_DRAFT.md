@@ -15,7 +15,7 @@ and a laptop, then recompute the paper's cost model with measured values. The he
 figures under any definition we tried, and the tables contradict the text (four messages and 1024 bits versus two messages and 264 bits).
 Measured P-256 scalar multiplication is 16x slower than assumed (276 ms vs 17.1 ms), while symmetric operations are 5-11x faster. As a result the
 protocol is about 120-3,000x cheaper than the ECC-based schemes it is compared with, but 4-11x more expensive than the hash-only schemes in
-the same table when AES-GCM is used on hardware without crypto acceleration; with hardware AES and SHA-1 the ranking reverses. The scheme also lacks
+the same table on the ESP8266 with AES-GCM; the gap narrows on faster cores and the ranking reverses with hardware AES and SHA-1. The scheme also lacks
 forward secrecy, uses no elliptic-curve operation online, and its server lookup scales linearly with the number of devices.
 
 ## 1. Introduction
@@ -47,8 +47,8 @@ bit cost growing with vehicle count; Fig. 1's caption and axis disagree.
 
 **4.2 Measured constants.** ESP8266 @80 MHz: T_H 0.036 ms (paper 0.32), T_SE/D 0.48-1.15 ms (paper 5.6), T_ECM 276 ms for P-256 (paper 17.1; 624 ms for generic code, 131 ms X25519). T_ECM/T_H is 7,600 vs the paper's 53.
 
-**4.3 Recomputed ranking.** Against ECC-based schemes the proposed scheme is about 120-3,000x cheaper. Against Turkanovic, Dhillon-Karla and Jiang, with AES-GCM, all 12 sensitivity cells put the proposed scheme behind
-(3.8-10.8x on the ESP8266; r = T_SE/D/T_H of 4.6-31.5 against a crossover of 2.0-4.5 on all three platforms). The ranking flips only for unauthenticated AES (which drops the MAC the scheme requires) or with hardware crypto:
+**4.3 Recomputed ranking.** Against ECC-based schemes the proposed scheme is about 120-3,000x cheaper. Against Turkanovic, Dhillon-Karla and Jiang, with AES-GCM, all 12 AES-GCM sensitivity cells put the proposed scheme behind on the ESP8266 at both clocks
+(3.8-10.8x; r = T_SE/D/T_H of 6.7-31.6 against a crossover of 2.0-4.5). The result weakens on faster cores with software crypto: 11 of 12 cells on the t4g.nano (r = 4.2-30.3) and only 6 of 12 on the laptop (r = 2.0-16.0). The ranking flips only for unauthenticated AES (which drops the MAC the scheme requires) or with hardware crypto:
 OpenSSL on Graviton2 and on the laptop gives r = 1.06 and 0.82. The op-count model also under-predicts the real implementation (2.4 ms modelled vs 5.3 ms measured for the device).
 
 **4.4 Protocol-level.** No forward secrecy (5/5 past session keys recovered from recorded traffic once k* is known). ECC appears only in offline provisioning; Eq. 8 is a hash mod n and the public point is optional and unused. Server pseudonym resolution is O(N x W):
@@ -56,7 +56,7 @@ OpenSSL on Graviton2 and on the laptop gives r = 1.06 and 0.82. The op-count mod
 
 ## 5. Discussion
 The paper's headline advantage over ECC schemes is real and larger than reported, but it is a comparison with schemes that provide different properties (we have not verified which provide forward secrecy). Its claimed processing advantage over hash-only schemes is a statement about a
-hardware regime: it holds when AES-GCM is cheap relative to SHA-1 (hardware acceleration) and fails otherwise. Communication and storage claims cannot be checked from the paper because Tables and text disagree. Cost models based on assumed constants should state, and test, the ratio that decides the ranking.
+hardware regime: it holds when AES-GCM is cheap relative to SHA-1 (hardware acceleration, or a fast core running table-based AES) and fails on the low-end MCU we measured. Communication and storage claims cannot be checked from the paper because Tables and text disagree. Cost models based on assumed constants should state, and test, the ratio that decides the ranking.
 
 ## 6. Threats to validity
 One MCU class (32-bit); no 8/16-bit parts, no MCU with hardware AES, no energy measurement. Primitive costs are BearSSL's; other libraries shift constants (the crossover depends on the AES:SHA-1 ratio, not absolute speed). Competitor costs use the paper's operation counts, unverified against the original papers; T_C and T_fe are not measured. The EC benchmark ran on a temporary
