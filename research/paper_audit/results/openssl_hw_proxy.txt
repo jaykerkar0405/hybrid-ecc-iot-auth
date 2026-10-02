@@ -1,0 +1,6 @@
+# OpenSSL 3.6.4 on the Apple-silicon Mac (hardware AES/PMULL/SHA-1 instructions). NOT an MCU. Per-call cost, key schedule cached.
+type             64 bytes
+sha1            442477.12k
+type             64 bytes
+AES-256-GCM     553053.28k
+SHA-1 64 B: 145 ns   AES-256-GCM 64 B: 119 ns   r = T_SE/D / T_H = 0.82
