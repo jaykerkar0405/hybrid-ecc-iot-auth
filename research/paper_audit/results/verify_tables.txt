@@ -1,0 +1,22 @@
+Table IV (communication, bits)
+  OK  Proposed scheme: 
+  OK  Poorambage [11]: 
+  OK  Turkanovic [12]: 
+  OK  Dhillon-Karla [13]: 
+  OK  Cheng-Le [14]: 
+  OK  Jiang [15]: 
+  OK  Shuai [16]: 
+  OK  Wazid [17]: 
+  OK  Sadhukhan [18]: 
+  OK  Fakroon [19]: 
+Table VI (storage, bits; Das et al. row excluded: '768 + CH*')
+  OK  Proposed scheme: 
+  OK  Turkanovic [12]: 
+  OK  Dhillon-Karla [13]: 
+  OK  Wazid [17]: 
+  OK  Sadhukhan [18]: 
+  OK  Fakroon [19]: 
+Table III (reference times, ms)
+  OK  T_ECM, T_C, T_SE/D, T_H, T_fe: 
+
+ALL OCR-CHECKED CELLS MATCH
