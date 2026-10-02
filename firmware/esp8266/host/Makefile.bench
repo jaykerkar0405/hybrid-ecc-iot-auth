@@ -1,0 +1,8 @@
+BEARSSL ?= $(abspath .bearssl)
+CFLAGS  += -O2 -Wall -I../bench -I$(BEARSSL)/inc -I$(BEARSSL)/src
+SRC = ../bench/main_host.c ../bench/prim_bench.c
+BSRC = $(wildcard $(BEARSSL)/src/*/*.c)
+prim_bench: $(SRC) $(BEARSSL)/inc/bearssl.h
+	$(CC) $(CFLAGS) -o $@ $(SRC) $(BSRC)
+$(BEARSSL)/inc/bearssl.h:
+	git clone --depth 1 https://github.com/earlephilhower/bearssl-esp8266.git $(BEARSSL)
