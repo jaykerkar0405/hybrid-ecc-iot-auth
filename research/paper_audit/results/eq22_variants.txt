@@ -1,0 +1,81 @@
+
+##### ESP8266 @80 MHz (BearSSL, software)
+  T_H = 36342.0 ns   HKDF = 629135.0 ns  (= 17.3 T_H)
+  T_SE/D definition                     T_SE/D ns     r   variant                            dev srv dev+srv all-roles   (x/3 hash-only cheaper)
+  GCM, key schedule cached, aes_big        455946  12.5   V1 Table V as printed              3/3 3/3  3/3     3/3
+  GCM, key schedule cached, aes_big        455946  12.5   V2 Table V + session KDF           3/3 3/3  3/3     3/3
+  GCM, key schedule cached, aes_big        455946  12.5   V3 Eq.22 w/ AEAD (1 KDF + AEAD)    3/3 3/3  3/3     3/3
+  GCM, key schedule cached, aes_big        455946  12.5   V4 2T_H = PID hash + KDF           3/3 3/3  3/3     3/3
+  GCM, key schedule cached, aes_ct         960196  26.4   V1 Table V as printed              3/3 3/3  3/3     3/3
+  GCM, key schedule cached, aes_ct         960196  26.4   V2 Table V + session KDF           3/3 3/3  3/3     3/3
+  GCM, key schedule cached, aes_ct         960196  26.4   V3 Eq.22 w/ AEAD (1 KDF + AEAD)    3/3 3/3  3/3     3/3
+  GCM, key schedule cached, aes_ct         960196  26.4   V4 2T_H = PID hash + KDF           3/3 3/3  3/3     3/3
+  GCM incl. key setup, aes_big             484521  13.3   V1 Table V as printed              3/3 3/3  3/3     3/3
+  GCM incl. key setup, aes_big             484521  13.3   V2 Table V + session KDF           3/3 3/3  3/3     3/3
+  GCM incl. key setup, aes_big             484521  13.3   V3 Eq.22 w/ AEAD (1 KDF + AEAD)    3/3 3/3  3/3     3/3
+  GCM incl. key setup, aes_big             484521  13.3   V4 2T_H = PID hash + KDF           3/3 3/3  3/3     3/3
+  zero-cost-AES lower bound (device = 1 KDF only): hash-only device columns cheaper in 3/3 cases (device columns are 7, 6, 5 T_H; KDF = 17.3 T_H)
+
+##### ESP8266 @160 MHz (BearSSL)
+  T_H = 18171.0 ns   HKDF = 314567.0 ns  (= 17.3 T_H)
+  T_SE/D definition                     T_SE/D ns     r   variant                            dev srv dev+srv all-roles   (x/3 hash-only cheaper)
+  GCM, key schedule cached, aes_big        227954  12.5   V1 Table V as printed              3/3 3/3  3/3     3/3
+  GCM, key schedule cached, aes_big        227954  12.5   V2 Table V + session KDF           3/3 3/3  3/3     3/3
+  GCM, key schedule cached, aes_big        227954  12.5   V3 Eq.22 w/ AEAD (1 KDF + AEAD)    3/3 3/3  3/3     3/3
+  GCM, key schedule cached, aes_big        227954  12.5   V4 2T_H = PID hash + KDF           3/3 3/3  3/3     3/3
+  GCM, key schedule cached, aes_ct         480517  26.4   V1 Table V as printed              3/3 3/3  3/3     3/3
+  GCM, key schedule cached, aes_ct         480517  26.4   V2 Table V + session KDF           3/3 3/3  3/3     3/3
+  GCM, key schedule cached, aes_ct         480517  26.4   V3 Eq.22 w/ AEAD (1 KDF + AEAD)    3/3 3/3  3/3     3/3
+  GCM, key schedule cached, aes_ct         480517  26.4   V4 2T_H = PID hash + KDF           3/3 3/3  3/3     3/3
+  GCM incl. key setup, aes_big             243700  13.4   V1 Table V as printed              3/3 3/3  3/3     3/3
+  GCM incl. key setup, aes_big             243700  13.4   V2 Table V + session KDF           3/3 3/3  3/3     3/3
+  GCM incl. key setup, aes_big             243700  13.4   V3 Eq.22 w/ AEAD (1 KDF + AEAD)    3/3 3/3  3/3     3/3
+  GCM incl. key setup, aes_big             243700  13.4   V4 2T_H = PID hash + KDF           3/3 3/3  3/3     3/3
+  zero-cost-AES lower bound (device = 1 KDF only): hash-only device columns cheaper in 3/3 cases (device columns are 7, 6, 5 T_H; KDF = 17.3 T_H)
+
+##### t4g.nano Graviton2 (BearSSL, software)
+  T_H = 227.0 ns   HKDF = 3213.0 ns  (= 14.2 T_H)
+  T_SE/D definition                     T_SE/D ns     r   variant                            dev srv dev+srv all-roles   (x/3 hash-only cheaper)
+  GCM, key schedule cached, aes_big          1852   8.2   V1 Table V as printed              3/3 3/3  3/3     3/3
+  GCM, key schedule cached, aes_big          1852   8.2   V2 Table V + session KDF           3/3 3/3  3/3     3/3
+  GCM, key schedule cached, aes_big          1852   8.2   V3 Eq.22 w/ AEAD (1 KDF + AEAD)    3/3 3/3  3/3     3/3
+  GCM, key schedule cached, aes_big          1852   8.2   V4 2T_H = PID hash + KDF           3/3 3/3  3/3     3/3
+  GCM, key schedule cached, aes_ct           5815  25.6   V1 Table V as printed              3/3 3/3  3/3     3/3
+  GCM, key schedule cached, aes_ct           5815  25.6   V2 Table V + session KDF           3/3 3/3  3/3     3/3
+  GCM, key schedule cached, aes_ct           5815  25.6   V3 Eq.22 w/ AEAD (1 KDF + AEAD)    3/3 3/3  3/3     3/3
+  GCM, key schedule cached, aes_ct           5815  25.6   V4 2T_H = PID hash + KDF           3/3 3/3  3/3     3/3
+  GCM incl. key setup, aes_big               2026   8.9   V1 Table V as printed              3/3 3/3  3/3     3/3
+  GCM incl. key setup, aes_big               2026   8.9   V2 Table V + session KDF           3/3 3/3  3/3     3/3
+  GCM incl. key setup, aes_big               2026   8.9   V3 Eq.22 w/ AEAD (1 KDF + AEAD)    3/3 3/3  3/3     3/3
+  GCM incl. key setup, aes_big               2026   8.9   V4 2T_H = PID hash + KDF           3/3 3/3  3/3     3/3
+  zero-cost-AES lower bound (device = 1 KDF only): hash-only device columns cheaper in 3/3 cases (device columns are 7, 6, 5 T_H; KDF = 14.2 T_H)
+
+##### Apple-silicon Mac (BearSSL, software)
+  T_H = 187.0 ns   HKDF = 3125.0 ns  (= 16.7 T_H)
+  T_SE/D definition                     T_SE/D ns     r   variant                            dev srv dev+srv all-roles   (x/3 hash-only cheaper)
+  GCM, key schedule cached, aes_big           750   4.0   V1 Table V as printed              3/3 3/3  3/3     1/3
+  GCM, key schedule cached, aes_big           750   4.0   V2 Table V + session KDF           3/3 3/3  3/3     3/3
+  GCM, key schedule cached, aes_big           750   4.0   V3 Eq.22 w/ AEAD (1 KDF + AEAD)    3/3 3/3  3/3     3/3
+  GCM, key schedule cached, aes_big           750   4.0   V4 2T_H = PID hash + KDF           3/3 3/3  3/3     3/3
+  GCM, key schedule cached, aes_ct           2500  13.4   V1 Table V as printed              3/3 3/3  3/3     3/3
+  GCM, key schedule cached, aes_ct           2500  13.4   V2 Table V + session KDF           3/3 3/3  3/3     3/3
+  GCM, key schedule cached, aes_ct           2500  13.4   V3 Eq.22 w/ AEAD (1 KDF + AEAD)    3/3 3/3  3/3     3/3
+  GCM, key schedule cached, aes_ct           2500  13.4   V4 2T_H = PID hash + KDF           3/3 3/3  3/3     3/3
+  GCM incl. key setup, aes_big                750   4.0   V1 Table V as printed              3/3 3/3  3/3     1/3
+  GCM incl. key setup, aes_big                750   4.0   V2 Table V + session KDF           3/3 3/3  3/3     3/3
+  GCM incl. key setup, aes_big                750   4.0   V3 Eq.22 w/ AEAD (1 KDF + AEAD)    3/3 3/3  3/3     3/3
+  GCM incl. key setup, aes_big                750   4.0   V4 2T_H = PID hash + KDF           3/3 3/3  3/3     3/3
+  zero-cost-AES lower bound (device = 1 KDF only): hash-only device columns cheaper in 3/3 cases (device columns are 7, 6, 5 T_H; KDF = 16.7 T_H)
+
+##### Apple-silicon Mac (OpenSSL, HARDWARE AES/SHA, low-level calls)
+  T_H = 38.0 ns   HKDF = 232.0 ns  (= 6.1 T_H)
+  T_SE/D definition                     T_SE/D ns     r   variant                            dev srv dev+srv all-roles   (x/3 hash-only cheaper)
+  GCM per message, key cached                  78   2.1   V1 Table V as printed              2/3 1/3  1/3     0/3
+  GCM per message, key cached                  78   2.1   V2 Table V + session KDF           3/3 3/3  3/3     3/3
+  GCM per message, key cached                  78   2.1   V3 Eq.22 w/ AEAD (1 KDF + AEAD)    3/3 3/3  3/3     0/3
+  GCM per message, key cached                  78   2.1   V4 2T_H = PID hash + KDF           3/3 3/3  3/3     3/3
+  GCM per message incl. key setup             382  10.1   V1 Table V as printed              3/3 3/3  3/3     3/3
+  GCM per message incl. key setup             382  10.1   V2 Table V + session KDF           3/3 3/3  3/3     3/3
+  GCM per message incl. key setup             382  10.1   V3 Eq.22 w/ AEAD (1 KDF + AEAD)    3/3 3/3  3/3     3/3
+  GCM per message incl. key setup             382  10.1   V4 2T_H = PID hash + KDF           3/3 3/3  3/3     3/3
+  zero-cost-AES lower bound (device = 1 KDF only): hash-only device columns cheaper in 2/3 cases (device columns are 7, 6, 5 T_H; KDF = 6.1 T_H)
