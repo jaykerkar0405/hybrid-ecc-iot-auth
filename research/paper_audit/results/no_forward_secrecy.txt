@@ -1,0 +1,2 @@
+recovered 5/5 past session keys from recorded traffic + k* alone
+Eq. 16 K = KDF(k* || N_i || N_j || t): all inputs besides k* travel (encrypted only under k*), so no forward secrecy.
