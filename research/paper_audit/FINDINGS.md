@@ -71,3 +71,10 @@ Defensible statement: *with the session KDF that the paper's own Eqs. 16 and 22 
     cd firmware/esp8266 && pio run -e bench -t upload                    # ESP8266 @80 MHz (bench160 for 160 MHz)
     .venv/bin/python research/paper_audit/reeval.py results/*.csv        # sections 3-4
     .venv/bin/python research/paper_audit/no_forward_secrecy.py; .venv/bin/python research/paper_audit/server_scaling.py
+
+## 8. Reproducibility rerun (2026-10-06; `results/rerun_2026-10-06/`, `compare_runs.py`)
+The whole benchmark was repeated from the current code, including on a **second ESP8266 board** (chip 00d377aa; the original is 00d37d28).
+* **ESP8266 (80 and 160 MHz): identical to the microsecond.** All 35 medians agree between the two boards and with the earlier run (0.00% deviation, only the max column varies in its last digits), and all 35 output digests match. The chip is deterministic (no OS, fixed flash cache, cycle counter), so these timings are as reproducible as a measurement gets.
+* **Laptop: depends on power state.** The first Mac rerun ran in Low Power Mode on battery and was 1.3-2.3x slower on every operation (median deviation 45%); it is archived (`*_lowpowermode_ON.csv`) and not used. With Low Power Mode off (still on battery, load average about 3.4) the OpenSSL results agree with the original run to a median 1.6% (GCM : SHA-1 = 2.00 vs 2.05, HKDF : SHA-1 = 6.0 vs 6.1) and the BearSSL results to a median 8% (up to 33% on sub-microsecond rows near the timer resolution; e.g. aes_big GCM : SHA-1 moved from 4.0 to 2.7). The power state of the original Mac run was not recorded. Cells that sit at the crossover on the Mac should therefore be read as noisy; the KDF-inclusive conclusion does not depend on them.
+* **Conclusions unchanged.** With the session KDF counted (V2-V4) all three hash-only schemes are cheaper in every column on every rerun platform (`eq22_variants_rerun.txt`); Table V as printed (V1) still flips only with hardware crypto (0/3 hash-only schemes cheaper, device + server, cached key).
+* The t4g.nano was not rerun (the instance was terminated; a rerun needs a new one).
