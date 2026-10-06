@@ -1,0 +1,32 @@
+
+== Mac BearSSL: rerun vs earlier: 41 rows in common; median |dev| 8.33%; max 33.33%; rows off by >10%: 18 (8 with a baseline >= 1 us)
+       25.0%  AES-GCM decrypt+tag (incl. key setup) | aes_small(table,small)/AES-256
+       20.0%  AES-256-GCM encrypt 56 B (key schedule cached) | aes_small
+       20.0%  AES-256-GCM encrypt 56 B (key schedule cached) | aes_ct
+       16.7%  AES-GCM encrypt+tag (incl. key setup) | aes_small(table,small)/AES-256
+       16.0%  HKDF-SHA256 extract+expand (64 B ikm to 32 B) | bearssl
+       14.3%  HMAC-SHA256 (incl. key setup) | bearssl
+   output digests compared: 41  mismatches: 0
+
+== Mac libcrypto: rerun vs earlier: 10 rows in common; median |dev| 1.60%; max 31.34%; rows off by >10%: 2 (2 with a baseline >= 0 us)
+       31.3%  T_H: SHA-1 (1 block; libcrypto) | openssl-hw
+       10.3%  T_H: SHA-1 (2 blocks; libcrypto) | openssl-hw
+   output digests compared: 0  mismatches: 0
+
+== ESP8266 @80 MHz board A (00d37d28): rerun vs earlier: 35 rows in common; median |dev| 0.00%; max 0.00%; rows off by >5%: 0 (0 with a baseline >= 1 us)
+   output digests compared: 35  mismatches: 0
+
+== ESP8266 @80 MHz board B (00d377aa): vs earlier run of board A: 35 rows in common; median |dev| 0.00%; max 0.00%; rows off by >5%: 0 (0 with a baseline >= 1 us)
+   output digests compared: 35  mismatches: 0
+
+== ESP8266 @80 MHz board A vs board B (same run): 35 rows in common; median |dev| 0.00%; max 0.00%; rows off by >5%: 0 (0 with a baseline >= 1 us)
+   output digests compared: 35  mismatches: 0
+
+== ESP8266 @160 MHz board A (00d37d28): rerun vs earlier: 35 rows in common; median |dev| 0.00%; max 0.00%; rows off by >5%: 0 (0 with a baseline >= 1 us)
+   output digests compared: 35  mismatches: 0
+
+== ESP8266 @160 MHz board B (00d377aa): vs earlier run of board A: 35 rows in common; median |dev| 0.00%; max 0.00%; rows off by >5%: 0 (0 with a baseline >= 1 us)
+   output digests compared: 35  mismatches: 0
+
+== ESP8266 @160 MHz board A vs board B (same run): 35 rows in common; median |dev| 0.00%; max 0.00%; rows off by >5%: 0 (0 with a baseline >= 1 us)
+   output digests compared: 35  mismatches: 0
