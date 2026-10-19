@@ -1,5 +1,5 @@
 """Transcription of Al-Rasheed et al., IEEE Trans. Consum. Electron. 72(2), May 2026
-(docs/base_paper.pdf). Transcribed from a 300-DPI render of PDF pages 6-8 (journal pp. 4488-4490).
+(docs/references/base_paper.pdf). Transcribed from a 300-DPI render of PDF pages 6-8 (journal pp. 4488-4490).
 Every cell below was read from the rendered table, not from extracted text."""
 
 # Table III (p.4488): reference processing times, ms
