@@ -1,5 +1,5 @@
 """Reference values transcribed verbatim from Al-Rasheed et al. (2026),
-Tables III, IV, V, and VI. Source: docs/base_paper.pdf.
+Tables III, IV, V, and VI. Source: docs/references/base_paper.pdf.
 
 These are the paper's own reported/assumed numbers, not measurements taken
 by this project. Row labels are kept exactly as printed in each table,

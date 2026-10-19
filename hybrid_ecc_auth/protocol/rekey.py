@@ -14,5 +14,5 @@ from __future__ import annotations
 def rekey(*_args, **_kwargs) -> None:
     raise NotImplementedError(
         "TA-assisted rekeying (Eq. 24, Section III-N) is a v2 backlog item; "
-        "see docs/product_requirements_document.pdf Section 13."
+        "see docs/project/product_requirements_document.pdf Section 13."
     )

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Independent check of paper_tables.py against docs/base_paper.pdf.
+"""Independent check of paper_tables.py against docs/references/base_paper.pdf.
 The PDF's text layer has no table cells, so: render pages 6-8 at 600 DPI, OCR Tables III, IV and VI with tesseract,
 and compare every number with the transcription. Table V (math typography) defeats OCR; it was verified by two manual
 cell-by-cell readings (300 and 600 DPI) and by partial OCR agreement, and is NOT checked by this script."""
@@ -8,7 +8,7 @@ from pathlib import Path
 from PIL import Image
 from paper_tables import T3, T4, T6
 Image.MAX_IMAGE_PIXELS = None
-PDF = Path(__file__).resolve().parents[2] / "docs/base_paper.pdf"
+PDF = Path(__file__).resolve().parents[2] / "docs/references/base_paper.pdf"
 tmp = Path(tempfile.mkdtemp())
 subprocess.run(["pdftoppm", "-r", "600", "-f", "6", "-l", "8", "-png", str(PDF), str(tmp / "p")], check=True)
 
