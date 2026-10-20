@@ -1,0 +1,10 @@
+item,formula,printed,computed,status
+Proposed,sum of T_h over 3 roles,not printed,22,COMPUTED
+An_3,sum of T_h over 3 roles,not printed,15,COMPUTED
+Chen_12,sum of T_h over 3 roles,not printed,10,COMPUTED
+Das_13,sum of T_h over 3 roles,not printed,11,"COMPUTED (+{'TE_D': 1, 'TD_E': 1})"
+Turkanovic_26,sum of T_h over 3 roles,not printed,19,COMPUTED
+He_31,sum of T_h over 3 roles,not printed,11,COMPUTED
+Xue_32,sum of T_h over 3 roles,not printed,26,COMPUTED
+hash size,bits,128,128,MATCH (text only; Sec 5.2)
+time constants,T_h in ms,none given,none,UNVERIFIED (paper gives no times)

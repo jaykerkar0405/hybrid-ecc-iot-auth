@@ -1,0 +1,45 @@
+[F1] CONTRADICTED                                  BASE Table V Turkanovic [12] device/server columns
+      BASE (user,device,server) T_H = (7, 7, 5); CHANGLE Table II (user,sensor,gateway) = (7, 5, 7); DHILLON Table 3 (user,node,gateway) = (7, 5, 7). Both originals agree and put 5 on the node and 7 on the gateway; BASE has them swapped (device 7, server 5). Sum unchanged (19). Device column falls 7 -> 5 T_H, server rises 5 -> 7.
+
+[F2] CONFIRMED                                     BASE Table V Dhillon-Karla [13] counts
+      BASE (8, 6, 8) vs DHILLON Table 3 proposed scheme (8, 6, 8) (user, node, gateway).
+
+[F3] UNVERIFIED                                    BASE Table IV Dhillon-Karla [13] = 992/512/1024 = 2528 bits
+      DHILLON gives no message-size table and no per-message bit counts; only 'hash value ... 128 bits' (Sec 5.2, p.266). The three-role sum cannot be traced to the paper.
+
+[F4] CONTRADICTED (as printed); source identification UNVERIFIED BASE Table V 'Cheng and Le [14]' vs CHANGLE P2
+      BASE T_H (user,device,server) = (9, 5, 7), T_ECM = (2, 2, 0). CHANGLE P2 (user,sensor,gateway) T_h = (7, 5, 9), t_mul = (2, 2, 0). ECM counts and the device hash count match P2; BASE's user/server hash counts (9 / 7) equal P2's gateway/user counts (9 / 7) exchanged between roles. Totals agree (21 hashes, 4 ECM). BASE's own reference [14] is Wang et al. (VANET), not Chang & Le, so the row cannot have been taken from the cited source; P2 is the likely origin but BASE never says so.
+
+[F5] CONFIRMED (mis-citation)                      BASE 'Cheng and Le [14]' reference
+      BASE p.4491 ref [14] = C. Wang et al., 'A novel lightweight authentication protocol for emergency vehicle avoidance in VANETs', IEEE IoT J. 2021. Chang & Le (IEEE TWC 2016) is not in BASE's reference list.
+
+[F6] UNVERIFIED                                    BASE Table IV Cheng-Le [14] = 672/512/1088 = 2272 bits
+      CHANGLE has four messages m1-m4 but no bit sizes or communication table.
+
+[F7] CONTRADICTED                                  BASE 'Shuai et al. [16]' row vs JIANG
+      BASE ref [16] is the Jiang et al. chaotic-maps paper (JIANG), but the row is costed {'H': 6, 'ECM': 1}/{'H': 3, 'ECM': 1}/{'H': 7, 'ECM': 1} with T_ECM in every role. JIANG uses no EC operation: P3 (authentication) = 7 T_H + 4 T_C, whole scheme 21 T_H + 6 T_C (Table 2). The row does not correspond to JIANG; its true source is UNVERIFIED.
+
+[F8] UNVERIFIED                                    BASE 'Jiang et al. [15]' row
+      BASE ref [15] is Wen et al., 'Integrated sensing-communication-computation for edge AI' (IEEE IoT Mag. 2024), not an authentication scheme. Row = {'H': 7}/{'H': 5}/{'H': 10} T_H. No (7,5,10) row appears in JIANG, DHILLON Table 3 or CHANGLE Tables II-III. Source undetermined.
+
+[F9] CONTRADICTED                                  BASE Table III T_C = 0.32 ms vs JIANG T_C = 32.40 ms
+      BASE sets T_C = T_H = 0.32 ms (ratio 1). JIANG: T_H = 0.2 ms, T_C = 32.4 ms (ratio 162); BASE's T_C is 101x below JIANG's. BASE Table V uses no T_C, so the constant is inert in BASE's own numbers; it matters only if a chaotic-map scheme is costed as published.
+
+[F10] CONFIRMED (computed)                          JIANG P3 and whole-scheme time under BASE vs JIANG constants
+      P3 = 7 T_H + 4 T_C: BASE constants 3.52 ms, JIANG's 131.0 ms (37x). Whole scheme 21 T_H + 6 T_C: BASE constants 8.64 ms, JIANG's 198.6 ms. Printed time (TC ~32.40 ms) is in JIANG p.15 Sec 7, not 0.32 ms.
+
+[F11] CONTRADICTED                                  BASE Table IV Jiang [15] 1952 / Shuai [16] 2368 bits vs JIANG's 1312/1584
+      JIANG Table 2: 1312 bits for its scheme (2 rounds), 1584 (Lee-Hsu, 3 rounds), 1312 (Islam, 2 rounds). Neither BASE row equals them, and BASE lists 4 messages for every scheme while JIANG has 2 rounds. The origin of 1312 is itself not derivable from JIANG's text (UNVERIFIED).
+
+[F12] CONFIRMED                                     BASE Table IV: Total = user + device + server
+      mismatching rows: none. All rows list 4 messages.
+
+[F13] CONTRADICTED                                  OURS classifies 'Jiang' as a hash-only scheme (OURS Sec IV-C, Table II; OURS ref [5] = JIANG)
+      OURS ref [5] is the Jiang chaotic-maps paper, which per its Table 2 needs 6 extended-chaotic-map operations (T_C) per run, so it is not hash-only. The hash-only reading holds only for BASE's row 'Jiang [15]' (7/5/10 T_H), whose source is unidentified (F8) and which does not correspond to OURS ref [5]. OURS's operation counts for 'Jiang' are BASE's, not JIANG's.
+
+[F14] CONFIRMED                                     Turkanovic and Dhillon-Karla as hash-only
+      Both are hash/XOR-only in their originals (CHANGLE Table II, DHILLON Table 3). Turkanovic's device/server split is swapped in BASE (F1) but totals are right.
+
+[F15] CONFIRMED (inconsistencies)                   BASE Table II environment internal consistency
+      'Server 5% (one per hundred devices)': 5% of N is one per 20 devices, not one per 100 (=1%). 'Packet Size 128 Kbps' is a rate; the text says 128 bits/message. 'device Speed (Max) 160 km/hour' and 'Hand-off Time' conflict with static devices (Sec V).
+

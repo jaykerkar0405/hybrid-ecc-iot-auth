@@ -1,0 +1,64 @@
+
+=== JIANG: 27 items, 6 match, 0 mismatch/contradicted
+   Lee_Hsu_39 | overall TH | 25 | 25 | MATCH
+   Lee_Hsu_39 | overall TC | 8 | 8 | MATCH
+   Lee_Hsu_39 | time P1 (ms) | not printed (Fig. 3 only) | 33.2 | COMPUTED
+   Lee_Hsu_39 | time P2 (ms) | not printed (Fig. 3 only) | 65.8 | COMPUTED
+   Lee_Hsu_39 | time P3 (ms) | not printed (Fig. 3 only) | 131.0 | COMPUTED
+   Lee_Hsu_39 | time P4 (ms) | not printed (Fig. 3 only) | 1.0 | COMPUTED
+   Lee_Hsu_39 | time P5 (ms) | not printed (Fig. 3 only) | 33.2 | COMPUTED
+   Lee_Hsu_39 | time overall (ms) | not printed (Fig. 3 only) | 264.2 | COMPUTED
+   Islam_40 | overall TH | 18 | 18 | MATCH
+   Islam_40 | overall TC | 10 | 10 | MATCH
+   Islam_40 | time P1 (ms) | not printed (Fig. 3 only) | 32.8 | COMPUTED
+   Islam_40 | time P2 (ms) | not printed (Fig. 3 only) | 98.0 | COMPUTED
+   Islam_40 | time P3 (ms) | not printed (Fig. 3 only) | 131.0 | COMPUTED
+   Islam_40 | time P4 (ms) | not printed (Fig. 3 only) | 33.0 | COMPUTED
+   Islam_40 | time P5 (ms) | not printed (Fig. 3 only) | 32.8 | COMPUTED
+   Islam_40 | time overall (ms) | not printed (Fig. 3 only) | 327.6 | COMPUTED
+   Jiang_ours | overall TH | 21 | 21 | MATCH
+   Jiang_ours | overall TC | 6 | 6 | MATCH
+   Jiang_ours | time P1 (ms) | not printed (Fig. 3 only) | 0.6 | COMPUTED
+   Jiang_ours | time P2 (ms) | not printed (Fig. 3 only) | 65.6 | COMPUTED
+   Jiang_ours | time P3 (ms) | not printed (Fig. 3 only) | 131.0 | COMPUTED
+   Jiang_ours | time P4 (ms) | not printed (Fig. 3 only) | 0.8 | COMPUTED
+   Jiang_ours | time P5 (ms) | not printed (Fig. 3 only) | 0.6 | COMPUTED
+   Jiang_ours | time overall (ms) | not printed (Fig. 3 only) | 198.6 | COMPUTED
+   Lee_Hsu_39 | communication bits | 1584 | not derivable (no field sizes besides |p|=256) | UNVERIFIED
+   Islam_40 | communication bits | 1312 | not derivable (no field sizes besides |p|=256) | UNVERIFIED
+   Jiang_ours | communication bits | 1312 | not derivable (no field sizes besides |p|=256) | UNVERIFIED
+
+=== DHILLON: 9 items, 1 match, 0 mismatch/contradicted
+   Proposed | sum of T_h over 3 roles | not printed | 22 | COMPUTED
+   An_3 | sum of T_h over 3 roles | not printed | 15 | COMPUTED
+   Chen_12 | sum of T_h over 3 roles | not printed | 10 | COMPUTED
+   Das_13 | sum of T_h over 3 roles | not printed | 11 | COMPUTED (+{'TE_D': 1, 'TD_E': 1})
+   Turkanovic_26 | sum of T_h over 3 roles | not printed | 19 | COMPUTED
+   He_31 | sum of T_h over 3 roles | not printed | 11 | COMPUTED
+   Xue_32 | sum of T_h over 3 roles | not printed | 26 | COMPUTED
+   hash size | bits | 128 | 128 | MATCH (text only; Sec 5.2)
+   time constants | T_h in ms | none given | none | UNVERIFIED (paper gives no times)
+
+=== CHANGLE: 22 items, 19 match, 2 mismatch/contradicted
+   TII Li_11 user | 0t_mul+9t_h+6t_XOR | 0.0045 | 0.0045 | MATCH
+   TII Li_11 sensor | 0t_mul+5t_h+3t_XOR | 0.0025 | 0.0025 | MATCH
+   TII Li_11 gateway | 0t_mul+12t_h+6t_XOR | 0.006 | 0.006 | MATCH
+   TII Turkanovic_1 user | 0t_mul+7t_h+4t_XOR | 0.0035 | 0.0035 | MATCH
+   TII Turkanovic_1 sensor | 0t_mul+5t_h+4t_XOR | 0.0025 | 0.0025 | MATCH
+   TII Turkanovic_1 gateway | 0t_mul+7t_h+4t_XOR | 0.0035 | 0.0035 | MATCH
+   TII P1 user | 0t_mul+7t_h+4t_XOR | 0.0035 | 0.0035 | MATCH
+   TII P1 sensor | 0t_mul+5t_h+4t_XOR | 0.0025 | 0.0025 | MATCH
+   TII P1 gateway | 0t_mul+8t_h+1t_XOR | 0.004 | 0.004 | MATCH
+   TIII Shi_15 user | 3t_mul+5t_h | 0.191725 | 0.191725 | MATCH
+   TIII Shi_15 sensor | 2t_mul+3t_h | 0.12765 | 0.12765 | MATCH
+   TIII Shi_15 gateway | 1t_mul+4t_h | 0.065075 | 0.065075 | MATCH
+   TIII Choi_16 user | 3t_mul+9t_h | 0.193725 | 0.193725 | MATCH
+   TIII Choi_16 sensor | 2t_mul+6t_h | 0.12915 | 0.12915 | MATCH
+   TIII Choi_16 gateway | 1t_mul+5t_h | 0.065575 | 0.065575 | MATCH
+   TIII P2 user | 2t_mul+7t_h | 0.12765 | 0.12965 | MISMATCH (printed - computed = -0.002000 s)
+   TIII P2 sensor | 2t_mul+5t_h | 0.12865 | 0.12865 | MATCH
+   TIII P2 gateway | 0t_mul+9t_h | 0.0045 | 0.0045 | MATCH
+   claim '~14x faster' gateway Shi_15 vs P2 | t_gateway(other)/t_gateway(P2) | ~14 | 14.461 | MATCH (14.5-14.6 ~ 'approximately 14')
+   claim '~14x faster' gateway Choi_16 vs P2 | t_gateway(other)/t_gateway(P2) | ~14 | 14.572 | MATCH (14.5-14.6 ~ 'approximately 14')
+   claim 'P1 slightly more efficient than Turkanovic at sensor node' | Table II sensor cells | P1 < Turkanovic | identical cells (5t_h+4t_XOR = 0.0025 s) | CONTRADICTED by its own Table II
+   P1 gateway vs Turkanovic gateway | 8t_h+1t_XOR vs 7t_h+4t_XOR | 'as efficient as Turkanovic' | 0.004 s vs 0.0035 s | P1 gateway is 0.5 ms (14%) HIGHER
