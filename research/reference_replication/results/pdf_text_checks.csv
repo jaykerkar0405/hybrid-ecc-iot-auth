@@ -1,0 +1,13 @@
+paper,pdf_page,what,status
+JIANG,15,"Table 2 overall cost, Jiang scheme",FOUND
+JIANG,15,"Table 2 communication, 1312 bits",FOUND
+JIANG,15,T_C constant,FOUND
+JIANG,15,T_H constant,FOUND
+DHILLON,11,Table 3 Turkanovic row,FOUND
+DHILLON,12,hash size,FOUND
+CHANGLE,8,t_mul,FOUND
+CHANGLE,9,t_h,FOUND
+CHANGLE,9,14x claim,FOUND
+BASE,9,ref [14] is the VANET paper,FOUND
+BASE,9,ref [15] is the Wen et al. paper,FOUND
+BASE,9,ref [16] is the Jiang chaotic-maps paper,FOUND
