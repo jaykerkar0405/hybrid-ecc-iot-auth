@@ -1,0 +1,9 @@
+scheme,N,omnet_latency_ms,omnet_latency_sd,simpy_latency_ms,omnet_server_busy_ms,simpy_server_busy_ms
+Proposed_V1_T4,100,17.008,1.632,17.2126,1977.3,2048.8017
+Proposed_V1_T4,1000,1044.584,369.520,683.2389,254949.6,252667.963
+Dhillon_Karla,100,0.829,0.000,0.795,21.2,21.9578
+Dhillon_Karla,1000,0.827,0.000,0.795,308.8,309.1178
+Sadhukhan,100,279.605,0.003,279.5705,138.5,144.0801
+Sadhukhan,1000,279.606,0.001,279.5736,2028.8,2029.1498
+JIANG_published,100,2.492,0.000,2.475,80.5,83.6671
+JIANG_published,1000,2.493,0.001,2.4759,1178.0,1178.2628
