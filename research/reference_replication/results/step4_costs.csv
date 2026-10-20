@@ -1,0 +1,172 @@
+constant_set,scheme,user_ms,device_ms,server_ms,dev+srv_ms,all_roles_ms,bits
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",Proposed V1 Table V as printed,0.0,11.84,11.84,23.68,23.68,
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",Proposed V2 Table V + session KDF,0.0,17.379684,17.379684,34.759368,34.759368,
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",Proposed V3 Eq.22 with AEAD,0.0,11.139684,16.739684,27.879368,27.879368,
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",Proposed V4 2T_H = PID hash + KDF,0.0,17.059684,17.059684,34.119368,34.119368,
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",Challa et al. [17],46.7,69.36,86.78,156.14,202.84,
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",Turkanovic [12],2.24,2.24,1.6,3.84,6.08,2720
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",Poorambage [11],70.96,191.3,138.4,329.7,400.66,3360
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",Dhillon-Karla [13],2.56,1.92,2.56,4.48,7.04,2528
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",Cheng-Le [14],37.08,35.8,2.24,38.04,75.12,2272
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",Shuai [16],19.02,18.06,19.34,37.4,56.42,2368
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",Jiang [15],2.24,1.6,3.2,4.8,7.04,1952
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",Wazid [17],32.46,12.48,24.0,36.48,68.94,2592
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",Sadhukhan [18],28.94,28.62,23.04,51.66,80.6,1600
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",Turkanovic [12] (corrected 7/5/7),2.24,1.6,2.24,3.84,6.08,2720
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",Cheng-Le [14] (as CHANGLE P2),36.44,35.8,2.88,38.68,75.12,2272
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",JIANG published (P2+P3),,,,5.44,5.44,1312
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",JIANG published (P3 only),,,,3.52,3.52,1312
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",Li et al. [CHANGLE 11],2.88,1.6,3.84,5.44,8.32,
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",Chang-Le P1,2.24,1.6,2.56,4.16,6.4,
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",Chang-Le P2,36.44,35.8,2.88,38.68,75.12,
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,Proposed V1 Table V as printed,0.0,1.041726,1.041726,2.083452,2.083452,
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,Proposed V2 Table V + session KDF,0.0,1.670861,1.670861,3.341722,3.341722,
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,Proposed V3 Eq.22 with AEAD,0.0,1.113656,1.598177,2.711833,2.711833,
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,Proposed V4 2T_H = PID hash + KDF,0.0,1.634519,1.634519,3.269038,3.269038,
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,Challa et al. [17],19.704315,1105.509026,1381.895368,2487.404394,2507.108709,
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,Turkanovic [12],0.254394,0.254394,0.18171,0.436104,0.690498,2720
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,Poorambage [11],1105.690736,3040.21342,2210.98171,5251.19513,6356.885866,3360
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,Dhillon-Karla [13],0.290736,0.218052,0.290736,0.508788,0.799524,2528
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,Cheng-Le [14],553.027078,552.88171,0.254394,553.136104,1106.163182,2272
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,Shuai [16],276.568052,276.459026,276.604394,553.06342,829.631472,2368
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,Jiang [15],0.254394,0.18171,0.36342,0.54513,0.799524,1952
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,Wazid [17],18.541488,1.11441,2.119794,3.234204,21.775692,2592
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,Sadhukhan [18],277.391726,277.355384,2.010768,279.366152,556.757878,1600
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,Turkanovic [12] (corrected 7/5/7),0.254394,0.18171,0.254394,0.436104,0.690498,2720
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,Cheng-Le [14] (as CHANGLE P2),552.954394,552.88171,0.327078,553.208788,1106.163182,2272
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,JIANG published (P2+P3),,,,2.319762,2.319762,1312
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,JIANG published (P3 only),,,,1.534394,1.534394,1312
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,Li et al. [CHANGLE 11],0.327078,0.18171,0.436104,0.617814,0.944892,
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,Chang-Le P1,0.254394,0.18171,0.290736,0.472446,0.72684,
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,Chang-Le P2,552.954394,552.88171,0.327078,553.208788,1106.163182,
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,Proposed V1 Table V as printed,0.0,0.523742,0.523742,1.047484,1.047484,
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,Proposed V2 Table V + session KDF,0.0,0.838309,0.838309,1.676618,1.676618,
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,Proposed V3 Eq.22 with AEAD,0.0,0.558267,0.801967,1.360234,1.360234,
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,Proposed V4 2T_H = PID hash + KDF,0.0,0.820138,0.820138,1.640276,1.640276,
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,Challa et al. [17],18.409355,552.771285,690.968649,1243.739934,1262.149289,
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,Turkanovic [12],0.127197,0.127197,0.090855,0.218052,0.345249,2720
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,Poorambage [11],552.86214,1520.152833,1105.524399,2625.677232,3178.539372,3360
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,Dhillon-Karla [13],0.145368,0.109026,0.145368,0.254394,0.399762,2528
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,Cheng-Le [14],276.521925,276.449241,0.127197,276.576438,553.098363,2272
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,Shuai [16],138.288219,138.233706,138.30639,276.540096,414.828315,2368
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,Jiang [15],0.127197,0.090855,0.18171,0.272565,0.399762,1952
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,Wazid [17],17.823623,0.560084,1.065655,1.625739,19.449362,2592
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,Sadhukhan [18],138.702935,138.684764,1.011142,139.695906,278.398841,1600
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,Turkanovic [12] (corrected 7/5/7),0.127197,0.090855,0.127197,0.218052,0.345249,2720
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,Cheng-Le [14] (as CHANGLE P2),276.485583,276.449241,0.163539,276.61278,553.098363,2272
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,JIANG published (P2+P3),,,,2.119881,2.119881,1312
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,JIANG published (P3 only),,,,1.407197,1.407197,1312
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,Li et al. [CHANGLE 11],0.163539,0.090855,0.218052,0.308907,0.472446,
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,Chang-Le P1,0.127197,0.090855,0.145368,0.236223,0.36342,
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,Chang-Le P2,276.485583,276.449241,0.163539,276.61278,553.098363,
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,Proposed V1 Table V as printed,0.0,2.365602,2.365602,4.731204,4.731204,
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,Proposed V2 Table V + session KDF,0.0,2.994737,2.994737,5.989474,5.989474,
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,Proposed V3 Eq.22 with AEAD,0.0,1.775594,2.922053,4.697647,4.697647,
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,Proposed V4 2T_H = PID hash + KDF,0.0,2.958395,2.958395,5.91679,5.91679,
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,Challa et al. [17],23.014005,1105.509026,1381.895368,2487.404394,2510.418399,
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,Turkanovic [12],0.254394,0.254394,0.18171,0.436104,0.690498,2720
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,Poorambage [11],1105.690736,3040.21342,2210.98171,5251.19513,6356.885866,3360
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,Dhillon-Karla [13],0.290736,0.218052,0.290736,0.508788,0.799524,2528
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,Cheng-Le [14],553.027078,552.88171,0.254394,553.136104,1106.163182,2272
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,Shuai [16],276.568052,276.459026,276.604394,553.06342,829.631472,2368
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,Jiang [15],0.254394,0.18171,0.36342,0.54513,0.799524,1952
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,Wazid [17],19.865364,2.438286,4.767546,7.205832,27.071196,2592
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,Sadhukhan [18],278.715602,278.67926,4.65852,283.33778,562.053382,1600
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,Turkanovic [12] (corrected 7/5/7),0.254394,0.18171,0.254394,0.436104,0.690498,2720
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,Cheng-Le [14] (as CHANGLE P2),552.954394,552.88171,0.327078,553.208788,1106.163182,2272
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,JIANG published (P2+P3),,,,2.319762,2.319762,1312
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,JIANG published (P3 only),,,,1.534394,1.534394,1312
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,Li et al. [CHANGLE 11],0.327078,0.18171,0.436104,0.617814,0.944892,
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,Chang-Le P1,0.254394,0.18171,0.290736,0.472446,0.72684,
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,Chang-Le P2,552.954394,552.88171,0.327078,553.208788,1106.163182,
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",Proposed V1 Table V as printed,0.0,11.84,11.84,23.68,23.68,
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",Proposed V2 Table V + session KDF,0.0,17.379684,17.379684,34.759368,34.759368,
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",Proposed V3 Eq.22 with AEAD,0.0,11.139684,16.739684,27.879368,27.879368,
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",Proposed V4 2T_H = PID hash + KDF,0.0,17.059684,17.059684,34.119368,34.119368,
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",Challa et al. [17],46.7,69.36,86.78,156.14,202.84,
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",Turkanovic [12],2.24,2.24,1.6,3.84,6.08,2720
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",Poorambage [11],70.96,191.3,138.4,329.7,400.66,3360
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",Dhillon-Karla [13],2.56,1.92,2.56,4.48,7.04,2528
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",Cheng-Le [14],37.08,35.8,2.24,38.04,75.12,2272
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",Shuai [16],19.02,18.06,19.34,37.4,56.42,2368
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",Jiang [15],2.24,1.6,3.2,4.8,7.04,1952
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",Wazid [17],32.46,12.48,24.0,36.48,68.94,2592
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",Sadhukhan [18],28.94,28.62,23.04,51.66,80.6,1600
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",Turkanovic [12] (corrected 7/5/7),2.24,1.6,2.24,3.84,6.08,2720
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",Cheng-Le [14] (as CHANGLE P2),36.44,35.8,2.88,38.68,75.12,2272
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",JIANG published (P2+P3),,,,197.92,197.92,1312
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",JIANG published (P3 only),,,,131.84,131.84,1312
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",Li et al. [CHANGLE 11],2.88,1.6,3.84,5.44,8.32,
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",Chang-Le P1,2.24,1.6,2.56,4.16,6.4,
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",Chang-Le P2,36.44,35.8,2.88,38.68,75.12,
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,Proposed V1 Table V as printed,0.0,1.041726,1.041726,2.083452,2.083452,
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,Proposed V2 Table V + session KDF,0.0,1.670861,1.670861,3.341722,3.341722,
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,Proposed V3 Eq.22 with AEAD,0.0,1.113656,1.598177,2.711833,2.711833,
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,Proposed V4 2T_H = PID hash + KDF,0.0,1.634519,1.634519,3.269038,3.269038,
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,Challa et al. [17],19.704315,1105.509026,1381.895368,2487.404394,2507.108709,
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,Turkanovic [12],0.254394,0.254394,0.18171,0.436104,0.690498,2720
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,Poorambage [11],1105.690736,3040.21342,2210.98171,5251.19513,6356.885866,3360
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,Dhillon-Karla [13],0.290736,0.218052,0.290736,0.508788,0.799524,2528
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,Cheng-Le [14],553.027078,552.88171,0.254394,553.136104,1106.163182,2272
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,Shuai [16],276.568052,276.459026,276.604394,553.06342,829.631472,2368
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,Jiang [15],0.254394,0.18171,0.36342,0.54513,0.799524,1952
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,Wazid [17],18.541488,1.11441,2.119794,3.234204,21.775692,2592
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,Sadhukhan [18],277.391726,277.355384,2.010768,279.366152,556.757878,1600
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,Turkanovic [12] (corrected 7/5/7),0.254394,0.18171,0.254394,0.436104,0.690498,2720
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,Cheng-Le [14] (as CHANGLE P2),552.954394,552.88171,0.327078,553.208788,1106.163182,2272
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,JIANG published (P2+P3),,,,194.799762,194.799762,1312
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,JIANG published (P3 only),,,,129.854394,129.854394,1312
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,Li et al. [CHANGLE 11],0.327078,0.18171,0.436104,0.617814,0.944892,
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,Chang-Le P1,0.254394,0.18171,0.290736,0.472446,0.72684,
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,Chang-Le P2,552.954394,552.88171,0.327078,553.208788,1106.163182,
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,Proposed V1 Table V as printed,0.0,0.523742,0.523742,1.047484,1.047484,
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,Proposed V2 Table V + session KDF,0.0,0.838309,0.838309,1.676618,1.676618,
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,Proposed V3 Eq.22 with AEAD,0.0,0.558267,0.801967,1.360234,1.360234,
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,Proposed V4 2T_H = PID hash + KDF,0.0,0.820138,0.820138,1.640276,1.640276,
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,Challa et al. [17],18.409355,552.771285,690.968649,1243.739934,1262.149289,
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,Turkanovic [12],0.127197,0.127197,0.090855,0.218052,0.345249,2720
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,Poorambage [11],552.86214,1520.152833,1105.524399,2625.677232,3178.539372,3360
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,Dhillon-Karla [13],0.145368,0.109026,0.145368,0.254394,0.399762,2528
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,Cheng-Le [14],276.521925,276.449241,0.127197,276.576438,553.098363,2272
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,Shuai [16],138.288219,138.233706,138.30639,276.540096,414.828315,2368
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,Jiang [15],0.127197,0.090855,0.18171,0.272565,0.399762,1952
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,Wazid [17],17.823623,0.560084,1.065655,1.625739,19.449362,2592
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,Sadhukhan [18],138.702935,138.684764,1.011142,139.695906,278.398841,1600
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,Turkanovic [12] (corrected 7/5/7),0.127197,0.090855,0.127197,0.218052,0.345249,2720
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,Cheng-Le [14] (as CHANGLE P2),276.485583,276.449241,0.163539,276.61278,553.098363,2272
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,JIANG published (P2+P3),,,,194.599881,194.599881,1312
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,JIANG published (P3 only),,,,129.727197,129.727197,1312
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,Li et al. [CHANGLE 11],0.163539,0.090855,0.218052,0.308907,0.472446,
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,Chang-Le P1,0.127197,0.090855,0.145368,0.236223,0.36342,
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,Chang-Le P2,276.485583,276.449241,0.163539,276.61278,553.098363,
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,Proposed V1 Table V as printed,0.0,2.365602,2.365602,4.731204,4.731204,
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,Proposed V2 Table V + session KDF,0.0,2.994737,2.994737,5.989474,5.989474,
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,Proposed V3 Eq.22 with AEAD,0.0,1.775594,2.922053,4.697647,4.697647,
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,Proposed V4 2T_H = PID hash + KDF,0.0,2.958395,2.958395,5.91679,5.91679,
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,Challa et al. [17],23.014005,1105.509026,1381.895368,2487.404394,2510.418399,
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,Turkanovic [12],0.254394,0.254394,0.18171,0.436104,0.690498,2720
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,Poorambage [11],1105.690736,3040.21342,2210.98171,5251.19513,6356.885866,3360
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,Dhillon-Karla [13],0.290736,0.218052,0.290736,0.508788,0.799524,2528
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,Cheng-Le [14],553.027078,552.88171,0.254394,553.136104,1106.163182,2272
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,Shuai [16],276.568052,276.459026,276.604394,553.06342,829.631472,2368
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,Jiang [15],0.254394,0.18171,0.36342,0.54513,0.799524,1952
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,Wazid [17],19.865364,2.438286,4.767546,7.205832,27.071196,2592
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,Sadhukhan [18],278.715602,278.67926,4.65852,283.33778,562.053382,1600
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,Turkanovic [12] (corrected 7/5/7),0.254394,0.18171,0.254394,0.436104,0.690498,2720
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,Cheng-Le [14] (as CHANGLE P2),552.954394,552.88171,0.327078,553.208788,1106.163182,2272
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,JIANG published (P2+P3),,,,194.799762,194.799762,1312
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,JIANG published (P3 only),,,,129.854394,129.854394,1312
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,Li et al. [CHANGLE 11],0.327078,0.18171,0.436104,0.617814,0.944892,
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,Chang-Le P1,0.254394,0.18171,0.290736,0.472446,0.72684,
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,Chang-Le P2,552.954394,552.88171,0.327078,553.208788,1106.163182,
+B own constants,"JIANG published (P2+P3) [own: T_H=0.2, T_C=32.4]",,,,196.6,196.6,1312
+B own constants,JIANG published (P3 only) [own],,,,131.0,131.0,1312
+B own constants,Chang-Le P1 [own: t_h=0.5],3.5,2.5,4.0,6.5,10.0,
+B own constants,"Chang-Le P2 [own: t_mul=63.075, t_h=0.5]",129.65,128.65,4.5,133.15,262.8,
+B own constants,Li et al. [CHANGLE 11] [own],4.5,2.5,6.0,8.5,13.0,
+B own constants,Turkanovic (corrected) [BORROWED CHANGLE t_h=0.5; Turkanovic/DHILLON give none],3.5,2.5,3.5,6.0,9.5,
+B own constants,Dhillon-Karla [BORROWED CHANGLE t_h=0.5; DHILLON gives no times],4.0,3.0,4.0,7.0,11.0,
+B own constants,Proposed V1 Table V as printed [A constants],,11.84,11.84,23.68,23.68,
+B own constants,Proposed V2 Table V + session KDF [A constants],,17.379684,17.379684,34.759368,34.759368,
+B own constants,Proposed V3 Eq.22 with AEAD [A constants],,11.139684,16.739684,27.879368,27.879368,
+B own constants,Proposed V4 2T_H = PID hash + KDF [A constants],,17.059684,17.059684,34.119368,34.119368,
