@@ -1,0 +1,28 @@
+item,formula,printed,computed,status
+Lee_Hsu_39,overall TH,25,25,MATCH
+Lee_Hsu_39,overall TC,8,8,MATCH
+Lee_Hsu_39,time P1 (ms),not printed (Fig. 3 only),33.2,COMPUTED
+Lee_Hsu_39,time P2 (ms),not printed (Fig. 3 only),65.8,COMPUTED
+Lee_Hsu_39,time P3 (ms),not printed (Fig. 3 only),131.0,COMPUTED
+Lee_Hsu_39,time P4 (ms),not printed (Fig. 3 only),1.0,COMPUTED
+Lee_Hsu_39,time P5 (ms),not printed (Fig. 3 only),33.2,COMPUTED
+Lee_Hsu_39,time overall (ms),not printed (Fig. 3 only),264.2,COMPUTED
+Islam_40,overall TH,18,18,MATCH
+Islam_40,overall TC,10,10,MATCH
+Islam_40,time P1 (ms),not printed (Fig. 3 only),32.8,COMPUTED
+Islam_40,time P2 (ms),not printed (Fig. 3 only),98.0,COMPUTED
+Islam_40,time P3 (ms),not printed (Fig. 3 only),131.0,COMPUTED
+Islam_40,time P4 (ms),not printed (Fig. 3 only),33.0,COMPUTED
+Islam_40,time P5 (ms),not printed (Fig. 3 only),32.8,COMPUTED
+Islam_40,time overall (ms),not printed (Fig. 3 only),327.6,COMPUTED
+Jiang_ours,overall TH,21,21,MATCH
+Jiang_ours,overall TC,6,6,MATCH
+Jiang_ours,time P1 (ms),not printed (Fig. 3 only),0.6,COMPUTED
+Jiang_ours,time P2 (ms),not printed (Fig. 3 only),65.6,COMPUTED
+Jiang_ours,time P3 (ms),not printed (Fig. 3 only),131.0,COMPUTED
+Jiang_ours,time P4 (ms),not printed (Fig. 3 only),0.8,COMPUTED
+Jiang_ours,time P5 (ms),not printed (Fig. 3 only),0.6,COMPUTED
+Jiang_ours,time overall (ms),not printed (Fig. 3 only),198.6,COMPUTED
+Lee_Hsu_39,communication bits,1584,not derivable (no field sizes besides |p|=256),UNVERIFIED
+Islam_40,communication bits,1312,not derivable (no field sizes besides |p|=256),UNVERIFIED
+Jiang_ours,communication bits,1312,not derivable (no field sizes besides |p|=256),UNVERIFIED
