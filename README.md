@@ -33,14 +33,19 @@ Details and raw data are in [`research/paper_audit/FINDINGS.md`](research/paper_
 - **The headline savings (about 17% / 21% / 12%) cannot be derived** from the
   paper's own Tables IV-VI under any definition we tried, and the tables
   contradict the text (4 messages / 1024 bits vs. 2 messages / 264 bits).
+  The paper's simulated Fig. 1 could not be reproduced from published information
+  (no code or scenario is available); we make no claim about whether it is correct.
 - **Assumed timings differ from measured ones.** On an ESP8266, P-256 scalar
   multiplication is about 16x slower than the paper assumes (276 ms vs. 17.1 ms),
   while symmetric operations are 5-11x faster.
-- **Against ECC-based schemes** the protocol is roughly 120-3,000x cheaper.
-  **Against the hash-only schemes** in the same table it is more expensive once
-  the session KDF that the paper's own equations require is counted (4-11x on the ESP8266).
+- **Against ECC-based schemes** the protocol is roughly 60-2,500x cheaper.
+  **Against the hash-only schemes** in the same table (Turkanovic, Dhillon-Kalra,
+  and an unidentified row labelled "Jiang") it is more expensive once the session
+  KDF that the paper's own equations require is counted (about 4-14x on the
+  ESP8266). Jiang et al. as published is not hash-only (it uses a 32.4 ms chaotic-map
+  operation), so that comparison holds firmly only for the first two.
 - **No forward secrecy**, no elliptic-curve operation on the online path, and a
-  server lookup that scales linearly with the number of devices.
+  server lookup that scales linearly with the number of devices to resolve.
 
 ## Quick start
 
