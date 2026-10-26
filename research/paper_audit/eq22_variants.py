@@ -10,6 +10,8 @@ import sys
 from pathlib import Path
 from reeval import load
 RES = Path(__file__).parent / "results"
+RERUN = "--rerun" in sys.argv   # use results/rerun_2026-10-06 (two ESP8266 boards, Mac) instead of the original runs
+if RERUN: RES = RES / "rerun_2026-10-06"
 HASH_ONLY = {"Turkanovic": (7, 7, 5), "Dhillon-Karla": (8, 6, 8), "Jiang": (7, 5, 10)}  # user, device, server T_H counts
 
 def get(rows, op, variant=None):
@@ -19,8 +21,11 @@ def get(rows, op, variant=None):
     raise KeyError((op, variant))
 
 PLATFORMS = []  # (label, rows, H, kdf, [(S label, S)])
-for label, f in (("ESP8266 @80 MHz (BearSSL, software)", "esp8266_80mhz.csv"), ("ESP8266 @160 MHz (BearSSL)", "esp8266_160mhz.csv"),
-                 ("t4g.nano Graviton2 (BearSSL, software)", "aws_t4g_nano.csv"), ("Apple-silicon Mac (BearSSL, software)", "mac.csv")):
+FILES = ((("ESP8266 board A @80 MHz (BearSSL)", "esp8266_80mhz_boardA.csv"), ("ESP8266 board B @80 MHz (BearSSL)", "esp8266_80mhz_boardB.csv"),
+          ("ESP8266 board A @160 MHz (BearSSL)", "esp8266_160mhz_boardA.csv"), ("Mac (BearSSL, software)", "mac.csv")) if RERUN else
+         (("ESP8266 @80 MHz (BearSSL, software)", "esp8266_80mhz.csv"), ("ESP8266 @160 MHz (BearSSL)", "esp8266_160mhz.csv"),
+          ("t4g.nano Graviton2 (BearSSL, software)", "aws_t4g_nano.csv"), ("Apple-silicon Mac (BearSSL, software)", "mac.csv")))
+for label, f in FILES:
     r = load(RES / f)
     H = get(r, "T_H: SHA-1 (paper", "bearssl"); K = get(r, "HKDF-SHA256", "bearssl")
     S = [("GCM, key schedule cached, aes_big", get(r, "AES-256-GCM encrypt 56 B (key schedule cached)", "aes_big")),
