@@ -1,0 +1,13 @@
+platform,proposed_reading,proposed_dev+srv_ms,T_C_crossover_ms,meaning,JIANG_cheaper_at_T_C=0.32,JIANG_cheaper_at_T_C=32.40
+A BASE Table III,V1 Table V as printed,23.68,3.36,JIANG(published) cheaper than proposed iff T_C < T_C*,True,False
+A BASE Table III,V2 Table V + session KDF,34.7594,5.2066,JIANG(published) cheaper than proposed iff T_C < T_C*,True,False
+A BASE Table III,V3 Eq.22 with AEAD,27.8794,4.0599,JIANG(published) cheaper than proposed iff T_C < T_C*,True,False
+A BASE Table III,V4 2T_H = PID hash + KDF,34.1194,5.0999,JIANG(published) cheaper than proposed iff T_C < T_C*,True,False
+C ESP8266 80 MHz,V1 Table V as printed,2.0835,0.2806,JIANG(published) cheaper than proposed iff T_C < T_C*,False,False
+C ESP8266 80 MHz,V2 Table V + session KDF,3.3417,0.4903,JIANG(published) cheaper than proposed iff T_C < T_C*,True,False
+C ESP8266 80 MHz,V3 Eq.22 with AEAD,2.7118,0.3853,JIANG(published) cheaper than proposed iff T_C < T_C*,True,False
+C ESP8266 80 MHz,V4 2T_H = PID hash + KDF,3.269,0.4782,JIANG(published) cheaper than proposed iff T_C < T_C*,True,False
+C ESP8266 160 MHz,V1 Table V as printed,1.0475,0.1413,JIANG(published) cheaper than proposed iff T_C < T_C*,False,False
+C ESP8266 160 MHz,V2 Table V + session KDF,1.6766,0.2461,JIANG(published) cheaper than proposed iff T_C < T_C*,False,False
+C ESP8266 160 MHz,V3 Eq.22 with AEAD,1.3602,0.1934,JIANG(published) cheaper than proposed iff T_C < T_C*,False,False
+C ESP8266 160 MHz,V4 2T_H = PID hash + KDF,1.6403,0.2401,JIANG(published) cheaper than proposed iff T_C < T_C*,False,False

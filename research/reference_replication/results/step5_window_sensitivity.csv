@@ -1,0 +1,13 @@
+window_s,scheme,adversaries,mean_latency_ms_N1000_esp8266_server
+1.0,Proposed V1 (Table V),adversaries on,1479.402
+1.0,Proposed V1 (Table V),adversaries off,1309.569
+1.0,Dhillon-Karla,adversaries on,0.796
+1.0,Dhillon-Karla,adversaries off,0.796
+10.0,Proposed V1 (Table V),adversaries on,683.239
+10.0,Proposed V1 (Table V),adversaries off,169.781
+10.0,Dhillon-Karla,adversaries on,0.795
+10.0,Dhillon-Karla,adversaries off,0.795
+60.0,Proposed V1 (Table V),adversaries on,792.303
+60.0,Proposed V1 (Table V),adversaries off,131.161
+60.0,Dhillon-Karla,adversaries on,0.795
+60.0,Dhillon-Karla,adversaries off,0.795

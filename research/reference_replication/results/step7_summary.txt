@@ -1,0 +1,50 @@
+[E1] Environment: constants BASE used versus the constants of the three papers
+   BASE: Table III: T_H 0.32, T_C 0.32, T_ECM 17.1, T_SE/D 5.6, T_fe 17.1 ms
+   BASE env: same as BASE
+   papers env: JIANG: T_H 0.20, T_C 32.40 ms. CHANGLE: t_h 0.5, t_mul 63.075 ms. DHILLON: none
+   OURS: measured ESP8266: T_H 0.036, T_SE/D 0.48-1.15, T_ECM 276 ms (16x the 17.1)
+   => BASE's environment is not that of the papers its competitors come from: T_C is 101x lower than JIANG's, T_ECM 3.7x lower than CHANGLE's t_mul, and T_H is 1.6x JIANG's but 0.64x CHANGLE's
+
+[P1] Processing: does the proposed scheme have the lowest cost? (device + server, ms)
+   BASE: text Sec. V-A: 'minimum possible processing cost'; abstract ~21% lower; Table V gives counts only
+   BASE env: BASE Table V x III: proposed 23.7 ms, rank 5 of 6; cheaper: Turkanovic (7/5/7), Dhillon-Karla, Chang-Le P1, JIANG published (T_C 0.32 BASE, 32.40 papers, 0.32 measured)
+   papers env: papers' constants: proposed 23.7 ms; cheaper: Turkanovic (7/5/7), Dhillon-Karla, Chang-Le P1; dearer: Chang-Le P2, JIANG published (T_C 0.32 BASE, 32.40 papers, 0.32 measured)
+   OURS: measured: proposed 2.08 ms; cheaper: Turkanovic (7/5/7), Dhillon-Karla, Chang-Le P1; ECC schemes 60-2,520x dearer; OURS: not the cheapest once the session KDF is counted
+   => BASE's claim is NOT supported by its own Table V x III (rank 5 of 6) nor by the papers' own constants against the hash-only schemes. It holds against the ECC scheme (Chang-Le P2) and against JIANG only when JIANG's own T_C = 32.40 ms is used, not with Table III's T_C = 0.32 ms. OURS agrees (and adds that the session KDF is missing from Table V)
+
+[P2] Processing in the OMNeT++ model: mean authentication latency at N = 1000 (ms)
+   BASE: Fig. 1 (Processing): proposed lowest, all curves rise with vehicles; values not tabulated
+   BASE env: BASE env: proposed 19,010, Dhillon-Karla 4.8, JIANG 5.6
+   papers env: papers' env: proposed 19,010, Dhillon-Karla 7.4, JIANG 214
+   OURS: measured env: proposed 1,045, Dhillon-Karla 0.83, JIANG 2.49; OURS: lookup cost grows with devices per server
+   => BASE's Fig. 1 claim (proposed lowest) is NOT reproduced in any environment: the proposed scheme ranks 6/6 (BASE), 6/6 (papers), 6/6 (measured) by latency; it is slower than every non-ECC scheme in all three environments. The size is set by the pseudonym lookup, which BASE does not specify (nearest-only enrolment: see 8.5)
+
+[C1] Communication: bits
+   BASE: Table IV: proposed 1,024 bits (4 msgs) vs 1,600-3,360; 36.0% fewer than best, 57.5% than mean; text: 264 bits, 2 msgs; abstract ~17%
+   BASE env: OMNeT++ (N = 1000, kbit on air incl. forged traffic): proposed 1,088 (264-bit variant 328) vs JIANG 1,376, Turkanovic 2,784, Dhillon-Karla 2,592
+   papers env: bits are identical in the papers' environment (sizes come from Table IV; JIANG's own 1,312 bits is used)
+   OURS: OURS: same arithmetic (36.0% / 57.5%), flags 4 msgs/1,024 bits vs 2 msgs/264 bits; 17% not derivable
+   => Direction REPRODUCED (proposed lowest in every variant); magnitude depends on 1,024 vs 264 bits and on the unverifiable competitor sizes; 17% not reproduced
+
+[S1] Storage
+   BASE: Table VI: proposed 320 / 320 bits vs best 480 (server) / 356 (device); 33.3% / 10.1%; abstract ~12%
+   BASE env: model: a server resolving every device in range holds ~258 enrolled devices at N = 1000; a precomputed pseudonym table of 13 epochs x 32 B is ~107 KB (vs 40 B)
+   papers env: not simulated (storage is not a simulated quantity); no storage table in JIANG, DHILLON or CHANGLE
+   OURS: OURS: same arithmetic (10.1% / 33.3%); pseudonym lookup needs O(N x W) compute or storage (800 KB at 1,000 devices)
+   => Table VI arithmetic REPRODUCED, not 12%; the 320-bit server storage holds only if the server does not keep a per-device pseudonym table
+
+[F1] Scaling with vehicles (BASE Figs. 1-2 axis, 300-1800 devices)
+   BASE: curves rise slowly with vehicles; proposed lowest in Figs. 1-3
+   BASE env: OMNeT++ BASE env: bits proposed 321 -> 1,954 kbit (lowest); latency proposed 2,666 -> 40,407 ms, Dhillon-Karla 4.8 -> 4.8 ms
+   papers env: see section 8 (papers' environment curves in results/step5b_omnet_papers.png)
+   OURS: OURS: Fig. 2 plots a fixed per-session bit cost rising with vehicles (22.4 -> 28.6 'bits'), impossible for a per-session protocol
+   => Communication ordering REPRODUCED; processing ordering NOT reproduced
+
+[A1] Abstract: ~17% communication, ~21% processing, ~12% storage
+   BASE: 17 / 21 / 12 %
+   BASE env: 36.0 / 57.5 (comm), -517 / 68 (proc, best / mean), 10.1 / 33.3 (storage)
+   papers env: not computable (no values)
+   OURS: OURS: not derivable under any of the nine definitions
+   => NOT reproduced by BASE's own tables; consistent with OURS
+
+{'Proposed (V1)': (23.68, 23.68, 2.083), 'Turkanovic (7/5/7)  [CHANGLE, DHILLON]': (3.84, 6.0, 0.436), 'Dhillon-Karla  [DHILLON]': (4.48, 7.0, 0.509), 'Chang-Le P1  [CHANGLE]': (4.16, 6.5, 0.472), 'Chang-Le P2  [CHANGLE, ECC]': (38.68, 133.15, 553.209), 'JIANG published (T_C 0.32 BASE, 32.40 papers, 0.32 measured)  [JIANG]': (5.44, 196.6, 2.32)}
