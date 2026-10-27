@@ -1,0 +1,71 @@
+BENCH_HEADER,platform,op,variant,bytes,reps,runs,median_us,p25_us,p75_us,min_us,max_us
+BENCH,esp8266@80MHz,T_H: SHA-1 (paper's T_H),bearssl,32,16,100,36.342,36.342,36.342,36.342,49.159
+BENCH_CHECK,esp8266@80MHz,sha1_32B,2afd88fe5f0d39e0
+BENCH,esp8266@80MHz,T_H: SHA-1 (2 blocks),bearssl,100,16,100,68.067,68.067,68.067,68.067,70.773
+BENCH_CHECK,esp8266@80MHz,sha1_100B,bdf5c4dca619aca2
+BENCH,esp8266@80MHz,SHA-256 (PID = H2(lambda||t), 40 B),bearssl,40,16,100,74.605,74.605,74.605,74.605,75.835
+BENCH_CHECK,esp8266@80MHz,sha256_40B,6778c446118d3450
+BENCH,esp8266@80MHz,HMAC-SHA256 (incl. key setup),bearssl,56,8,100,348.710,348.710,348.710,348.710,362.490
+BENCH_CHECK,esp8266@80MHz,hmac_sha256,9e3c1fc8b0c59fbb
+BENCH,esp8266@80MHz,HKDF-SHA256 extract+expand (64 B ikm to 32 B),bearssl,64,8,100,629.135,629.135,629.568,629.135,639.470
+BENCH_CHECK,esp8266@80MHz,hkdf_sha256,c8d5e3b6cb59f67f
+BENCH,esp8266@80MHz,AES-256 single block (key schedule cached),aes_ct,16,16,100,135.205,135.205,135.205,135.205,148.239
+BENCH_CHECK,esp8266@80MHz,aes_block_aes_ct,64985ee4bc9e01f1
+BENCH,esp8266@80MHz,AES-256 single block (key schedule cached),aes_small,16,16,100,86.568,86.568,86.568,86.568,91.948
+BENCH_CHECK,esp8266@80MHz,aes_block_aes_small,64985ee4bc9e01f1
+BENCH,esp8266@80MHz,AES-256 single block (key schedule cached),aes_big,16,16,100,28.306,28.306,28.306,28.306,37.407
+BENCH_CHECK,esp8266@80MHz,aes_block_aes_big,64985ee4bc9e01f1
+BENCH,esp8266@80MHz,AES-256-CTR 56 B (key schedule cached; no GHASH),aes_ct,56,8,100,264.435,264.435,264.435,264.435,286.071
+BENCH_CHECK,esp8266@80MHz,aes_ctr56_aes_ct,9404f0086e8ab07a
+BENCH,esp8266@80MHz,AES-256-CTR 56 B (key schedule cached; no GHASH),aes_small,56,8,100,343.273,343.273,343.273,343.273,348.631
+BENCH_CHECK,esp8266@80MHz,aes_ctr56_aes_small,9404f0086e8ab07a
+BENCH,esp8266@80MHz,AES-256-CTR 56 B (key schedule cached; no GHASH),aes_big,56,8,100,110.223,110.223,110.223,110.223,114.454
+BENCH_CHECK,esp8266@80MHz,aes_ctr56_aes_big,9404f0086e8ab07a
+BENCH,esp8266@80MHz,AES-256-GCM encrypt 56 B (key schedule cached),aes_ct,56,4,100,960.196,960.196,961.065,960.196,1127.615
+BENCH_CHECK,esp8266@80MHz,gcm_cached_ct_aes_ct,b1af0e35aaf47dfd
+BENCH_CHECK,esp8266@80MHz,gcm_cached_tag_aes_ct,6bfd0beeaf152cbf
+BENCH,esp8266@80MHz,AES-256-GCM encrypt 56 B (key schedule cached),aes_small,56,4,100,805.571,805.571,805.571,805.571,848.403
+BENCH_CHECK,esp8266@80MHz,gcm_cached_ct_aes_small,b1af0e35aaf47dfd
+BENCH_CHECK,esp8266@80MHz,gcm_cached_tag_aes_small,6bfd0beeaf152cbf
+BENCH,esp8266@80MHz,AES-256-GCM encrypt 56 B (key schedule cached),aes_big,56,4,100,455.946,455.946,455.946,455.946,490.968
+BENCH_CHECK,esp8266@80MHz,gcm_cached_ct_aes_big,b1af0e35aaf47dfd
+BENCH_CHECK,esp8266@80MHz,gcm_cached_tag_aes_big,6bfd0beeaf152cbf
+BENCH,esp8266@80MHz,AES-GCM encrypt+tag (incl. key setup),aes_ct(bitsliced,const-time)/AES-256,56,4,100,1146.459,1146.459,1147.328,1146.459,1184.725
+BENCH_CHECK,esp8266@80MHz,gcm_enc_0_256,b1af0e35aaf47dfd
+BENCH_CHECK,esp8266@80MHz,gcm_enc_0_256,6bfd0beeaf152cbf
+BENCH,esp8266@80MHz,AES-GCM decrypt+tag (incl. key setup),aes_ct(bitsliced,const-time)/AES-256,24,4,100,916.009,916.009,916.875,916.009,949.343
+BENCH,esp8266@80MHz,AES-GCM encrypt+tag (incl. key setup),aes_ct(bitsliced,const-time)/AES-128,56,4,100,920.946,920.946,921.815,920.946,951.225
+BENCH_CHECK,esp8266@80MHz,gcm_enc_0_128,9b9b4b7eaf5467d1
+BENCH_CHECK,esp8266@80MHz,gcm_enc_0_128,042f7820d3f988c4
+BENCH,esp8266@80MHz,AES-GCM decrypt+tag (incl. key setup),aes_ct(bitsliced,const-time)/AES-128,24,4,100,725.021,725.021,725.887,725.021,757.378
+BENCH,esp8266@80MHz,AES-GCM encrypt+tag (incl. key setup),aes_small(table,small)/AES-256,56,4,100,834.096,834.096,834.096,834.096,874.475
+BENCH_CHECK,esp8266@80MHz,gcm_enc_1_256,b1af0e35aaf47dfd
+BENCH_CHECK,esp8266@80MHz,gcm_enc_1_256,6bfd0beeaf152cbf
+BENCH,esp8266@80MHz,AES-GCM decrypt+tag (incl. key setup),aes_small(table,small)/AES-256,24,4,100,555.934,555.934,555.934,555.934,578.568
+BENCH,esp8266@80MHz,AES-GCM encrypt+tag (incl. key setup),aes_small(table,small)/AES-128,56,4,100,684.896,684.896,684.896,684.896,703.606
+BENCH_CHECK,esp8266@80MHz,gcm_enc_1_128,9b9b4b7eaf5467d1
+BENCH_CHECK,esp8266@80MHz,gcm_enc_1_128,042f7820d3f988c4
+BENCH,esp8266@80MHz,AES-GCM decrypt+tag (incl. key setup),aes_small(table,small)/AES-128,24,4,100,454.296,454.296,454.296,454.296,476.940
+BENCH,esp8266@80MHz,AES-GCM encrypt+tag (incl. key setup),aes_big(table,fast)/AES-256,56,4,100,484.521,484.521,484.521,484.521,511.103
+BENCH_CHECK,esp8266@80MHz,gcm_enc_2_256,b1af0e35aaf47dfd
+BENCH_CHECK,esp8266@80MHz,gcm_enc_2_256,6bfd0beeaf152cbf
+BENCH,esp8266@80MHz,AES-GCM decrypt+tag (incl. key setup),aes_big(table,fast)/AES-256,24,4,100,322.884,322.884,322.884,322.884,348.459
+BENCH,esp8266@80MHz,AES-GCM encrypt+tag (incl. key setup),aes_big(table,fast)/AES-128,56,4,100,434.021,434.021,434.021,434.021,451.737
+BENCH_CHECK,esp8266@80MHz,gcm_enc_2_128,9b9b4b7eaf5467d1
+BENCH_CHECK,esp8266@80MHz,gcm_enc_2_128,042f7820d3f988c4
+BENCH,esp8266@80MHz,AES-GCM decrypt+tag (incl. key setup),aes_big(table,fast)/AES-128,24,4,100,287.046,287.046,287.046,287.046,316.571
+BENCH,esp8266@80MHz,AES-256 key schedule only,aes_ct,32,8,100,186.535,186.535,186.535,186.535,188.009
+BENCH,esp8266@80MHz,AES-256 key schedule only,aes_small,32,8,100,25.885,25.885,25.885,25.885,29.273
+BENCH,esp8266@80MHz,AES-256 key schedule only,aes_big,32,8,100,25.873,25.873,25.873,25.873,26.857
+BENCH,esp8266@80MHz,T_ECM: scalar mult (variable base),P-256 ec_p256_m15,32,1,24,276350.000,276350.000,276359.212,276350.000,277255.112
+BENCH_CHECK,esp8266@80MHz,P-256 ec_p256_m15,d651401dbc96ba35
+BENCH,esp8266@80MHz,scalar mult (fixed base; mulgen),P-256 ec_p256_m15,32,1,24,191945.962,191945.962,191945.962,191945.962,192335.287
+BENCH_CHECK,esp8266@80MHz,P-256 ec_p256_m15,d651401dbc96ba35
+BENCH,esp8266@80MHz,T_ECM: scalar mult (variable base),P-256 ec_prime_i15(generic),32,1,24,623609.425,623556.837,623621.200,623523.737,624139.312
+BENCH_CHECK,esp8266@80MHz,P-256 ec_prime_i15(generic),d651401dbc96ba35
+BENCH,esp8266@80MHz,scalar mult (fixed base; mulgen),P-256 ec_prime_i15(generic),32,1,24,623561.137,623545.725,623592.600,623522.562,623715.262
+BENCH_CHECK,esp8266@80MHz,P-256 ec_prime_i15(generic),d651401dbc96ba35
+BENCH,esp8266@80MHz,T_ECM: scalar mult (variable base),X25519 ec_c25519_m15,32,1,24,130877.812,130877.812,130877.812,130877.812,131614.887
+BENCH_CHECK,esp8266@80MHz,X25519 ec_c25519_m15,9947774178b2c237
+BENCH,esp8266@80MHz,scalar mult (fixed base; mulgen),X25519 ec_c25519_m15,32,1,24,130877.962,130877.962,130877.962,130877.962,131137.275
+BENCH_CHECK,esp8266@80MHz,X25519 ec_c25519_m15,9947774178b2c237

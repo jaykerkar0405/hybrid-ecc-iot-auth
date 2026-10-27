@@ -1,0 +1,32 @@
+### 1. fresh authenticate (device-cli-01)
+Mutual authentication succeeded with 'server-A'.
+  session key fingerprint: 7d073a52e47117c3 (SHA-256[:16] of K_ij,t -- never the raw key)
+  round-trip latency: 4.627 ms
+[time]_wall=0.10s_user=0.10s_sys=0.00s_maxrss=27784KB
+### 2. adversary replay of captured M1 (device-cli-01)
+[replay-demo] resending previously captured M1 (216 bytes) to 172.31.14.202:8443 ...
+REJECTED by server: ReplayDetected: pseudonym for 'device-cli-01' reuses stale epoch 0 (round-trip 2.338 ms)
+[replay-demo] rejection confirms the server's freshness check is working as intended.
+Command exited with non-zero status 1
+[time]_wall=0.10s_user=0.07s_sys=0.01s_maxrss=26476KB
+### 3. second fresh CLI invocation, new process (device-cli-01)
+REJECTED by server: ReplayDetected: pseudonym for 'device-cli-01' reuses stale epoch 0 (round-trip 2.448 ms)
+Command exited with non-zero status 1
+[time]_wall=0.10s_user=0.09s_sys=0.01s_maxrss=27648KB
+### 4. cold-start CLI runs, one per fresh identity
+Mutual authentication succeeded with 'server-A'.
+  session key fingerprint: cdfb54cd8fc16a69 (SHA-256[:16] of K_ij,t -- never the raw key)
+  round-trip latency: 2.529 ms
+[time]_wall=0.10s_user=0.09s_sys=0.01s_maxrss=27788KB
+Mutual authentication succeeded with 'server-A'.
+  session key fingerprint: 13281b20866b776f (SHA-256[:16] of K_ij,t -- never the raw key)
+  round-trip latency: 2.543 ms
+[time]_wall=0.10s_user=0.09s_sys=0.01s_maxrss=27748KB
+Mutual authentication succeeded with 'server-A'.
+  session key fingerprint: db26a193e60aabde (SHA-256[:16] of K_ij,t -- never the raw key)
+  round-trip latency: 2.618 ms
+[time]_wall=0.10s_user=0.08s_sys=0.00s_maxrss=27864KB
+### interpreter-only baseline
+[time]_wall=0.08s_user=0.05s_sys=0.02s_maxrss=25248KB
+[time]_wall=0.08s_user=0.07s_sys=0.00s_maxrss=25164KB
+[time]_wall=0.08s_user=0.06s_sys=0.01s_maxrss=25240KB

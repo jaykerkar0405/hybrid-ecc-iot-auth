@@ -1,0 +1,364 @@
+{
+  "environment": {
+    "python_version": "3.11.16 (main, Aug 24 2026, 00:00:00) [GCC 11.5.0 20240719 (Red Hat 11.5.0-5)]",
+    "platform": "Linux-6.18.48-109.150.amzn2023.aarch64-aarch64-with-glibc2.34",
+    "processor": "aarch64",
+    "cryptography_version": "50.0.1"
+  },
+  "proposed": {
+    "communication": {
+      "unit": "bytes (wire-serialized: base64-in-JSON envelope, see protocol/messages.py)",
+      "m1_wire_bytes": 216,
+      "m1_field_breakdown_raw_bytes": {
+        "pid": 32,
+        "gcm_nonce": 12,
+        "ciphertext": 56,
+        "tag": 16
+      },
+      "m2_wire_bytes": 142,
+      "m2_field_breakdown_raw_bytes": {
+        "server_id_utf8": 14,
+        "gcm_nonce": 12,
+        "ciphertext": 24,
+        "tag": 16
+      },
+      "session_total_wire_bytes": 358,
+      "session_total_raw_field_bytes": 182,
+      "offline_registration_wire_bytes": 0,
+      "offline_registration_note": "FR-2.3: TA<->device/server registration performs no network I/O in this implementation -- lambda_X is derived and installed entirely locally/offline, so there is no wire message to size (unlike the paper's Section II registration Msg-I..IV, which this PoC deliberately does not implement -- see PRD 1.2 design decision)."
+    },
+    "processing": {
+      "unit": "milliseconds, wall-clock, measured on this benchmarking host",
+      "n_trials": 1000,
+      "warm_steady_state_pairwise_root_cached_FR_3_2": {
+        "device_build_request": {
+          "n": 1000,
+          "mean_ms": 0.024133242999141657,
+          "median_ms": 0.023269999928743346,
+          "p95_ms": 0.02711899992391409,
+          "stddev_ms": 0.004062271356841444
+        },
+        "device_complete_auth": {
+          "n": 1000,
+          "mean_ms": 0.023988819000578587,
+          "median_ms": 0.02337700004773069,
+          "p95_ms": 0.02580599993962096,
+          "stddev_ms": 0.0036594273125662605
+        },
+        "device_total": {
+          "n": 1000,
+          "mean_ms": 0.048122061999720245,
+          "median_ms": 0.04666400008090932,
+          "p95_ms": 0.05515600003036525,
+          "stddev_ms": 0.006145233136453976
+        },
+        "server_handle_request": {
+          "n": 1000,
+          "mean_ms": 0.07821013199998106,
+          "median_ms": 0.07640000001174485,
+          "p95_ms": 0.08703399998921668,
+          "stddev_ms": 0.007559088458134109
+        }
+      },
+      "cold_pairwise_root_recomputed_every_session_matches_paper_Eq22": {
+        "n_trials": 100,
+        "device_total": {
+          "n": 100,
+          "mean_ms": 0.05618544000867587,
+          "median_ms": 0.05493850005677814,
+          "p95_ms": 0.06552800005010795,
+          "stddev_ms": 0.004319477366362052
+        },
+        "server_total": {
+          "n": 100,
+          "mean_ms": 0.08452321999584456,
+          "median_ms": 0.08473249994267462,
+          "p95_ms": 0.09456600002977211,
+          "stddev_ms": 0.009728696381732502
+        }
+      }
+    },
+    "storage": {
+      "unit": "bytes (JSON-serialized persisted state, this implementation's actual layout)",
+      "device_persisted_state_bytes": 424,
+      "server_persisted_state_bytes": 449,
+      "device_state_breakdown_bytes": {
+        "credential": 263,
+        "pairwise_root_cache": 85,
+        "epoch_counters": 20
+      },
+      "server_state_breakdown_bytes": {
+        "credential": 263,
+        "pairwise_root_cache": 87,
+        "last_accepted_epoch": 22,
+        "block_list": 2
+      }
+    },
+    "processing_vs_device_population": [
+      {
+        "num_devices": 100,
+        "n_trials": 50,
+        "mean_ms": 1.4880156599997463,
+        "min_ms": 1.4451509999844347,
+        "max_ms": 1.5841659999296098
+      },
+      {
+        "num_devices": 300,
+        "n_trials": 50,
+        "mean_ms": 4.407898700005717,
+        "min_ms": 4.31954400005452,
+        "max_ms": 4.516824999996061
+      },
+      {
+        "num_devices": 600,
+        "n_trials": 50,
+        "mean_ms": 8.628050120005355,
+        "min_ms": 8.402046000014707,
+        "max_ms": 8.850253000105113
+      },
+      {
+        "num_devices": 900,
+        "n_trials": 50,
+        "mean_ms": 13.244336620000468,
+        "min_ms": 12.830967000013516,
+        "max_ms": 14.173723999988397
+      },
+      {
+        "num_devices": 1200,
+        "n_trials": 50,
+        "mean_ms": 17.307952280004884,
+        "min_ms": 16.734485000029053,
+        "max_ms": 17.808421000040653
+      },
+      {
+        "num_devices": 1500,
+        "n_trials": 50,
+        "mean_ms": 21.62500280000586,
+        "min_ms": 21.183911999969496,
+        "max_ms": 22.278687999914837
+      },
+      {
+        "num_devices": 1800,
+        "n_trials": 50,
+        "mean_ms": 26.108891879998737,
+        "min_ms": 25.31311799998548,
+        "max_ms": 27.05611399994723
+      }
+    ]
+  },
+  "baselines": {
+    "communication_bits_source_paper_table_IV": {
+      "Proposed Scheme (paper-reported)": {
+        "messages": 4,
+        "user_bits": null,
+        "device_bits": 512,
+        "server_bits": 512,
+        "total_bits": 1024
+      },
+      "Porambage et al. [11]": {
+        "messages": 4,
+        "user_bits": 768,
+        "device_bits": 768,
+        "server_bits": 1824,
+        "total_bits": 3360
+      },
+      "Turkanovic et al. [12]": {
+        "messages": 4,
+        "user_bits": 672,
+        "device_bits": 576,
+        "server_bits": 1472,
+        "total_bits": 2720
+      },
+      "Dhillon and Karla [13]": {
+        "messages": 4,
+        "user_bits": 992,
+        "device_bits": 512,
+        "server_bits": 1024,
+        "total_bits": 2528
+      },
+      "Cheng and Le [14]": {
+        "messages": 4,
+        "user_bits": 672,
+        "device_bits": 512,
+        "server_bits": 1088,
+        "total_bits": 2272
+      },
+      "Jiang et al. [15]": {
+        "messages": 4,
+        "user_bits": 512,
+        "device_bits": 1056,
+        "server_bits": 384,
+        "total_bits": 1952
+      },
+      "Shuai et al. [16]": {
+        "messages": 4,
+        "user_bits": 864,
+        "device_bits": 544,
+        "server_bits": 960,
+        "total_bits": 2368
+      },
+      "Wazid et al. [17]": {
+        "messages": 4,
+        "user_bits": 736,
+        "device_bits": 512,
+        "server_bits": 1344,
+        "total_bits": 2592
+      },
+      "Sadhukhan et al. [18]": {
+        "messages": 4,
+        "user_bits": 320,
+        "device_bits": 768,
+        "server_bits": 512,
+        "total_bits": 1600
+      },
+      "Fakroon et al. [19]": {
+        "messages": 4,
+        "user_bits": 800,
+        "device_bits": 416,
+        "server_bits": 1088,
+        "total_bits": 2304
+      }
+    },
+    "computation_formulas_source_paper_table_V": {
+      "Proposed scheme (paper-reported)": {
+        "user_client": "2*TH + 2*TSE_D",
+        "device": "2*TH + 2*TSE_D",
+        "server": "4*TH + 5*TECM"
+      },
+      "Challa et al. [17]": {
+        "user_client": "1*Tfe + 5*TH + 5*TSE_D",
+        "device": "3*TH + 4*TECM",
+        "server": "4*TH + 5*TECM"
+      },
+      "Turkanovic et al. [12]": {
+        "user_client": "7*TH",
+        "device": "7*TH",
+        "server": "5*TH"
+      },
+      "Porambage et al. [11]": {
+        "user_client": "8*TH + 4*TECM",
+        "device": "10*TH + 11*TECM",
+        "server": "5*TH + 8*TECM"
+      },
+      "Dhillon and Karla [13]": {
+        "user_client": "8*TH",
+        "device": "6*TH",
+        "server": "8*TH"
+      },
+      "Cheng and Le [14]": {
+        "user_client": "9*TH + 2*TECM",
+        "device": "5*TH + 2*TECM",
+        "server": "7*TH"
+      },
+      "Shuai et al. [16]": {
+        "user_client": "6*TH + 1*TECM",
+        "device": "3*TH + 1*TECM",
+        "server": "7*TH + 1*TECM"
+      },
+      "Jiang et al. [15]": {
+        "user_client": "7*TH",
+        "device": "5*TH",
+        "server": "10*TH"
+      },
+      "Wazid et al. [17]": {
+        "user_client": "1*Tfe + 13*TH + 2*TSE_D",
+        "device": "4*TH + 2*TSE_D",
+        "server": "5*TH + 4*TSE_D"
+      },
+      "Sadhukhan et al. [18]": {
+        "user_client": "2*TH + 1*TECM + 2*TSE_D",
+        "device": "1*TH + 1*TECM + 2*TSE_D",
+        "server": "2*TH + 4*TECM"
+      }
+    },
+    "computation_ms_evaluated_with_table_III_constants": {
+      "Proposed scheme (paper-reported)": {
+        "user_client": 11.84,
+        "device": 11.84,
+        "server": 86.78
+      },
+      "Challa et al. [17]": {
+        "user_client": 46.7,
+        "device": 69.36,
+        "server": 86.78
+      },
+      "Turkanovic et al. [12]": {
+        "user_client": 2.24,
+        "device": 2.24,
+        "server": 1.6
+      },
+      "Porambage et al. [11]": {
+        "user_client": 70.96000000000001,
+        "device": 191.3,
+        "server": 138.4
+      },
+      "Dhillon and Karla [13]": {
+        "user_client": 2.56,
+        "device": 1.92,
+        "server": 2.56
+      },
+      "Cheng and Le [14]": {
+        "user_client": 37.080000000000005,
+        "device": 35.800000000000004,
+        "server": 2.24
+      },
+      "Shuai et al. [16]": {
+        "user_client": 19.020000000000003,
+        "device": 18.060000000000002,
+        "server": 19.340000000000003
+      },
+      "Jiang et al. [15]": {
+        "user_client": 2.24,
+        "device": 1.6,
+        "server": 3.2
+      },
+      "Wazid et al. [17]": {
+        "user_client": 32.46,
+        "device": 12.479999999999999,
+        "server": 24.0
+      },
+      "Sadhukhan et al. [18]": {
+        "user_client": 28.94,
+        "device": 28.62,
+        "server": 69.04
+      }
+    },
+    "storage_bytes_source_paper_table_VI": {
+      "Proposed Scheme (paper-reported)": {
+        "server_bytes": 320,
+        "device_bytes": 320
+      },
+      "Turkanovic et al. [12]": {
+        "server_bytes": 768,
+        "device_bytes": 512
+      },
+      "Dhillon and Karla [13]": {
+        "server_bytes": 640,
+        "device_bytes": 512
+      },
+      "Das et al. [20]": {
+        "server_bytes": "768+CH*",
+        "device_bytes": null
+      },
+      "Wazid et al. [17]": {
+        "server_bytes": 576,
+        "device_bytes": 512
+      },
+      "Sadhukhan et al. [18]": {
+        "server_bytes": 480,
+        "device_bytes": 356
+      },
+      "Fakroon et al. [19]": {
+        "server_bytes": 704,
+        "device_bytes": 1056
+      }
+    },
+    "table_III_constants_ms": {
+      "TECM": 17.1,
+      "TC": 0.32,
+      "TSE_D": 5.6,
+      "TH": 0.32,
+      "Tfe": 17.1
+    }
+  }
+}

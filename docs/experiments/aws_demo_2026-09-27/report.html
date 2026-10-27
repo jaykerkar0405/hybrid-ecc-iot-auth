@@ -1,0 +1,403 @@
+<title>t4g.nano Field Test</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600&display=swap">
+<style>
+:root{
+  --bg:#f5f6f7; --panel:#ffffff; --ink:#15181c; --ink-2:#4a5058; --muted:#737a84; --rule:#dde0e4; --rule-2:#eceef0;
+  --accent:#1f5fae; --code-bg:#eef0f3;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100;
+  --good:#0f7b3e; --good-bg:#e3f3e9; --warn:#9a5b00; --warn-bg:#fbeed4; --crit:#b3261e; --crit-bg:#fbe4e2;
+  --grid:#e6e8eb;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#141619; --panel:#1b1e22; --ink:#eef0f2; --ink-2:#b6bcc4; --muted:#8a919a; --rule:#2e3339; --rule-2:#24282d;
+    --accent:#7fb0ee; --code-bg:#22262b;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+    --good:#6fd39a; --good-bg:#16301f; --warn:#f0b75a; --warn-bg:#35280f; --crit:#ff8a80; --crit-bg:#3a1a18;
+    --grid:#2a2f35;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#141619; --panel:#1b1e22; --ink:#eef0f2; --ink-2:#b6bcc4; --muted:#8a919a; --rule:#2e3339; --rule-2:#24282d;
+  --accent:#7fb0ee; --code-bg:#22262b;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+  --good:#6fd39a; --good-bg:#16301f; --warn:#f0b75a; --warn-bg:#35280f; --crit:#ff8a80; --crit-bg:#3a1a18;
+  --grid:#2a2f35;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.6 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;padding-inline:16px;padding-block:32px 64px}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:44px}
+h1,h2,h3{font-family:"IBM Plex Sans Condensed","IBM Plex Sans",system-ui,sans-serif;text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:34px;font-weight:600;letter-spacing:-.01em}
+h2{font-size:23px;font-weight:600;padding-bottom:8px;border-bottom:1px solid var(--rule)}
+h3{font-size:17px;font-weight:600}
+p{margin:0;max-width:70ch}
+section{display:flex;flex-direction:column;gap:16px}
+.eyebrow{font:500 12px/1 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.lede{font-size:17px;color:var(--ink-2)}
+header{display:flex;flex-direction:column;gap:14px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 20px;font:13px/1.5 "IBM Plex Mono",ui-monospace,monospace;color:var(--ink-2)}
+code,.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.88em}
+code{background:var(--code-bg);padding:1px 5px;border-radius:3px}
+pre{margin:0;background:var(--code-bg);border-radius:6px;padding:14px 16px;overflow-x:auto;font:12.5px/1.55 "IBM Plex Mono",ui-monospace,monospace;color:var(--ink)}
+pre .c{color:var(--muted)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:8px;overflow:hidden}
+.kpi{background:var(--panel);padding:16px 18px;display:flex;flex-direction:column;gap:4px}
+.kpi b{font:500 28px/1.1 "IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.kpi b small{font-size:14px;color:var(--ink-2);margin-left:3px}
+.kpi span{font-size:13px;color:var(--ink-2);line-height:1.4}
+.tbl{overflow-x:auto;border:1px solid var(--rule);border-radius:8px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--rule-2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{font:500 12px/1.3 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);background:var(--panel)}
+td.n,th.n{text-align:right;font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+.card{background:var(--panel);border:1px solid var(--rule);border-radius:8px;padding:18px 18px 14px;display:flex;flex-direction:column;gap:12px}
+.card .cap{font-size:13px;color:var(--ink-2)}
+.chart{position:relative;width:100%}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chart text{fill:var(--muted);font:11px "IBM Plex Mono",ui-monospace,monospace}
+.chart .lbl{fill:var(--ink-2)}
+.tip{position:absolute;pointer-events:none;background:var(--panel);border:1px solid var(--rule);border-radius:6px;padding:7px 10px;font:12px/1.45 "IBM Plex Sans",sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
+.tip strong{font:500 13px "IBM Plex Mono",monospace;display:block;color:var(--ink)}
+.tip span{color:var(--ink-2)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--ink-2)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.legend i.ln{height:2px;width:16px;border-radius:1px;vertical-align:3px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.pill{display:inline-block;font:500 11px/1 "IBM Plex Mono",monospace;letter-spacing:.05em;text-transform:uppercase;padding:4px 7px;border-radius:4px;white-space:nowrap}
+.pill.good{color:var(--good);background:var(--good-bg)}
+.pill.warn{color:var(--warn);background:var(--warn-bg)}
+.pill.crit{color:var(--crit);background:var(--crit-bg)}
+.finding{border:1px solid var(--rule);border-radius:8px;background:var(--panel);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.finding .hd{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.note{border-left:3px solid var(--accent);padding:4px 0 4px 14px;color:var(--ink-2)}
+ol.steps{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:4px;max-width:75ch}
+details summary{cursor:pointer;color:var(--accent);font-weight:500}
+details[open] summary{margin-bottom:10px}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">hybrid-ecc-auth · live two-node demo · 27 Sep 2026</div>
+  <h1>Hybrid ECC authentication on two AWS t4g.nano "IoT" nodes</h1>
+  <p class="lede">The protocol from <code>hybrid-ecc-iot-auth</code> ran between a device node and a server node on the smallest Graviton instances AWS sells. Both nodes had 2 vCPUs and 512 MiB of RAM, and they talked over a real VPC network. Every number below was measured on those nodes. None of it is simulated.</p>
+  <div class="meta">
+    <span>region us-east-1a</span><span>commit 891cec5</span><span>device i-024e434183cb9cef7</span><span>server i-01436299d1ec1d86f</span>
+  </div>
+</header>
+
+<section>
+  <h2>Headline numbers</h2>
+  <div class="kpis">
+    <div class="kpi"><b>0.73<small>ms</small></b><span>median full handshake, device → server → device, over TCP (p99 1.06 ms)</span></div>
+    <div class="kpi"><b>0.11<small>ms</small></b><span>median device-side crypto per handshake (build M1 + verify M2)</span></div>
+    <div class="kpi"><b>3000<small>/3000</small></b><span>handshakes succeeded in the benchmark loops, each with a unique session key</span></div>
+    <div class="kpi"><b>352<small>B</small></b><span>protocol messages per handshake (M1 216 B + M2 136 B, JSON+base64); 409 B of TCP payload with framing</span></div>
+    <div class="kpi"><b>30<small>MB</small></b><span>device process peak RSS (CPython + OpenSSL); server 27 MB</span></div>
+  </div>
+  <p class="note">Short version: on this hardware the protocol is very cheap, and TCP dominates the latency. Three implementation issues turned up during the demo. Each would matter on real IoT devices; see <a href="#findings">Findings</a>.</p>
+</section>
+
+<section>
+  <h2>Testbed</h2>
+  <div class="tbl"><table>
+    <tr><th>Item</th><th>Device node</th><th>Server node</th></tr>
+    <tr><td>Instance</td><td class="mono">t4g.nano · i-024e434183cb9cef7</td><td class="mono">t4g.nano · i-01436299d1ec1d86f</td></tr>
+    <tr><td>Private IP / AZ</td><td class="mono">172.31.14.197 · us-east-1a</td><td class="mono">172.31.14.202 · us-east-1a</td></tr>
+    <tr><td>CPU</td><td colspan="2">2 vCPU Graviton2 (Arm Neoverse-N1, 2.5 GHz), with AES / PMULL / SHA-2 instructions. Burstable; the credit mode was <code>unlimited</code> (the t4g default), so no throttling occurred.</td></tr>
+    <tr><td>Memory</td><td colspan="2">512 MiB nominal, 412 MiB visible to the OS, plus a 1 GiB swapfile added in user-data. Swap sat at about 30 MiB used throughout.</td></tr>
+    <tr><td>OS / kernel</td><td colspan="2" class="mono">Amazon Linux 2023.12.20260918 · 6.18.48 aarch64 · AMI ami-0eb45f74aa8a20238</td></tr>
+    <tr><td>Runtime</td><td colspan="2" class="mono">CPython 3.11.16 · cryptography 50.0.1 · OpenSSL 4.0.2</td></tr>
+    <tr><td>Network baseline</td><td colspan="2">ICMP ping 0.32 ms avg (50 pings). A framed TCP echo of 216 B took 0.49 ms median / 1.06 ms p99 over 2,000 rounds, with a new connection each round.</td></tr>
+    <tr><td>Provisioning</td><td colspan="2">AWS CLI, profile <code>myfit</code>. SSH was open only to the operator IP; all traffic was allowed inside the SG. Code shipped via <code>git archive HEAD</code>. <code>pip install -e ".[dev,bench]"</code> took 15 s with 122 MB peak RSS.</td></tr>
+  </table></div>
+</section>
+
+<section>
+  <h2>What was run</h2>
+  <ol class="steps">
+    <li>Full test suite on the device node: <b>108 passed in 10.8 s</b>, 97% coverage of <code>protocol/</code> + <code>crypto/</code>. The 10,000-trial key-agreement property test took 5.0 s.</li>
+    <li>Offline TA enrollment with <code>hea-ta</code> on the device node: one server and seven device identities, in 0.08 s and 25 MB RSS. The server credential was copied to the server node; the TA master secret never left the device node.</li>
+    <li><code>hea-server</code> on the server node, bound to <code>0.0.0.0:8443</code>, plus a framed TCP echo server on :9000 for the network baseline.</li>
+    <li>CLI walkthrough: a successful authentication, an adversarial replay, and cold-start timings.</li>
+    <li>Handshake loops from one long-lived <code>Device</code>: 2,000 handshakes on both cores, then 1,000 pinned to one core with <code>taskset -c 0</code>. Each handshake opened a new TCP connection, as the CLI does.</li>
+    <li>Security scenarios over the network: bit-flip tampering, the block-list, device restart, server restart, and a stolen credential.</li>
+    <li>The repo's own paper-scale benchmark (<code>bench.harness --full</code>) on both nodes.</li>
+  </ol>
+</section>
+
+<section>
+  <h2>Handshake latency</h2>
+  <div class="card">
+    <h3>Where a median handshake's 0.73 ms goes</h3>
+    <div class="chart" id="bd"></div>
+    <div class="tbl" style="border:0"><table>
+      <tr><th>Segment</th><th class="n">Median</th><th>Source</th></tr>
+      <tr><td><i style="display:inline-block;width:10px;height:10px;border-radius:2px;background:var(--s1);margin-right:8px"></i>Device builds M1</td><td class="n">0.041 ms</td><td>device timer around <code>build_auth_request</code></td></tr>
+      <tr><td><i style="display:inline-block;width:10px;height:10px;border-radius:2px;background:var(--s2);margin-right:8px"></i>TCP connect + transfer</td><td class="n">0.489 ms</td><td>framed echo baseline, same size, same path</td></tr>
+      <tr><td><i style="display:inline-block;width:10px;height:10px;border-radius:2px;background:var(--s3);margin-right:8px"></i>Server processing</td><td class="n">0.128 ms</td><td>round trip minus echo baseline. The server's own log gives <code>handle_auth_request</code> p50 0.132 ms.</td></tr>
+      <tr><td><i style="display:inline-block;width:10px;height:10px;border-radius:2px;background:var(--s4);margin-right:8px"></i>Device verifies M2 + derives key</td><td class="n">0.067 ms</td><td>device timer around <code>complete_auth</code></td></tr>
+    </table></div>
+    <p class="cap">About 67% of the handshake is the TCP round trip. The device's cryptographic work is about 15%.</p>
+  </div>
+
+  <div class="tbl"><table>
+    <tr><th>Metric (ms)</th><th class="n">mean</th><th class="n">p50</th><th class="n">p95</th><th class="n">p99</th><th class="n">max</th><th class="n">1-core p50</th><th class="n">1-core p99</th></tr>
+    <tr><td>Device: build M1</td><td class="n">0.043</td><td class="n">0.041</td><td class="n">0.057</td><td class="n">0.070</td><td class="n">0.138</td><td class="n">0.042</td><td class="n">0.075</td></tr>
+    <tr><td>Network round trip incl. server</td><td class="n">0.640</td><td class="n">0.617</td><td class="n">0.804</td><td class="n">0.917</td><td class="n">3.301</td><td class="n">0.670</td><td class="n">1.033</td></tr>
+    <tr><td>Device: verify M2 + KDF</td><td class="n">0.071</td><td class="n">0.067</td><td class="n">0.100</td><td class="n">0.131</td><td class="n">0.169</td><td class="n">0.069</td><td class="n">0.106</td></tr>
+    <tr><td><b>End-to-end handshake</b></td><td class="n"><b>0.754</b></td><td class="n"><b>0.728</b></td><td class="n"><b>0.931</b></td><td class="n"><b>1.059</b></td><td class="n"><b>3.529</b></td><td class="n"><b>0.791</b></td><td class="n"><b>1.179</b></td></tr>
+    <tr><td>Device crypto total</td><td class="n">0.114</td><td class="n">0.109</td><td class="n">0.152</td><td class="n">0.188</td><td class="n">0.251</td><td class="n">0.112</td><td class="n">0.168</td></tr>
+    <tr><td>Server <code>handle_auth_request</code> (server log)</td><td class="n">0.136</td><td class="n">0.132</td><td class="n">0.163</td><td class="n">0.194</td><td class="n">0.337</td><td class="n">0.131</td><td class="n">0.183</td></tr>
+  </table></div>
+  <p class="cap" style="font-size:13px;color:var(--ink-2)">Main columns: n = 2,000 on 2 cores (1,326 handshakes/s sequential). 1-core columns: n = 1,000 with the device pinned to core 0 (1,233 handshakes/s). There were 20 warm-up handshakes, excluded, and zero failures. Pinning to one core costs only about 60 µs per handshake, because the device workload is single-threaded anyway.</p>
+
+  <div class="two">
+    <div class="card">
+      <h3>End-to-end latency distribution</h3>
+      <div class="chart" id="hist"></div>
+      <p class="cap">2,000 handshakes in 50 µs bins. The long tail comes from the network. The TCP echo baseline has the same shape, with a max of 3.68 ms.</p>
+    </div>
+    <div class="card">
+      <h3>CLI cold start (<code>hea-device authenticate</code>)</h3>
+      <div class="tbl" style="border:0"><table>
+        <tr><th>Run</th><th class="n">Reported RTT</th><th class="n">Wall</th><th class="n">Peak RSS</th></tr>
+        <tr><td>device-cli-01 (first)</td><td class="n">4.63 ms</td><td class="n">0.10 s</td><td class="n">27.8 MB</td></tr>
+        <tr><td>device-cli-02</td><td class="n">2.53 ms</td><td class="n">0.10 s</td><td class="n">27.8 MB</td></tr>
+        <tr><td>device-cli-03</td><td class="n">2.54 ms</td><td class="n">0.10 s</td><td class="n">27.7 MB</td></tr>
+        <tr><td>device-cli-04</td><td class="n">2.62 ms</td><td class="n">0.10 s</td><td class="n">27.9 MB</td></tr>
+        <tr><td>Python import only</td><td class="n">n/a</td><td class="n">0.08 s</td><td class="n">25.2 MB</td></tr>
+      </table></div>
+      <p class="cap">A fresh process sees about 2.5 ms round trip versus 0.62 ms warm, from first-connection and lazy-import costs. Interpreter startup dominates the 100 ms wall time.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Server cost vs. enrolled-device population</h2>
+  <div class="card">
+    <div class="legend"><span><i class="ln" style="background:var(--s1)"></i>Device node</span><span><i class="ln" style="background:var(--s2)"></i>Server node</span></div>
+    <div class="chart" id="pop"></div>
+    <p class="cap">Mean <code>handle_auth_request</code> latency, 50 trials per point, probing the last-enrolled device. Source: <code>bench.harness --full</code> on each node.</p>
+  </div>
+  <p>Cost grows linearly at about <b>13 µs per enrolled device</b>. <code>Server.resolve_pseudonym</code> scans every peer, and for each peer it hashes 8–25 candidate epochs to find the incoming pseudonym. At 1,800 devices one authentication costs 23.5–26.1 ms, so on compute alone a single-threaded t4g.nano server tops out at <b>about 40 authentications per second</b>, against about 13,000 per second with one peer. Both figures are compute-only ceilings from <code>handle_auth_request</code> time. The measured end-to-end rate with seven peers was about 1,300 handshakes per second, limited by the sequential client and TCP. The paper's per-operation model ignores this lookup, and it is the dominant server cost at IoT scale. An index from the expected next PID to its peer would make it O(1).</p>
+  <div class="tbl"><table>
+    <tr><th class="n">Devices</th><th class="n">100</th><th class="n">300</th><th class="n">600</th><th class="n">900</th><th class="n">1200</th><th class="n">1500</th><th class="n">1800</th></tr>
+    <tr><td>Device node, ms</td><td class="n">1.36</td><td class="n">4.00</td><td class="n">7.93</td><td class="n">11.80</td><td class="n">15.73</td><td class="n">19.62</td><td class="n">23.51</td></tr>
+    <tr><td>Server node, ms</td><td class="n">1.49</td><td class="n">4.41</td><td class="n">8.63</td><td class="n">13.24</td><td class="n">17.31</td><td class="n">21.63</td><td class="n">26.11</td></tr>
+  </table></div>
+</section>
+
+<section>
+  <h2>Security behavior over the network</h2>
+  <div class="tbl"><table>
+    <tr><th>Scenario</th><th>Server response</th><th>Result</th></tr>
+    <tr><td>Replay a captured M1 (<code>--replay-last</code>)</td><td class="mono">ReplayDetected: reuses stale epoch 0</td><td><span class="pill good">as designed</span></td></tr>
+    <tr><td>Flip one ciphertext bit, attempts 1–3</td><td class="mono">IntegrityError: mu_1 verification failed</td><td><span class="pill good">as designed</span></td></tr>
+    <tr><td>Tampered attempt 4, then a legitimate request</td><td class="mono">BlockedEntity: block-listed after repeated failed attempts</td><td><span class="pill good">as designed</span></td></tr>
+    <tr><td>Legitimate device runs the CLI a second time</td><td class="mono">ReplayDetected: reuses stale epoch 0</td><td><span class="pill crit">false reject</span></td></tr>
+    <tr><td>Device process restarts after 2,020 sessions</td><td class="mono">UnknownPeerError: did not resolve to any known, in-window peer (1,020 of 1,020 attempts)</td><td><span class="pill crit">locked out</span></td></tr>
+    <tr><td>Replay an M1 captured before a server restart</td><td class="mono">accepted (CLI: &ldquo;server unexpectedly accepted the replayed M1&rdquo;)</td><td><span class="pill crit">replay accepted</span></td></tr>
+    <tr><td>Blocked device, after a server restart</td><td class="mono">accepted</td><td><span class="pill warn">block lost</span></td></tr>
+    <tr><td>Attacker with only device-001's credential poses as device-cli-05</td><td class="mono">accepted, peer_identity = device-cli-05</td><td><span class="pill crit">impersonation</span></td></tr>
+  </table></div>
+  <p class="cap" style="font-size:13px;color:var(--ink-2)">Server-side rejection costs: <code>UnknownPeerError</code> 0.16 ms p50 (n = 1,020), and a replay rejection completed in 2.3 ms round trip from a cold CLI.</p>
+</section>
+
+<section id="findings">
+  <h2>Findings</h2>
+
+  <div class="finding">
+    <div class="hd"><span class="pill crit">high</span><h3>The device epoch lives only in memory, so a reboot locks the device out</h3></div>
+    <p><code>Device._epoch</code> is a plain dict (<code>protocol/device.py</code>) that is never saved to the credential store. Every new process starts at epoch 0. There were two failure modes on the testbed:</p>
+    <p>(a) <b>Early restart.</b> The server has already accepted epoch 0, so the next request gets <code>ReplayDetected</code>. The README's quick start works only because the second call is the replay demo. Running <code>hea-device authenticate</code> twice fails the second time.</p>
+    <p>(b) <b>Restart after many sessions.</b> The server's window is <code>[last − 16, last + 8]</code>. After 2,020 sessions, epoch 0 falls outside it, and all 1,020 retry attempts on the testbed got <code>UnknownPeerError</code>. Recovery depends on how the device retries. <code>build_auth_request</code> advances the epoch even on rejected attempts, so a long-lived process catches up after roughly as many rejections as it had accepted sessions: about 2,020 here, or about 5 s of back-to-back retries. The one-process-per-attempt CLI never catches up and stays locked out until the server restarts. Rejections of this kind never count toward the block-list. On a real deployment with months of sessions, a power-cycled node would have to send thousands to millions of rejected requests to get back in.</p>
+    <p><b>Fix:</b> persist the per-peer epoch (write it before sending M1), or let the server resync with a time-based epoch.</p>
+  </div>
+
+  <div class="finding">
+    <div class="hd"><span class="pill crit">high</span><h3><code>hea-ta enroll</code> gives every device every other device's long-term secret</h3></div>
+    <p><code>TrustedAuthority.share_mutual_peer_keys</code> distributes keys as a full mesh. device-001's credential therefore holds λ for all six other devices and for server-A. Since <code>k*_ij = KDF(λ_device ‖ λ_server)</code>, anyone who extracts one device's file can derive any other device's pairwise key and pseudonyms. On the testbed, <code>impersonate.py</code> read only <code>device-001.json</code> and completed a full handshake as <b>device-cli-05</b>. server-A logged <code>"outcome": "accepted", "peer_identity": "device-cli-05"</code>.</p>
+    <p><b>Fix:</b> devices should receive only server λ values, and servers only device λ values. Each credential file also grows linearly with the mesh (836 B for 7 peers versus the 263 B the bench's storage model assumes for one peer).</p>
+  </div>
+
+  <div class="finding">
+    <div class="hd"><span class="pill warn">medium</span><h3>Block-list and replay window are lost on server restart</h3></div>
+    <p><code>SessionLog</code> is memory-only. device-tamper was blocked after three forged attempts, yet authenticated successfully after <code>hea-server</code> restarted. The replay window resets too. On the testbed, device-cli-01's M1 captured before the restart was rejected as a replay before it, and <b>accepted</b> after it. An M1 whose epoch is still within the new window (0–7 for a peer the server has not seen since restarting) can be replayed once. The attacker gets no usable session key, because that needs <code>k*</code>. But the server treats the stale request as a fresh authentication and advances that peer's epoch.</p>
+  </div>
+
+  <div class="finding">
+    <div class="hd"><span class="pill warn">medium</span><h3>Server lookup cost is O(devices × epoch window)</h3></div>
+    <p>See the population chart above: about 13 µs per enrolled device, reaching 23.5 ms per authentication at 1,800 devices on a t4g.nano. The single-connection accept loop in <code>hea-server</code> means that cost directly limits throughput.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Comparing with the paper</h2>
+  <p>The repo's benchmark summary reports a "99.9% processing reduction" (0.118 ms measured vs. 78.7 ms baseline mean). <b>That comparison is not meaningful.</b> The baseline values come from the paper's Table III constants for constrained embedded hardware (e.g. <code>T_ECM = 17.1 ms</code>, <code>T_SE/D = 5.6 ms</code>, <code>T_H = 0.32 ms</code>). Our figure is OpenSSL on an Arm core with dedicated AES and SHA-2 instructions. The repo's own methodology note says this too.</p>
+  <p>What this test does support: the online phase uses only symmetric operations (AES-256-GCM, HKDF-SHA256, SHA-256). That is why it costs about 0.1 ms of device CPU here and needs no elliptic-curve math per session. Communication is 182 B of raw protocol fields (352 B as JSON messages, 409 B of TCP payload with framing), against a paper-reported baseline mean of 301 B.</p>
+  <p>A t4g.nano still differs from a real IoT part. It has about 100× the RAM of a typical MCU, a 64-bit core at 2.5 GHz, and hardware crypto. On an 8/16-bit MCU without AES acceleration, expect device crypto one to three orders of magnitude slower. The shape of the results, with symmetric-only rounds and the server lookup dominating at scale, should carry over.</p>
+  <div class="tbl"><table>
+    <tr><th>Repo bench (<code>--full</code>, 1,000 trials)</th><th class="n">Device node</th><th class="n">Server node</th></tr>
+    <tr><td>Device build + complete, warm (1 peer)</td><td class="n">0.045 ms</td><td class="n">0.048 ms</td></tr>
+    <tr><td>Server handle_auth_request, warm (1 peer)</td><td class="n">0.073 ms</td><td class="n">0.078 ms</td></tr>
+    <tr><td>Device total, cold (pairwise root re-derived)</td><td class="n">0.053 ms</td><td class="n">0.056 ms</td></tr>
+    <tr><td>Server total, cold</td><td class="n">0.079 ms</td><td class="n">0.085 ms</td></tr>
+    <tr><td>Harness wall time / peak RSS (includes matplotlib)</td><td class="n">7.2 s / 166 MB</td><td class="n">8.3 s / 166 MB</td></tr>
+  </table></div>
+</section>
+
+<section>
+  <h2>Transcripts</h2>
+  <details><summary>CLI demo on the device node</summary>
+<pre><span class="c">$ hea-device authenticate --credential creds/device-cli-01.json --server-id server-A --server-addr 172.31.14.202:8443</span>
+Mutual authentication succeeded with 'server-A'.
+  session key fingerprint: 7d073a52e47117c3 (SHA-256[:16] of K_ij,t -- never the raw key)
+  round-trip latency: 4.627 ms
+<span class="c">$ hea-device authenticate ... --replay-last</span>
+[replay-demo] resending previously captured M1 (216 bytes) to 172.31.14.202:8443 ...
+REJECTED by server: ReplayDetected: pseudonym for 'device-cli-01' reuses stale epoch 0 (round-trip 2.338 ms)
+[replay-demo] rejection confirms the server's freshness check is working as intended.
+<span class="c">$ hea-device authenticate --credential creds/device-cli-01.json ...   # legitimate 2nd run</span>
+REJECTED by server: ReplayDetected: pseudonym for 'device-cli-01' reuses stale epoch 0 (round-trip 2.448 ms)</pre>
+  </details>
+  <details><summary>Tamper, block-list, restart and impersonation</summary>
+<pre><span class="c">$ python netbench.py tamper --credential creds/device-tamper.json -n 4</span>
+{"ok": false, "error_type": "IntegrityError", "message": "mu_1 verification failed for device-tamper"}
+{"ok": false, "error_type": "IntegrityError", "message": "mu_1 verification failed for device-tamper"}
+{"ok": false, "error_type": "IntegrityError", "message": "mu_1 verification failed for device-tamper"}
+{"ok": false, "error_type": "BlockedEntity", "message": "device-tamper is block-listed after repeated failed attempts"}
+<span class="c">$ hea-device authenticate --credential creds/device-tamper.json ...</span>
+REJECTED by server: BlockedEntity: device-tamper is block-listed after repeated failed attempts (round-trip 2.578 ms)
+<span class="c"># device-001 restarted (new process) after 2,020 accepted sessions</span>
+REJECTED by server: UnknownPeerError: pseudonym did not resolve to any known, in-window peer (round-trip 2.477 ms)
+<span class="c"># ---- hea-server restarted ----</span>
+<span class="c">$ hea-device authenticate --credential creds/device-tamper.json ...</span>
+Mutual authentication succeeded with 'server-A'.
+<span class="c">$ python impersonate.py      # uses only creds/device-001.json</span>
+attacker holds credential for 'device-001'; peer lambdas present: ['device-cli-01', ..., 'device-cli-05', 'device-tamper', 'server-A']
+server response ok = True
+IMPERSONATION SUCCEEDED: server-A accepted the attacker as 'device-cli-05' and a session key was agreed.
+<span class="c">$ hea-device authenticate --credential creds/device-cli-01.json ... --replay-last   # M1 captured before the restart</span>
+[replay-demo] resending previously captured M1 (216 bytes) to 172.31.14.202:8443 ...
+warning: server unexpectedly accepted the replayed M1 -- cannot complete the handshake (no local session state for a replayed request). This indicates a freshness-check regression.
+<span class="c"># server.log</span>
+{"event": "auth_attempt", "outcome": "accepted", "peer_identity": "device-cli-05", "latency_ms": 0.3975, "peer_addr": "('172.31.14.197', 57426)"}</pre>
+  </details>
+  <details><summary>Server log tallies</summary>
+<pre>Run 1 (before restart): accepted 2024 · UnknownPeerError 1020 · IntegrityError 3 · ReplayDetected 2 · BlockedEntity 2
+Run 2 (after restart):  accepted 1024 (incl. replayed device-cli-01 M1) · UnknownPeerError 1</pre>
+  </details>
+</section>
+
+<section>
+  <h2>Reproduce and tear down</h2>
+<pre><span class="c"># provisioning used (profile myfit, us-east-1a, default VPC)</span>
+aws ec2 run-instances --image-id resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-arm64 \
+  --instance-type t4g.nano --key-name hea-iot-demo --security-group-ids sg-078388a5d11a1fd50 \
+  --subnet-id subnet-04aef235a2c971fbf --user-data file://userdata.sh   <span class="c"># 1 GiB swap + python3.11</span>
+
+<span class="c"># teardown</span>
+aws ec2 terminate-instances --profile myfit --region us-east-1 --instance-ids i-024e434183cb9cef7 i-01436299d1ec1d86f
+aws ec2 wait instance-terminated --profile myfit --region us-east-1 --instance-ids i-024e434183cb9cef7 i-01436299d1ec1d86f
+aws ec2 delete-security-group --profile myfit --region us-east-1 --group-id sg-078388a5d11a1fd50
+aws ec2 delete-key-pair --profile myfit --region us-east-1 --key-name hea-iot-demo</pre>
+  <p class="cap" style="font-size:13px;color:var(--ink-2)">Cost: t4g.nano is $0.0042/h on demand, so the two nodes cost about $0.01 per hour plus 2 × 8 GB gp3. The harness scripts (<code>netbench.py</code>, <code>impersonate.py</code>) and every raw JSON/CSV/log were saved next to this report.</p>
+</section>
+</div>
+
+<script>
+(function(){
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const NS = "http://www.w3.org/2000/svg";
+  function el(tag, attrs, parent){ const e=document.createElementNS(NS,tag); for(const k in attrs) e.setAttribute(k,attrs[k]); if(parent) parent.appendChild(e); return e; }
+  function tipFor(box){ const t=document.createElement("div"); t.className="tip"; t.hidden=true; box.appendChild(t); return t; }
+  function showTip(t, box, x, y, value, label){
+    t.replaceChildren(); const s=document.createElement("strong"); s.textContent=value; const sp=document.createElement("span"); sp.textContent=label; t.append(s,sp); t.hidden=false;
+    const bw=box.clientWidth, tw=t.offsetWidth; t.style.left=Math.max(0,Math.min(bw-tw,x-tw/2))+"px"; t.style.top=(y-t.offsetHeight-10)+"px";
+  }
+
+  // --- breakdown bar
+  function breakdown(){
+    const box=document.getElementById("bd"); box.replaceChildren();
+    const segs=[["Device builds M1",0.041,"--s1"],["TCP connect + transfer",0.489,"--s2"],["Server processing",0.128,"--s3"],["Device verifies M2 + KDF",0.067,"--s4"]];
+    const W=900,H=64,total=segs.reduce((a,s)=>a+s[1],0);
+    const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img","aria-label":"Stacked bar of median handshake time by segment"},box);
+    const tip=tipFor(box); let x=0;
+    segs.forEach(s=>{
+      const w=s[1]/total*W;
+      const r=el("rect",{x:x+1,y:8,width:Math.max(1,w-2),height:28,rx:3,fill:css(s[2]),tabindex:0},svg);
+      const cx=x+w/2;
+      const f=()=>{ const bb=box.getBoundingClientRect(), sc=bb.width/W; showTip(tip,box,cx*sc,8*sc,s[1].toFixed(3)+" ms",s[0]+" · "+(s[1]/total*100).toFixed(0)+"%"); r.setAttribute("opacity",.8); };
+      const o=()=>{ tip.hidden=true; r.removeAttribute("opacity"); };
+      r.addEventListener("pointermove",f); r.addEventListener("focus",f); r.addEventListener("pointerleave",o); r.addEventListener("blur",o);
+      x+=w;
+    });
+    [0,0.2,0.4,0.6].forEach(v=>{ const tx=v/total*W; el("line",{x1:tx,x2:tx,y1:40,y2:44,stroke:css("--muted")},svg); const t=el("text",{x:tx,y:58,"text-anchor":v===0?"start":"middle"},svg); t.textContent=v.toFixed(1)+" ms"; });
+    const te=el("text",{x:W,y:58,"text-anchor":"end",class:"lbl"},svg); te.textContent=total.toFixed(3)+" ms";
+  }
+
+  // --- histogram
+  function hist(){
+    const box=document.getElementById("hist"); box.replaceChildren();
+    const bins=[110,542,553,354,175,119,69,42,14,9,3,0,1,9];
+    const W=440,H=220,L=40,R=8,T=10,B=34, pw=W-L-R, ph=H-T-B, max=600;
+    const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img","aria-label":"Histogram of end-to-end handshake latency"},box);
+    const tip=tipFor(box);
+    [0,200,400,600].forEach(v=>{ const y=T+ph-v/max*ph; el("line",{x1:L,x2:W-R,y1:y,y2:y,stroke:css("--grid")},svg); const t=el("text",{x:L-6,y:y+4,"text-anchor":"end"},svg); t.textContent=v; });
+    const bw=pw/bins.length;
+    bins.forEach((c,i)=>{
+      const h=c/max*ph, x=L+i*bw, y=T+ph-h;
+      const lo=(0.60+i*0.05).toFixed(2), label=i===bins.length-1?"≥ 1.25 ms":`${lo}–${(0.65+i*0.05).toFixed(2)} ms`;
+      if(c>0) el("rect",{x:x+1,y:y,width:bw-2,height:Math.max(h,1.5),rx:2,fill:css("--s1")},svg);
+      const hit=el("rect",{x:x,y:T,width:bw,height:ph,fill:"transparent",tabindex:0},svg);
+      const f=()=>{ const bb=box.getBoundingClientRect(), sc=bb.width/W; showTip(tip,box,(x+bw/2)*sc,Math.min(y,T+ph-20)*sc,c+" handshakes",label); };
+      hit.addEventListener("pointermove",f); hit.addEventListener("focus",f); hit.addEventListener("pointerleave",()=>tip.hidden=true); hit.addEventListener("blur",()=>tip.hidden=true);
+    });
+    el("line",{x1:L,x2:W-R,y1:T+ph,y2:T+ph,stroke:css("--muted")},svg);
+    [[0,"0.60"],[4,"0.80"],[8,"1.00"],[12,"1.20"]].forEach(([i,s])=>{ const t=el("text",{x:L+i*bw,y:T+ph+15,"text-anchor":"middle"},svg); t.textContent=s; });
+    const ax=el("text",{x:L+pw/2,y:H-4,"text-anchor":"middle"},svg); ax.textContent="end-to-end handshake, ms";
+  }
+
+  // --- population line chart
+  function pop(){
+    const box=document.getElementById("pop"); box.replaceChildren();
+    const xs=[100,300,600,900,1200,1500,1800];
+    const series=[["Device node","--s1",[1.363,4.002,7.934,11.799,15.729,19.616,23.512]],["Server node","--s2",[1.488,4.408,8.628,13.244,17.308,21.625,26.109]]];
+    const W=900,H=300,L=46,R=100,T=12,B=36,pw=W-L-R,ph=H-T-B,xmax=1800,ymax=30;
+    const sx=v=>L+v/xmax*pw, sy=v=>T+ph-v/ymax*ph;
+    const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img","aria-label":"Line chart of server authentication latency versus enrolled devices"},box);
+    const tip=tipFor(box);
+    [0,10,20,30].forEach(v=>{ el("line",{x1:L,x2:L+pw,y1:sy(v),y2:sy(v),stroke:css("--grid")},svg); const t=el("text",{x:L-8,y:sy(v)+4,"text-anchor":"end"},svg); t.textContent=v+" ms"; });
+    [0,300,600,900,1200,1500,1800].forEach(v=>{ const t=el("text",{x:sx(v),y:T+ph+18,"text-anchor":"middle"},svg); t.textContent=v; });
+    const ax=el("text",{x:L+pw/2,y:H-2,"text-anchor":"middle"},svg); ax.textContent="enrolled devices";
+    el("line",{x1:L,x2:L+pw,y1:sy(0),y2:sy(0),stroke:css("--muted")},svg);
+    series.forEach(([name,c,ys],k)=>{
+      el("polyline",{points:xs.map((x,i)=>sx(x)+","+sy(ys[i])).join(" "),fill:"none",stroke:css(c),"stroke-width":2,"stroke-linejoin":"round"},svg);
+      xs.forEach((x,i)=>el("circle",{cx:sx(x),cy:sy(ys[i]),r:4,fill:css(c),stroke:css("--panel"),"stroke-width":2},svg));
+      const t=el("text",{x:sx(1800)+10,y:sy(ys[6])+(k===0?12:-4),class:"lbl"},svg); t.textContent=name+" "+ys[6].toFixed(1);
+    });
+    const cross=el("line",{y1:T,y2:T+ph,stroke:css("--muted"),"stroke-dasharray":"3 3",visibility:"hidden"},svg);
+    const hit=el("rect",{x:L,y:T,width:pw,height:ph,fill:"transparent",tabindex:0},svg);
+    let fi=6;
+    const at=i=>{ const x=xs[i]; cross.setAttribute("x1",sx(x)); cross.setAttribute("x2",sx(x)); cross.setAttribute("visibility","visible");
+      const bb=box.getBoundingClientRect(), sc=bb.width/W; showTip(tip,box,sx(x)*sc,sy(series[1][2][i])*sc,`${series[0][2][i].toFixed(2)} / ${series[1][2][i].toFixed(2)} ms`,`${x} devices · device node / server node`); };
+    hit.addEventListener("pointermove",e=>{ const bb=box.getBoundingClientRect(); const vx=(e.clientX-bb.left)/bb.width*W; let best=0; xs.forEach((x,i)=>{ if(Math.abs(sx(x)-vx)<Math.abs(sx(xs[best])-vx)) best=i; }); at(best); });
+    hit.addEventListener("focus",()=>at(fi));
+    hit.addEventListener("keydown",e=>{ if(e.key==="ArrowRight"){fi=Math.min(6,fi+1);at(fi);} if(e.key==="ArrowLeft"){fi=Math.max(0,fi-1);at(fi);} });
+    const off=()=>{ tip.hidden=true; cross.setAttribute("visibility","hidden"); };
+    hit.addEventListener("pointerleave",off); hit.addEventListener("blur",off);
+  }
+
+  function draw(){ breakdown(); hist(); pop(); }
+  draw();
+  if (window.matchMedia) matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change",draw);
+  new MutationObserver(draw).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
+})();
+</script>

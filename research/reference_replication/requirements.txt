@@ -1,0 +1,8 @@
+matplotlib==3.11.2
+numpy==2.4.6
+pymupdf==2.0
+pytest==9.1.1
+PyYAML==6.0.3
+simpy==4.1.2
+markdown==3.11.1
+reportlab==5.0.1

@@ -6,4 +6,15 @@ __pycache__/
 .coverage
 htmlcov/
 bench_output/
+bench_output_*/
+creds/
+manifest.json
 *.last_m1
+
+# firmware
+firmware/esp8266/include/config.h
+firmware/esp8266/.creds/
+firmware/esp8266/.pio/
+firmware/esp8266/host/.bearssl/
+firmware/esp8266/host/host_test
+firmware/esp8266/host/prim_bench

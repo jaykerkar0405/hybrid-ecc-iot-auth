@@ -1,0 +1,27 @@
+Generated a new TA master secret and saved it to creds/ta_master_secret.hex (0600). This file is TA-only and must never be distributed to devices/servers.
+Enrolled 'server-A' (role=server) -> creds/server-A.json
+Enrolled 'device-001' (role=device) -> creds/device-001.json
+Enrolled 'device-cli-01' (role=device) -> creds/device-cli-01.json
+Enrolled 'device-cli-02' (role=device) -> creds/device-cli-02.json
+Enrolled 'device-cli-03' (role=device) -> creds/device-cli-03.json
+Enrolled 'device-cli-04' (role=device) -> creds/device-cli-04.json
+Enrolled 'device-cli-05' (role=device) -> creds/device-cli-05.json
+Enrolled 'device-tamper' (role=device) -> creds/device-tamper.json
+
+8 entities enrolled and cross-issued peer keys. Offline phase complete -- no network I/O occurred.
+[time] wall=0.08s maxrss=25412KB
+total 68
+drwxrwxr-x. 2 ec2-user ec2-user 16384 Sep 27 07:53 .
+drwxrwxr-x. 9 ec2-user ec2-user 16384 Sep 27 07:53 ..
+-rw-------. 1 ec2-user ec2-user   836 Sep 27 07:53 device-001.json
+-rw-------. 1 ec2-user ec2-user   836 Sep 27 07:53 device-cli-01.json
+-rw-------. 1 ec2-user ec2-user   836 Sep 27 07:53 device-cli-02.json
+-rw-------. 1 ec2-user ec2-user   836 Sep 27 07:53 device-cli-03.json
+-rw-------. 1 ec2-user ec2-user   836 Sep 27 07:53 device-cli-04.json
+-rw-------. 1 ec2-user ec2-user   836 Sep 27 07:53 device-cli-05.json
+-rw-------. 1 ec2-user ec2-user   836 Sep 27 07:53 device-tamper.json
+-rw-------. 1 ec2-user ec2-user   836 Sep 27 07:53 server-A.json
+-rw-------. 1 ec2-user ec2-user    64 Sep 27 07:53 ta_master_secret.hex
+ 836 creds/server-A.json
+ 836 creds/device-001.json
+1672 total

@@ -1,0 +1,25 @@
+{
+ "mode": "tamper",
+ "responses": [
+  {
+   "ok": false,
+   "error_type": "IntegrityError",
+   "message": "mu_1 verification failed for device-tamper"
+  },
+  {
+   "ok": false,
+   "error_type": "IntegrityError",
+   "message": "mu_1 verification failed for device-tamper"
+  },
+  {
+   "ok": false,
+   "error_type": "IntegrityError",
+   "message": "mu_1 verification failed for device-tamper"
+  },
+  {
+   "ok": false,
+   "error_type": "BlockedEntity",
+   "message": "device-tamper is block-listed after repeated failed attempts"
+  }
+ ]
+}

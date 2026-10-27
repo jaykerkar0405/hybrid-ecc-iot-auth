@@ -1,0 +1,537 @@
+constant_set,pool,proposed_reading,column,definition,pct_reduction
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs best,-516.67
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs mean,67.83
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs median,36.68
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs worst,92.82
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs best,-805.19
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs mean,52.78
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs median,7.06
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs worst,89.46
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs best,-626.03
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs mean,62.13
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs median,25.46
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs worst,91.54
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs best,-788.53
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs mean,53.65
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs median,8.77
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs worst,89.65
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V1 Table V as printed,all roles,vs best,-289.47
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V1 Table V as printed,all roles,vs mean,76.44
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V1 Table V as printed,all roles,vs median,65.65
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V1 Table V as printed,all roles,vs worst,94.09
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs best,-471.7
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs mean,65.42
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs median,49.58
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs worst,91.32
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs best,-358.54
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs mean,72.27
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs median,59.56
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs worst,93.04
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs best,-461.17
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs mean,66.06
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs median,50.51
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs worst,91.48
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V1 Table V as printed,dev+srv,vs best,-516.67
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V1 Table V as printed,dev+srv,vs mean,69.76
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V1 Table V as printed,dev+srv,vs median,36.99
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V1 Table V as printed,dev+srv,vs worst,92.82
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V2 Table V + session KDF,dev+srv,vs best,-805.19
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V2 Table V + session KDF,dev+srv,vs mean,55.61
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V2 Table V + session KDF,dev+srv,vs median,7.51
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V2 Table V + session KDF,dev+srv,vs worst,89.46
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs best,-626.03
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs mean,64.4
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs median,25.81
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs worst,91.54
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs best,-788.53
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs mean,56.43
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs median,9.21
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs worst,89.65
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V1 Table V as printed,all roles,vs best,-335.29
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V1 Table V as printed,all roles,vs mean,77.63
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V1 Table V as printed,all roles,vs median,67.12
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V1 Table V as printed,all roles,vs worst,94.09
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V2 Table V + session KDF,all roles,vs best,-538.96
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V2 Table V + session KDF,all roles,vs mean,67.16
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V2 Table V + session KDF,all roles,vs median,51.74
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V2 Table V + session KDF,all roles,vs worst,91.32
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V3 Eq.22 with AEAD,all roles,vs best,-412.49
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V3 Eq.22 with AEAD,all roles,vs mean,73.66
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V3 Eq.22 with AEAD,all roles,vs median,61.29
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V3 Eq.22 with AEAD,all roles,vs worst,93.04
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs best,-527.19
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs mean,67.76
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs median,52.63
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32",corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs worst,91.48
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs best,-377.74
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs mean,99.79
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs median,99.25
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs worst,99.96
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs best,-666.27
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs mean,99.67
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs median,98.8
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs worst,99.94
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs best,-521.83
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs mean,99.73
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs median,99.03
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs worst,99.95
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs best,-649.6
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs mean,99.68
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs median,98.83
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs worst,99.94
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V1 Table V as printed,all roles,vs best,-201.73
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V1 Table V as printed,all roles,vs mean,99.84
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V1 Table V as printed,all roles,vs median,99.63
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V1 Table V as printed,all roles,vs worst,99.97
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs best,-383.96
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs mean,99.74
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs median,99.4
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs worst,99.95
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs best,-292.74
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs mean,99.79
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs median,99.51
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs worst,99.96
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs best,-373.43
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs mean,99.74
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs median,99.41
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs worst,99.95
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V1 Table V as printed,dev+srv,vs best,-377.74
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V1 Table V as printed,dev+srv,vs mean,99.81
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V1 Table V as printed,dev+srv,vs median,98.53
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V1 Table V as printed,dev+srv,vs worst,99.96
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V2 Table V + session KDF,dev+srv,vs best,-666.27
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V2 Table V + session KDF,dev+srv,vs mean,99.69
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V2 Table V + session KDF,dev+srv,vs median,97.64
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V2 Table V + session KDF,dev+srv,vs worst,99.94
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs best,-521.83
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs mean,99.75
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs median,98.08
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs worst,99.95
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs best,-649.6
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs mean,99.7
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs median,97.69
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs worst,99.94
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V1 Table V as printed,all roles,vs best,-201.73
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V1 Table V as printed,all roles,vs mean,99.84
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V1 Table V as printed,all roles,vs median,99.28
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V1 Table V as printed,all roles,vs worst,99.97
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V2 Table V + session KDF,all roles,vs best,-383.96
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V2 Table V + session KDF,all roles,vs mean,99.75
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V2 Table V + session KDF,all roles,vs median,98.84
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V2 Table V + session KDF,all roles,vs worst,99.95
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V3 Eq.22 with AEAD,all roles,vs best,-292.74
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V3 Eq.22 with AEAD,all roles,vs mean,99.79
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V3 Eq.22 with AEAD,all roles,vs median,99.06
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V3 Eq.22 with AEAD,all roles,vs worst,99.96
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs best,-373.43
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs mean,99.75
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs median,98.87
+C ESP8266 80 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs worst,99.95
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs best,-380.38
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs mean,99.79
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs median,99.25
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs worst,99.96
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs best,-668.91
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs mean,99.67
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs median,98.8
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs worst,99.94
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs best,-523.81
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs mean,99.73
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs median,99.03
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs worst,99.95
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs best,-652.24
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs mean,99.68
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs median,98.83
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs worst,99.94
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V1 Table V as printed,all roles,vs best,-203.4
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V1 Table V as printed,all roles,vs mean,99.83
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V1 Table V as printed,all roles,vs median,99.62
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V1 Table V as printed,all roles,vs worst,99.97
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs best,-385.63
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs mean,99.74
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs median,99.4
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs worst,99.95
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs best,-293.99
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs mean,99.79
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs median,99.51
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs worst,99.96
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs best,-375.1
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs mean,99.74
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs median,99.41
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs worst,99.95
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V1 Table V as printed,dev+srv,vs best,-380.38
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V1 Table V as printed,dev+srv,vs mean,99.8
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V1 Table V as printed,dev+srv,vs median,98.52
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V1 Table V as printed,dev+srv,vs worst,99.96
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V2 Table V + session KDF,dev+srv,vs best,-668.91
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V2 Table V + session KDF,dev+srv,vs mean,99.69
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V2 Table V + session KDF,dev+srv,vs median,97.64
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V2 Table V + session KDF,dev+srv,vs worst,99.94
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs best,-523.81
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs mean,99.75
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs median,98.08
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs worst,99.95
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs best,-652.24
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs mean,99.69
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs median,97.69
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs worst,99.94
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V1 Table V as printed,all roles,vs best,-203.4
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V1 Table V as printed,all roles,vs mean,99.84
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V1 Table V as printed,all roles,vs median,99.3
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V1 Table V as printed,all roles,vs worst,99.97
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V2 Table V + session KDF,all roles,vs best,-385.63
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V2 Table V + session KDF,all roles,vs mean,99.75
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V2 Table V + session KDF,all roles,vs median,98.87
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V2 Table V + session KDF,all roles,vs worst,99.95
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V3 Eq.22 with AEAD,all roles,vs best,-293.99
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V3 Eq.22 with AEAD,all roles,vs mean,99.79
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V3 Eq.22 with AEAD,all roles,vs median,99.09
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V3 Eq.22 with AEAD,all roles,vs worst,99.96
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs best,-375.1
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs mean,99.75
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs median,98.9
+C ESP8266 160 MHz measured (aes_big) | T_C=0.32,corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs worst,99.95
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs best,-984.88
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs mean,99.53
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs median,98.33
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs worst,99.91
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs best,-1273.4
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs mean,99.41
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs median,97.89
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs worst,99.89
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs best,-977.19
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs mean,99.54
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs median,98.34
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs worst,99.91
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs best,-1256.74
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs mean,99.42
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs median,97.91
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs worst,99.89
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V1 Table V as printed,all roles,vs best,-585.19
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V1 Table V as printed,all roles,vs mean,99.63
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V1 Table V as printed,all roles,vs median,99.16
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V1 Table V as printed,all roles,vs worst,99.93
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs best,-767.41
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs mean,99.53
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs median,98.93
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs worst,99.91
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs best,-580.33
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs mean,99.63
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs median,99.16
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs worst,99.93
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs best,-756.89
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs mean,99.53
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs median,98.95
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs worst,99.91
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V1 Table V as printed,dev+srv,vs best,-984.88
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V1 Table V as printed,dev+srv,vs mean,99.56
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V1 Table V as printed,dev+srv,vs median,96.74
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V1 Table V as printed,dev+srv,vs worst,99.91
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V2 Table V + session KDF,dev+srv,vs best,-1273.4
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V2 Table V + session KDF,dev+srv,vs mean,99.44
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V2 Table V + session KDF,dev+srv,vs median,95.88
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V2 Table V + session KDF,dev+srv,vs worst,99.89
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs best,-977.19
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs mean,99.56
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs median,96.77
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs worst,99.91
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs best,-1256.74
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs mean,99.45
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs median,95.93
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs worst,99.89
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V1 Table V as printed,all roles,vs best,-585.19
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V1 Table V as printed,all roles,vs mean,99.64
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V1 Table V as printed,all roles,vs median,98.39
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V1 Table V as printed,all roles,vs worst,99.93
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V2 Table V + session KDF,all roles,vs best,-767.41
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V2 Table V + session KDF,all roles,vs mean,99.55
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V2 Table V + session KDF,all roles,vs median,97.97
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V2 Table V + session KDF,all roles,vs worst,99.91
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V3 Eq.22 with AEAD,all roles,vs best,-580.33
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V3 Eq.22 with AEAD,all roles,vs mean,99.64
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V3 Eq.22 with AEAD,all roles,vs median,98.41
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V3 Eq.22 with AEAD,all roles,vs worst,99.93
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs best,-756.89
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs mean,99.55
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs median,97.99
+C ESP8266 80 MHz measured (aes_ct) | T_C=0.32,corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs worst,99.91
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs best,-516.67
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs mean,67.83
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs median,36.68
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs worst,92.82
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs best,-805.19
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs mean,52.78
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs median,7.06
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs worst,89.46
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs best,-626.03
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs mean,62.13
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs median,25.46
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs worst,91.54
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs best,-788.53
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs mean,53.65
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs median,8.77
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs worst,89.65
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V1 Table V as printed,all roles,vs best,-289.47
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V1 Table V as printed,all roles,vs mean,76.44
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V1 Table V as printed,all roles,vs median,65.65
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V1 Table V as printed,all roles,vs worst,94.09
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs best,-471.7
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs mean,65.42
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs median,49.58
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs worst,91.32
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs best,-358.54
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs mean,72.27
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs median,59.56
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs worst,93.04
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs best,-461.17
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs mean,66.06
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs median,50.51
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs worst,91.48
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V1 Table V as printed,dev+srv,vs best,-516.67
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V1 Table V as printed,dev+srv,vs mean,76.87
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V1 Table V as printed,dev+srv,vs median,47.58
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V1 Table V as printed,dev+srv,vs worst,92.82
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V2 Table V + session KDF,dev+srv,vs best,-805.19
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V2 Table V + session KDF,dev+srv,vs mean,66.04
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V2 Table V + session KDF,dev+srv,vs median,23.05
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V2 Table V + session KDF,dev+srv,vs worst,89.46
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs best,-626.03
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs mean,72.76
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs median,38.28
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs worst,91.54
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs best,-788.53
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs mean,66.67
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs median,24.46
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs worst,89.65
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V1 Table V as printed,all roles,vs best,-289.47
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V1 Table V as printed,all roles,vs mean,81.77
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V1 Table V as printed,all roles,vs median,69.59
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V1 Table V as printed,all roles,vs worst,94.09
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V2 Table V + session KDF,all roles,vs best,-471.7
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V2 Table V + session KDF,all roles,vs mean,73.24
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V2 Table V + session KDF,all roles,vs median,55.36
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V2 Table V + session KDF,all roles,vs worst,91.32
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V3 Eq.22 with AEAD,all roles,vs best,-358.54
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V3 Eq.22 with AEAD,all roles,vs mean,78.54
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V3 Eq.22 with AEAD,all roles,vs median,64.19
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V3 Eq.22 with AEAD,all roles,vs worst,93.04
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs best,-461.17
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs mean,73.73
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs median,56.18
+"A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=32.4",corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs worst,91.48
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs best,-377.74
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs mean,99.79
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs median,99.25
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs worst,99.96
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs best,-666.27
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs mean,99.67
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs median,98.8
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs worst,99.94
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs best,-521.83
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs mean,99.73
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs median,99.03
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs worst,99.95
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs best,-649.6
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs mean,99.68
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs median,98.83
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs worst,99.94
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V1 Table V as printed,all roles,vs best,-201.73
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V1 Table V as printed,all roles,vs mean,99.84
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V1 Table V as printed,all roles,vs median,99.63
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V1 Table V as printed,all roles,vs worst,99.97
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs best,-383.96
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs mean,99.74
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs median,99.4
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs worst,99.95
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs best,-292.74
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs mean,99.79
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs median,99.51
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs worst,99.96
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs best,-373.43
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs mean,99.74
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs median,99.41
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs worst,99.95
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V1 Table V as printed,dev+srv,vs best,-377.74
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V1 Table V as printed,dev+srv,vs mean,99.81
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V1 Table V as printed,dev+srv,vs median,99.12
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V1 Table V as printed,dev+srv,vs worst,99.96
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V2 Table V + session KDF,dev+srv,vs best,-666.27
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V2 Table V + session KDF,dev+srv,vs mean,99.7
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V2 Table V + session KDF,dev+srv,vs median,98.59
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V2 Table V + session KDF,dev+srv,vs worst,99.94
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs best,-521.83
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs mean,99.75
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs median,98.86
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs worst,99.95
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs best,-649.6
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs mean,99.7
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs median,98.62
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs worst,99.94
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V1 Table V as printed,all roles,vs best,-201.73
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V1 Table V as printed,all roles,vs mean,99.84
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V1 Table V as printed,all roles,vs median,99.45
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V1 Table V as printed,all roles,vs worst,99.97
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V2 Table V + session KDF,all roles,vs best,-383.96
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V2 Table V + session KDF,all roles,vs mean,99.75
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V2 Table V + session KDF,all roles,vs median,99.11
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V2 Table V + session KDF,all roles,vs worst,99.95
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V3 Eq.22 with AEAD,all roles,vs best,-292.74
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V3 Eq.22 with AEAD,all roles,vs mean,99.8
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V3 Eq.22 with AEAD,all roles,vs median,99.28
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V3 Eq.22 with AEAD,all roles,vs worst,99.96
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs best,-373.43
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs mean,99.76
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs median,99.13
+C ESP8266 80 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs worst,99.95
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs best,-380.38
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs mean,99.79
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs median,99.25
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs worst,99.96
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs best,-668.91
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs mean,99.67
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs median,98.8
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs worst,99.94
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs best,-523.81
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs mean,99.73
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs median,99.03
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs worst,99.95
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs best,-652.24
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs mean,99.68
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs median,98.83
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs worst,99.94
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V1 Table V as printed,all roles,vs best,-203.4
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V1 Table V as printed,all roles,vs mean,99.83
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V1 Table V as printed,all roles,vs median,99.62
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V1 Table V as printed,all roles,vs worst,99.97
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs best,-385.63
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs mean,99.74
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs median,99.4
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs worst,99.95
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs best,-293.99
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs mean,99.79
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs median,99.51
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs worst,99.96
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs best,-375.1
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs mean,99.74
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs median,99.41
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs worst,99.95
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V1 Table V as printed,dev+srv,vs best,-380.38
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V1 Table V as printed,dev+srv,vs mean,99.81
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V1 Table V as printed,dev+srv,vs median,99.37
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V1 Table V as printed,dev+srv,vs worst,99.96
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V2 Table V + session KDF,dev+srv,vs best,-668.91
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V2 Table V + session KDF,dev+srv,vs mean,99.7
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V2 Table V + session KDF,dev+srv,vs median,99.0
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V2 Table V + session KDF,dev+srv,vs worst,99.94
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs best,-523.81
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs mean,99.76
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs median,99.19
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs worst,99.95
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs best,-652.24
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs mean,99.71
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs median,99.02
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs worst,99.94
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V1 Table V as printed,all roles,vs best,-203.4
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V1 Table V as printed,all roles,vs mean,99.85
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V1 Table V as printed,all roles,vs median,99.56
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V1 Table V as printed,all roles,vs worst,99.97
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V2 Table V + session KDF,all roles,vs best,-385.63
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V2 Table V + session KDF,all roles,vs mean,99.76
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V2 Table V + session KDF,all roles,vs median,99.29
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V2 Table V + session KDF,all roles,vs worst,99.95
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V3 Eq.22 with AEAD,all roles,vs best,-293.99
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V3 Eq.22 with AEAD,all roles,vs mean,99.8
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V3 Eq.22 with AEAD,all roles,vs median,99.42
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V3 Eq.22 with AEAD,all roles,vs worst,99.96
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs best,-375.1
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs mean,99.76
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs median,99.31
+C ESP8266 160 MHz measured (aes_big) | T_C=32.4,corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs worst,99.95
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs best,-984.88
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs mean,99.53
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs median,98.33
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V1 Table V as printed,dev+srv,vs worst,99.91
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs best,-1273.4
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs mean,99.41
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs median,97.89
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V2 Table V + session KDF,dev+srv,vs worst,99.89
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs best,-977.19
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs mean,99.54
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs median,98.34
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V3 Eq.22 with AEAD,dev+srv,vs worst,99.91
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs best,-1256.74
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs mean,99.42
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs median,97.91
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs worst,99.89
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V1 Table V as printed,all roles,vs best,-585.19
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V1 Table V as printed,all roles,vs mean,99.63
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V1 Table V as printed,all roles,vs median,99.16
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V1 Table V as printed,all roles,vs worst,99.93
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs best,-767.41
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs mean,99.53
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs median,98.93
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V2 Table V + session KDF,all roles,vs worst,99.91
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs best,-580.33
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs mean,99.63
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs median,99.16
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V3 Eq.22 with AEAD,all roles,vs worst,99.93
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs best,-756.89
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs mean,99.53
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs median,98.95
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,BASE-as-printed,Proposed V4 2T_H = PID hash + KDF,all roles,vs worst,99.91
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V1 Table V as printed,dev+srv,vs best,-984.88
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V1 Table V as printed,dev+srv,vs mean,99.57
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V1 Table V as printed,dev+srv,vs median,98.02
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V1 Table V as printed,dev+srv,vs worst,99.91
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V2 Table V + session KDF,dev+srv,vs best,-1273.4
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V2 Table V + session KDF,dev+srv,vs mean,99.45
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V2 Table V + session KDF,dev+srv,vs median,97.49
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V2 Table V + session KDF,dev+srv,vs worst,99.89
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs best,-977.19
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs mean,99.57
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs median,98.04
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V3 Eq.22 with AEAD,dev+srv,vs worst,99.91
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs best,-1256.74
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs mean,99.46
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs median,97.53
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V4 2T_H = PID hash + KDF,dev+srv,vs worst,99.89
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V1 Table V as printed,all roles,vs best,-585.19
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V1 Table V as printed,all roles,vs mean,99.65
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V1 Table V as printed,all roles,vs median,98.75
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V1 Table V as printed,all roles,vs worst,99.93
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V2 Table V + session KDF,all roles,vs best,-767.41
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V2 Table V + session KDF,all roles,vs mean,99.55
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V2 Table V + session KDF,all roles,vs median,98.42
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V2 Table V + session KDF,all roles,vs worst,99.91
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V3 Eq.22 with AEAD,all roles,vs best,-580.33
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V3 Eq.22 with AEAD,all roles,vs mean,99.65
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V3 Eq.22 with AEAD,all roles,vs median,98.76
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V3 Eq.22 with AEAD,all roles,vs worst,99.93
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs best,-756.89
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs mean,99.56
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs median,98.44
+C ESP8266 80 MHz measured (aes_ct) | T_C=32.4,corrected,Proposed V4 2T_H = PID hash + KDF,all roles,vs worst,99.91
+bits (set-independent),BASE-as-printed (all 9 Table IV competitors),Table IV: 1024 bits,bits,vs best,36.0
+bits (set-independent),BASE-as-printed (all 9 Table IV competitors),Table IV: 1024 bits,bits,vs mean,57.52
+bits (set-independent),BASE-as-printed (all 9 Table IV competitors),Table IV: 1024 bits,bits,vs median,56.76
+bits (set-independent),BASE-as-printed (all 9 Table IV competitors),Table IV: 1024 bits,bits,vs worst,69.52
+bits (set-independent),BASE-as-printed (all 9 Table IV competitors),text Eq.21: 264 bits,bits,vs best,83.5
+bits (set-independent),BASE-as-printed (all 9 Table IV competitors),text Eq.21: 264 bits,bits,vs mean,89.05
+bits (set-independent),BASE-as-printed (all 9 Table IV competitors),text Eq.21: 264 bits,bits,vs median,88.85
+bits (set-independent),BASE-as-printed (all 9 Table IV competitors),text Eq.21: 264 bits,bits,vs worst,92.14
+bits (set-independent),BASE-as-printed (all 9 Table IV competitors),2 x 128 = 256 bits,bits,vs best,84.0
+bits (set-independent),BASE-as-printed (all 9 Table IV competitors),2 x 128 = 256 bits,bits,vs mean,89.38
+bits (set-independent),BASE-as-printed (all 9 Table IV competitors),2 x 128 = 256 bits,bits,vs median,89.19
+bits (set-independent),BASE-as-printed (all 9 Table IV competitors),2 x 128 = 256 bits,bits,vs worst,92.38
+bits (set-independent),"corrected (Jiang[15], Shuai[16] -> JIANG 1312)",Table IV: 1024 bits,bits,vs best,21.95
+bits (set-independent),"corrected (Jiang[15], Shuai[16] -> JIANG 1312)",Table IV: 1024 bits,bits,vs mean,56.16
+bits (set-independent),"corrected (Jiang[15], Shuai[16] -> JIANG 1312)",Table IV: 1024 bits,bits,vs median,57.62
+bits (set-independent),"corrected (Jiang[15], Shuai[16] -> JIANG 1312)",Table IV: 1024 bits,bits,vs worst,69.52
+bits (set-independent),"corrected (Jiang[15], Shuai[16] -> JIANG 1312)",text Eq.21: 264 bits,bits,vs best,79.88
+bits (set-independent),"corrected (Jiang[15], Shuai[16] -> JIANG 1312)",text Eq.21: 264 bits,bits,vs mean,88.7
+bits (set-independent),"corrected (Jiang[15], Shuai[16] -> JIANG 1312)",text Eq.21: 264 bits,bits,vs median,89.07
+bits (set-independent),"corrected (Jiang[15], Shuai[16] -> JIANG 1312)",text Eq.21: 264 bits,bits,vs worst,92.14
+bits (set-independent),"corrected (Jiang[15], Shuai[16] -> JIANG 1312)",2 x 128 = 256 bits,bits,vs best,80.49
+bits (set-independent),"corrected (Jiang[15], Shuai[16] -> JIANG 1312)",2 x 128 = 256 bits,bits,vs mean,89.04
+bits (set-independent),"corrected (Jiang[15], Shuai[16] -> JIANG 1312)",2 x 128 = 256 bits,bits,vs median,89.4
+bits (set-independent),"corrected (Jiang[15], Shuai[16] -> JIANG 1312)",2 x 128 = 256 bits,bits,vs worst,92.38

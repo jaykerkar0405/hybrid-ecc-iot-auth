@@ -1,0 +1,18 @@
+
+Rank of the proposed scheme (1 = cheapest) among the BASE-as-printed pool, dev+srv, per constant set and reading
+  A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32     V1 rank  4/10  proposed    23.680 ms  cheaper: 3
+  A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32     V2 rank  4/10  proposed    34.759 ms  cheaper: 3
+  A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32     V3 rank  4/10  proposed    27.879 ms  cheaper: 3
+  A BASE Table III (KDF=17.3 T_H, measured ratio) | T_C=0.32     V4 rank  4/10  proposed    34.119 ms  cheaper: 3
+  C ESP8266 80 MHz measured (aes_big) | T_C=0.32                 V1 rank  4/10  proposed     2.083 ms  cheaper: 3
+  C ESP8266 80 MHz measured (aes_big) | T_C=0.32                 V2 rank  5/10  proposed     3.342 ms  cheaper: 4
+  C ESP8266 80 MHz measured (aes_big) | T_C=0.32                 V3 rank  4/10  proposed     2.712 ms  cheaper: 3
+  C ESP8266 80 MHz measured (aes_big) | T_C=0.32                 V4 rank  5/10  proposed     3.269 ms  cheaper: 4
+  C ESP8266 160 MHz measured (aes_big) | T_C=0.32                V1 rank  4/10  proposed     1.048 ms  cheaper: 3
+  C ESP8266 160 MHz measured (aes_big) | T_C=0.32                V2 rank  5/10  proposed     1.677 ms  cheaper: 4
+  C ESP8266 160 MHz measured (aes_big) | T_C=0.32                V3 rank  4/10  proposed     1.360 ms  cheaper: 3
+  C ESP8266 160 MHz measured (aes_big) | T_C=0.32                V4 rank  5/10  proposed     1.640 ms  cheaper: 4
+  C ESP8266 80 MHz measured (aes_ct) | T_C=0.32                  V1 rank  4/10  proposed     4.731 ms  cheaper: 3
+  C ESP8266 80 MHz measured (aes_ct) | T_C=0.32                  V2 rank  4/10  proposed     5.989 ms  cheaper: 3
+  C ESP8266 80 MHz measured (aes_ct) | T_C=0.32                  V3 rank  4/10  proposed     4.698 ms  cheaper: 3
+  C ESP8266 80 MHz measured (aes_ct) | T_C=0.32                  V4 rank  4/10  proposed     5.917 ms  cheaper: 3
