@@ -1,0 +1,28 @@
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.prefix, expected /home/chirag/Desktop/hybrid-ecc-iot-auth/.venv, got /home/chirag/Desktop/hybrid-ecc-iot-auth/research/paper_audit/../../.venv
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.exec_prefix, expected /home/chirag/Desktop/hybrid-ecc-iot-auth/.venv, got /home/chirag/Desktop/hybrid-ecc-iot-auth/research/paper_audit/../../.venv
+=== 1. Flat model (the paper's own cost method: constant in N) ===
+  Proposed       range  42.7- 63.5  rise  +20.8  best-flat RMS residual  6.78  (  34x reading error)
+  Zhanfei 2024   range  72.7- 92.5  rise  +19.8  best-flat RMS residual  7.13  (  36x reading error)
+  Hassan 2023    range  65.0- 84.1  rise  +19.1  best-flat RMS residual  6.17  (  31x reading error)
+  Gupta 2019     range  94.8- 99.9  rise   +5.1  best-flat RMS residual  2.10  (  10x reading error)
+  Gope 2016      range  86.2- 96.4  rise  +10.2  best-flat RMS residual  3.66  (  18x reading error)
+  Hassan 2018    range  89.0- 97.9  rise   +8.6  best-flat RMS residual  3.40  (  17x reading error)
+
+=== 2. Best affine model per scheme (2 params each) ===
+  Proposed       slope  1.24 per 100 vehicles  RMS residual 2.36  max |res| 3.98  ( 20x reading error)
+  Zhanfei 2024   slope  1.38 per 100 vehicles  RMS residual 0.81  max |res| 1.35  (  7x reading error)
+  Hassan 2023    slope  1.18 per 100 vehicles  RMS residual 1.18  max |res| 1.62  (  8x reading error)
+  Gupta 2019     slope  0.56 per 100 vehicles  RMS residual 0.14  max |res| 0.19  (  1x reading error)
+  Gope 2016      slope  0.71 per 100 vehicles  RMS residual 0.30  max |res| 0.56  (  3x reading error)
+  Hassan 2018    slope  0.68 per 100 vehicles  RMS residual 1.83  max |res| 3.58  ( 18x reading error)
+
+=== 3. Monotonicity (point-to-point decreases larger than reading error) ===
+  Proposed       none
+  Zhanfei 2024   none
+  Hassan 2023    none
+  Gupta 2019     none
+  Gope 2016      none
+  Hassan 2018    [(600, 900, -2.799999999999997)]
+
+=== 4. Step sizes of the proposed curve (a fixed-op-count protocol should not accelerate) ===
+  increments per 300 vehicles: [2.1, 2.5, 3.2, 2.0, 11.0]

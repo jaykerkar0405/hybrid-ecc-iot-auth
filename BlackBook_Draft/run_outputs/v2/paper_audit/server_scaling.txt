@@ -1,0 +1,8 @@
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.prefix, expected /home/chirag/Desktop/hybrid-ecc-iot-auth/.venv, got /home/chirag/Desktop/hybrid-ecc-iot-auth/research/paper_audit/../../.venv
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.exec_prefix, expected /home/chirag/Desktop/hybrid-ecc-iot-auth/.venv, got /home/chirag/Desktop/hybrid-ecc-iot-auth/research/paper_audit/../../.venv
+N_devices, window(epochs), mean_resolve_ms(worst-case: device enrolled last), sha256_probes, ms_per_probe
+       10,           13,       0.18,       130, 1.36 us
+      100,           13,       1.80,      1300, 1.39 us
+      500,           13,       9.66,      6500, 1.49 us
+     1000,           13,      19.86,     13000, 1.53 us
+     5000,           13,      77.57,     65000, 1.19 us

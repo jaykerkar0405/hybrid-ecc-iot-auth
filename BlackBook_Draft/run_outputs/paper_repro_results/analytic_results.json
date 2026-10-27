@@ -1,0 +1,96 @@
+{
+  "paper_processing_ms": {
+    "Proposed scheme": [
+      0.0,
+      11.84,
+      11.84
+    ],
+    "Challa [17]": [
+      46.7,
+      69.36,
+      86.78
+    ],
+    "Turkanovic [12]": [
+      2.24,
+      2.24,
+      1.6
+    ],
+    "Porambage [11]": [
+      70.96000000000001,
+      191.3,
+      138.4
+    ],
+    "Dhillon & Karla [13]": [
+      2.56,
+      1.92,
+      2.56
+    ],
+    "Cheng & Le [14]": [
+      37.080000000000005,
+      35.800000000000004,
+      2.24
+    ],
+    "Shuai [16]": [
+      19.020000000000003,
+      18.060000000000002,
+      19.340000000000003
+    ],
+    "Jiang [15]": [
+      2.24,
+      1.6,
+      3.2
+    ],
+    "Wazid [17]": [
+      32.46,
+      12.479999999999999,
+      24.0
+    ],
+    "Sadhukhan [18]": [
+      28.94,
+      28.62,
+      23.04
+    ]
+  },
+  "impl_counts": {
+    "warm_device": {
+      "cost_kdf_as_hash_ms": 11.84,
+      "cost_kdf_ignored_ms": 11.52,
+      "counts": {
+        "hash_H2": 1,
+        "aead_enc": 1,
+        "aead_dec": 1,
+        "kdf": 1
+      }
+    },
+    "warm_server": {
+      "cost_kdf_as_hash_ms": 12.16,
+      "cost_kdf_ignored_ms": 11.84,
+      "counts": {
+        "hash_H2": 2,
+        "aead_dec": 1,
+        "kdf": 1,
+        "aead_enc": 1
+      }
+    },
+    "cold_device": {
+      "cost_kdf_as_hash_ms": 12.16,
+      "cost_kdf_ignored_ms": 11.52,
+      "counts": {
+        "kdf": 2,
+        "hash_H2": 1,
+        "aead_enc": 1,
+        "aead_dec": 1
+      }
+    },
+    "cold_server": {
+      "cost_kdf_as_hash_ms": 12.479999999999999,
+      "cost_kdf_ignored_ms": 11.84,
+      "counts": {
+        "hash_H2": 2,
+        "kdf": 2,
+        "aead_dec": 1,
+        "aead_enc": 1
+      }
+    }
+  }
+}

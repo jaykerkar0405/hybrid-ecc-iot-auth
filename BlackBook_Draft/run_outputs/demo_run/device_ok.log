@@ -1,0 +1,3 @@
+Mutual authentication succeeded with 'server-A'.
+  session key fingerprint: e1507ce5d2d12bcf (SHA-256[:16] of K_ij,t -- never the raw key)
+  round-trip latency: 4.218 ms

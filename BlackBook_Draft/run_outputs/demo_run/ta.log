@@ -1,0 +1,5 @@
+Generated a new TA master secret and saved it to creds/ta_master_secret.hex (0600). This file is TA-only and must never be distributed to devices/servers.
+Enrolled 'device-001' (role=device) -> creds/device-001.json
+Enrolled 'server-A' (role=server) -> creds/server-A.json
+
+2 entities enrolled and cross-issued peer keys. Offline phase complete -- no network I/O occurred.

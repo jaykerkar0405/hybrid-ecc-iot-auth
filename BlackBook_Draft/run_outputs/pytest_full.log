@@ -1,0 +1,140 @@
+============================= test session starts ==============================
+platform linux -- Python 3.14.8, pytest-9.1.1, pluggy-1.6.0 -- /home/chirag/Desktop/hybrid-ecc-iot-auth/.venv/bin/python
+hypothesis profile 'default'
+rootdir: /home/chirag/Desktop/hybrid-ecc-iot-auth
+configfile: pyproject.toml
+plugins: hypothesis-6.165.10, cov-7.1.0
+collecting ... collected 108 items
+
+hybrid_ecc_auth/tests/adversarial/test_sec_adversarial.py::test_sec01_replay_captured_valid_m1_is_rejected PASSED [  0%]
+hybrid_ecc_auth/tests/adversarial/test_sec_adversarial.py::test_sec02_replay_captured_valid_m2_to_different_device_session_is_rejected PASSED [  1%]
+hybrid_ecc_auth/tests/adversarial/test_sec_adversarial.py::test_sec03_bit_flip_in_c1_or_mu1_is_rejected[ciphertext] PASSED [  2%]
+hybrid_ecc_auth/tests/adversarial/test_sec_adversarial.py::test_sec03_bit_flip_in_c1_or_mu1_is_rejected[tag] PASSED [  3%]
+hybrid_ecc_auth/tests/adversarial/test_sec_adversarial.py::test_sec04_forged_m1_without_lambda_for_known_pid_is_rejected PASSED [  4%]
+hybrid_ecc_auth/tests/adversarial/test_sec_adversarial.py::test_sec05_three_failed_attempts_blocks_entity_fourth_short_circuits PASSED [  5%]
+hybrid_ecc_auth/tests/adversarial/test_sec_adversarial.py::test_sec06_pseudonym_unlinkability_smoke_test PASSED [  6%]
+hybrid_ecc_auth/tests/adversarial/test_sec_adversarial.py::test_sec07_session_keys_differ_across_independent_honest_runs PASSED [  7%]
+hybrid_ecc_auth/tests/adversarial/test_sec_adversarial.py::test_sec08_out_of_range_device_rejected_at_allow_gate_regardless_of_crypto_validity PASSED [  8%]
+hybrid_ecc_auth/tests/property/test_session_key_agreement.py::test_session_key_agreement_holds_over_10000_trials PASSED [  9%]
+hybrid_ecc_auth/tests/property/test_session_key_agreement.py::test_session_keys_are_uniformly_distinct_across_trials PASSED [ 10%]
+hybrid_ecc_auth/tests/unit/test_bench.py::test_measure_communication_cost_structure PASSED [ 11%]
+hybrid_ecc_auth/tests/unit/test_bench.py::test_measure_processing_cost_structure PASSED [ 12%]
+hybrid_ecc_auth/tests/unit/test_bench.py::test_measure_storage_cost_structure PASSED [ 12%]
+hybrid_ecc_auth/tests/unit/test_bench.py::test_baseline_reference_data_has_proposed_and_nine_baselines PASSED [ 13%]
+hybrid_ecc_auth/tests/unit/test_bench.py::test_evaluate_formula_matches_table_v_proposed_scheme PASSED [ 14%]
+hybrid_ecc_auth/tests/unit/test_bench.py::test_evaluate_formula_restricted_namespace_rejects_builtins PASSED [ 15%]
+hybrid_ecc_auth/tests/unit/test_bench.py::test_measure_processing_cost_vs_population_increases_with_population PASSED [ 16%]
+hybrid_ecc_auth/tests/unit/test_bench.py::test_run_full_benchmark_end_to_end PASSED [ 17%]
+hybrid_ecc_auth/tests/unit/test_bench.py::test_compute_reduction_summary_directions PASSED [ 18%]
+hybrid_ecc_auth/tests/unit/test_bench.py::test_generate_report_writes_all_artifacts PASSED [ 19%]
+hybrid_ecc_auth/tests/unit/test_crypto.py::test_reduce_mod_n_stays_in_range PASSED [ 20%]
+hybrid_ecc_auth/tests/unit/test_crypto.py::test_reduce_mod_n_zero_maps_to_one PASSED [ 21%]
+hybrid_ecc_auth/tests/unit/test_crypto.py::test_scalar_to_public_point_deterministic_and_uncompressed PASSED [ 22%]
+hybrid_ecc_auth/tests/unit/test_crypto.py::test_scalar_to_public_point_differs_for_different_scalars PASSED [ 23%]
+hybrid_ecc_auth/tests/unit/test_crypto.py::test_h1_derive_secret_deterministic_and_in_range PASSED [ 24%]
+hybrid_ecc_auth/tests/unit/test_crypto.py::test_h1_derive_secret_differs_per_identity PASSED [ 25%]
+hybrid_ecc_auth/tests/unit/test_crypto.py::test_h2_pseudonym_deterministic_per_epoch PASSED [ 25%]
+hybrid_ecc_auth/tests/unit/test_crypto.py::test_h2_pseudonym_rotates_with_epoch PASSED [ 26%]
+hybrid_ecc_auth/tests/unit/test_crypto.py::test_h3_rekey_binder_deterministic PASSED [ 27%]
+hybrid_ecc_auth/tests/unit/test_crypto.py::test_kdf_deterministic_given_same_inputs PASSED [ 28%]
+hybrid_ecc_auth/tests/unit/test_crypto.py::test_kdf_differs_by_info_and_ikm PASSED [ 29%]
+hybrid_ecc_auth/tests/unit/test_crypto.py::test_kdf_variable_length PASSED [ 30%]
+hybrid_ecc_auth/tests/unit/test_crypto.py::test_aead_roundtrip PASSED    [ 31%]
+hybrid_ecc_auth/tests/unit/test_crypto.py::test_aead_tamper_ciphertext_rejected PASSED [ 32%]
+hybrid_ecc_auth/tests/unit/test_crypto.py::test_aead_tamper_tag_rejected PASSED [ 33%]
+hybrid_ecc_auth/tests/unit/test_crypto.py::test_aead_wrong_aad_rejected PASSED [ 34%]
+hybrid_ecc_auth/tests/unit/test_crypto.py::test_aead_rejects_bad_key_length PASSED [ 35%]
+hybrid_ecc_auth/tests/unit/test_crypto.py::test_aead_nonces_are_random PASSED [ 36%]
+hybrid_ecc_auth/tests/unit/test_crypto.py::test_generate_nonce_default_length PASSED [ 37%]
+hybrid_ecc_auth/tests/unit/test_crypto.py::test_generate_nonce_supported_lengths[128-16] PASSED [ 37%]
+hybrid_ecc_auth/tests/unit/test_crypto.py::test_generate_nonce_supported_lengths[192-24] PASSED [ 38%]
+hybrid_ecc_auth/tests/unit/test_crypto.py::test_generate_nonce_supported_lengths[256-32] PASSED [ 39%]
+hybrid_ecc_auth/tests/unit/test_crypto.py::test_generate_nonce_rejects_unsupported_length PASSED [ 40%]
+hybrid_ecc_auth/tests/unit/test_crypto.py::test_generate_nonce_is_random PASSED [ 41%]
+hybrid_ecc_auth/tests/unit/test_demo_integration.py::test_demo_end_to_end_success_and_replay_rejection PASSED [ 42%]
+hybrid_ecc_auth/tests/unit/test_device_server.py::test_successful_mutual_authentication_end_to_end PASSED [ 43%]
+hybrid_ecc_auth/tests/unit/test_device_server.py::test_repeated_sessions_use_fresh_nonces_and_keys PASSED [ 44%]
+hybrid_ecc_auth/tests/unit/test_device_server.py::test_server_rejects_unknown_device PASSED [ 45%]
+hybrid_ecc_auth/tests/unit/test_device_server.py::test_server_rejects_tampered_ciphertext_sec03 PASSED [ 46%]
+hybrid_ecc_auth/tests/unit/test_device_server.py::test_device_rejects_tampered_response PASSED [ 47%]
+hybrid_ecc_auth/tests/unit/test_device_server.py::test_device_rejects_unsolicited_response PASSED [ 48%]
+hybrid_ecc_auth/tests/unit/test_device_server.py::test_coverage_gate_blocks_out_of_range_device PASSED [ 49%]
+hybrid_ecc_auth/tests/unit/test_device_server.py::test_server_coverage_gate_rejects_regardless_of_crypto_validity PASSED [ 50%]
+hybrid_ecc_auth/tests/unit/test_device_server.py::test_session_timeout_raises_and_counts_as_failure PASSED [ 50%]
+hybrid_ecc_auth/tests/unit/test_device_server.py::test_block_list_after_max_attempts_short_circuits_pre_crypto PASSED [ 51%]
+hybrid_ecc_auth/tests/unit/test_device_server.py::test_block_list_broadcast_pubsub_hook PASSED [ 52%]
+hybrid_ecc_auth/tests/unit/test_entity.py::test_derive_pairwise_root_symmetric_regardless_of_caller PASSED [ 53%]
+hybrid_ecc_auth/tests/unit/test_entity.py::test_derive_pairwise_root_matches_manual_eq9 PASSED [ 54%]
+hybrid_ecc_auth/tests/unit/test_entity.py::test_get_pairwise_root_raises_for_unknown_peer PASSED [ 55%]
+hybrid_ecc_auth/tests/unit/test_entity.py::test_pairwise_root_is_cached PASSED [ 56%]
+hybrid_ecc_auth/tests/unit/test_entity.py::test_invalidate_pairwise_root_single_and_all PASSED [ 57%]
+hybrid_ecc_auth/tests/unit/test_entity.py::test_derive_session_key_deterministic_and_sensitive_to_all_inputs PASSED [ 58%]
+hybrid_ecc_auth/tests/unit/test_entity.py::test_coverage_predicate_defaults_true PASSED [ 59%]
+hybrid_ecc_auth/tests/unit/test_entity.py::test_coverage_predicate_pluggable_out_of_range PASSED [ 60%]
+hybrid_ecc_auth/tests/unit/test_keystore.py::test_save_and_load_round_trip PASSED [ 61%]
+hybrid_ecc_auth/tests/unit/test_keystore.py::test_save_sets_restrictive_permissions PASSED [ 62%]
+hybrid_ecc_auth/tests/unit/test_keystore.py::test_load_tightens_overly_permissive_file PASSED [ 62%]
+hybrid_ecc_auth/tests/unit/test_login_gate.py::test_compute_login_hash_deterministic PASSED [ 63%]
+hybrid_ecc_auth/tests/unit/test_login_gate.py::test_compute_login_hash_sensitive_to_mac_and_password PASSED [ 64%]
+hybrid_ecc_auth/tests/unit/test_login_gate.py::test_login_gate_disabled_by_default PASSED [ 65%]
+hybrid_ecc_auth/tests/unit/test_login_gate.py::test_login_gate_accepts_correct_password PASSED [ 66%]
+hybrid_ecc_auth/tests/unit/test_login_gate.py::test_login_gate_rejects_wrong_password PASSED [ 67%]
+hybrid_ecc_auth/tests/unit/test_login_gate.py::test_login_gate_rejects_tampered_mac_binding PASSED [ 68%]
+hybrid_ecc_auth/tests/unit/test_messages.py::test_message1_round_trip PASSED [ 69%]
+hybrid_ecc_auth/tests/unit/test_messages.py::test_message2_round_trip PASSED [ 70%]
+hybrid_ecc_auth/tests/unit/test_messages.py::test_message1_rejects_wrong_type PASSED [ 71%]
+hybrid_ecc_auth/tests/unit/test_messages.py::test_message2_rejects_wrong_type PASSED [ 72%]
+hybrid_ecc_auth/tests/unit/test_messages.py::test_rejects_malformed_json PASSED [ 73%]
+hybrid_ecc_auth/tests/unit/test_messages.py::test_rejects_wrong_protocol_version PASSED [ 74%]
+hybrid_ecc_auth/tests/unit/test_messages.py::test_message1_is_pure_json_ascii_bytes PASSED [ 75%]
+hybrid_ecc_auth/tests/unit/test_rekey_stub.py::test_rekey_stub_raises_not_implemented PASSED [ 75%]
+hybrid_ecc_auth/tests/unit/test_session_log.py::test_epoch_search_window_starts_at_zero_for_unseen_peer PASSED [ 76%]
+hybrid_ecc_auth/tests/unit/test_session_log.py::test_accept_epoch_advances_window PASSED [ 77%]
+hybrid_ecc_auth/tests/unit/test_session_log.py::test_accept_epoch_never_moves_backward PASSED [ 78%]
+hybrid_ecc_auth/tests/unit/test_session_log.py::test_is_stale_epoch PASSED [ 79%]
+hybrid_ecc_auth/tests/unit/test_session_log.py::test_record_failure_blocks_after_max_attempts PASSED [ 80%]
+hybrid_ecc_auth/tests/unit/test_session_log.py::test_record_success_resets_failure_count PASSED [ 81%]
+hybrid_ecc_auth/tests/unit/test_session_log.py::test_block_and_subscribe_block_notifies_once PASSED [ 82%]
+hybrid_ecc_auth/tests/unit/test_session_log.py::test_already_blocked_entity_short_circuits_record_failure PASSED [ 83%]
+hybrid_ecc_auth/tests/unit/test_ta.py::test_enroll_is_deterministic_given_same_master_secret PASSED [ 84%]
+hybrid_ecc_auth/tests/unit/test_ta.py::test_enroll_differs_per_identity_and_role_rejects_bad_role PASSED [ 85%]
+hybrid_ecc_auth/tests/unit/test_ta.py::test_enroll_rejects_duplicate_identity PASSED [ 86%]
+hybrid_ecc_auth/tests/unit/test_ta.py::test_enroll_optional_public_point PASSED [ 87%]
+hybrid_ecc_auth/tests/unit/test_ta.py::test_enroll_batch PASSED          [ 87%]
+hybrid_ecc_auth/tests/unit/test_ta.py::test_share_peer_keys_populates_lambda_list_one_directional PASSED [ 88%]
+hybrid_ecc_auth/tests/unit/test_ta.py::test_share_mutual_peer_keys_full_mesh PASSED [ 89%]
+hybrid_ecc_auth/tests/unit/test_ta.py::test_lookup PASSED                [ 90%]
+hybrid_ecc_auth/tests/unit/test_ta.py::test_credential_round_trip_serialization PASSED [ 91%]
+hybrid_ecc_auth/tests/unit/test_ta.py::test_ta_operations_never_open_a_socket PASSED [ 92%]
+hybrid_ecc_auth/tests/unit/test_ta_cli.py::test_enroll_writes_bundle_per_entity_and_master_secret PASSED [ 93%]
+hybrid_ecc_auth/tests/unit/test_ta_cli.py::test_enroll_reuses_master_secret_across_invocations PASSED [ 94%]
+hybrid_ecc_auth/tests/unit/test_ta_cli.py::test_enroll_rejects_non_device_credential_role_mismatch PASSED [ 95%]
+hybrid_ecc_auth/tests/unit/test_transport.py::test_send_and_recv_frame_round_trip PASSED [ 96%]
+hybrid_ecc_auth/tests/unit/test_transport.py::test_send_frame_rejects_oversized_payload PASSED [ 97%]
+hybrid_ecc_auth/tests/unit/test_transport.py::test_recv_frame_raises_on_peer_close_mid_frame PASSED [ 98%]
+hybrid_ecc_auth/tests/unit/test_transport.py::test_ok_envelope_round_trip PASSED [ 99%]
+hybrid_ecc_auth/tests/unit/test_transport.py::test_error_envelope_round_trip PASSED [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.14.8-final-0 ________________
+
+Name                                     Stmts   Miss  Cover   Missing
+----------------------------------------------------------------------
+hybrid_ecc_auth/crypto/__init__.py           0      0   100%
+hybrid_ecc_auth/crypto/aead.py              22      1    95%   50
+hybrid_ecc_auth/crypto/curve.py             13      0   100%
+hybrid_ecc_auth/crypto/hashes.py            18      0   100%
+hybrid_ecc_auth/crypto/kdf.py                6      0   100%
+hybrid_ecc_auth/crypto/nonce.py              8      0   100%
+hybrid_ecc_auth/protocol/__init__.py         0      0   100%
+hybrid_ecc_auth/protocol/device.py          71      4    94%   62, 96, 138-139
+hybrid_ecc_auth/protocol/entity.py          35      0   100%
+hybrid_ecc_auth/protocol/errors.py           9      0   100%
+hybrid_ecc_auth/protocol/login_gate.py      18      0   100%
+hybrid_ecc_auth/protocol/messages.py        54      3    94%   98, 107-108
+hybrid_ecc_auth/protocol/rekey.py            3      0   100%
+hybrid_ecc_auth/protocol/server.py          62      3    95%   48, 101-102
+hybrid_ecc_auth/protocol/ta.py              47      1    98%   112
+----------------------------------------------------------------------
+TOTAL                                      366     12    97%
+============================= 108 passed in 4.78s ==============================

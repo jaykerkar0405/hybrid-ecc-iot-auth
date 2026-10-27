@@ -1,0 +1,25 @@
+........................................................................ [ 66%]
+....................................                                     [100%]
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.14.8-final-0 ________________
+
+Name                                     Stmts   Miss  Cover
+------------------------------------------------------------
+hybrid_ecc_auth/crypto/__init__.py           0      0   100%
+hybrid_ecc_auth/crypto/aead.py              22      1    95%
+hybrid_ecc_auth/crypto/curve.py             13      0   100%
+hybrid_ecc_auth/crypto/hashes.py            18      0   100%
+hybrid_ecc_auth/crypto/kdf.py                6      0   100%
+hybrid_ecc_auth/crypto/nonce.py              8      0   100%
+hybrid_ecc_auth/protocol/__init__.py         0      0   100%
+hybrid_ecc_auth/protocol/device.py          71      4    94%
+hybrid_ecc_auth/protocol/entity.py          35      0   100%
+hybrid_ecc_auth/protocol/errors.py           9      0   100%
+hybrid_ecc_auth/protocol/login_gate.py      18      0   100%
+hybrid_ecc_auth/protocol/messages.py        54      3    94%
+hybrid_ecc_auth/protocol/rekey.py            3      0   100%
+hybrid_ecc_auth/protocol/server.py          62      3    95%
+hybrid_ecc_auth/protocol/ta.py              47      1    98%
+------------------------------------------------------------
+TOTAL                                      366     12    97%
+108 passed in 6.22s

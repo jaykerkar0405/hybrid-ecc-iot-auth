@@ -1,0 +1,3 @@
+[replay-demo] resending previously captured M1 (216 bytes) to 127.0.0.1:18443 ...
+REJECTED by server: ReplayDetected: pseudonym for 'device-001' reuses stale epoch 0 (round-trip 2.286 ms)
+[replay-demo] rejection confirms the server's freshness check is working as intended.
