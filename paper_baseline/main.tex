@@ -1,0 +1,253 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage[hyphens]{url}
+\def\UrlBreaks{\do\.\do\_\do\@}
+\usepackage{cite}
+
+\begin{document}
+
+\title{A Reference Implementation and OMNeT++ Evaluation of a Low-Cost Hybrid ECC Authentication Protocol under Its Stated Environment}
+
+\author{\IEEEauthorblockN{Dr.~Shanta Sondur}
+\IEEEauthorblockA{\textit{Project Guide}\\
+\textit{Department of Information Technology}\\
+\textit{Vivekanand Education Society's}\\
+\textit{Institute of Technology}\\
+Mumbai, India\\
+shanta.sondur@ves.ac.in}
+\and
+\IEEEauthorblockN{Jay Kerkar}
+\IEEEauthorblockA{\textit{Department of Information Technology}\\
+\textit{Vivekanand Education Society's}\\
+\textit{Institute of Technology}\\
+Mumbai, India\\
+2023.jay.kerkar@ves.ac.in}
+\and
+\IEEEauthorblockN{Chaitanya Kelkar}
+\IEEEauthorblockA{\textit{Department of Information Technology}\\
+\textit{Vivekanand Education Society's}\\
+\textit{Institute of Technology}\\
+Mumbai, India\\
+2023.chaitanya.kelkar@ves.ac.in}
+\and
+\IEEEauthorblockN{Chirag Poornamath}
+\IEEEauthorblockA{\textit{Department of Information Technology}\\
+\textit{Vivekanand Education Society's}\\
+\textit{Institute of Technology}\\
+Mumbai, India\\
+2023.chirag.poornamath@ves.ac.in}
+\and
+\IEEEauthorblockN{Yash Kolekar}
+\IEEEauthorblockA{\textit{Department of Information Technology}\\
+\textit{Vivekanand Education Society's}\\
+\textit{Institute of Technology}\\
+Mumbai, India\\
+d2024.yash.kolekar@ves.ac.in}}
+
+\maketitle
+
+\begin{abstract}
+Al-Rasheed et al.\ proposed a hybrid elliptic-curve/symmetric-key mutual-authentication protocol for IoT devices and evaluated it in OMNeT++ without releasing code. We provide an open reference implementation of the protocol, a C port of its device side that runs on an ESP8266 microcontroller, and an OMNeT++ model of the environment the paper states (its Table~II network and Table~III per-operation times). Under those constants the model reproduces the paper's per-session processing cost of $2T_H+2T_{SE/D}$ per side (23.68\,ms by the paper's arithmetic, 23.98\,ms simulated) and the communication sizes of its Table~IV for the nine schemes that have operation counts in its Table~V. We then time the primitives on the ESP8266 and re-run the model with the measured constants, which lowers the per-session cost from 23.98\,ms to 2.25\,ms, and we study a question the paper leaves open: how a server resolves a pseudonym. With a hash-indexed lookup the per-session latency is independent of the number of devices from 100 to 1000; with a linear scan it grows with it. The implementation, the model, the 3,880-run sweep, the raw hardware logs and the scripts are open, and the model source runs unchanged on Linux and macOS.
+\end{abstract}
+
+\begin{IEEEkeywords}
+IoT authentication, elliptic curve cryptography, OMNeT++, ESP8266, reproducibility
+\end{IEEEkeywords}
+
+\section{Introduction}
+Lightweight mutual authentication for resource-constrained devices is commonly evaluated by counting cryptographic operations and weighting them with per-operation times. Al-Rasheed et al.~\cite{base} propose a protocol in which devices and servers share long-term secrets from an offline phase and authenticate online with symmetric primitives only, and they evaluate it in OMNeT++ against other schemes. No implementation or simulation project accompanies the paper.
+
+This paper contributes (i)~an open reference implementation of the protocol (Python, AES-GCM, HKDF-SHA256, SHA-256) and a portable C device core that runs on an ESP8266 and interoperates with the Python server; (ii)~an OMNeT++ model of the paper's stated environment, parameterised only by the paper's Tables~II--V; (iii)~a check that implementation and model reproduce the paper's per-session cost and communication sizes; (iv)~hardware timings of the primitives behind the paper's cost constants, and the same model re-run with them; and (v)~a scalability study of the server-side pseudonym lookup, which the paper does not specify.
+
+\section{Protocol and Implementation}
+We implement the nonce-based exchange of Section~III of~\cite{base}. A trusted authority (TA) derives each entity's long-term secret $\lambda_X=H_1(ID_X\,\|\,s)$ locally and distributes pairwise keys $k^\star_{ij}$ in an offline phase. In an epoch $t$ a device $V_i$ derives a pseudonym $PID_{V_i,t}=H_2(\lambda_{V_i}\,\|\,t)$, samples a nonce $N_i$, and sends
+\begin{gather*}
+M_1=\langle PID_{V_i,t},\,C_1,\,\mu_1\rangle,\\
+(C_1,\mu_1)=\mathrm{AEAD}_{k^\star_{ij}}(PID_{V_i,t}\,\|\,N_i\,\|\,t).
+\end{gather*}
+The server resolves the pseudonym to a known device and epoch, verifies and decrypts $M_1$, samples $N_j$, answers with $M_2$ (the same construction), and both sides derive $K_{ij,t}=\mathrm{KDF}(k^\star_{ij}\,\|\,N_i\,\|\,N_j\,\|\,t)$. Replayed messages are rejected by an epoch window per peer. We instantiate AEAD as AES-256-GCM~\cite{gcm}, KDF as HKDF-SHA256~\cite{hkdf} and $H$ as SHA-256, as suggested in the instantiation notes of~\cite{base}. The wire format is a length-prefixed JSON/base64 envelope.
+
+The device side is also written as a portable C core on BearSSL~\cite{bearssl} with the identical wire format. It runs natively against the unmodified Python server (12 of 12 handshakes) and on a NodeMCU ESP8266 over Wi-Fi (20 of 20 handshakes). In every handshake the session-key fingerprints on the two sides were identical and a replayed $M_1$ was rejected.
+
+\section{Evaluation Setup}
+\subsection{Environment and constants}
+The OMNeT++ model uses the parameters of Table~II of~\cite{base}: a $1500\times1500$\,m area, 100 to 1000 devices, servers at 5\% of the device count, a 10\,Mbps channel, 75.6\,mW transmit and receive power, a 15\,$\mu$s time quantum, and a 500\,m range. Operation times are those of its Table~III (``reference values for the processing time''): $T_H=0.32$\,ms and $T_{SE/D}=5.6$\,ms. Operation counts and message sizes come from its Tables~IV and~V, and no parameter is fitted to any result. The model is written in plain OMNeT++~\cite{omnet} 6.4.0 (no INET, no SUMO) and is our own implementation of the stated environment.
+
+\subsection{Assumptions the paper does not fix}
+The paper leaves several inputs open, and we state ours: an adversary share of 5\% of the devices, each sending forged requests at a mean rate of 1\,Hz; an authentication window of 10\,s in which every device authenticates once at a uniform time; every server resolves every device in its range; and a first-come-first-served server CPU. Devices with no server in range cannot authenticate and are counted separately. Each result is the mean of five seeds. The assumption most relevant to the protocol is how a server resolves a pseudonym (Section~\ref{sec:lookup}).
+
+\subsection{Hardware testbed}
+Primitive timings were taken on a NodeMCU ESP8266 (Tensilica L106, stock 80\,MHz and 160\,MHz, about 80\,KB RAM, no cryptographic hardware, Wi-Fi off) with BearSSL, timed by the cycle counter; each figure is the median of 100 runs (24 for elliptic-curve operations). Every benchmark output (hash, AES block, CTR, GCM ciphertext and tag, curve points) was checksummed, and all 35 digests are identical on both clocks and on a laptop running the same code. The whole benchmark was repeated on a second ESP8266 board: the 35 medians agree with the first board and with the earlier run to the microsecond.
+
+\section{Results}
+\subsection{Operation profile of the implementation}
+Table~\ref{tab:ops} lists what one handshake of the implementation executes (counted by instrumenting the primitives; the server was enrolled with 1, 20 and 100 devices, the target device last).
+
+\begin{table}[t]
+\centering
+\caption{Operations and sizes per handshake. Table~V of~\cite{base} lists $2T_H+2T_{SE/D}$ per side.}
+\label{tab:ops}
+\begin{tabular}{lcc}
+\toprule
+ & Device & Server \\
+\midrule
+AEAD encrypt / decrypt ($T_{SE/D}$) & 1 / 1 & 1 / 1 \\
+Pseudonym hash $H_2$ & 1 & 1 per candidate \\
+Session-key KDF calls & 2 & 2 \\
+Candidates scanned (linear) & --- & about 8 per device \\
+\midrule
+Message fields, $M_1$ / $M_2$ & \multicolumn{2}{c}{116 B / 57 B (1384 bits)} \\
+On the wire (JSON/base64) & \multicolumn{2}{c}{216 B / 133 B} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The symmetric operations match Table~V. Table~V does not list the session-key derivation required by the protocol's own key-derivation step or the pseudonym resolution; we report them separately so that the paper's accounting and the implementation's can be compared directly. Message size depends on the field encodings and the framing, which the paper does not fix; Table~IV lists 1024 bits over four messages, and we simulate that figure and the 264-bit, two-message figure of its text.
+
+\subsection{Communication cost}
+Fig.~\ref{fig:bits} shows the bits per session in the simulation without adversaries for the nine schemes of Table~IV that have operation counts in Table~V. All equal the paper's values, and the proposed scheme has the lowest communication cost. Because Table~IV's sizes are inputs to the model, this confirms the pipeline rather than the sizes themselves.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figs/fig_bits.pdf}
+\caption{Bits per authentication session: Table~IV of~\cite{base} (hatched) and the simulation without adversaries (solid).}
+\label{fig:bits}
+\end{figure}
+
+\subsection{Per-session cost under the paper's constants}
+With Table~III, Table~V gives $2\cdot0.32+2\cdot5.6=11.84$\,ms per side, 23.68\,ms per session. Table~\ref{tab:session} compares this with the simulation (no adversaries, hash-indexed lookup). The simulated latency is slightly above the arithmetic because it also contains airtime, rounding to the 15\,$\mu$s time quantum and occasional queueing at a server. Adding the session-key derivation, priced at a measured ratio to a hash since Table~III has no KDF constant, gives 35.18\,ms.
+
+\begin{table}[t]
+\centering
+\caption{Per-session processing cost (ms), $N=100$, no adversaries, hash-indexed lookup, mean of five seeds. ``Arithmetic'' is Table~V counts $\times$ per-operation times.}
+\label{tab:session}
+\begin{tabular}{lrrrr}
+\toprule
+ & \multicolumn{2}{c}{Table~III constants} & \multicolumn{2}{c}{ESP8266, 80\,MHz} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Configuration & Arith. & Simulated & Arith. & Simulated \\
+\midrule
+Table~V as printed, 4 msgs & 23.68 & 23.98 & 2.08 & 2.25 \\
+Table~V as printed, 2 msgs & 23.68 & 23.85 & 2.08 & 2.13 \\
+Table~V + session KDF & --- & 35.18 & 3.34 & 3.51 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Hardware measurements}
+Table~\ref{tab:hw} and Fig.~\ref{fig:prim} give the measured cost of the primitives behind the three constants of Table~III. Table~III does not name the platform its values correspond to, so we report how they compare with one concrete constrained device. The ratios between operations differ from Table~III's: on the ESP8266 a symmetric operation costs about 13 hashes ($T_{SE/D}/T_H$ for the fast AES) and a curve multiplication about 7,600, against 17.5 and 53 in Table~III. The AES-GCM figure depends strongly on the AES implementation (0.48\,ms table-based, 1.15\,ms constant-time), which is a design choice a deployment must make.
+
+\begin{table}[t]
+\centering
+\caption{Measured operation times on the ESP8266 (ms, median of 100 runs; 24 for curve operations) against Table~III of~\cite{base}. AES-GCM: AES-256, 56\,B including key setup, for three BearSSL AES implementations. Ratio: 80\,MHz time over Table~III.}
+\label{tab:hw}
+\small\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{lcrrr}
+\toprule
+Operation & Tab.~III & 80\,MHz & 160\,MHz & ratio \\
+\midrule
+$T_H$, SHA-1 (32\,B) & 0.32 & 0.0363 & 0.0182 & 0.11 \\
+SHA-256 (40\,B) & --- & 0.0746 & 0.0373 & --- \\
+$T_{SE/D}$, AES-GCM (fast) & 5.6 & 0.485 & 0.244 & 0.09 \\
+\ \ small-table & 5.6 & 0.834 & 0.419 & 0.15 \\
+\ \ constant-time & 5.6 & 1.146 & 0.574 & 0.20 \\
+HKDF-SHA256 & --- & 0.629 & 0.315 & --- \\
+$T_{ECM}$, P-256 & 17.1 & 276.4 & 138.2 & 16.2 \\
+X25519 & --- & 130.9 & 65.4 & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figs/fig_primitives.pdf}
+\caption{Cost of the three primitives of Table~III: the reference values of~\cite{base} (hatched) and the ESP8266 at 80 and 160\,MHz (log scale). AES-GCM is the fast table implementation.}
+\label{fig:prim}
+\end{figure}
+
+\textbf{End-to-end on the device.} In the firmware, a handshake costs 1.67\,ms to build $M_1$ and 3.59\,ms to verify $M_2$ and derive the key, 5.26\,ms of device compute in total (mean of 20 handshakes), and 52\,ms end to end over Wi-Fi; $M_1$ is 216 bytes. The firmware uses the constant-time AES and includes JSON/base64 parsing, the per-message key schedule and the session KDF, so it exceeds the operation-count figure for the same constants (Fig.~\ref{fig:device}).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figs/fig_device.pdf}
+\caption{Device-side compute per handshake. Hatched: Table~V counts $\times$ Table~III. Blue: the same counts $\times$ the measured ESP8266 constants (fast AES), without and with the session KDF. Green: measured end to end in the firmware (constant-time AES, parsing included).}
+\label{fig:device}
+\end{figure}
+
+\subsection{Simulation with measured constants}
+Re-running the model with the ESP8266 constants (Table~\ref{tab:session}, right) puts the per-session cost of the proposed scheme at 2.25\,ms with Table~V's counts and 3.51\,ms with the session KDF, against 23.98\,ms and 35.18\,ms with Table~III. Communication cost is unchanged because it does not depend on processing times. The model structure is the same in both runs, and only the per-operation times differ.
+
+\subsection{Scalability and the pseudonym lookup}\label{sec:lookup}
+The paper does not say how a server maps an incoming pseudonym to a device. We simulate both natural choices: a linear scan over enrolled devices and epochs, as in our implementation, and a hash-indexed table, which costs storage proportional to the number of devices and epochs. Fig.~\ref{fig:scale} and Table~\ref{tab:scale} show the mean per-session latency with the adversary share above, under both sets of constants.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figs/fig_scale.pdf}
+\caption{Mean per-session latency of the proposed scheme against the number of devices (log scale; band: minimum to maximum over five seeds). Table~V counts; adversary share 5\%.}
+\label{fig:scale}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\caption{Mean per-session latency (ms), mean of five seeds.}
+\label{tab:scale}
+\begin{tabular}{rrrrr}
+\toprule
+ & \multicolumn{2}{c}{Table~III constants} & \multicolumn{2}{c}{ESP8266 constants} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Devices & Linear & Hash & Linear & Hash \\
+\midrule
+100 & 129.2 & 23.93 & 17.0 & 2.25 \\
+300 & 2666.2 & 24.04 & 63.2 & 2.25 \\
+500 & 5691.2 & 24.07 & 145.0 & 2.25 \\
+700 & 14155.8 & 24.08 & 842.7 & 2.25 \\
+1000 & 19009.8 & 24.07 & 1044.6 & 2.25 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+With the hash index the latency is flat at the cost-model value. With a linear scan, latency grows with the number of devices a server must resolve, and the spread across seeds is large near saturation (standard deviation 2141\,ms at 1000 devices with Table~III constants, 370\,ms with the ESP8266 constants). Faster primitives lower the curve by an order of magnitude but do not change its shape. On a laptop-class server our Python implementation resolves a pseudonym in 4.8\,ms at 1,000 devices and 23.9\,ms at 5,000 (13-epoch window, worst case: device enrolled last); a precomputed table avoids the scan at the price of $N\times W\times32$\,B, 416\,KB at 1,000 devices. The choice is therefore one a deployment must make explicitly, trading server time for storage.
+
+\subsection{Summary against the published values}
+Table~\ref{tab:summary} collects the quantities of~\cite{base} that can be derived from its stated tables and environment, and what we obtain.
+
+\begin{table}[t]
+\centering
+\caption{Published values and ours. The first two rows are consistency checks: their inputs are the paper's own tables.}
+\label{tab:summary}
+\small\raggedright
+\begin{tabular}{p{2.6cm}p{2.2cm}p{2.8cm}}
+\toprule
+Quantity & Published & Ours \\
+\midrule
+Bits per session, Table~IV, nine schemes & 1024 (proposed) to 3360 & identical in all nine \\
+Per-session processing, proposed, Table~V $\times$ III & 23.68\,ms & 23.98\,ms (simulated); 23.85\,ms (2 msgs) \\
+Same counts, ESP8266 constants & not given & 2.08\,ms (arithmetic); 2.25\,ms (simulated) \\
+Device compute, firmware & not given & 5.26\,ms (20 runs) \\
+Lookup, 1000 devices (Table~III constants) & not given & 24\,ms (hash index); 19,010\,ms (linear) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Reproducibility}
+The model's 3,385-run main sweep was run on two toolchains (OMNeT++ 6.0.3 on Linux and 6.4.0 on macOS arm64); all rows agree to a relative difference of $5\times10^{-14}$. The 495 hash-index and uncontended runs were added on macOS only. The hardware benchmark is archived with raw serial logs for both boards and both clocks, and the C device core interoperates with the Python server on the same wire format. Scripts, configuration generators, result tables and the figure script are open.
+
+\section{Limitations}
+The model is ours, not the authors'; the assumptions of Section~III-B are not specified by the paper and results at saturation depend on them. The results of Sections~IV-C, IV-E and IV-F are model output, not measurements, and the ones under Table~III constants use the paper's assumed values. Hardware timings come from one microcontroller family with software cryptography and one library; other devices, libraries or hardware AES will differ, and 8- and 16-bit parts were not measured. The end-to-end firmware figures are means over 20 handshakes recorded in our project repository; the per-primitive benchmarks, unlike them, are archived with raw logs. Constants without a measured counterpart ($T_C$, $T_{fe}$) are taken from~\cite{base}. We reproduce the quantities derivable from Tables~II--V and do not evaluate the figures of~\cite{base}, whose underlying data is not published; the other schemes of its tables are not re-implemented.
+
+\section{Conclusion}
+We provide an open implementation, an ESP8266 port and an OMNeT++ model of the protocol of~\cite{base}. Under the paper's stated environment and constants, they reproduce its per-session processing cost and its communication sizes. Timing the primitives on a constrained device and re-running the model with the measured constants lowers the per-session cost by an order of magnitude, and the server-side pseudonym resolution, which the paper leaves open, determines how the protocol scales with the number of devices.
+
+\begin{thebibliography}{1}
+\bibitem{base} A. Al-Rasheed, R. Khan, A. Ahmad, A. Saeed, F. Alturise and S. Alkhalaf, ``A low-cost hybrid elliptic curve cryptography authentication protocol for trustworthy Internet of Things communication,'' \emph{IEEE Trans. Consum. Electron.}, vol.~72, no.~2, pp.~4483--4491, May 2026, doi:10.1109/TCE.2026.3662053.
+\bibitem{omnet} A. Varga and R. Hornig, ``An overview of the OMNeT++ simulation environment,'' in \emph{Proc. SIMUTools}, 2008.
+\bibitem{bearssl} T. Pornin, ``BearSSL, a smaller SSL/TLS library,'' [Online]. Available: \url{https://bearssl.org}
+\bibitem{hkdf} H. Krawczyk and P. Eronen, ``HMAC-based extract-and-expand key derivation function (HKDF),'' RFC 5869, 2010.
+\bibitem{gcm} M. Dworkin, ``Recommendation for block cipher modes of operation: Galois/Counter Mode (GCM),'' NIST SP 800-38D, 2007.
+\end{thebibliography}
+\end{document}
