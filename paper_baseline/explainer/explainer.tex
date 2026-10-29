@@ -1,0 +1,81 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs,xcolor,enumitem,graphicx,array}
+\usepackage[hidelinks]{hyperref}
+\definecolor{ok}{RGB}{22,120,60}\definecolor{no}{RGB}{170,40,40}\definecolor{box}{RGB}{238,242,248}
+\usepackage{tcolorbox}
+\newtcolorbox{key}{colback=box,colframe=black!25,boxrule=0.4pt,arc=2pt,left=8pt,right=8pt,top=6pt,bottom=6pt}
+\setlength{\parindent}{0pt}\setlength{\parskip}{0.6em}
+\begin{document}
+{\LARGE\bfseries What we did, in plain terms}\\[2pt]
+{\large Reproducing the baseline of the base paper in OMNeT++}
+
+\vspace{4pt}
+\begin{key}
+\textbf{One-sentence version.} We built the protocol, built a simulator of the environment the base paper describes, and checked that, under the paper's own assumptions, we get the paper's own per-session numbers and message sizes. Only then do we propose improvements.
+\end{key}
+
+\section*{1. What the mentor asked for}
+Before any improvements, our implementation must produce results that match the base paper's. The concern was that the numbers we reported earlier looked different from the paper's, which suggested our implementation might be inaccurate.
+
+\section*{2. Why our earlier numbers looked different}
+The paper estimates cost by multiplying operation counts by assumed times (hash $=0.32$\,ms, symmetric encrypt or decrypt $=5.6$\,ms, and so on). Our earlier report used times we \emph{measured} on a real microcontroller instead, for example an elliptic-curve multiplication of 276\,ms against the paper's assumed 17.1\,ms. Different clock, different answer. That is a different \emph{environment}, not a mistake in the code.
+
+\textbf{Fix:} run our implementation under the paper's own assumptions.
+
+\section*{3. What we did, step by step}
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+\item \textbf{Counted what our protocol really does.} One handshake: 2 symmetric operations per side (same as the paper), plus a pseudonym hash, plus session-key derivation, plus the server's search for the right pseudonym.
+\item \textbf{Built the paper's world in OMNeT++.} Same area (1500\,m $\times$ 1500\,m), 100--1000 devices, 5\% servers, 10\,Mbps links, same power figures, same per-operation times. Nothing was tuned to hit any target.
+\item \textbf{Ran it.} 3,385 simulation runs (five random seeds per setting), on two different computers and OMNeT++ versions. The results agree to 14 digits, so they are repeatable.
+\item \textbf{Compared with the paper's tables.}
+\end{enumerate}
+
+\section*{4. How close we are}
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{5.2cm}>{\raggedright\arraybackslash}p{3.4cm}>{\raggedright\arraybackslash}p{3.4cm}l}
+\toprule
+\textbf{Quantity} & \textbf{Paper} & \textbf{Ours} & \\
+\midrule
+Per-session cost, proposed scheme & 23.68\,ms (Table V $\times$ III) & 23.98\,ms & {\color{ok}\textbf{matches}} \\
+\quad (the extra 0.30\,ms is radio airtime) & & & \\
+Text version (2 messages, 264 bits) & --- & 23.85\,ms & {\color{ok}\textbf{matches}} \\
+Message sizes, 9 schemes (Table IV) & 1024, 3360, 2720, \ldots & identical & {\color{ok}\textbf{matches}}$^\dagger$ \\
+Symmetric operations per handshake & 2 per side & 2 per side & {\color{ok}\textbf{matches}} \\
+\bottomrule
+\end{tabular}
+\end{center}
+{\small $^\dagger$ The sizes are inputs to the simulator, so this shows our setup reads the paper's table correctly; it is a consistency check, not independent proof of the sizes.}
+
+\textbf{Where we differ, and why.} The paper's Table~V counts $2$ hashes $+\,2$ symmetric operations per side. The protocol's own equations also need a session-key derivation and a pseudonym lookup, which Table~V does not list. Our code does them, so we report them as separate items. With the key derivation added the cost is 35.18\,ms instead of 23.68\,ms.
+
+\section*{5. One open question the paper does not answer}
+How does the server find which device a pseudonym belongs to? The paper does not say.
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item \textbf{Search one by one:} latency grows with the number of devices (about 19\,s at 1000 devices in our model).
+\item \textbf{Keep an index:} latency stays at about 24\,ms for any number of devices, but the server stores more.
+\end{itemize}
+This is a design choice we report, not a flaw in the paper. It is also our first natural improvement.
+
+\section*{6. What we claim (and nothing more)}
+\begin{key}
+We provide an open implementation and an OMNeT++ model of the protocol. Under the paper's stated environment and constants they reproduce the paper's per-session processing cost and communication sizes. They also show that the server's pseudonym lookup, which the paper leaves open, determines how the protocol scales.
+\end{key}
+That is the whole claim in the new paper (\texttt{paper\_baseline/main.pdf}).
+
+\section*{7. What the new paper deliberately leaves out}
+For the team, in the interest of being clear about our own scope. These findings are true and documented elsewhere in the repository; they simply are not part of this baseline claim.
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item \textbf{Figures 1--3 of the base paper cannot be reproduced by simulation.} We compared them with an earlier paper from the same group (Jan et al., IEEE IoT Journal 2025). Fig.~1 equals that paper's Fig.~5 plus a constant 7.227 on every bar, and Figs.~2 and~3 follow the same pattern. Details: \texttt{research/omnet\_emulation/jan\_compare/FINDINGS.md}.
+\item \textbf{The abstract's 17\%/21\%/12\%} did not come out under any definition we tried (about 100).
+\item \textbf{Processing ranking.} By the paper's own Table~V and Table~III, the hash-only schemes are cheaper than the proposed scheme (the proposed is 4th of 9).
+\end{itemize}
+How these are presented, and to whom, is for the team and the mentor to decide. The mentor should hear them from us, not discover them.
+
+\section*{8. What is next}
+Proposed first improvements, each measured separately from the baseline: a server-side pseudonym index; binary message framing (about half the bytes on the wire).
+
+\vfill\small Files: \texttt{paper\_baseline/main.pdf} (the new paper), \texttt{research/omnet\_emulation/baseline/BASELINE.md} (full numbers), \texttt{research/omnet\_emulation/impl\_profile/README.md} (operation counts).
+\end{document}
