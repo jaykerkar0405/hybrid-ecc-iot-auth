@@ -1,0 +1,518 @@
+{
+ "source": "Al-Rasheed et al., IEEE Trans. Consum. Electron. 72(2):4483-4491, 2026, DOI 10.1109/TCE.2026.3662053",
+ "note": "values exactly as published; None = '-' in the paper. Figs. are bar heights read from the PDF vector paths.",
+ "table_II_environment": {
+  "area_m": "1500x1500",
+  "simulator": "OMNeT++",
+  "devices": "100-1000",
+  "servers": "5% (one per hundred devices)",
+  "sampling_interval_us": 15,
+  "bandwidth_Mbps": 10,
+  "tx_mW": 75.6,
+  "rx_mW": 75.6,
+  "range_m": "500-800",
+  "packet_size": "128 Kbps (sic)",
+  "handoff_ns": 10,
+  "speed_max_kmh": 160,
+  "adversary": "randomly generated"
+ },
+ "table_III_ms": {
+  "ECM": 17.1,
+  "C": 0.32,
+  "SE/D": 5.6,
+  "H": 0.32,
+  "fe": 17.1
+ },
+ "table_IV_comm_bits": {
+  "Proposed scheme": {
+   "messages": 4,
+   "user": null,
+   "device": 512,
+   "server": 512,
+   "total": 1024
+  },
+  "Poorambage [11]": {
+   "messages": 4,
+   "user": 768,
+   "device": 768,
+   "server": 1824,
+   "total": 3360
+  },
+  "Turkanovic [12]": {
+   "messages": 4,
+   "user": 672,
+   "device": 576,
+   "server": 1472,
+   "total": 2720
+  },
+  "Dhillon-Karla [13]": {
+   "messages": 4,
+   "user": 992,
+   "device": 512,
+   "server": 1024,
+   "total": 2528
+  },
+  "Cheng-Le [14]": {
+   "messages": 4,
+   "user": 672,
+   "device": 512,
+   "server": 1088,
+   "total": 2272
+  },
+  "Jiang [15]": {
+   "messages": 4,
+   "user": 512,
+   "device": 1056,
+   "server": 384,
+   "total": 1952
+  },
+  "Shuai [16]": {
+   "messages": 4,
+   "user": 864,
+   "device": 544,
+   "server": 960,
+   "total": 2368
+  },
+  "Wazid [17]": {
+   "messages": 4,
+   "user": 736,
+   "device": 512,
+   "server": 1344,
+   "total": 2592
+  },
+  "Sadhukhan [18]": {
+   "messages": 4,
+   "user": 320,
+   "device": 768,
+   "server": 512,
+   "total": 1600
+  },
+  "Fakroon [19]": {
+   "messages": 4,
+   "user": 800,
+   "device": 416,
+   "server": 1088,
+   "total": 2304
+  }
+ },
+ "table_V_ops": {
+  "Proposed scheme": {
+   "user": null,
+   "device": {
+    "H": 2,
+    "SE/D": 2
+   },
+   "server": {
+    "H": 2,
+    "SE/D": 2
+   }
+  },
+  "Challa et al. [17]": {
+   "user": {
+    "fe": 1,
+    "H": 5,
+    "SE/D": 5
+   },
+   "device": {
+    "H": 3,
+    "ECM": 4
+   },
+   "server": {
+    "H": 4,
+    "ECM": 5
+   }
+  },
+  "Turkanovic [12]": {
+   "user": {
+    "H": 7
+   },
+   "device": {
+    "H": 7
+   },
+   "server": {
+    "H": 5
+   }
+  },
+  "Poorambage [11]": {
+   "user": {
+    "H": 8,
+    "ECM": 4
+   },
+   "device": {
+    "H": 10,
+    "ECM": 11
+   },
+   "server": {
+    "H": 5,
+    "ECM": 8
+   }
+  },
+  "Dhillon-Karla [13]": {
+   "user": {
+    "H": 8
+   },
+   "device": {
+    "H": 6
+   },
+   "server": {
+    "H": 8
+   }
+  },
+  "Cheng-Le [14]": {
+   "user": {
+    "H": 9,
+    "ECM": 2
+   },
+   "device": {
+    "H": 5,
+    "ECM": 2
+   },
+   "server": {
+    "H": 7
+   }
+  },
+  "Shuai [16]": {
+   "user": {
+    "H": 6,
+    "ECM": 1
+   },
+   "device": {
+    "H": 3,
+    "ECM": 1
+   },
+   "server": {
+    "H": 7,
+    "ECM": 1
+   }
+  },
+  "Jiang [15]": {
+   "user": {
+    "H": 7
+   },
+   "device": {
+    "H": 5
+   },
+   "server": {
+    "H": 10
+   }
+  },
+  "Wazid [17]": {
+   "user": {
+    "fe": 1,
+    "H": 13,
+    "SE/D": 2
+   },
+   "device": {
+    "H": 4,
+    "SE/D": 2
+   },
+   "server": {
+    "H": 5,
+    "SE/D": 4
+   }
+  },
+  "Sadhukhan [18]": {
+   "user": {
+    "H": 2,
+    "ECM": 1,
+    "SE/D": 2
+   },
+   "device": {
+    "H": 1,
+    "ECM": 1,
+    "SE/D": 2
+   },
+   "server": {
+    "H": 2,
+    "SE/D": 4
+   }
+  }
+ },
+ "table_VI_storage_bits": {
+  "Proposed scheme": {
+   "server": 320,
+   "device": 320
+  },
+  "Turkanovic [12]": {
+   "server": 768,
+   "device": 512
+  },
+  "Dhillon-Karla [13]": {
+   "server": 640,
+   "device": 512
+  },
+  "Wazid [17]": {
+   "server": 576,
+   "device": 512
+  },
+  "Sadhukhan [18]": {
+   "server": 480,
+   "device": 356
+  },
+  "Fakroon [19]": {
+   "server": 704,
+   "device": 1056
+  }
+ },
+ "claims": {
+  "abstract": "~17% communication, ~21% processing, ~12% storage reduction",
+  "text_comm_bits": 264,
+  "text_messages": 2
+ },
+ "figures": {
+  "fig1": {
+   "x": [
+    300,
+    600,
+    900,
+    1200,
+    1500,
+    1800
+   ],
+   "series": {
+    "Proposed": [
+     42.685363307454786,
+     44.750129035647035,
+     47.23449727682234,
+     50.48256299337088,
+     52.46711827854582,
+     63.47012296714058
+    ],
+    "Zhanfei 2024": [
+     72.68184818561596,
+     76.92000339341558,
+     81.813362961074,
+     86.20697489068243,
+     90.78935569677296,
+     92.47207673342757
+    ],
+    "Hassan 2023": [
+     64.92246759294662,
+     69.69779762434099,
+     70.50395176743513,
+     74.47809181996118,
+     77.9145345052898,
+     84.06689756574838
+    ],
+    "Gupta 2019": [
+     94.80092293484373,
+     96.86568866303597,
+     99.9992520126388,
+     99.88305137898425,
+     99.9992520126388,
+     99.9992520126388
+    ],
+    "Gope 2016": [
+     86.20697489068243,
+     88.00321852502765,
+     90.25636122199998,
+     92.47207673342757,
+     95.22542429410225,
+     96.37090518921178
+    ],
+    "Hassan 2018": [
+     89.22394569892867,
+     91.78395212659748,
+     88.91753919388455,
+     94.91895247110779,
+     97.89810418610728,
+     99.88305137898425
+    ]
+   },
+   "censored": {
+    "Proposed": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "Zhanfei 2024": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "Hassan 2023": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "Gupta 2019": [
+     false,
+     false,
+     true,
+     false,
+     true,
+     true
+    ],
+    "Gope 2016": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "Hassan 2018": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   }
+  },
+  "fig2": {
+   "x": [
+    300,
+    600,
+    900,
+    1200,
+    1500,
+    1800
+   ],
+   "series": {
+    "Gope 2016": [
+     29.94794909263571,
+     31.476783717648594,
+     34.49230960893432,
+     37.15258805772076,
+     38.47605809559337,
+     40.755887373354
+    ],
+    "Gupta 2019": [
+     27.710136743538918,
+     30.48003006840824,
+     32.513931776241286,
+     35.174231296707106,
+     34.505816555410505,
+     37.74023505199206
+    ],
+    "Hassan 2023": [
+     28.50152580563899,
+     31.503671180524748,
+     33.49553488801459,
+     35.50257020465085,
+     35.99248675000396,
+     38.99463212488972
+    ],
+    "Zhanfei 2024": [
+     29.006719318535374,
+     33.49553488801459,
+     35.99248675000396,
+     38.491208633060424,
+     40.346759646705564,
+     41.506860954422365
+    ],
+    "Proposed": [
+     22.401295699695755,
+     23.34250440211672,
+     24.74853327976109,
+     25.839603765861682,
+     27.109151376226396,
+     28.582441054419895
+    ]
+   },
+   "censored": {
+    "Gope 2016": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "Gupta 2019": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "Hassan 2023": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "Zhanfei 2024": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "Proposed": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ]
+   }
+  },
+  "fig3": {
+   "x": [
+    "single group"
+   ],
+   "series": {
+    "Proposed": [
+     0.5300317025513609
+    ],
+    "Zhanfei 2024": [
+     0.5700123755693681
+    ],
+    "Hassan 2023": [
+     0.6300412860684692
+    ],
+    "Gupta 2019": [
+     0.6150425519673279
+    ],
+    "Hassan 2018": [
+     0.6599212950536673
+    ],
+    "Gope 2016": [
+     0.7100022177862576
+    ]
+   },
+   "censored": {
+    "Proposed": [
+     false
+    ],
+    "Zhanfei 2024": [
+     false
+    ],
+    "Hassan 2023": [
+     false
+    ],
+    "Gupta 2019": [
+     false
+    ],
+    "Hassan 2018": [
+     false
+    ],
+    "Gope 2016": [
+     false
+    ]
+   }
+  }
+ },
+ "figure_axis_labels": {
+  "fig1": "Communication Overhead (%), caption says processing",
+  "fig2": "Communication Cost (bits)",
+  "fig3": "Storage Overhead (%)"
+ }
+}

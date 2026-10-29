@@ -1,0 +1,2455 @@
+{
+ "fig1": {
+  "x": [
+   300,
+   600,
+   900,
+   1200,
+   1500,
+   1800
+  ],
+  "x_label": "Vehicles in VANET",
+  "y_label": "Communication Overhead (%)",
+  "series": {
+   "Proposed": [
+    42.685363307454786,
+    44.750129035647035,
+    47.23449727682234,
+    50.48256299337088,
+    52.46711827854582,
+    63.47012296714058
+   ],
+   "Zhanfei 2024": [
+    72.68184818561596,
+    76.92000339341558,
+    81.813362961074,
+    86.20697489068243,
+    90.78935569677296,
+    92.47207673342757
+   ],
+   "Hassan 2023": [
+    64.92246759294662,
+    69.69779762434099,
+    70.50395176743513,
+    74.47809181996118,
+    77.9145345052898,
+    84.06689756574838
+   ],
+   "Gupta 2019": [
+    94.80092293484373,
+    96.86568866303597,
+    99.9992520126388,
+    99.88305137898425,
+    99.9992520126388,
+    99.9992520126388
+   ],
+   "Gope 2016": [
+    86.20697489068243,
+    88.00321852502765,
+    90.25636122199998,
+    92.47207673342757,
+    95.22542429410225,
+    96.37090518921178
+   ],
+   "Hassan 2018": [
+    89.22394569892867,
+    91.78395212659748,
+    88.91753919388455,
+    94.91895247110779,
+    97.89810418610728,
+    99.88305137898425
+   ]
+  },
+  "series_3dp": {
+   "Proposed": [
+    42.685,
+    44.75,
+    47.234,
+    50.483,
+    52.467,
+    63.47
+   ],
+   "Zhanfei 2024": [
+    72.682,
+    76.92,
+    81.813,
+    86.207,
+    90.789,
+    92.472
+   ],
+   "Hassan 2023": [
+    64.922,
+    69.698,
+    70.504,
+    74.478,
+    77.915,
+    84.067
+   ],
+   "Gupta 2019": [
+    94.801,
+    96.866,
+    99.999,
+    99.883,
+    99.999,
+    99.999
+   ],
+   "Gope 2016": [
+    86.207,
+    88.003,
+    90.256,
+    92.472,
+    95.225,
+    96.371
+   ],
+   "Hassan 2018": [
+    89.224,
+    91.784,
+    88.918,
+    94.919,
+    97.898,
+    99.883
+   ]
+  },
+  "censored": {
+   "Proposed": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "Zhanfei 2024": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "Hassan 2023": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "Gupta 2019": [
+    false,
+    false,
+    true,
+    false,
+    true,
+    true
+   ],
+   "Gope 2016": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "Hassan 2018": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ]
+  },
+  "censoring_note": "censored=True: bar reaches the axis top (fill rect truncated to the axis limit by the source software, no top-edge stroke); true value >= axis max, raw height NOT recoverable from the file",
+  "outline_clip_rects": [
+   {
+    "x0": 24.786,
+    "y0": 16.62,
+    "x1": 175.946,
+    "y1": 123.845,
+    "top_value": 99.9992520126388
+   }
+  ],
+  "precision": {
+   "grid_quantum_pt": 0.0585,
+   "grid_fit_rms_in_quanta": 0.05277719144134186,
+   "value_resolution": 0.03821100094879841,
+   "tolerance_used": 0.0362901451535327,
+   "tolerance_def": "0.5*value_resolution + max|tick residual|"
+  },
+  "round_number_test": {
+   "1.0": {
+    "testable": true,
+    "n_within_tol": 1,
+    "n": 33,
+    "chance_rate": 0.0725802903070654,
+    "expected_by_chance": 2.3951495801331584
+   },
+   "0.5": {
+    "testable": true,
+    "n_within_tol": 8,
+    "n": 33,
+    "chance_rate": 0.1451605806141308,
+    "expected_by_chance": 4.790299160266317
+   },
+   "0.25": {
+    "testable": true,
+    "n_within_tol": 14,
+    "n": 33,
+    "chance_rate": 0.2903211612282616,
+    "expected_by_chance": 9.580598320532633
+   },
+   "0.1": {
+    "testable": true,
+    "n_within_tol": 31,
+    "n": 33,
+    "chance_rate": 0.725802903070654,
+    "expected_by_chance": 23.951495801331582
+   },
+   "0.05": {
+    "testable": false,
+    "note": "grid finer than 2*tolerance"
+   },
+   "0.01": {
+    "testable": false,
+    "note": "grid finer than 2*tolerance"
+   },
+   "0.005": {
+    "testable": false,
+    "note": "grid finer than 2*tolerance"
+   }
+  },
+  "identical_heights": {
+   "86.0525pt -> 86.2070": [
+    "Zhanfei 2024@1200",
+    "Gope 2016@300"
+   ],
+   "95.6442pt -> 92.4721": [
+    "Zhanfei 2024@1800",
+    "Gope 2016@1200"
+   ],
+   "106.9902pt -> 99.8831": [
+    "Gupta 2019@1200",
+    "Hassan 2018@1800"
+   ]
+  },
+  "bar_detail": {
+   "Proposed": [
+    {
+     "value": 42.685363307454786,
+     "value_from_fill_rect": 42.68536330745479,
+     "top_y": 36.099,
+     "fill_top_y": 36.099000000000004,
+     "top_edge_stroke": true,
+     "height_pt": 19.422099999999997,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 27.269,
+     "width": 3.221
+    },
+    {
+     "value": 44.750129035647035,
+     "value_from_fill_rect": 44.7500637176967,
+     "top_y": 39.2601,
+     "fill_top_y": 39.26,
+     "top_edge_stroke": true,
+     "height_pt": 22.5832,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 51.769,
+     "width": 3.2209999999999965
+    },
+    {
+     "value": 47.23449727682234,
+     "value_from_fill_rect": 47.2341053691203,
+     "top_y": 43.0636,
+     "fill_top_y": 43.063,
+     "top_edge_stroke": true,
+     "height_pt": 26.3867,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 76.268,
+     "width": 3.2210000000000036
+    },
+    {
+     "value": 50.48256299337088,
+     "value_from_fill_rect": 50.48302021902326,
+     "top_y": 48.0363,
+     "fill_top_y": 48.037,
+     "top_edge_stroke": true,
+     "height_pt": 31.359399999999997,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 100.768,
+     "width": 3.221999999999994
+    },
+    {
+     "value": 52.46711827854582,
+     "value_from_fill_rect": 52.46737955034718,
+     "top_y": 51.0746,
+     "fill_top_y": 51.075,
+     "top_edge_stroke": true,
+     "height_pt": 34.3977,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 125.267,
+     "width": 3.2220000000000084
+    },
+    {
+     "value": 63.47012296714058,
+     "value_from_fill_rect": 63.47018828509093,
+     "top_y": 67.9199,
+     "fill_top_y": 67.92,
+     "top_edge_stroke": true,
+     "height_pt": 51.242999999999995,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 149.767,
+     "width": 3.2210000000000036
+    }
+   ],
+   "Zhanfei 2024": [
+    {
+     "value": 72.68184818561596,
+     "value_from_fill_rect": 72.68132564201323,
+     "top_y": 82.0228,
+     "fill_top_y": 82.02199999999999,
+     "top_edge_stroke": true,
+     "height_pt": 65.3459,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 30.49,
+     "width": 3.2880000000000003
+    },
+    {
+     "value": 76.92000339341558,
+     "value_from_fill_rect": 76.91980743956456,
+     "top_y": 88.5113,
+     "fill_top_y": 88.511,
+     "top_edge_stroke": true,
+     "height_pt": 71.8344,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 54.99,
+     "width": 3.2879999999999967
+    },
+    {
+     "value": 81.813362961074,
+     "value_from_fill_rect": 81.81342827902435,
+     "top_y": 96.0029,
+     "fill_top_y": 96.00299999999999,
+     "top_edge_stroke": true,
+     "height_pt": 79.326,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 79.489,
+     "width": 3.2879999999999967
+    },
+    {
+     "value": 86.20697489068243,
+     "value_from_fill_rect": 86.20736679838447,
+     "top_y": 102.7294,
+     "fill_top_y": 102.72999999999999,
+     "top_edge_stroke": true,
+     "height_pt": 86.0525,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 103.99,
+     "width": 3.287000000000006
+    },
+    {
+     "value": 90.78935569677296,
+     "value_from_fill_rect": 90.7894210147233,
+     "top_y": 109.7449,
+     "fill_top_y": 109.745,
+     "top_edge_stroke": true,
+     "height_pt": 93.068,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 128.489,
+     "width": 3.288000000000011
+    },
+    {
+     "value": 92.47207673342757,
+     "value_from_fill_rect": 92.47201141547723,
+     "top_y": 112.3211,
+     "fill_top_y": 112.321,
+     "top_edge_stroke": true,
+     "height_pt": 95.6442,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 152.988,
+     "width": 3.288000000000011
+    }
+   ],
+   "Hassan 2023": [
+    {
+     "value": 64.92246759294662,
+     "value_from_fill_rect": 64.92220632114527,
+     "top_y": 70.1434,
+     "fill_top_y": 70.143,
+     "top_edge_stroke": true,
+     "height_pt": 53.466499999999996,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 33.778,
+     "width": 3.2959999999999994
+    },
+    {
+     "value": 69.69779762434099,
+     "value_from_fill_rect": 69.69760167048997,
+     "top_y": 77.4543,
+     "fill_top_y": 77.45400000000001,
+     "top_edge_stroke": true,
+     "height_pt": 60.7774,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 58.278,
+     "width": 3.2879999999999967
+    },
+    {
+     "value": 70.50395176743513,
+     "value_from_fill_rect": 70.50427835718682,
+     "top_y": 78.6885,
+     "fill_top_y": 78.689,
+     "top_edge_stroke": true,
+     "height_pt": 62.0116,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 82.777,
+     "width": 3.2879999999999967
+    },
+    {
+     "value": 74.47809181996118,
+     "value_from_fill_rect": 74.47822245586185,
+     "top_y": 84.7728,
+     "fill_top_y": 84.773,
+     "top_edge_stroke": true,
+     "height_pt": 68.0959,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 107.276,
+     "width": 3.2879999999999967
+    },
+    {
+     "value": 77.9145345052898,
+     "value_from_fill_rect": 77.91459982324011,
+     "top_y": 90.0339,
+     "fill_top_y": 90.03399999999999,
+     "top_edge_stroke": true,
+     "height_pt": 73.357,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 131.777,
+     "width": 3.287000000000006
+    },
+    {
+     "value": 84.06689756574838,
+     "value_from_fill_rect": 84.06689756574838,
+     "top_y": 99.453,
+     "fill_top_y": 99.453,
+     "top_edge_stroke": true,
+     "height_pt": 82.7761,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 156.276,
+     "width": 3.288000000000011
+    }
+   ],
+   "Gupta 2019": [
+    {
+     "value": 94.80092293484373,
+     "value_from_fill_rect": 94.80124952459542,
+     "top_y": 115.8865,
+     "fill_top_y": 115.887,
+     "top_edge_stroke": true,
+     "height_pt": 99.2096,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 37.074,
+     "width": 3.2210000000000036
+    },
+    {
+     "value": 96.86568866303597,
+     "value_from_fill_rect": 96.86529675533393,
+     "top_y": 119.0476,
+     "fill_top_y": 119.047,
+     "top_edge_stroke": true,
+     "height_pt": 102.3707,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 61.565,
+     "width": 3.228999999999999
+    },
+    {
+     "value": 99.9992520126388,
+     "value_from_fill_rect": 99.9992520126388,
+     "top_y": 123.845,
+     "fill_top_y": 123.845,
+     "top_edge_stroke": false,
+     "height_pt": 107.1681,
+     "clipped_at_axis_top": true,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       24.786,
+       16.62,
+       175.946,
+       123.845
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 86.064,
+     "width": 3.230000000000004
+    },
+    {
+     "value": 99.88305137898425,
+     "value_from_fill_rect": 99.8829860610339,
+     "top_y": 123.6671,
+     "fill_top_y": 123.667,
+     "top_edge_stroke": true,
+     "height_pt": 106.9902,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       24.786,
+       16.62,
+       175.946,
+       123.845
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 110.564,
+     "width": 3.230000000000004
+    },
+    {
+     "value": 99.9992520126388,
+     "value_from_fill_rect": 99.9992520126388,
+     "top_y": 123.845,
+     "fill_top_y": 123.845,
+     "top_edge_stroke": false,
+     "height_pt": 107.1681,
+     "clipped_at_axis_top": true,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       24.786,
+       16.62,
+       175.946,
+       123.845
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 135.064,
+     "width": 3.2220000000000084
+    },
+    {
+     "value": 99.9992520126388,
+     "value_from_fill_rect": 99.9992520126388,
+     "top_y": 123.845,
+     "fill_top_y": 123.845,
+     "top_edge_stroke": false,
+     "height_pt": 107.1681,
+     "clipped_at_axis_top": true,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       24.786,
+       16.62,
+       175.946,
+       123.845
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 159.564,
+     "width": 3.2210000000000036
+    }
+   ],
+   "Gope 2016": [
+    {
+     "value": 86.20697489068243,
+     "value_from_fill_rect": 86.20736679838447,
+     "top_y": 102.7294,
+     "fill_top_y": 102.72999999999999,
+     "top_edge_stroke": true,
+     "height_pt": 86.0525,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 40.295,
+     "width": 3.2879999999999967
+    },
+    {
+     "value": 88.00321852502765,
+     "value_from_fill_rect": 88.0029572532263,
+     "top_y": 105.4794,
+     "fill_top_y": 105.47900000000001,
+     "top_edge_stroke": true,
+     "height_pt": 88.8025,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 64.795,
+     "width": 3.2879999999999967
+    },
+    {
+     "value": 90.25636122199998,
+     "value_from_fill_rect": 90.2564265399503,
+     "top_y": 108.9289,
+     "fill_top_y": 108.929,
+     "top_edge_stroke": true,
+     "height_pt": 92.252,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 89.294,
+     "width": 3.2879999999999967
+    },
+    {
+     "value": 92.47207673342757,
+     "value_from_fill_rect": 92.47201141547723,
+     "top_y": 112.3211,
+     "fill_top_y": 112.321,
+     "top_edge_stroke": true,
+     "height_pt": 95.6442,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 113.794,
+     "width": 3.2879999999999967
+    },
+    {
+     "value": 95.22542429410225,
+     "value_from_fill_rect": 95.2251630223009,
+     "top_y": 116.5364,
+     "fill_top_y": 116.536,
+     "top_edge_stroke": true,
+     "height_pt": 99.8595,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 138.286,
+     "width": 3.2949999999999875
+    },
+    {
+     "value": 96.37090518921178,
+     "value_from_fill_rect": 96.37083987126144,
+     "top_y": 118.2901,
+     "fill_top_y": 118.28999999999999,
+     "top_edge_stroke": true,
+     "height_pt": 101.61319999999999,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 162.785,
+     "width": 3.2959999999999923
+    }
+   ],
+   "Hassan 2018": [
+    {
+     "value": 89.22394569892867,
+     "value_from_fill_rect": 89.22374974507767,
+     "top_y": 107.3483,
+     "fill_top_y": 107.34800000000001,
+     "top_edge_stroke": true,
+     "height_pt": 90.67139999999999,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 43.583,
+     "width": 3.2879999999999967
+    },
+    {
+     "value": 91.78395212659748,
+     "value_from_fill_rect": 91.78421339839883,
+     "top_y": 111.2676,
+     "fill_top_y": 111.268,
+     "top_edge_stroke": true,
+     "height_pt": 94.5907,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 68.082,
+     "width": 3.287000000000006
+    },
+    {
+     "value": 88.91753919388455,
+     "value_from_fill_rect": 88.91740855798386,
+     "top_y": 106.8792,
+     "fill_top_y": 106.87899999999999,
+     "top_edge_stroke": true,
+     "height_pt": 90.2023,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 92.582,
+     "width": 3.2879999999999967
+    },
+    {
+     "value": 94.91895247110779,
+     "value_from_fill_rect": 94.91947501471051,
+     "top_y": 116.0672,
+     "fill_top_y": 116.06800000000001,
+     "top_edge_stroke": true,
+     "height_pt": 99.3903,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 117.082,
+     "width": 3.2879999999999967
+    },
+    {
+     "value": 97.89810418610728,
+     "value_from_fill_rect": 97.89797355020659,
+     "top_y": 120.6282,
+     "fill_top_y": 120.62799999999999,
+     "top_edge_stroke": true,
+     "height_pt": 103.9513,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 141.581,
+     "width": 3.288000000000011
+    },
+    {
+     "value": 99.88305137898425,
+     "value_from_fill_rect": 99.8829860610339,
+     "top_y": 123.6671,
+     "fill_top_y": 123.667,
+     "top_edge_stroke": true,
+     "height_pt": 106.9902,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       24.786,
+       16.62,
+       175.946,
+       123.845
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 166.081,
+     "width": 3.288000000000011
+    }
+   ]
+  },
+  "colour_to_series": {
+   "0.000,0.000,0.000": "Proposed",
+   "1.000,0.000,0.000": "Zhanfei 2024",
+   "0.000,0.000,1.000": "Hassan 2023",
+   "1.000,0.000,1.000": "Gupta 2019",
+   "0.000,0.502,0.000": "Gope 2016",
+   "0.000,0.000,0.502": "Hassan 2018"
+  },
+  "in_group_bar_order": [
+   "Proposed",
+   "Zhanfei 2024",
+   "Hassan 2023",
+   "Gupta 2019",
+   "Gope 2016",
+   "Hassan 2018"
+  ],
+  "in_group_order_consistent": true,
+  "group_centres_pt": [
+   37.06999999999999,
+   61.569,
+   86.06899999999999,
+   110.56899999999999,
+   135.06799999999998,
+   159.56799999999998
+  ],
+  "calibration": {
+   "pdf_page": 6,
+   "xobject": "Im5",
+   "coord_space": "XObject user space (pt, y up)",
+   "baseline_y": 16.6769,
+   "y_axis_x": 24.7822,
+   "y_axis_top": 123.8469,
+   "plot_clip_top": null,
+   "major_tick_y": [
+    16.6769,
+    32.0065,
+    47.2712,
+    62.6008,
+    77.9234,
+    93.253,
+    108.5177,
+    123.8473
+   ],
+   "major_tick_values": [
+    30,
+    40,
+    50,
+    60,
+    70,
+    80,
+    90,
+    100
+   ],
+   "minor_tick_y": [
+    24.3417,
+    39.6714,
+    54.936,
+    70.2586,
+    85.5882,
+    100.8529,
+    116.1825
+   ],
+   "fit": "value = a + b*y",
+   "a": 19.10623641428088,
+   "b": 0.6531795033982634,
+   "units_per_pt": 0.6531795033982634,
+   "major_residuals": [
+    0.0007543254966222435,
+    -0.012226189797395648,
+    0.0171846446791335,
+    0.004204129385115607,
+    -0.004204129385115607,
+    -0.0171846446791335,
+    0.012226189797388543,
+    -0.000754325496615138
+   ],
+   "max_abs_residual": 0.0171846446791335,
+   "rms_residual": 0.010759129153323324,
+   "minor_tick_values": [
+    35.00573593215039,
+    45.01878176539474,
+    54.989305612967875,
+    64.99771387173811,
+    75.01069438703212,
+    84.9812835525556,
+    94.99426406784963
+   ],
+   "minor_tick_residual_vs_half_step": [
+    0.005735932150386702,
+    0.018781765394741967,
+    -0.010694387032124553,
+    -0.0022861282618862333,
+    0.010694387032117447,
+    -0.018716447444404594,
+    -0.005735932150372491
+   ],
+   "label_centre_minus_tick_y": [
+    0.3159,
+    0.3132,
+    0.3161,
+    0.3126,
+    0.3161,
+    0.3126,
+    0.3155,
+    0.312
+   ],
+   "baseline_value": 29.999245674503378
+  },
+  "provenance": {
+   "ptex_filename": "./temp/khan1-3662053.pdf",
+   "info": {
+    "/CreationDate": "D:20260206102336+06'30'",
+    "/Creator": "Adobe Illustrator 26.5 (Windows)",
+    "/ModDate": "D:20260206102336+05'30'",
+    "/Producer": "Adobe PDF library 16.07",
+    "/Title": "khan1-3662053"
+   },
+   "fonts_in_xobject": [],
+   "note": "text is outlined (no fonts); file is an Adobe Illustrator 26.5 re-save of the chart"
+  },
+  "delta_vs_eyeball": {
+   "Proposed": [
+    -0.0146,
+    -0.0499,
+    -0.0655,
+    -0.0174,
+    -0.0329,
+    -0.0299
+   ],
+   "Zhanfei 2024": [
+    -0.0182,
+    0.02,
+    0.0134,
+    0.007,
+    -0.0106,
+    -0.0279
+   ],
+   "Hassan 2023": [
+    -0.0775,
+    -0.0022,
+    0.004,
+    -0.0219,
+    0.0145,
+    -0.0331
+   ],
+   "Gupta 2019": [
+    0.0009,
+    0.0657,
+    null,
+    -0.0169,
+    null,
+    null
+   ],
+   "Gope 2016": [
+    0.007,
+    0.0032,
+    -0.0436,
+    -0.0279,
+    0.0254,
+    -0.0291
+   ],
+   "Hassan 2018": [
+    -0.0761,
+    -0.016,
+    -0.0825,
+    0.019,
+    -0.0019,
+    -0.1169
+   ]
+  }
+ },
+ "fig2": {
+  "x": [
+   300,
+   600,
+   900,
+   1200,
+   1500,
+   1800
+  ],
+  "x_label": "Vehicles in VANET",
+  "y_label": "Communication Cost (bits)",
+  "series": {
+   "Gope 2016": [
+    29.94794909263571,
+    31.476783717648594,
+    34.49230960893432,
+    37.15258805772076,
+    38.47605809559337,
+    40.755887373354
+   ],
+   "Gupta 2019": [
+    27.710136743538918,
+    30.48003006840824,
+    32.513931776241286,
+    35.174231296707106,
+    34.505816555410505,
+    37.74023505199206
+   ],
+   "Hassan 2023": [
+    28.50152580563899,
+    31.503671180524748,
+    33.49553488801459,
+    35.50257020465085,
+    35.99248675000396,
+    38.99463212488972
+   ],
+   "Zhanfei 2024": [
+    29.006719318535374,
+    33.49553488801459,
+    35.99248675000396,
+    38.491208633060424,
+    40.346759646705564,
+    41.506860954422365
+   ],
+   "Proposed": [
+    22.401295699695755,
+    23.34250440211672,
+    24.74853327976109,
+    25.839603765861682,
+    27.109151376226396,
+    28.582441054419895
+   ]
+  },
+  "series_3dp": {
+   "Gope 2016": [
+    29.948,
+    31.477,
+    34.492,
+    37.153,
+    38.476,
+    40.756
+   ],
+   "Gupta 2019": [
+    27.71,
+    30.48,
+    32.514,
+    35.174,
+    34.506,
+    37.74
+   ],
+   "Hassan 2023": [
+    28.502,
+    31.504,
+    33.496,
+    35.503,
+    35.992,
+    38.995
+   ],
+   "Zhanfei 2024": [
+    29.007,
+    33.496,
+    35.992,
+    38.491,
+    40.347,
+    41.507
+   ],
+   "Proposed": [
+    22.401,
+    23.343,
+    24.749,
+    25.84,
+    27.109,
+    28.582
+   ]
+  },
+  "censored": {
+   "Gope 2016": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "Gupta 2019": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "Hassan 2023": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "Zhanfei 2024": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "Proposed": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ]
+  },
+  "censoring_note": "no bar reaches the axis top",
+  "outline_clip_rects": [
+   {
+    "x0": 20.916,
+    "y0": 18.068,
+    "x1": 174.155,
+    "y1": 136.78,
+    "top_value": 45.000271462140915
+   }
+  ],
+  "precision": {
+   "grid_quantum_pt": 0.06477,
+   "grid_fit_rms_in_quanta": 0.07623137333063544,
+   "value_resolution": 0.01364812672796602,
+   "tolerance_used": 0.01433731336002054,
+   "tolerance_def": "0.5*value_resolution + max|tick residual|"
+  },
+  "round_number_test": {
+   "1.0": {
+    "testable": true,
+    "n_within_tol": 4,
+    "n": 30,
+    "chance_rate": 0.02867462672004108,
+    "expected_by_chance": 0.8602388016012325
+   },
+   "0.5": {
+    "testable": true,
+    "n_within_tol": 14,
+    "n": 30,
+    "chance_rate": 0.05734925344008216,
+    "expected_by_chance": 1.720477603202465
+   },
+   "0.25": {
+    "testable": true,
+    "n_within_tol": 17,
+    "n": 30,
+    "chance_rate": 0.11469850688016432,
+    "expected_by_chance": 3.44095520640493
+   },
+   "0.1": {
+    "testable": true,
+    "n_within_tol": 17,
+    "n": 30,
+    "chance_rate": 0.2867462672004108,
+    "expected_by_chance": 8.602388016012323
+   },
+   "0.05": {
+    "testable": true,
+    "n_within_tol": 25,
+    "n": 30,
+    "chance_rate": 0.5734925344008216,
+    "expected_by_chance": 17.204776032024647
+   },
+   "0.01": {
+    "testable": false,
+    "note": "grid finer than 2*tolerance"
+   },
+   "0.005": {
+    "testable": false,
+    "note": "grid finer than 2*tolerance"
+   }
+  },
+  "identical_heights": {
+   "64.0523pt -> 33.4955": [
+    "Hassan 2023@900",
+    "Zhanfei 2024@600"
+   ],
+   "75.9021pt -> 35.9925": [
+    "Hassan 2023@1500",
+    "Zhanfei 2024@900"
+   ]
+  },
+  "bar_detail": {
+   "Gope 2016": [
+    {
+     "value": 29.94794909263571,
+     "value_from_fill_rect": 29.948138737750035,
+     "top_y": 65.3461,
+     "fill_top_y": 65.347,
+     "top_edge_stroke": true,
+     "height_pt": 47.21650000000001,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 23.501,
+     "width": 4.086000000000002
+    },
+    {
+     "value": 31.476783717648594,
+     "value_from_fill_rect": 31.476889076045445,
+     "top_y": 72.6015,
+     "fill_top_y": 72.602,
+     "top_edge_stroke": true,
+     "height_pt": 54.471900000000005,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 49.016,
+     "width": 4.0859999999999985
+    },
+    {
+     "value": 34.49230960893432,
+     "value_from_fill_rect": 34.492457110689905,
+     "top_y": 86.9123,
+     "fill_top_y": 86.913,
+     "top_edge_stroke": true,
+     "height_pt": 68.7827,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 74.539,
+     "width": 4.078000000000003
+    },
+    {
+     "value": 37.15258805772076,
+     "value_from_fill_rect": 37.152756631155725,
+     "top_y": 99.5372,
+     "fill_top_y": 99.538,
+     "top_edge_stroke": true,
+     "height_pt": 81.4076,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 100.054,
+     "width": 4.087000000000003
+    },
+    {
+     "value": 38.47605809559337,
+     "value_from_fill_rect": 38.476268812387076,
+     "top_y": 105.818,
+     "fill_top_y": 105.81899999999999,
+     "top_edge_stroke": true,
+     "height_pt": 87.6884,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 125.569,
+     "width": 4.087000000000003
+    },
+    {
+     "value": 40.755887373354,
+     "value_from_fill_rect": 40.756013803430214,
+     "top_y": 116.6374,
+     "fill_top_y": 116.63799999999999,
+     "top_edge_stroke": true,
+     "height_pt": 98.5078,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 151.084,
+     "width": 4.086999999999989
+    }
+   ],
+   "Gupta 2019": [
+    {
+     "value": 27.710136743538918,
+     "value_from_fill_rect": 27.710326388653247,
+     "top_y": 54.7261,
+     "fill_top_y": 54.727000000000004,
+     "top_edge_stroke": true,
+     "height_pt": 36.596500000000006,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 27.587,
+     "width": 4.079000000000001
+    },
+    {
+     "value": 30.48003006840824,
+     "value_from_fill_rect": 30.4799879250495,
+     "top_y": 67.8712,
+     "fill_top_y": 67.871,
+     "top_edge_stroke": true,
+     "height_pt": 49.741600000000005,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 53.102,
+     "width": 4.086999999999996
+    },
+    {
+     "value": 32.513931776241286,
+     "value_from_fill_rect": 32.51403713463814,
+     "top_y": 77.5235,
+     "fill_top_y": 77.524,
+     "top_edge_stroke": true,
+     "height_pt": 59.3939,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 78.617,
+     "width": 4.087000000000003
+    },
+    {
+     "value": 35.174231296707106,
+     "value_from_fill_rect": 35.17433665510396,
+     "top_y": 90.1485,
+     "fill_top_y": 90.149,
+     "top_edge_stroke": true,
+     "height_pt": 72.0189,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 104.141,
+     "width": 4.078000000000003
+    },
+    {
+     "value": 34.505816555410505,
+     "value_from_fill_rect": 34.50573226869302,
+     "top_y": 86.9764,
+     "fill_top_y": 86.976,
+     "top_edge_stroke": true,
+     "height_pt": 68.8468,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 129.656,
+     "width": 4.078000000000003
+    },
+    {
+     "value": 37.74023505199206,
+     "value_from_fill_rect": 37.740445768785754,
+     "top_y": 102.326,
+     "fill_top_y": 102.327,
+     "top_edge_stroke": true,
+     "height_pt": 84.1964,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 155.171,
+     "width": 4.086000000000013
+    }
+   ],
+   "Hassan 2023": [
+    {
+     "value": 28.50152580563899,
+     "value_from_fill_rect": 28.50156794899773,
+     "top_y": 58.4818,
+     "fill_top_y": 58.482,
+     "top_edge_stroke": true,
+     "height_pt": 40.352199999999996,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 31.666,
+     "width": 4.086000000000002
+    },
+    {
+     "value": 31.503671180524748,
+     "value_from_fill_rect": 31.503650108845378,
+     "top_y": 72.7291,
+     "fill_top_y": 72.729,
+     "top_edge_stroke": true,
+     "height_pt": 54.599500000000006,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 57.189,
+     "width": 4.078000000000003
+    },
+    {
+     "value": 33.49553488801459,
+     "value_from_fill_rect": 33.49555595969396,
+     "top_y": 82.1819,
+     "fill_top_y": 82.182,
+     "top_edge_stroke": true,
+     "height_pt": 64.0523,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 82.704,
+     "width": 4.078000000000003
+    },
+    {
+     "value": 35.50257020465085,
+     "value_from_fill_rect": 35.50263341968896,
+     "top_y": 91.7067,
+     "fill_top_y": 91.707,
+     "top_edge_stroke": true,
+     "height_pt": 73.5771,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 108.219,
+     "width": 4.0859999999999985
+    },
+    {
+     "value": 35.99248675000396,
+     "value_from_fill_rect": 35.99254996504207,
+     "top_y": 94.0317,
+     "fill_top_y": 94.032,
+     "top_edge_stroke": true,
+     "height_pt": 75.9021,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 133.734,
+     "width": 4.086000000000013
+    },
+    {
+     "value": 38.99463212488972,
+     "value_from_fill_rect": 38.99463212488972,
+     "top_y": 108.279,
+     "fill_top_y": 108.279,
+     "top_edge_stroke": true,
+     "height_pt": 90.1494,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 159.257,
+     "width": 4.078000000000003
+    }
+   ],
+   "Zhanfei 2024": [
+    {
+     "value": 29.006719318535374,
+     "value_from_fill_rect": 29.006866820290963,
+     "top_y": 60.8793,
+     "fill_top_y": 60.879999999999995,
+     "top_edge_stroke": true,
+     "height_pt": 42.749700000000004,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 35.752,
+     "width": 4.078000000000003
+    },
+    {
+     "value": 33.49553488801459,
+     "value_from_fill_rect": 33.49555595969396,
+     "top_y": 82.1819,
+     "fill_top_y": 82.182,
+     "top_edge_stroke": true,
+     "height_pt": 64.0523,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 61.267,
+     "width": 4.086000000000006
+    },
+    {
+     "value": 35.99248675000396,
+     "value_from_fill_rect": 35.99254996504207,
+     "top_y": 94.0317,
+     "fill_top_y": 94.032,
+     "top_edge_stroke": true,
+     "height_pt": 75.9021,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 86.782,
+     "width": 4.0859999999999985
+    },
+    {
+     "value": 38.491208633060424,
+     "value_from_fill_rect": 38.491229704739794,
+     "top_y": 105.8899,
+     "fill_top_y": 105.89,
+     "top_edge_stroke": true,
+     "height_pt": 87.7603,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 112.305,
+     "width": 4.078000000000003
+    },
+    {
+     "value": 40.346759646705564,
+     "value_from_fill_rect": 40.346801790064305,
+     "top_y": 114.6958,
+     "fill_top_y": 114.696,
+     "top_edge_stroke": true,
+     "height_pt": 96.56620000000001,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 137.82,
+     "width": 4.078000000000003
+    },
+    {
+     "value": 41.506860954422365,
+     "value_from_fill_rect": 41.50700845617796,
+     "top_y": 120.2013,
+     "fill_top_y": 120.202,
+     "top_edge_stroke": true,
+     "height_pt": 102.0717,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 163.335,
+     "width": 4.086999999999989
+    }
+   ],
+   "Proposed": [
+    {
+     "value": 22.401295699695755,
+     "value_from_fill_rect": 22.401316771375125,
+     "top_y": 29.5319,
+     "fill_top_y": 29.531999999999996,
+     "top_edge_stroke": true,
+     "height_pt": 11.4023,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 39.829,
+     "width": 4.086999999999996
+    },
+    {
+     "value": 23.34250440211672,
+     "value_from_fill_rect": 23.342588688834198,
+     "top_y": 33.9986,
+     "fill_top_y": 33.998999999999995,
+     "top_edge_stroke": true,
+     "height_pt": 15.869000000000003,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 65.353,
+     "width": 4.0789999999999935
+    },
+    {
+     "value": 24.74853327976109,
+     "value_from_fill_rect": 24.74849113640235,
+     "top_y": 40.6712,
+     "fill_top_y": 40.671,
+     "top_edge_stroke": true,
+     "height_pt": 22.5416,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 90.868,
+     "width": 4.087000000000003
+    },
+    {
+     "value": 25.839603765861682,
+     "value_from_fill_rect": 25.83958269418231,
+     "top_y": 45.8491,
+     "fill_top_y": 45.849000000000004,
+     "top_edge_stroke": true,
+     "height_pt": 27.7195,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 116.383,
+     "width": 4.087000000000003
+    },
+    {
+     "value": 27.109151376226396,
+     "value_from_fill_rect": 27.109362093020096,
+     "top_y": 51.874,
+     "fill_top_y": 51.875,
+     "top_edge_stroke": true,
+     "height_pt": 33.7444,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 141.898,
+     "width": 4.086999999999989
+    },
+    {
+     "value": 28.582441054419895,
+     "value_from_fill_rect": 28.582483197778636,
+     "top_y": 58.8658,
+     "fill_top_y": 58.866,
+     "top_edge_stroke": true,
+     "height_pt": 40.7362,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [
+      [
+       20.916,
+       18.068,
+       174.155,
+       136.78
+      ]
+     ],
+     "bottom_on_baseline": true,
+     "x_left": 167.422,
+     "width": 4.078000000000003
+    }
+   ]
+  },
+  "colour_to_series": {
+   "1.000,0.000,0.000": "Gope 2016",
+   "0.502,0.000,1.000": "Gupta 2019",
+   "0.000,1.000,0.000": "Hassan 2023",
+   "1.000,0.000,1.000": "Zhanfei 2024",
+   "0.000,0.000,0.000": "Proposed"
+  },
+  "in_group_bar_order": [
+   "Gope 2016",
+   "Gupta 2019",
+   "Hassan 2023",
+   "Zhanfei 2024",
+   "Proposed"
+  ],
+  "in_group_order_consistent": true,
+  "group_centres_pt": [
+   33.7085,
+   59.22399999999999,
+   84.747,
+   110.262,
+   135.777,
+   161.292
+  ],
+  "calibration": {
+   "pdf_page": 7,
+   "xobject": "Im7",
+   "coord_space": "XObject user space (pt, y up)",
+   "baseline_y": 18.1296,
+   "y_axis_x": 20.9126,
+   "y_axis_top": 136.7816,
+   "plot_clip_top": null,
+   "major_tick_y": [
+    18.1296,
+    27.6544,
+    37.1073,
+    46.632,
+    56.0849,
+    65.6019,
+    75.0625,
+    84.5795,
+    94.0317,
+    103.5565,
+    113.0734,
+    122.5341,
+    132.0511
+   ],
+   "major_tick_values": [
+    20,
+    22,
+    24,
+    26,
+    28,
+    30,
+    32,
+    34,
+    36,
+    38,
+    40,
+    42,
+    44
+   ],
+   "minor_tick_y": [
+    22.86,
+    32.377,
+    41.8376,
+    51.3546,
+    60.8793,
+    70.3322,
+    79.8485,
+    89.3098,
+    98.8261,
+    108.279,
+    117.8038,
+    127.2566,
+    136.7814
+   ],
+   "fit": "value = a + b*y",
+   "a": 16.178428419818964,
+   "b": 0.2107167937002628,
+   "units_per_pt": 0.2107167937002628,
+   "major_residuals": [
+    0.001360397112751599,
+    -0.005674919523510624,
+    0.0024403013072742397,
+    -0.004573943649617718,
+    0.003541277181167146,
+    -0.0018504484642321017,
+    0.004642253055060053,
+    -0.0007494725903427479,
+    0.00751324999603753,
+    0.0004779333597753066,
+    -0.004892720606264334,
+    0.0015789092336646604,
+    -0.0038128164117381402
+   ],
+   "max_abs_residual": 0.00751324999603753,
+   "rms_residual": 0.003889384301229635,
+   "minor_tick_values": [
+    20.995414323806973,
+    23.000806049452372,
+    24.99431334793308,
+    26.99970507357848,
+    29.006719318535374,
+    30.998604097704586,
+    33.003848321594404,
+    34.99750312183069,
+    37.00274734572051,
+    38.99463212488972,
+    41.00166744152598,
+    42.99353114901583,
+    45.000566465652085
+   ],
+   "minor_tick_residual_vs_half_step": [
+    -0.00458567619302741,
+    0.0008060494523718376,
+    -0.005686652066920317,
+    -0.00029492642152106896,
+    0.006719318535374441,
+    -0.0013959022954139755,
+    0.0038483215944040694,
+    -0.0024968781693104347,
+    0.00274734572050761,
+    -0.0053678751102808064,
+    0.0016674415259814168,
+    -0.00646885098417016,
+    0.0005664656520849576
+   ],
+   "label_centre_minus_tick_y": [
+    0.3507,
+    0.3735,
+    0.3758,
+    0.3444,
+    0.3469,
+    0.3491,
+    0.3439,
+    0.3472,
+    0.3504,
+    0.3459,
+    0.3501,
+    0.3719,
+    0.369
+   ],
+   "baseline_value": 19.99863960288725
+  },
+  "provenance": {
+   "ptex_filename": "./temp/khan2-3662053.pdf",
+   "info": {
+    "/CreationDate": "D:20260206102340+06'30'",
+    "/Creator": "Adobe Illustrator 26.5 (Windows)",
+    "/ModDate": "D:20260206102340+05'30'",
+    "/Producer": "Adobe PDF library 16.07",
+    "/Title": "khan2-3662053"
+   },
+   "fonts_in_xobject": [],
+   "note": "text is outlined (no fonts); file is an Adobe Illustrator 26.5 re-save of the chart"
+  },
+  "delta_vs_eyeball": {
+   "Gope 2016": [
+    -0.0021,
+    -0.0232,
+    -0.0077,
+    0.0026,
+    -0.0239,
+    0.0059
+   ],
+   "Gupta 2019": [
+    0.0101,
+    -0.02,
+    0.0139,
+    -0.0258,
+    0.0058,
+    -0.0098
+   ],
+   "Hassan 2023": [
+    0.0015,
+    0.0037,
+    -0.0045,
+    0.0026,
+    -0.0075,
+    -0.0054
+   ],
+   "Zhanfei 2024": [
+    0.0067,
+    -0.0045,
+    -0.0075,
+    -0.0088,
+    -0.0032,
+    0.0069
+   ],
+   "Proposed": [
+    0.0013,
+    -0.0075,
+    -0.0015,
+    -0.0104,
+    0.0092,
+    -0.0176
+   ]
+  }
+ },
+ "fig3": {
+  "x": [
+   "single group"
+  ],
+  "x_label": "Proposed and Existing Schemes",
+  "y_label": "Storage Overhead (%)",
+  "series": {
+   "Proposed": [
+    0.5300317025513609
+   ],
+   "Zhanfei 2024": [
+    0.5700123755693681
+   ],
+   "Hassan 2023": [
+    0.6300412860684692
+   ],
+   "Gupta 2019": [
+    0.6150425519673279
+   ],
+   "Hassan 2018": [
+    0.6599212950536673
+   ],
+   "Gope 2016": [
+    0.7100022177862576
+   ]
+  },
+  "series_3dp": {
+   "Proposed": [
+    0.53
+   ],
+   "Zhanfei 2024": [
+    0.57
+   ],
+   "Hassan 2023": [
+    0.63
+   ],
+   "Gupta 2019": [
+    0.615
+   ],
+   "Hassan 2018": [
+    0.66
+   ],
+   "Gope 2016": [
+    0.71
+   ]
+  },
+  "censored": {
+   "Proposed": [
+    false
+   ],
+   "Zhanfei 2024": [
+    false
+   ],
+   "Hassan 2023": [
+    false
+   ],
+   "Gupta 2019": [
+    false
+   ],
+   "Hassan 2018": [
+    false
+   ],
+   "Gope 2016": [
+    false
+   ]
+  },
+  "censoring_note": "no bar reaches the axis top",
+  "outline_clip_rects": [],
+  "precision": {
+   "grid_quantum_pt": 0.06771,
+   "grid_fit_rms_in_quanta": 0.04763297406676138,
+   "value_resolution": 0.00014026743542834124,
+   "tolerance_used": 0.00010744574323099307,
+   "tolerance_def": "0.5*value_resolution + max|tick residual|"
+  },
+  "round_number_test": {
+   "1.0": {
+    "testable": true,
+    "n_within_tol": 0,
+    "n": 6,
+    "chance_rate": 0.00021489148646198613,
+    "expected_by_chance": 0.0012893489187719167
+   },
+   "0.5": {
+    "testable": true,
+    "n_within_tol": 0,
+    "n": 6,
+    "chance_rate": 0.00042978297292397226,
+    "expected_by_chance": 0.0025786978375438334
+   },
+   "0.25": {
+    "testable": true,
+    "n_within_tol": 0,
+    "n": 6,
+    "chance_rate": 0.0008595659458479445,
+    "expected_by_chance": 0.005157395675087667
+   },
+   "0.1": {
+    "testable": true,
+    "n_within_tol": 0,
+    "n": 6,
+    "chance_rate": 0.002148914864619861,
+    "expected_by_chance": 0.012893489187719166
+   },
+   "0.05": {
+    "testable": true,
+    "n_within_tol": 0,
+    "n": 6,
+    "chance_rate": 0.004297829729239722,
+    "expected_by_chance": 0.025786978375438332
+   },
+   "0.01": {
+    "testable": true,
+    "n_within_tol": 5,
+    "n": 6,
+    "chance_rate": 0.02148914864619861,
+    "expected_by_chance": 0.12893489187719168
+   },
+   "0.005": {
+    "testable": true,
+    "n_within_tol": 6,
+    "n": 6,
+    "chance_rate": 0.04297829729239722,
+    "expected_by_chance": 0.25786978375438335
+   }
+  },
+  "identical_heights": {},
+  "bar_detail": {
+   "Proposed": [
+    {
+     "value": 0.5300317025513609,
+     "value_from_fill_rect": 0.5300310810740219,
+     "top_y": 27.4923,
+     "fill_top_y": 27.492,
+     "top_edge_stroke": true,
+     "height_pt": 14.488900000000001,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 62.663,
+     "width": 12.040999999999997
+    }
+   ],
+   "Zhanfei 2024": [
+    {
+     "value": 0.5700123755693681,
+     "value_from_fill_rect": 0.5700127898875942,
+     "top_y": 46.7918,
+     "fill_top_y": 46.792,
+     "top_edge_stroke": true,
+     "height_pt": 33.7884,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 74.704,
+     "width": 12.104
+    }
+   ],
+   "Hassan 2023": [
+    {
+     "value": 0.6300412860684692,
+     "value_from_fill_rect": 0.6300412860684692,
+     "top_y": 75.769,
+     "fill_top_y": 75.769,
+     "top_edge_stroke": true,
+     "height_pt": 62.765600000000006,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 86.809,
+     "width": 12.033000000000001
+    }
+   ],
+   "Gupta 2019": [
+    {
+     "value": 0.6150425519673279,
+     "value_from_fill_rect": 0.6150429662855539,
+     "top_y": 68.5288,
+     "fill_top_y": 68.529,
+     "top_edge_stroke": true,
+     "height_pt": 55.525400000000005,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 98.905,
+     "width": 12.040999999999997
+    }
+   ],
+   "Hassan 2018": [
+    {
+     "value": 0.6599212950536673,
+     "value_from_fill_rect": 0.6599219165310064,
+     "top_y": 90.1927,
+     "fill_top_y": 90.193,
+     "top_edge_stroke": true,
+     "height_pt": 77.1893,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 110.946,
+     "width": 12.104
+    }
+   ],
+   "Gope 2016": [
+    {
+     "value": 0.7100022177862576,
+     "value_from_fill_rect": 0.7100026321044837,
+     "top_y": 114.3678,
+     "fill_top_y": 114.368,
+     "top_edge_stroke": true,
+     "height_pt": 101.3644,
+     "clipped_at_axis_top": false,
+     "fill_drawn_inside_clip": false,
+     "outline_clip_rects": [],
+     "bottom_on_baseline": true,
+     "x_left": 123.049,
+     "width": 12.032999999999987
+    }
+   ]
+  },
+  "colour_to_series": {
+   "0.000,0.000,0.000": "Proposed",
+   "0.502,0.000,1.000": "Zhanfei 2024",
+   "0.000,1.000,1.000": "Hassan 2023",
+   "1.000,0.000,1.000": "Gupta 2019",
+   "0.000,1.000,0.000": "Hassan 2018",
+   "1.000,1.000,0.000": "Gope 2016"
+  },
+  "in_group_bar_order": [
+   "Proposed",
+   "Zhanfei 2024",
+   "Hassan 2023",
+   "Gupta 2019",
+   "Hassan 2018",
+   "Gope 2016"
+  ],
+  "in_group_order_consistent": true,
+  "group_centres_pt": [
+   98.8725
+  ],
+  "calibration": {
+   "pdf_page": 8,
+   "xobject": "Im9",
+   "coord_space": "XObject user space (pt, y up)",
+   "baseline_y": 13.0034,
+   "y_axis_x": 26.4218,
+   "y_axis_top": 133.6674,
+   "plot_clip_top": null,
+   "major_tick_y": [
+    13.0034,
+    37.1134,
+    61.2807,
+    85.3907,
+    109.5573,
+    133.6673
+   ],
+   "major_tick_values": [
+    0.5,
+    0.55,
+    0.6,
+    0.65,
+    0.7,
+    0.75
+   ],
+   "minor_tick_y": [
+    25.0627,
+    49.2293,
+    73.3314,
+    97.4414,
+    121.6087
+   ],
+   "fit": "value = a + b*y",
+   "a": 0.47307889772154865,
+   "b": 0.002071591130236911,
+   "units_per_pt": 0.002071591130236911,
+   "major_residuals": [
+    -1.6625824471261375e-05,
+    3.7312025516822445e-05,
+    -2.745229625777945e-05,
+    2.648555373041539e-05,
+    -3.682865425302939e-05,
+    1.7109195735054428e-05
+   ],
+   "max_abs_residual": 3.7312025516822445e-05,
+   "rms_residual": 2.8203997253753468e-05,
+   "minor_tick_values": [
+    0.5249985647413373,
+    0.5750618789493206,
+    0.6249915755294037,
+    0.6749376376794156,
+    0.72500240200119
+   ],
+   "minor_tick_residual_vs_half_step": [
+    -1.4352586631405373e-06,
+    6.18789493200822e-05,
+    -8.424470596901656e-06,
+    -6.236232058498548e-05,
+    2.402001189394376e-06
+   ],
+   "label_centre_minus_tick_y": [
+    0.3568,
+    0.3233,
+    0.356,
+    0.3511,
+    0.3564,
+    0.3234
+   ],
+   "baseline_value": 0.5000166258244713
+  },
+  "provenance": {
+   "ptex_filename": "./temp/khan3-3662053.pdf",
+   "info": {
+    "/CreationDate": "D:20260206102344+06'30'",
+    "/Creator": "Adobe Illustrator 26.5 (Windows)",
+    "/ModDate": "D:20260206102344+05'30'",
+    "/Producer": "Adobe PDF library 16.07",
+    "/Title": "khan3-3662053"
+   },
+   "fonts_in_xobject": [],
+   "note": "text is outlined (no fonts); file is an Adobe Illustrator 26.5 re-save of the chart"
+  },
+  "delta_vs_eyeball": {
+   "Proposed": [
+    0.0
+   ],
+   "Zhanfei 2024": [
+    0.0
+   ],
+   "Hassan 2023": [
+    0.0
+   ],
+   "Gupta 2019": [
+    0.0
+   ],
+   "Hassan 2018": [
+    -0.0001
+   ],
+   "Gope 2016": [
+    0.0
+   ]
+  }
+ },
+ "meta": {
+  "pdf_info": {
+   "/CreationDate": "D:20260529021940-04'00'",
+   "/Creator": "LaTeX with hyperref package",
+   "/IEEE Article ID": "11373574",
+   "/IEEE Issue ID": "11553428",
+   "/IEEE Publication ID": "30",
+   "/ModDate": "D:20260605152503-04'00'",
+   "/PTEX.Fullbanner": "This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) kpathsea version 6.2.3",
+   "/Producer": "pdfTeX-1.40.18; modified using iText\u00ae Core 7.2.4 (AGPL version) \u00a92000-2022 iText Group NV",
+   "/Subject": "IEEE Transactions on Consumer Electronics;2026;72;2;10.1109/TCE.2026.3662053",
+   "/Title": "A Low-Cost Hybrid Elliptic Curve Cryptography Authentication Protocol for Trustworthy Internet of Things Communication",
+   "/Trapped": "False"
+  },
+  "software_marker_scan": {
+   "Origin": {
+    "count": 0,
+    "objects": []
+   },
+   "OriginLab": {
+    "count": 0,
+    "objects": []
+   },
+   "MATLAB": {
+    "count": 0,
+    "objects": []
+   },
+   "Matlab": {
+    "count": 0,
+    "objects": []
+   },
+   "Excel": {
+    "count": 0,
+    "objects": []
+   },
+   "matplotlib": {
+    "count": 0,
+    "objects": []
+   },
+   "gnuplot": {
+    "count": 0,
+    "objects": []
+   },
+   "SigmaPlot": {
+    "count": 0,
+    "objects": []
+   },
+   "GraphPad": {
+    "count": 0,
+    "objects": []
+   },
+   "Prism": {
+    "count": 0,
+    "objects": []
+   },
+   "/PieceInfo": {
+    "count": 0,
+    "objects": []
+   },
+   "/Metadata": {
+    "count": 3,
+    "objects": [
+     1,
+     4
+    ]
+   },
+   "AIPrivateData": {
+    "count": 0,
+    "objects": []
+   },
+   "Illustrator": {
+    "count": 30,
+    "objects": [
+     48,
+     160,
+     313,
+     314,
+     315,
+     316,
+     317,
+     318,
+     319,
+     320,
+     321,
+     340,
+     341,
+     342,
+     343,
+     344,
+     345,
+     346,
+     347,
+     348
+    ]
+   }
+  },
+  "eyeball_source": "research/paper_audit/figures_audit.py (FIG1-3)"
+ }
+}

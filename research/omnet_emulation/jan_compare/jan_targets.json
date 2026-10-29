@@ -1,0 +1,2410 @@
+{
+ "fig5": {
+  "x": [
+   200,
+   400,
+   600,
+   800,
+   1000,
+   1200
+  ],
+  "x_label": "Number of Vehicles in the IoV",
+  "y_label": "Average Processing Time (ns)",
+  "title": "Average processing time at the vehicular devices",
+  "series": {
+   "Proposed": [
+    35.45788774105819,
+    37.510308154363486,
+    39.99941376198893,
+    43.2751592266053,
+    45.24145561547516,
+    56.24228346905983
+   ],
+   "Zhanfei 2024": [
+    65.46058661971773,
+    69.69521999019565,
+    74.53818009665025,
+    78.99358209314562,
+    83.57877663350843,
+    85.23757386471112
+   ],
+   "Hassan 2023": [
+    57.686377146388395,
+    62.44321322840756,
+    63.22985308539842,
+    67.24917639478787,
+    70.69656340106064,
+    76.85503765540506
+   ],
+   "Gupta 2019": [
+    87.59749343568353,
+    89.64991384898883,
+    93.53459255679616,
+    92.66182867536997,
+    95.67313699453683,
+    96.7666695019804
+   ],
+   "Gope 2016": [
+    78.99358209314562,
+    80.78217186821576,
+    83.05596741475273,
+    85.23757386471112,
+    87.99111661778613,
+    89.12771113744748
+   ],
+   "Hassan 2018": [
+    81.96182840009476,
+    84.53705803215564,
+    81.66039431457096,
+    87.68361746011897,
+    90.65186376706811,
+    92.66182867536997
+   ]
+  },
+  "series_3dp": {
+   "Proposed": [
+    35.458,
+    37.51,
+    39.999,
+    43.275,
+    45.241,
+    56.242
+   ],
+   "Zhanfei 2024": [
+    65.461,
+    69.695,
+    74.538,
+    78.994,
+    83.579,
+    85.238
+   ],
+   "Hassan 2023": [
+    57.686,
+    62.443,
+    63.23,
+    67.249,
+    70.697,
+    76.855
+   ],
+   "Gupta 2019": [
+    87.597,
+    89.65,
+    93.535,
+    92.662,
+    95.673,
+    96.767
+   ],
+   "Gope 2016": [
+    78.994,
+    80.782,
+    83.056,
+    85.238,
+    87.991,
+    89.128
+   ],
+   "Hassan 2018": [
+    81.962,
+    84.537,
+    81.66,
+    87.684,
+    90.652,
+    92.662
+   ]
+  },
+  "censored": {
+   "Proposed": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "Zhanfei 2024": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "Hassan 2023": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "Gupta 2019": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "Gope 2016": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "Hassan 2018": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ]
+  },
+  "censoring_note": "no bar reaches the axis top",
+  "precision": {
+   "grid_quantum_pt": 0.072,
+   "grid_fit_rms_in_quanta": 0.06848292681698963,
+   "value_resolution": 0.04366851943202653,
+   "tolerance_used": 0.02405811950189917,
+   "tolerance_def": "0.5*value_resolution + max|tick residual|"
+  },
+  "round_number_test": {
+   "1.0": {
+    "testable": true,
+    "n_within_tol": 4,
+    "n": 36,
+    "chance_rate": 0.04811623900379834,
+    "expected_by_chance": 1.7321846041367404
+   },
+   "0.5": {
+    "testable": true,
+    "n_within_tol": 5,
+    "n": 36,
+    "chance_rate": 0.09623247800759668,
+    "expected_by_chance": 3.4643692082734807
+   },
+   "0.25": {
+    "testable": true,
+    "n_within_tol": 12,
+    "n": 36,
+    "chance_rate": 0.19246495601519337,
+    "expected_by_chance": 6.928738416546961
+   },
+   "0.1": {
+    "testable": true,
+    "n_within_tol": 12,
+    "n": 36,
+    "chance_rate": 0.4811623900379834,
+    "expected_by_chance": 17.3218460413674
+   },
+   "0.05": {
+    "testable": true,
+    "n_within_tol": 35,
+    "n": 36,
+    "chance_rate": 0.9623247800759668,
+    "expected_by_chance": 34.6436920827348
+   },
+   "0.01": {
+    "testable": false,
+    "note": "grid finer than 2*tolerance"
+   }
+  },
+  "identical_heights": {
+   "97.2660pt -> 78.9936": [
+    "Zhanfei 2024@800",
+    "Gope 2016@200"
+   ],
+   "107.5610pt -> 85.2376": [
+    "Zhanfei 2024@1200",
+    "Gope 2016@800"
+   ],
+   "119.8020pt -> 92.6618": [
+    "Gupta 2019@800",
+    "Hassan 2018@1200"
+   ]
+  },
+  "bar_detail": {
+   "Proposed": [
+    {
+     "value": 35.45788774105819,
+     "top_y": 613.918,
+     "top_edge_stroke_matches": true,
+     "height_pt": 25.485000000000014,
+     "clipped_at_axis_top": false,
+     "x_left": 347.422,
+     "width": 4.751599999999996
+    },
+    {
+     "value": 37.510308154363486,
+     "top_y": 617.302,
+     "top_edge_stroke_matches": true,
+     "height_pt": 28.869000000000028,
+     "clipped_at_axis_top": false,
+     "x_left": 382.992,
+     "width": 4.751599999999996
+    },
+    {
+     "value": 39.99941376198893,
+     "top_y": 621.406,
+     "top_edge_stroke_matches": true,
+     "height_pt": 32.972999999999956,
+     "clipped_at_axis_top": false,
+     "x_left": 418.574,
+     "width": 4.740000000000009
+    },
+    {
+     "value": 43.2751592266053,
+     "top_y": 626.807,
+     "top_edge_stroke_matches": true,
+     "height_pt": 38.374000000000024,
+     "clipped_at_axis_top": false,
+     "x_left": 454.144,
+     "width": 4.740000000000009
+    },
+    {
+     "value": 45.24145561547516,
+     "top_y": 630.049,
+     "top_edge_stroke_matches": true,
+     "height_pt": 41.615999999999985,
+     "clipped_at_axis_top": false,
+     "x_left": 489.714,
+     "width": 4.750999999999976
+    },
+    {
+     "value": 56.24228346905983,
+     "top_y": 648.187,
+     "top_edge_stroke_matches": true,
+     "height_pt": 59.75400000000002,
+     "clipped_at_axis_top": false,
+     "x_left": 525.284,
+     "width": 4.750999999999976
+    }
+   ],
+   "Zhanfei 2024": [
+    {
+     "value": 65.46058661971773,
+     "top_y": 663.386,
+     "top_edge_stroke_matches": true,
+     "height_pt": 74.95299999999997,
+     "clipped_at_axis_top": false,
+     "x_left": 352.174,
+     "width": 4.739300000000014
+    },
+    {
+     "value": 69.69521999019565,
+     "top_y": 670.3679999999999,
+     "top_edge_stroke_matches": true,
+     "height_pt": 81.93499999999995,
+     "clipped_at_axis_top": false,
+     "x_left": 387.744,
+     "width": 4.7391999999999825
+    },
+    {
+     "value": 74.53818009665025,
+     "top_y": 678.353,
+     "top_edge_stroke_matches": true,
+     "height_pt": 89.91999999999996,
+     "clipped_at_axis_top": false,
+     "x_left": 423.314,
+     "width": 4.738999999999976
+    },
+    {
+     "value": 78.99358209314562,
+     "top_y": 685.699,
+     "top_edge_stroke_matches": true,
+     "height_pt": 97.26599999999996,
+     "clipped_at_axis_top": false,
+     "x_left": 458.884,
+     "width": 4.75
+    },
+    {
+     "value": 83.57877663350843,
+     "top_y": 693.259,
+     "top_edge_stroke_matches": true,
+     "height_pt": 104.82600000000002,
+     "clipped_at_axis_top": false,
+     "x_left": 494.465,
+     "width": 4.738999999999976
+    },
+    {
+     "value": 85.23757386471112,
+     "top_y": 695.994,
+     "top_edge_stroke_matches": true,
+     "height_pt": 107.56100000000004,
+     "clipped_at_axis_top": false,
+     "x_left": 530.035,
+     "width": 4.739000000000033
+    }
+   ],
+   "Hassan 2023": [
+    {
+     "value": 57.686377146388395,
+     "top_y": 650.568,
+     "top_edge_stroke_matches": true,
+     "height_pt": 62.13499999999999,
+     "clipped_at_axis_top": false,
+     "x_left": 356.913,
+     "width": 4.7391999999999825
+    },
+    {
+     "value": 62.44321322840756,
+     "top_y": 658.411,
+     "top_edge_stroke_matches": true,
+     "height_pt": 69.97799999999995,
+     "clipped_at_axis_top": false,
+     "x_left": 392.483,
+     "width": 4.739300000000014
+    },
+    {
+     "value": 63.22985308539842,
+     "top_y": 659.708,
+     "top_edge_stroke_matches": true,
+     "height_pt": 71.27499999999998,
+     "clipped_at_axis_top": false,
+     "x_left": 428.053,
+     "width": 4.7520000000000095
+    },
+    {
+     "value": 67.24917639478787,
+     "top_y": 666.335,
+     "top_edge_stroke_matches": true,
+     "height_pt": 77.90200000000004,
+     "clipped_at_axis_top": false,
+     "x_left": 463.634,
+     "width": 4.7409999999999854
+    },
+    {
+     "value": 70.69656340106064,
+     "top_y": 672.019,
+     "top_edge_stroke_matches": true,
+     "height_pt": 83.58600000000001,
+     "clipped_at_axis_top": false,
+     "x_left": 499.204,
+     "width": 4.7409999999999854
+    },
+    {
+     "value": 76.85503765540506,
+     "top_y": 682.173,
+     "top_edge_stroke_matches": true,
+     "height_pt": 93.74000000000001,
+     "clipped_at_axis_top": false,
+     "x_left": 534.774,
+     "width": 4.7409999999999854
+    }
+   ],
+   "Gupta 2019": [
+    {
+     "value": 87.59749343568353,
+     "top_y": 699.885,
+     "top_edge_stroke_matches": true,
+     "height_pt": 111.452,
+     "clipped_at_axis_top": false,
+     "x_left": 361.652,
+     "width": 4.740200000000016
+    },
+    {
+     "value": 89.64991384898883,
+     "top_y": 703.269,
+     "top_edge_stroke_matches": true,
+     "height_pt": 114.83600000000001,
+     "clipped_at_axis_top": false,
+     "x_left": 397.222,
+     "width": 4.751599999999996
+    },
+    {
+     "value": 93.53459255679616,
+     "top_y": 709.674,
+     "top_edge_stroke_matches": true,
+     "height_pt": 121.24099999999999,
+     "clipped_at_axis_top": false,
+     "x_left": 432.805,
+     "width": 4.738999999999976
+    },
+    {
+     "value": 92.66182867536997,
+     "top_y": 708.235,
+     "top_edge_stroke_matches": true,
+     "height_pt": 119.80200000000002,
+     "clipped_at_axis_top": false,
+     "x_left": 468.375,
+     "width": 4.738999999999976
+    },
+    {
+     "value": 95.67313699453683,
+     "top_y": 713.2,
+     "top_edge_stroke_matches": true,
+     "height_pt": 124.76700000000005,
+     "clipped_at_axis_top": false,
+     "x_left": 503.945,
+     "width": 4.738999999999976
+    },
+    {
+     "value": 96.7666695019804,
+     "top_y": 715.0029999999999,
+     "top_edge_stroke_matches": true,
+     "height_pt": 126.56999999999994,
+     "clipped_at_axis_top": false,
+     "x_left": 539.515,
+     "width": 4.75
+    }
+   ],
+   "Gope 2016": [
+    {
+     "value": 78.99358209314562,
+     "top_y": 685.699,
+     "top_edge_stroke_matches": true,
+     "height_pt": 97.26599999999996,
+     "clipped_at_axis_top": false,
+     "x_left": 366.393,
+     "width": 4.75060000000002
+    },
+    {
+     "value": 80.78217186821576,
+     "top_y": 688.648,
+     "top_edge_stroke_matches": true,
+     "height_pt": 100.21500000000003,
+     "clipped_at_axis_top": false,
+     "x_left": 401.974,
+     "width": 4.7391999999999825
+    },
+    {
+     "value": 83.05596741475273,
+     "top_y": 692.3969999999999,
+     "top_edge_stroke_matches": true,
+     "height_pt": 103.96399999999994,
+     "clipped_at_axis_top": false,
+     "x_left": 437.544,
+     "width": 4.738999999999976
+    },
+    {
+     "value": 85.23757386471112,
+     "top_y": 695.994,
+     "top_edge_stroke_matches": true,
+     "height_pt": 107.56100000000004,
+     "clipped_at_axis_top": false,
+     "x_left": 473.114,
+     "width": 4.738999999999976
+    },
+    {
+     "value": 87.99111661778613,
+     "top_y": 700.534,
+     "top_edge_stroke_matches": true,
+     "height_pt": 112.101,
+     "clipped_at_axis_top": false,
+     "x_left": 508.684,
+     "width": 4.751000000000033
+    },
+    {
+     "value": 89.12771113744748,
+     "top_y": 702.408,
+     "top_edge_stroke_matches": true,
+     "height_pt": 113.97500000000002,
+     "clipped_at_axis_top": false,
+     "x_left": 544.265,
+     "width": 4.740000000000009
+    }
+   ],
+   "Hassan 2018": [
+    {
+     "value": 81.96182840009476,
+     "top_y": 690.593,
+     "top_edge_stroke_matches": true,
+     "height_pt": 102.15999999999997,
+     "clipped_at_axis_top": false,
+     "x_left": 371.143,
+     "width": 4.740299999999991
+    },
+    {
+     "value": 84.53705803215564,
+     "top_y": 694.8389999999999,
+     "top_edge_stroke_matches": true,
+     "height_pt": 106.40599999999995,
+     "clipped_at_axis_top": false,
+     "x_left": 406.713,
+     "width": 4.740200000000016
+    },
+    {
+     "value": 81.66039431457096,
+     "top_y": 690.096,
+     "top_edge_stroke_matches": true,
+     "height_pt": 101.66300000000001,
+     "clipped_at_axis_top": false,
+     "x_left": 442.283,
+     "width": 4.7520000000000095
+    },
+    {
+     "value": 87.68361746011897,
+     "top_y": 700.027,
+     "top_edge_stroke_matches": true,
+     "height_pt": 111.59400000000005,
+     "clipped_at_axis_top": false,
+     "x_left": 477.853,
+     "width": 4.7520000000000095
+    },
+    {
+     "value": 90.65186376706811,
+     "top_y": 704.921,
+     "top_edge_stroke_matches": true,
+     "height_pt": 116.48800000000006,
+     "clipped_at_axis_top": false,
+     "x_left": 513.435,
+     "width": 4.740000000000009
+    },
+    {
+     "value": 92.66182867536997,
+     "top_y": 708.235,
+     "top_edge_stroke_matches": true,
+     "height_pt": 119.80200000000002,
+     "clipped_at_axis_top": false,
+     "x_left": 549.005,
+     "width": 4.740000000000009
+    }
+   ]
+  },
+  "colour_to_series": {
+   "0.000,0.000,0.000": "Proposed",
+   "0.502,0.000,1.000": "Zhanfei 2024",
+   "0.000,1.000,0.000": "Hassan 2023",
+   "0.000,1.000,1.000": "Gupta 2019",
+   "1.000,0.000,0.502": "Gope 2016",
+   "1.000,1.000,0.000": "Hassan 2018"
+  },
+  "legend_order_top_to_bottom": [
+   "Proposed",
+   "Zhanfei 2024",
+   "Hassan 2023",
+   "Gupta 2019",
+   "Gope 2016",
+   "Hassan 2018"
+  ],
+  "in_group_bar_order": [
+   "Proposed",
+   "Zhanfei 2024",
+   "Hassan 2023",
+   "Gupta 2019",
+   "Gope 2016",
+   "Hassan 2018"
+  ],
+  "in_group_order_consistent": true,
+  "group_centres_pt": [
+   361.65265,
+   397.22260000000006,
+   432.8045,
+   468.3745,
+   503.94449999999995,
+   539.5145
+  ],
+  "group_centres_axis_units": [
+   199.99669518282508,
+   399.9797073282771,
+   600.0299053144495,
+   800.0131985722055,
+   999.9964918299611,
+   1199.9797850877176
+  ],
+  "x_calibration": {
+   "a": -1833.3035005550055,
+   "b": 5.622246085402196,
+   "major_pos": [
+    361.652,
+    397.222,
+    432.805,
+    468.375,
+    503.945,
+    539.515
+   ],
+   "major_values": [
+    200,
+    400,
+    600,
+    800,
+    1000,
+    1200
+   ],
+   "residuals": [
+    0.006959277130590635,
+    0.023666019374559255,
+    -0.032716437492126715,
+    -0.016009695248158096,
+    0.0006970469958105241,
+    0.017403789239779144
+   ]
+  },
+  "x_minor_tick_pos": [
+   343.815,
+   379.397,
+   414.967,
+   450.63,
+   486.211,
+   521.781,
+   557.351
+  ],
+  "calibration": {
+   "pdf_page": 8,
+   "coord_space": "PDF page user space (pt, y up)",
+   "baseline_y": 588.433,
+   "y_axis_x": 343.815,
+   "y_axis_top": 720.3329999999999,
+   "y_axis_bottom": 588.4329999999999,
+   "major_tick_y": [
+    588.433,
+    604.92,
+    621.406,
+    637.892,
+    654.379,
+    670.874,
+    687.36,
+    703.847,
+    720.333
+   ],
+   "major_tick_values": [
+    20,
+    30,
+    40,
+    50,
+    60,
+    70,
+    80,
+    90,
+    100
+   ],
+   "minor_tick_y": [
+    596.64,
+    613.127,
+    629.613,
+    646.1,
+    662.586,
+    679.081,
+    695.568,
+    712.054
+   ],
+   "fit": "value = a + b*y",
+   "a": -336.88780826825933,
+   "b": 0.6065072143337018,
+   "units_per_pt": 0.6065072143337018,
+   "major_residuals": [
+    -0.0010513837638086443,
+    -0.0005358264835422233,
+    0.0005862380110670529,
+    0.0017083025055626422,
+    0.0022238597858859066,
+    -0.00211264064853367,
+    -0.000990576153924394,
+    -0.000475018873657973,
+    0.0006470456209513031
+   ],
+   "max_abs_residual": 0.0022238597858859066,
+   "rms_residual": 0.001320304898926405,
+   "minor_tick_values": [
+    24.97865609180053,
+    34.97814053452021,
+    44.97701847002571,
+    54.97650291274539,
+    64.97538084825084,
+    74.97971734868526,
+    84.97920179140493,
+    94.97807972691038
+   ],
+   "minor_tick_residual_vs_half_step": [
+    -0.021343908199469297,
+    -0.02185946547979256,
+    -0.02298152997428815,
+    -0.023497087254611415,
+    -0.024619151749163848,
+    -0.02028265131474427,
+    -0.020798208595067535,
+    -0.021920273089619968
+   ],
+   "label_centre_minus_tick_y": [
+    0.39,
+    0.3895,
+    0.3905,
+    0.3915,
+    0.3915,
+    0.3835,
+    0.3835,
+    0.3835,
+    0.3845
+   ],
+   "baseline_value": 20.00105138376381,
+   "axis_top_value": 99.99935295437899
+  }
+ },
+ "fig6": {
+  "x": [
+   2,
+   4,
+   6,
+   8,
+   10,
+   12
+  ],
+  "x_label": "Number of Active Edge Servers in the IoV",
+  "y_label": "Average Processing Time (ns)",
+  "title": "Average processing time at the edge servers",
+  "series": {
+   "Proposed": [
+    24.89264532994258,
+    26.53316233629218,
+    28.253684650739473,
+    31.195512484718478,
+    34.21244734262592,
+    37.23428048470262
+   ],
+   "Zhanfei 2024": [
+    51.25480253847138,
+    53.66353377869757,
+    57.98177946423442,
+    60.12192145584703,
+    63.21477971837777,
+    65.88761011339577
+   ],
+   "Hassan 2023": [
+    41.24638340966169,
+    45.564220904851084,
+    47.24269961351234,
+    49.995943506975436,
+    52.136085498588045,
+    54.99790802446938
+   ],
+   "Gupta 2019": [
+    70.13034058465675,
+    73.22768894100929,
+    75.97603455030313,
+    78.57375792139271,
+    79.87466055867469,
+    81.9772490383231
+   ],
+   "Gope 2016": [
+    59.65984998254825,
+    61.99388238919346,
+    63.55888418126722,
+    65.58595744663975,
+    67.8771298668041,
+    70.89406472471154
+   ],
+   "Hassan 2018": [
+    67.26443615530101,
+    69.8997130383548,
+    71.23857737794842,
+    74.98127467359899,
+    75.13679519597252,
+    77.04630964128319
+   ]
+  },
+  "series_3dp": {
+   "Proposed": [
+    24.893,
+    26.533,
+    28.254,
+    31.196,
+    34.212,
+    37.234
+   ],
+   "Zhanfei 2024": [
+    51.255,
+    53.664,
+    57.982,
+    60.122,
+    63.215,
+    65.888
+   ],
+   "Hassan 2023": [
+    41.246,
+    45.564,
+    47.243,
+    49.996,
+    52.136,
+    54.998
+   ],
+   "Gupta 2019": [
+    70.13,
+    73.228,
+    75.976,
+    78.574,
+    79.875,
+    81.977
+   ],
+   "Gope 2016": [
+    59.66,
+    61.994,
+    63.559,
+    65.586,
+    67.877,
+    70.894
+   ],
+   "Hassan 2018": [
+    67.264,
+    69.9,
+    71.239,
+    74.981,
+    75.137,
+    77.046
+   ]
+  },
+  "censored": {
+   "Proposed": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "Zhanfei 2024": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "Hassan 2023": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "Gupta 2019": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "Gope 2016": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "Hassan 2018": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ]
+  },
+  "censoring_note": "no bar reaches the axis top",
+  "precision": {
+   "grid_quantum_pt": 0.09361,
+   "grid_fit_rms_in_quanta": 0.04049141213892285,
+   "value_resolution": 0.038210698423584884,
+   "tolerance_used": 0.03647925521530562,
+   "tolerance_def": "0.5*value_resolution + max|tick residual|"
+  },
+  "round_number_test": {
+   "1.0": {
+    "testable": true,
+    "n_within_tol": 7,
+    "n": 36,
+    "chance_rate": 0.07295851043061125,
+    "expected_by_chance": 2.6265063755020046
+   },
+   "0.5": {
+    "testable": true,
+    "n_within_tol": 8,
+    "n": 36,
+    "chance_rate": 0.1459170208612225,
+    "expected_by_chance": 5.253012751004009
+   },
+   "0.25": {
+    "testable": true,
+    "n_within_tol": 17,
+    "n": 36,
+    "chance_rate": 0.291834041722445,
+    "expected_by_chance": 10.506025502008018
+   },
+   "0.1": {
+    "testable": true,
+    "n_within_tol": 27,
+    "n": 36,
+    "chance_rate": 0.7295851043061125,
+    "expected_by_chance": 26.265063755020048
+   },
+   "0.05": {
+    "testable": false,
+    "note": "grid finer than 2*tolerance"
+   },
+   "0.01": {
+    "testable": false,
+    "note": "grid finer than 2*tolerance"
+   }
+  },
+  "identical_heights": {},
+  "bar_detail": {
+   "Proposed": [
+    {
+     "value": 24.89264532994258,
+     "top_y": 376.092,
+     "top_edge_stroke_matches": true,
+     "height_pt": 11.988,
+     "clipped_at_axis_top": false,
+     "x_left": 352.685,
+     "width": 4.380899999999997
+    },
+    {
+     "value": 26.53316233629218,
+     "top_y": 380.111,
+     "top_edge_stroke_matches": true,
+     "height_pt": 16.007000000000005,
+     "clipped_at_axis_top": false,
+     "x_left": 385.48,
+     "width": 4.380999999999972
+    },
+    {
+     "value": 28.253684650739473,
+     "top_y": 384.32599999999996,
+     "top_edge_stroke_matches": true,
+     "height_pt": 20.22199999999998,
+     "clipped_at_axis_top": false,
+     "x_left": 418.286,
+     "width": 4.370400000000018
+    },
+    {
+     "value": 31.195512484718478,
+     "top_y": 391.53299999999996,
+     "top_edge_stroke_matches": true,
+     "height_pt": 27.428999999999974,
+     "clipped_at_axis_top": false,
+     "x_left": 451.082,
+     "width": 4.3700000000000045
+    },
+    {
+     "value": 34.21244734262592,
+     "top_y": 398.924,
+     "top_edge_stroke_matches": true,
+     "height_pt": 34.81999999999999,
+     "clipped_at_axis_top": false,
+     "x_left": 483.877,
+     "width": 4.381000000000029
+    },
+    {
+     "value": 37.23428048470262,
+     "top_y": 406.327,
+     "top_edge_stroke_matches": true,
+     "height_pt": 42.22300000000001,
+     "clipped_at_axis_top": false,
+     "x_left": 516.673,
+     "width": 4.380999999999972
+    }
+   ],
+   "Zhanfei 2024": [
+    {
+     "value": 51.25480253847138,
+     "top_y": 440.67499999999995,
+     "top_edge_stroke_matches": true,
+     "height_pt": 76.57099999999997,
+     "clipped_at_axis_top": false,
+     "x_left": 357.066,
+     "width": 4.369599999999991
+    },
+    {
+     "value": 53.66353377869757,
+     "top_y": 446.57599999999996,
+     "top_edge_stroke_matches": true,
+     "height_pt": 82.47199999999998,
+     "clipped_at_axis_top": false,
+     "x_left": 389.861,
+     "width": 4.369500000000016
+    },
+    {
+     "value": 57.98177946423442,
+     "top_y": 457.155,
+     "top_edge_stroke_matches": true,
+     "height_pt": 93.05099999999999,
+     "clipped_at_axis_top": false,
+     "x_left": 422.657,
+     "width": 4.369599999999991
+    },
+    {
+     "value": 60.12192145584703,
+     "top_y": 462.39799999999997,
+     "top_edge_stroke_matches": true,
+     "height_pt": 98.29399999999998,
+     "clipped_at_axis_top": false,
+     "x_left": 455.452,
+     "width": 4.3799999999999955
+    },
+    {
+     "value": 63.21477971837777,
+     "top_y": 469.97499999999997,
+     "top_edge_stroke_matches": true,
+     "height_pt": 105.87099999999998,
+     "clipped_at_axis_top": false,
+     "x_left": 488.258,
+     "width": 4.3700000000000045
+    },
+    {
+     "value": 65.88761011339577,
+     "top_y": 476.52299999999997,
+     "top_edge_stroke_matches": true,
+     "height_pt": 112.41899999999998,
+     "clipped_at_axis_top": false,
+     "x_left": 521.054,
+     "width": 4.369000000000028
+    }
+   ],
+   "Hassan 2023": [
+    {
+     "value": 41.24638340966169,
+     "top_y": 416.156,
+     "top_edge_stroke_matches": true,
+     "height_pt": 52.05200000000002,
+     "clipped_at_axis_top": false,
+     "x_left": 361.435,
+     "width": 4.369599999999991
+    },
+    {
+     "value": 45.564220904851084,
+     "top_y": 426.734,
+     "top_edge_stroke_matches": true,
+     "height_pt": 62.629999999999995,
+     "clipped_at_axis_top": false,
+     "x_left": 394.231,
+     "width": 4.369599999999991
+    },
+    {
+     "value": 47.24269961351234,
+     "top_y": 430.846,
+     "top_edge_stroke_matches": true,
+     "height_pt": 66.74200000000002,
+     "clipped_at_axis_top": false,
+     "x_left": 427.026,
+     "width": 4.380600000000015
+    },
+    {
+     "value": 49.995943506975436,
+     "top_y": 437.591,
+     "top_edge_stroke_matches": true,
+     "height_pt": 73.48700000000002,
+     "clipped_at_axis_top": false,
+     "x_left": 459.832,
+     "width": 4.370999999999981
+    },
+    {
+     "value": 52.136085498588045,
+     "top_y": 442.834,
+     "top_edge_stroke_matches": true,
+     "height_pt": 78.73000000000002,
+     "clipped_at_axis_top": false,
+     "x_left": 492.628,
+     "width": 4.3700000000000045
+    },
+    {
+     "value": 54.99790802446938,
+     "top_y": 449.84499999999997,
+     "top_edge_stroke_matches": true,
+     "height_pt": 85.74099999999999,
+     "clipped_at_axis_top": false,
+     "x_left": 525.423,
+     "width": 4.370999999999981
+    }
+   ],
+   "Gupta 2019": [
+    {
+     "value": 70.13034058465675,
+     "top_y": 486.917,
+     "top_edge_stroke_matches": true,
+     "height_pt": 122.81299999999999,
+     "clipped_at_axis_top": false,
+     "x_left": 365.805,
+     "width": 4.370400000000018
+    },
+    {
+     "value": 73.22768894100929,
+     "top_y": 494.505,
+     "top_edge_stroke_matches": true,
+     "height_pt": 130.401,
+     "clipped_at_axis_top": false,
+     "x_left": 398.6,
+     "width": 4.380999999999972
+    },
+    {
+     "value": 75.97603455030313,
+     "top_y": 501.23799999999994,
+     "top_edge_stroke_matches": true,
+     "height_pt": 137.13399999999996,
+     "clipped_at_axis_top": false,
+     "x_left": 431.407,
+     "width": 4.3700000000000045
+    },
+    {
+     "value": 78.57375792139271,
+     "top_y": 507.602,
+     "top_edge_stroke_matches": true,
+     "height_pt": 143.498,
+     "clipped_at_axis_top": false,
+     "x_left": 464.203,
+     "width": 4.369000000000028
+    },
+    {
+     "value": 79.87466055867469,
+     "top_y": 510.789,
+     "top_edge_stroke_matches": true,
+     "height_pt": 146.685,
+     "clipped_at_axis_top": false,
+     "x_left": 496.998,
+     "width": 4.3700000000000045
+    },
+    {
+     "value": 81.9772490383231,
+     "top_y": 515.94,
+     "top_edge_stroke_matches": true,
+     "height_pt": 151.83600000000007,
+     "clipped_at_axis_top": false,
+     "x_left": 529.794,
+     "width": 4.38009999999997
+    }
+   ],
+   "Gope 2016": [
+    {
+     "value": 59.65984998254825,
+     "top_y": 461.26599999999996,
+     "top_edge_stroke_matches": true,
+     "height_pt": 97.16199999999998,
+     "clipped_at_axis_top": false,
+     "x_left": 370.175,
+     "width": 4.380100000000027
+    },
+    {
+     "value": 61.99388238919346,
+     "top_y": 466.984,
+     "top_edge_stroke_matches": true,
+     "height_pt": 102.88,
+     "clipped_at_axis_top": false,
+     "x_left": 402.981,
+     "width": 4.369500000000016
+    },
+    {
+     "value": 63.55888418126722,
+     "top_y": 470.818,
+     "top_edge_stroke_matches": true,
+     "height_pt": 106.714,
+     "clipped_at_axis_top": false,
+     "x_left": 435.777,
+     "width": 4.3700000000000045
+    },
+    {
+     "value": 65.58595744663975,
+     "top_y": 475.784,
+     "top_edge_stroke_matches": true,
+     "height_pt": 111.68,
+     "clipped_at_axis_top": false,
+     "x_left": 468.572,
+     "width": 4.3700000000000045
+    },
+    {
+     "value": 67.8771298668041,
+     "top_y": 481.397,
+     "top_edge_stroke_matches": true,
+     "height_pt": 117.293,
+     "clipped_at_axis_top": false,
+     "x_left": 501.368,
+     "width": 4.3799999999999955
+    },
+    {
+     "value": 70.89406472471154,
+     "top_y": 488.788,
+     "top_edge_stroke_matches": true,
+     "height_pt": 124.68400000000003,
+     "clipped_at_axis_top": false,
+     "x_left": 534.174,
+     "width": 4.369000000000028
+    }
+   ],
+   "Hassan 2018": [
+    {
+     "value": 67.26443615530101,
+     "top_y": 479.89599999999996,
+     "top_edge_stroke_matches": true,
+     "height_pt": 115.79199999999997,
+     "clipped_at_axis_top": false,
+     "x_left": 374.556,
+     "width": 4.370400000000018
+    },
+    {
+     "value": 69.8997130383548,
+     "top_y": 486.352,
+     "top_edge_stroke_matches": true,
+     "height_pt": 122.24799999999999,
+     "clipped_at_axis_top": false,
+     "x_left": 407.351,
+     "width": 4.370499999999993
+    },
+    {
+     "value": 71.23857737794842,
+     "top_y": 489.632,
+     "top_edge_stroke_matches": true,
+     "height_pt": 125.52800000000002,
+     "clipped_at_axis_top": false,
+     "x_left": 440.147,
+     "width": 4.3799999999999955
+    },
+    {
+     "value": 74.98127467359899,
+     "top_y": 498.801,
+     "top_edge_stroke_matches": true,
+     "height_pt": 134.697,
+     "clipped_at_axis_top": false,
+     "x_left": 472.942,
+     "width": 4.380999999999972
+    },
+    {
+     "value": 75.13679519597252,
+     "top_y": 499.182,
+     "top_edge_stroke_matches": true,
+     "height_pt": 135.07800000000003,
+     "clipped_at_axis_top": false,
+     "x_left": 505.748,
+     "width": 4.3700000000000045
+    },
+    {
+     "value": 77.04630964128319,
+     "top_y": 503.86,
+     "top_edge_stroke_matches": true,
+     "height_pt": 139.75600000000003,
+     "clipped_at_axis_top": false,
+     "x_left": 538.543,
+     "width": 4.370999999999981
+    }
+   ]
+  },
+  "colour_to_series": {
+   "0.000,0.000,0.000": "Proposed",
+   "0.502,0.000,1.000": "Zhanfei 2024",
+   "0.000,1.000,1.000": "Hassan 2023",
+   "1.000,0.000,1.000": "Gupta 2019",
+   "1.000,1.000,0.000": "Gope 2016",
+   "0.000,1.000,0.000": "Hassan 2018"
+  },
+  "legend_order_top_to_bottom": [
+   "Proposed",
+   "Zhanfei 2024",
+   "Hassan 2023",
+   "Gupta 2019",
+   "Gope 2016",
+   "Hassan 2018"
+  ],
+  "in_group_bar_order": [
+   "Proposed",
+   "Zhanfei 2024",
+   "Hassan 2023",
+   "Gupta 2019",
+   "Gope 2016",
+   "Hassan 2018"
+  ],
+  "in_group_order_consistent": true,
+  "group_centres_pt": [
+   365.8057,
+   398.60075,
+   431.4065,
+   464.2025,
+   496.9975,
+   529.7935
+  ],
+  "group_centres_axis_units": [
+   1.9999642988731239,
+   3.9997669828996116,
+   6.00022214004991,
+   8.000082753933185,
+   9.999882389019842,
+   11.999743002903116
+  ],
+  "x_calibration": {
+   "a": -20.30642708312471,
+   "b": 0.06097879661798007,
+   "major_pos": [
+    365.805,
+    398.601,
+    431.408,
+    464.204,
+    496.999,
+    529.795
+   ],
+   "major_values": [
+    2,
+    4,
+    6,
+    8,
+    10,
+    12
+   ],
+   "residuals": [
+    7.838628451040108e-05,
+    0.00021777240123554975,
+    -0.00031360824483783745,
+    -0.00017422212811268878,
+    2.6142785230831578e-05,
+    0.00016552890195953296
+   ]
+  },
+  "x_minor_tick_pos": [
+   382.166,
+   414.962,
+   447.843,
+   480.649,
+   513.445,
+   546.24
+  ],
+  "calibration": {
+   "pdf_page": 8,
+   "coord_space": "PDF page user space (pt, y up)",
+   "baseline_y": 364.104,
+   "y_axis_x": 349.3600000000001,
+   "y_axis_top": 535.5959999999999,
+   "y_axis_bottom": 364.1029999999999,
+   "major_tick_y": [
+    364.104,
+    388.634,
+    413.06,
+    437.591,
+    462.11,
+    486.64,
+    511.066,
+    535.596
+   ],
+   "major_tick_values": [
+    20,
+    30,
+    40,
+    50,
+    60,
+    70,
+    80,
+    90
+   ],
+   "minor_tick_y": [
+    376.369,
+    400.899,
+    425.325,
+    449.845,
+    474.375,
+    498.801,
+    523.331
+   ],
+   "fit": "value = a + b*y",
+   "a": -128.624478818363,
+   "b": 0.4081903474370781,
+   "units_per_pt": 0.4081903474370781,
+   "major_residuals": [
+    0.0007405551331203242,
+    -0.012168667498428931,
+    0.017373906003513184,
+    0.004056493024563679,
+    -0.004362635785156499,
+    -0.017271858416677333,
+    0.012270715085264783,
+    -0.0006385075462844725
+   ],
+   "max_abs_residual": 0.017373906003513184,
+   "rms_residual": 0.010812379830660775,
+   "minor_tick_values": [
+    25.005714056182654,
+    35.018623278814175,
+    44.98908070531223,
+    54.99790802446941,
+    65.01081724710093,
+    74.98127467359899,
+    84.99418389623054
+   ],
+   "minor_tick_residual_vs_half_step": [
+    0.0057140561826543035,
+    0.018623278814175137,
+    -0.010919294687766978,
+    -0.002091975530589707,
+    0.010817247100931127,
+    -0.01872532640101099,
+    -0.0058161037694617335
+   ],
+   "label_centre_minus_tick_y": [
+    0.5065,
+    0.5,
+    0.5065,
+    0.5005,
+    0.5055,
+    0.5005,
+    0.5055,
+    0.5005
+   ],
+   "baseline_value": 19.99925944486688,
+   "axis_top_value": 90.00063850754623
+  }
+ },
+ "fig7": {
+  "x": [
+   100.24,
+   300.11,
+   500.04,
+   699.91,
+   899.78,
+   1099.64
+  ],
+  "x_label": "Number of Vehicles in the IoV",
+  "y_label": "Average End-to-End Delay (ms)",
+  "title": "Average communication overhead in a multihop infrastructure (y axis: Average End-to-End Delay)",
+  "series": {
+   "Gope 2016": [
+    26.44971594724015,
+    27.981920403549978,
+    30.995688784086624,
+    33.65409781124539,
+    34.97600541818457,
+    37.243300249428444
+   ],
+   "Gupta 2019": [
+    24.209857484963436,
+    26.973487905873924,
+    29.004800776373635,
+    31.676052359219156,
+    30.995688784086624,
+    34.2439797440394
+   ],
+   "Hassan 2023": [
+    24.995442453847687,
+    27.994762959236738,
+    30.000244780230133,
+    32.004121281762686,
+    32.50191625275734,
+    35.501236758146376
+   ],
+   "Zhanfei 2024": [
+    25.493091486709538,
+    30.000244780230133,
+    32.50191625275734,
+    34.99059923146497,
+    36.84912135272468,
+    38.00290823067359
+   ],
+   "Proposed": [
+    17.503270591952848,
+    18.447198434929504,
+    19.848204509848486,
+    20.935735475504345,
+    22.205980983430884,
+    23.68637740259527
+   ]
+  },
+  "series_3dp": {
+   "Gope 2016": [
+    26.45,
+    27.982,
+    30.996,
+    33.654,
+    34.976,
+    37.243
+   ],
+   "Gupta 2019": [
+    24.21,
+    26.973,
+    29.005,
+    31.676,
+    30.996,
+    34.244
+   ],
+   "Hassan 2023": [
+    24.995,
+    27.995,
+    30.0,
+    32.004,
+    32.502,
+    35.501
+   ],
+   "Zhanfei 2024": [
+    25.493,
+    30.0,
+    32.502,
+    34.991,
+    36.849,
+    38.003
+   ],
+   "Proposed": [
+    17.503,
+    18.447,
+    19.848,
+    20.936,
+    22.206,
+    23.686
+   ]
+  },
+  "censored": {
+   "Gope 2016": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "Gupta 2019": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "Hassan 2023": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "Zhanfei 2024": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "Proposed": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ]
+  },
+  "censoring_note": "no bar reaches the axis top",
+  "precision": {
+   "grid_quantum_pt": 0.08975,
+   "grid_fit_rms_in_quanta": 0.06454466367919999,
+   "value_resolution": 0.013097947419164408,
+   "tolerance_used": 0.011931952605654848,
+   "tolerance_def": "0.5*value_resolution + max|tick residual|"
+  },
+  "round_number_test": {
+   "1.0": {
+    "testable": true,
+    "n_within_tol": 10,
+    "n": 30,
+    "chance_rate": 0.023863905211309697,
+    "expected_by_chance": 0.7159171563392909
+   },
+   "0.5": {
+    "testable": true,
+    "n_within_tol": 15,
+    "n": 30,
+    "chance_rate": 0.04772781042261939,
+    "expected_by_chance": 1.4318343126785817
+   },
+   "0.25": {
+    "testable": true,
+    "n_within_tol": 17,
+    "n": 30,
+    "chance_rate": 0.09545562084523879,
+    "expected_by_chance": 2.8636686253571635
+   },
+   "0.1": {
+    "testable": true,
+    "n_within_tol": 17,
+    "n": 30,
+    "chance_rate": 0.23863905211309697,
+    "expected_by_chance": 7.159171563392909
+   },
+   "0.05": {
+    "testable": true,
+    "n_within_tol": 24,
+    "n": 30,
+    "chance_rate": 0.47727810422619393,
+    "expected_by_chance": 14.318343126785818
+   },
+   "0.01": {
+    "testable": false,
+    "note": "grid finer than 2*tolerance"
+   }
+  },
+  "identical_heights": {
+   "109.5940pt -> 30.9957": [
+    "Gope 2016@500.04",
+    "Gupta 2019@899.78"
+   ],
+   "102.7730pt -> 30.0002": [
+    "Hassan 2023@500.04",
+    "Zhanfei 2024@300.11"
+   ],
+   "119.9150pt -> 32.5019": [
+    "Hassan 2023@899.78",
+    "Zhanfei 2024@500.04"
+   ]
+  },
+  "bar_detail": {
+   "Gope 2016": [
+    {
+     "value": 26.44971594724015,
+     "top_y": 355.16400000000004,
+     "top_edge_stroke_matches": true,
+     "height_pt": 78.44400000000007,
+     "clipped_at_axis_top": false,
+     "x_left": 80.943,
+     "width": 5.620800000000003
+    },
+    {
+     "value": 27.981920403549978,
+     "top_y": 365.663,
+     "top_edge_stroke_matches": true,
+     "height_pt": 88.94300000000004,
+     "clipped_at_axis_top": false,
+     "x_left": 116.041,
+     "width": 5.620800000000003
+    },
+    {
+     "value": 30.995688784086624,
+     "top_y": 386.314,
+     "top_edge_stroke_matches": true,
+     "height_pt": 109.59400000000005,
+     "clipped_at_axis_top": false,
+     "x_left": 151.15,
+     "width": 5.60929999999999
+    },
+    {
+     "value": 33.65409781124539,
+     "top_y": 404.53000000000003,
+     "top_edge_stroke_matches": true,
+     "height_pt": 127.81000000000006,
+     "clipped_at_axis_top": false,
+     "x_left": 186.248,
+     "width": 5.621000000000009
+    },
+    {
+     "value": 34.97600541818457,
+     "top_y": 413.588,
+     "top_edge_stroke_matches": true,
+     "height_pt": 136.86800000000005,
+     "clipped_at_axis_top": false,
+     "x_left": 221.345,
+     "width": 5.621999999999986
+    },
+    {
+     "value": 37.243300249428444,
+     "top_y": 429.124,
+     "top_edge_stroke_matches": true,
+     "height_pt": 152.40400000000005,
+     "clipped_at_axis_top": false,
+     "x_left": 256.443,
+     "width": 5.622000000000014
+    }
+   ],
+   "Gupta 2019": [
+    {
+     "value": 24.209857484963436,
+     "top_y": 339.81600000000003,
+     "top_edge_stroke_matches": true,
+     "height_pt": 63.09600000000006,
+     "clipped_at_axis_top": false,
+     "x_left": 86.564,
+     "width": 5.610500000000002
+    },
+    {
+     "value": 26.973487905873924,
+     "top_y": 358.75300000000004,
+     "top_edge_stroke_matches": true,
+     "height_pt": 82.03300000000007,
+     "clipped_at_axis_top": false,
+     "x_left": 121.661,
+     "width": 5.621700000000004
+    },
+    {
+     "value": 29.004800776373635,
+     "top_y": 372.672,
+     "top_edge_stroke_matches": true,
+     "height_pt": 95.95200000000006,
+     "clipped_at_axis_top": false,
+     "x_left": 156.759,
+     "width": 5.621999999999986
+    },
+    {
+     "value": 31.676052359219156,
+     "top_y": 390.976,
+     "top_edge_stroke_matches": true,
+     "height_pt": 114.25600000000003,
+     "clipped_at_axis_top": false,
+     "x_left": 191.869,
+     "width": 5.610000000000014
+    },
+    {
+     "value": 30.995688784086624,
+     "top_y": 386.314,
+     "top_edge_stroke_matches": true,
+     "height_pt": 109.59400000000005,
+     "clipped_at_axis_top": false,
+     "x_left": 226.967,
+     "width": 5.610000000000014
+    },
+    {
+     "value": 34.2439797440394,
+     "top_y": 408.572,
+     "top_edge_stroke_matches": true,
+     "height_pt": 131.85200000000003,
+     "clipped_at_axis_top": false,
+     "x_left": 262.065,
+     "width": 5.620999999999981
+    }
+   ],
+   "Hassan 2023": [
+    {
+     "value": 24.995442453847687,
+     "top_y": 345.199,
+     "top_edge_stroke_matches": true,
+     "height_pt": 68.47900000000004,
+     "clipped_at_axis_top": false,
+     "x_left": 92.174,
+     "width": 5.620800000000003
+    },
+    {
+     "value": 27.994762959236738,
+     "top_y": 365.75100000000003,
+     "top_edge_stroke_matches": true,
+     "height_pt": 89.03100000000006,
+     "clipped_at_axis_top": false,
+     "x_left": 127.283,
+     "width": 5.609500000000011
+    },
+    {
+     "value": 30.000244780230133,
+     "top_y": 379.49300000000005,
+     "top_edge_stroke_matches": true,
+     "height_pt": 102.77300000000008,
+     "clipped_at_axis_top": false,
+     "x_left": 162.381,
+     "width": 5.610000000000014
+    },
+    {
+     "value": 32.004121281762686,
+     "top_y": 393.22400000000005,
+     "top_edge_stroke_matches": true,
+     "height_pt": 116.50400000000008,
+     "clipped_at_axis_top": false,
+     "x_left": 197.479,
+     "width": 5.621000000000009
+    },
+    {
+     "value": 32.50191625275734,
+     "top_y": 396.63500000000005,
+     "top_edge_stroke_matches": true,
+     "height_pt": 119.91500000000008,
+     "clipped_at_axis_top": false,
+     "x_left": 232.577,
+     "width": 5.6200000000000045
+    },
+    {
+     "value": 35.501236758146376,
+     "top_y": 417.187,
+     "top_edge_stroke_matches": true,
+     "height_pt": 140.46700000000004,
+     "clipped_at_axis_top": false,
+     "x_left": 267.686,
+     "width": 5.6089999999999804
+    }
+   ],
+   "Zhanfei 2024": [
+    {
+     "value": 25.493091486709538,
+     "top_y": 348.60900000000004,
+     "top_edge_stroke_matches": true,
+     "height_pt": 71.88900000000007,
+     "clipped_at_axis_top": false,
+     "x_left": 97.795,
+     "width": 5.609499999999997
+    },
+    {
+     "value": 30.000244780230133,
+     "top_y": 379.49300000000005,
+     "top_edge_stroke_matches": true,
+     "height_pt": 102.77300000000008,
+     "clipped_at_axis_top": false,
+     "x_left": 132.893,
+     "width": 5.620800000000003
+    },
+    {
+     "value": 32.50191625275734,
+     "top_y": 396.63500000000005,
+     "top_edge_stroke_matches": true,
+     "height_pt": 119.91500000000008,
+     "clipped_at_axis_top": false,
+     "x_left": 167.991,
+     "width": 5.6200000000000045
+    },
+    {
+     "value": 34.99059923146497,
+     "top_y": 413.688,
+     "top_edge_stroke_matches": true,
+     "height_pt": 136.96800000000002,
+     "clipped_at_axis_top": false,
+     "x_left": 203.1,
+     "width": 5.609000000000009
+    },
+    {
+     "value": 36.84912135272468,
+     "top_y": 426.423,
+     "top_edge_stroke_matches": true,
+     "height_pt": 149.70300000000003,
+     "clipped_at_axis_top": false,
+     "x_left": 238.197,
+     "width": 5.610000000000014
+    },
+    {
+     "value": 38.00290823067359,
+     "top_y": 434.32900000000006,
+     "top_edge_stroke_matches": true,
+     "height_pt": 157.6090000000001,
+     "clipped_at_axis_top": false,
+     "x_left": 273.295,
+     "width": 5.622000000000014
+    }
+   ],
+   "Proposed": [
+    {
+     "value": 17.503270591952848,
+     "top_y": 293.86100000000005,
+     "top_edge_stroke_matches": true,
+     "height_pt": 17.141000000000076,
+     "clipped_at_axis_top": false,
+     "x_left": 103.404,
+     "width": 5.621700000000004
+    },
+    {
+     "value": 18.447198434929504,
+     "top_y": 300.329,
+     "top_edge_stroke_matches": true,
+     "height_pt": 23.609000000000037,
+     "clipped_at_axis_top": false,
+     "x_left": 138.513,
+     "width": 5.610500000000002
+    },
+    {
+     "value": 19.848204509848486,
+     "top_y": 309.92900000000003,
+     "top_edge_stroke_matches": true,
+     "height_pt": 33.20900000000006,
+     "clipped_at_axis_top": false,
+     "x_left": 173.611,
+     "width": 5.622000000000014
+    },
+    {
+     "value": 20.935735475504345,
+     "top_y": 317.38100000000003,
+     "top_edge_stroke_matches": true,
+     "height_pt": 40.66100000000006,
+     "clipped_at_axis_top": false,
+     "x_left": 208.709,
+     "width": 5.622000000000014
+    },
+    {
+     "value": 22.205980983430884,
+     "top_y": 326.08500000000004,
+     "top_edge_stroke_matches": true,
+     "height_pt": 49.365000000000066,
+     "clipped_at_axis_top": false,
+     "x_left": 243.807,
+     "width": 5.621999999999986
+    },
+    {
+     "value": 23.68637740259527,
+     "top_y": 336.22900000000004,
+     "top_edge_stroke_matches": true,
+     "height_pt": 59.50900000000007,
+     "clipped_at_axis_top": false,
+     "x_left": 278.917,
+     "width": 5.6089999999999804
+    }
+   ]
+  },
+  "colour_to_series": {
+   "0.000,1.000,0.000": "Gope 2016",
+   "0.502,0.000,1.000": "Gupta 2019",
+   "0.000,1.000,1.000": "Hassan 2023",
+   "1.000,0.000,1.000": "Zhanfei 2024",
+   "0.000,0.000,0.000": "Proposed"
+  },
+  "legend_order_top_to_bottom": [
+   "Gope 2016",
+   "Gupta 2019",
+   "Hassan 2023",
+   "Zhanfei 2024",
+   "Proposed"
+  ],
+  "in_group_bar_order": [
+   "Gope 2016",
+   "Gupta 2019",
+   "Hassan 2023",
+   "Zhanfei 2024",
+   "Proposed"
+  ],
+  "in_group_order_consistent": true,
+  "group_centres_pt": [
+   94.98435,
+   130.08225,
+   165.19150000000002,
+   200.2895,
+   235.387,
+   270.48449999999997
+  ],
+  "group_centres_axis_units": [
+   100.24497940744652,
+   300.11239720456456,
+   500.0444483612856,
+   699.9124356153166,
+   899.7775755847836,
+   1099.6427155542503
+  ],
+  "x_calibration": {
+   "a": -440.6499677443121,
+   "b": 5.6945691279853845,
+   "major_pos": [
+    77.383,
+    112.493,
+    147.591,
+    182.781,
+    217.89,
+    252.987,
+    288.085
+   ],
+   "major_values": [
+    0,
+    200,
+    400,
+    600,
+    800,
+    1000,
+    1200
+   ],
+   "residuals": [
+    -0.012875086580891093,
+    0.050802829852273135,
+    0.18281557582122332,
+    -0.20907203798446972,
+    -0.1396995524232807,
+    -0.001992237326248869,
+    0.13002050864270132
+   ]
+  },
+  "x_minor_tick_pos": [
+   94.984,
+   130.082,
+   165.192,
+   200.29,
+   235.387,
+   270.485
+  ],
+  "calibration": {
+   "pdf_page": 9,
+   "coord_space": "PDF page user space (pt, y up)",
+   "baseline_y": 276.71999999999997,
+   "y_axis_x": 77.38300000000004,
+   "y_axis_top": 441.1490000000004,
+   "y_axis_bottom": 276.7190000000004,
+   "major_tick_y": [
+    283.541,
+    297.273,
+    311.004,
+    324.646,
+    338.377,
+    352.119,
+    365.75,
+    379.492,
+    393.223,
+    406.866,
+    420.597,
+    434.328
+   ],
+   "major_tick_values": [
+    16,
+    18,
+    20,
+    22,
+    24,
+    26,
+    28,
+    30,
+    32,
+    34,
+    36,
+    38
+   ],
+   "minor_tick_y": [
+    276.72,
+    290.451,
+    304.094,
+    317.825,
+    331.556,
+    345.199,
+    358.929,
+    372.671,
+    386.313,
+    400.044,
+    413.775,
+    427.418,
+    441.149
+   ],
+   "fit": "value = a + b*y",
+   "a": -25.38225505198111,
+   "b": 0.14593813280406026,
+   "units_per_pt": 0.14593813280406026,
+   "major_residuals": [
+    0.0028109385850640933,
+    -0.0012115010802986603,
+    -0.005088002612851028,
+    0.004023989674159623,
+    0.0001474881416143603,
+    -0.005334332851788304,
+    0.005382978896072643,
+    -9.88420973300208e-05,
+    -0.003975343629875283,
+    0.004990710524332087,
+    0.0011142089917797193,
+    -0.0027622925407726484
+   ],
+   "max_abs_residual": 0.005382978896072643,
+   "rms_residual": 0.0036342667260797143,
+   "minor_tick_values": [
+    15.001745057558445,
+    17.005621559090997,
+    18.99665550493679,
+    21.000532006469342,
+    23.004408508001887,
+    24.995442453847687,
+    26.99917301724743,
+    29.004654838240832,
+    30.99554284595382,
+    32.999419347486366,
+    35.00329584901892,
+    36.99432979486472,
+    38.998206296397264
+   ],
+   "minor_tick_residual_vs_half_step": [
+    0.0017450575584447847,
+    0.0056215590909971525,
+    -0.0033444950632102177,
+    0.00053200646934215,
+    0.004408508001887412,
+    -0.004557546152312852,
+    -0.0008269827525708706,
+    0.004654838240831793,
+    -0.004457154046178857,
+    -0.0005806525136335949,
+    0.003295849018918773,
+    -0.005670205135281492,
+    -0.0017937036027362296
+   ],
+   "label_centre_minus_tick_y": [
+    0.486,
+    0.486,
+    0.4865,
+    0.5245,
+    0.5255,
+    0.4775,
+    0.4885,
+    0.477,
+    0.478,
+    -0.0185,
+    0.478,
+    0.479
+   ],
+   "baseline_value": 15.001745057558438,
+   "axis_top_value": 38.99820629639732
+  }
+ },
+ "fig8": {
+  "x": [
+   "single group"
+  ],
+  "x_label": "Proposed and Existing Schemes",
+  "y_label": "Storage Overhead (%)",
+  "title": "Average storage overhead",
+  "series": {
+   "Proposed": [
+    0.5099967378647855
+   ],
+   "Zhanfei 2024": [
+    0.5699245409957093
+   ],
+   "Hassan 2023": [
+    0.6200107655327061
+   ],
+   "Gupta 2019": [
+    0.6149580265769129
+   ],
+   "Hassan 2018": [
+    0.653991134743455
+   ],
+   "Gope 2016": [
+    0.6870225326704992
+   ]
+  },
+  "series_3dp": {
+   "Proposed": [
+    0.51
+   ],
+   "Zhanfei 2024": [
+    0.57
+   ],
+   "Hassan 2023": [
+    0.62
+   ],
+   "Gupta 2019": [
+    0.615
+   ],
+   "Hassan 2018": [
+    0.654
+   ],
+   "Gope 2016": [
+    0.687
+   ]
+  },
+  "censored": {
+   "Proposed": [
+    false
+   ],
+   "Zhanfei 2024": [
+    false
+   ],
+   "Hassan 2023": [
+    false
+   ],
+   "Gupta 2019": [
+    false
+   ],
+   "Hassan 2018": [
+    false
+   ],
+   "Gope 2016": [
+    false
+   ]
+  },
+  "censoring_note": "no bar reaches the axis top",
+  "precision": {
+   "grid_quantum_pt": 0.09012,
+   "grid_fit_rms_in_quanta": 0.06444530440025396,
+   "value_resolution": 0.00012011417428016049,
+   "tolerance_used": 0.00011363664557396077,
+   "tolerance_def": "0.5*value_resolution + max|tick residual|"
+  },
+  "round_number_test": {
+   "0.01": {
+    "testable": true,
+    "n_within_tol": 3,
+    "n": 6,
+    "chance_rate": 0.022727329114792152,
+    "expected_by_chance": 0.13636397468875291
+   },
+   "0.005": {
+    "testable": true,
+    "n_within_tol": 4,
+    "n": 6,
+    "chance_rate": 0.045454658229584305,
+    "expected_by_chance": 0.27272794937750583
+   },
+   "0.001": {
+    "testable": true,
+    "n_within_tol": 6,
+    "n": 6,
+    "chance_rate": 0.22727329114792152,
+    "expected_by_chance": 1.3636397468875292
+   },
+   "0.0005": {
+    "testable": true,
+    "n_within_tol": 6,
+    "n": 6,
+    "chance_rate": 0.45454658229584305,
+    "expected_by_chance": 2.7272794937750584
+   }
+  },
+  "identical_heights": {},
+  "bar_detail": {
+   "Proposed": [
+    {
+     "value": 0.5099967378647855,
+     "top_y": 222.18800000000002,
+     "top_edge_stroke_matches": true,
+     "height_pt": 22.537000000000035,
+     "clipped_at_axis_top": false,
+     "x_left": 398.445,
+     "width": 17.620000000000005
+    }
+   ],
+   "Zhanfei 2024": [
+    {
+     "value": 0.5699245409957093,
+     "top_y": 267.151,
+     "top_edge_stroke_matches": true,
+     "height_pt": 67.50000000000003,
+     "clipped_at_axis_top": false,
+     "x_left": 416.065,
+     "width": 17.71199999999999
+    }
+   ],
+   "Hassan 2023": [
+    {
+     "value": 0.6200107655327061,
+     "top_y": 304.73,
+     "top_edge_stroke_matches": true,
+     "height_pt": 105.07900000000004,
+     "clipped_at_axis_top": false,
+     "x_left": 433.777,
+     "width": 17.607000000000028
+    }
+   ],
+   "Gupta 2019": [
+    {
+     "value": 0.6149580265769129,
+     "top_y": 300.939,
+     "top_edge_stroke_matches": true,
+     "height_pt": 101.28800000000004,
+     "clipped_at_axis_top": false,
+     "x_left": 451.477,
+     "width": 17.620000000000005
+    }
+   ],
+   "Hassan 2018": [
+    {
+     "value": 0.653991134743455,
+     "top_y": 330.225,
+     "top_edge_stroke_matches": true,
+     "height_pt": 130.57400000000004,
+     "clipped_at_axis_top": false,
+     "x_left": 469.097,
+     "width": 17.711000000000013
+    }
+   ],
+   "Gope 2016": [
+    {
+     "value": 0.6870225326704992,
+     "top_y": 355.00800000000004,
+     "top_edge_stroke_matches": true,
+     "height_pt": 155.35700000000006,
+     "clipped_at_axis_top": false,
+     "x_left": 486.808,
+     "width": 17.60899999999998
+    }
+   ]
+  },
+  "colour_to_series": {
+   "0.000,0.000,0.000": "Proposed",
+   "0.502,0.000,1.000": "Zhanfei 2024",
+   "0.000,1.000,1.000": "Hassan 2023",
+   "1.000,0.000,1.000": "Gupta 2019",
+   "0.000,1.000,0.000": "Hassan 2018",
+   "1.000,1.000,0.000": "Gope 2016"
+  },
+  "legend_order_top_to_bottom": [
+   "Proposed",
+   "Zhanfei 2024",
+   "Hassan 2023",
+   "Gupta 2019",
+   "Hassan 2018",
+   "Gope 2016"
+  ],
+  "in_group_bar_order": [
+   "Proposed",
+   "Zhanfei 2024",
+   "Hassan 2023",
+   "Gupta 2019",
+   "Hassan 2018",
+   "Gope 2016"
+  ],
+  "in_group_order_consistent": true,
+  "group_centres_pt": [
+   451.431
+  ],
+  "group_centres_axis_units": null,
+  "x_calibration": null,
+  "x_minor_tick_pos": [
+   358.697,
+   385.173,
+   411.637,
+   438.206,
+   464.67,
+   491.226,
+   517.701,
+   544.166
+  ],
+  "calibration": {
+   "pdf_page": 9,
+   "coord_space": "PDF page user space (pt, y up)",
+   "baseline_y": 199.65099999999998,
+   "y_axis_x": 345.41300000000007,
+   "y_axis_top": 364.74699999999996,
+   "y_axis_bottom": 199.65099999999995,
+   "major_tick_y": [
+    214.705,
+    252.197,
+    289.676,
+    327.256,
+    364.747
+   ],
+   "major_tick_values": [
+    0.5,
+    0.55,
+    0.6,
+    0.65,
+    0.7
+   ],
+   "minor_tick_y": [
+    233.451,
+    270.93,
+    308.422,
+    346.001
+   ],
+   "fit": "value = a + b*y",
+   "a": 0.21385905305608266,
+   "b": 0.001332824836664009,
+   "units_per_pt": 0.001332824836664009,
+   "major_residuals": [
+    -2.320961202872951e-05,
+    6.521611764398472e-06,
+    5.3579558433880514e-05,
+    -3.3977803399531936e-05,
+    -2.9137547700175404e-06
+   ],
+   "max_abs_residual": 5.3579558433880514e-05,
+   "rms_residual": 3.038080868975132e-05,
+   "minor_tick_values": [
+    0.5250083440001322,
+    0.5749612860534625,
+    0.6249315548296697,
+    0.6750177793666664
+   ],
+   "minor_tick_residual_vs_half_step": [
+    8.34400013172143e-06,
+    -3.871394653798266e-05,
+    -6.84451703308886e-05,
+    1.7779366665804375e-05
+   ],
+   "label_centre_minus_tick_y": [
+    0.4835,
+    0.439,
+    0.4875,
+    0.4845,
+    0.4815
+   ],
+   "baseline_value": 0.4799588645208887,
+   "axis_top_value": 0.7000029137547699
+  }
+ },
+ "meta": {
+  "pdf_info": {
+   "/Author": "",
+   "/CreationDate": "D:20250303151549+05'30'",
+   "/Creator": "LaTeX with hyperref package",
+   "/Keywords": "",
+   "/ModDate": "D:20250304142910-05'00'",
+   "/Producer": "Acrobat Distiller 23.0 (Windows)",
+   "/Subject": "",
+   "/Title": ""
+  },
+  "note": "charts drawn inline in the page content stream (no Form XObjects, no raster images); chart text outlined; pdf pages 8 (Figs 5,6) and 9 (Figs 7,8)"
+ }
+}
