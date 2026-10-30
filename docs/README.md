@@ -3,6 +3,7 @@
 | Path | Contents |
 |---|---|
 | [`design.md`](design.md) | Protocol design decisions, architecture, epoch semantics, paper-symbol-to-code table |
+| [`conformance.md`](conformance.md) | Equation-to-code matrix, evidence per requirement, assumption register |
 | [`references/base_paper.pdf`](references/base_paper.pdf) | Source paper (Al-Rasheed et al., IEEE TCE 2026), included for reference; see `NOTICE` |
 | [`references/literature_survey.pdf`](references/literature_survey.pdf) | Literature survey |
 | [`references/lightweight_biometrics_remote_user_authentication_for_iot.pdf`](references/lightweight_biometrics_remote_user_authentication_for_iot.pdf) | Dhillon and Kalra, "A lightweight biometrics based remote user authentication scheme for IoT services," *J. Inf. Secur. Appl.* 34, 2017 |
