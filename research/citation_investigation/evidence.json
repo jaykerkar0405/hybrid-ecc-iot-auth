@@ -1,0 +1,120 @@
+{
+  "scope": "Manually transcribed primary-source evidence; PDF page numbers are 1-based. Reported costs are not hardware measurements by this investigation.",
+  "missing_primary_source": "jiang_2015_two_factor_unlinkability.pdf",
+  "sadhukhan": {
+    "file": "docs/references/sadhukhan_2021_ecc_iot_auth.pdf",
+    "constants_page": 27,
+    "constants_ms": {"ECM": 17.1, "H": 0.32, "SE/D": 5.6, "C": 0.32, "fe": 17.1},
+    "constants_references": [
+      "[50] Kilinc and Yanik (2014), A survey of SIP authentication and key agreement schemes",
+      "[51] He et al. (2010), An enhanced two-factor user authentication scheme in wireless sensor networks"
+    ],
+    "communication_page": 28,
+    "communication_table5": {
+      "Poorambage [11]": [4, 768, 768, 1824, 3360],
+      "Turkanovic [12]": [4, 672, 576, 1472, 2720],
+      "Dhillon-Karla [13]": [4, 992, 512, 1024, 2528],
+      "Cheng-Le [14]": [4, 672, 512, 1088, 2272],
+      "Jiang [15]": [4, 512, 1056, 384, 1952],
+      "Shuai [16]": [4, 864, 544, 960, 2368],
+      "Wazid [17]": [4, 736, 512, 1344, 2592],
+      "Sadhukhan [18]": [4, 320, 768, 512, 1600],
+      "Fakroon [19]": [4, 800, 416, 1088, 2304]
+    },
+    "storage_page": 29,
+    "storage_table6": {
+      "Turkanovic [12]": [768, 512],
+      "Dhillon-Karla [13]": [640, 512],
+      "Wazid [17]": [576, 512],
+      "Sadhukhan [18]": [480, 356],
+      "Fakroon [19]": [704, 1056]
+    },
+    "storage_headers": ["Smart card/device", "Sensor node"],
+    "sensor_storage_terms_bits": [32, 320],
+    "sensor_storage_reported_bits": 356,
+    "own_message_terms_bits": [[160, 160, 32], [32, 160, 160, 32], [160, 160, 32, 160, 160], [32, 160, 160]],
+    "own_message_reported_bits": [352, 384, 512, 384],
+    "own_table_total_bits": 1600,
+    "actual_wazid_reference": "[9] Wazid et al. (2018), Design of secure user authenticated key management protocol for generic IoT networks, IEEE IoT Journal 5(1):269-282",
+    "own_model_operations": {
+      "user": {"H": 2, "ECM": 1, "SE/D": 2},
+      "device": {"H": 1, "ECM": 1, "SE/D": 2},
+      "server": {"H": 2, "SE/D": 4}
+    },
+    "own_model_note": "Table 4 prints T_SM in the node column; interpreted as scalar multiplication, consistent with its 28.62 ms evaluation."
+  },
+  "primary_operation_rows": {
+    "Turkanovic [12]": {
+      "file": "docs/references/turkanovic_2014_iot_wsn_auth.pdf", "pdf_pages": [13], "locator": "Table 2, printed p.108",
+      "basis": "original table",
+      "ops": {"user": {"H": 7}, "device": {"H": 5}, "server": {"H": 7}}
+    },
+    "Dhillon-Karla [13]": {
+      "file": "docs/references/lightweight_biometrics_remote_user_authentication_for_iot.pdf", "pdf_pages": [11], "locator": "Table 3, printed p.265",
+      "basis": "original table",
+      "ops": {"user": {"H": 8}, "device": {"H": 6}, "server": {"H": 8}}
+    },
+    "Cheng-Le [14]": {
+      "file": "docs/references/provably_secure_authentication_for_ad_hoc_wsn.pdf", "pdf_pages": [9], "locator": "Table III, protocol P2, printed p.365",
+      "basis": "original table; author name Chang, not Cheng",
+      "ops": {"user": {"H": 7, "ECM": 2}, "device": {"H": 5, "ECM": 2}, "server": {"H": 9}}
+    },
+    "Challa et al. [17]": {
+      "file": "docs/references/challa_2017_signature_key_establishment.pdf", "pdf_pages": [12, 13], "locator": "Tables 2-4, printed pp.3039-3040",
+      "basis": "original table; no fuzzy extractor charged to own scheme",
+      "ops": {"user": {"H": 5, "ECM": 5}, "device": {"H": 3, "ECM": 4}, "server": {"H": 4, "ECM": 5}}
+    },
+    "Shuai [16]": {
+      "file": "docs/references/shuai_2019_smart_home_auth.pdf", "pdf_pages": [5, 6, 7, 13], "locator": "Sec.3.3; Table 4 gives only total 16H+3ECM, printed pp.136-138,144",
+      "basis": "role counts recounted from algorithm, not a printed per-role cost table; XOR excluded to match BASE notation",
+      "ops": {"user": {"H": 6, "ECM": 2}, "device": {"H": 3}, "server": {"H": 7, "ECM": 1}}
+    }
+  },
+  "challa": {
+    "own_bits": 2528, "own_messages": 3,
+    "own_per_message_bits": [992, 1024, 512],
+    "table4_page": 13,
+    "porambage_2014_secondary_bits": 1344,
+    "porambage_2015_group_protocol1_secondary_bits": 3360,
+    "porambage_2014_secondary_ops": {"H": 6, "ECM": 4, "ECA": 2},
+    "porambage_note": "Challa [36] is the 2014 two-phase paper; [37] is the different 2015 group-key-establishment paper. Neither a bit-level recount nor the 2015 primary PDF is supplied here.",
+    "timing_reference": "[35] Odelu, Das and Goswami (2015), An efficient biometric-based privacy-preserving three-party authentication with key agreement protocol using smart cards"
+  },
+  "fakroon": {
+    "file": "docs/references/fakroon_2020_smart_home_auth.pdf", "pdf_pages": [18],
+    "per_message_bits": [800, 416, 416, 672],
+    "user_storage_bits": 704, "smart_device_storage_bits": 384,
+    "gateway_storage_terms_bits": [160, 384, 512, 256],
+    "gateway_storage_reported_bits": 1056,
+    "note": "BASE's 704/1056 server/device entries reproduce user/gateway values, not gateway/smart-device roles."
+  },
+  "shuai": {"original_bits": 1728, "original_messages": 4, "original_message_bits": [768, 320, 320, 320], "sadhukhan_and_base_bits": 2368},
+  "das_goswami": {"file": "docs/references/das_goswami_2015_biometric_auth.pdf", "pdf_pages": [16], "messages": 3, "message_bits": [640, 480, 160], "note": "No storage-cost table was located; 768+CH* remains unexplained by this primary source."},
+  "figure_comparators": {
+    "Ma/Zhanfei": {"file": "docs/references/ma_2024_blockchain_iov_auth.pdf", "pdf_pages": [9, 10], "original_own_ops": {"H": 8, "ECM": 6}, "phase_bits": [1088, 1792, 352], "original_total_bits": 3232, "jan_bits": 3392, "actual_owner_of_3392": "Wazid et al. [33] in Ma's paper"},
+    "Gupta": {"file": "docs/references/gupta_2019_wearable_auth.pdf", "pdf_pages": [12], "original_bits": 3808, "original_messages": 5, "jan_bits": 3038, "original_own_ops": {"H": 16, "XOR": 11}},
+    "Gope": {"file": "docs/references/gope_2016_realistic_auth.pdf", "pdf_pages": [7], "original_own_hashes": {"user": 7, "server": 9, "device": 3}, "jan_hashes": 12, "jan_bits": 3184, "note": "3184 is printed in Gupta Table 4 under Gupta's common SHA3-256 encoding assumptions; Gope's own Table IV reports sensor-transmission cost 35 bytes, not total bits for all parties."},
+    "Hasan2023": {"file": "docs/references/hasan_2023_kerberos_auth.pdf", "pdf_pages": [11, 12], "original_bits": 672, "jan_bits": 672, "original_forward_messages": 3, "jan_messages": 6, "note": "Count conventions need reconciliation. Own computation expression agrees with Jan's decomposition; own time is 11.14 ms on its stated desktop environment."},
+    "Hasan2018": {"file": "docs/references/hasan_2018_aodv_flooding.pdf", "pdf_pages": [5, 6], "jan_bits": 32000, "note": "Primary paper evaluates FLOW-AODV flooding prevention using NS3, PDR and delay. No mutual-authentication transcript or cryptographic 7H+14XOR cost model was found."}
+  },
+  "alshawish": {"file": "docs/references/alshawish_2022_mutual_auth.pdf", "pdf_pages": [22, 23], "message_bytes": [14, 177, 129, 58, 43, 49], "reported_total_bytes": 470, "reported_latency_ms": 13.04, "note": "Sec.4.2.3 explicitly says no computational overhead is measured in its NS3 simulation; 13.04 ms is simulated network latency, not a primitive compute time."},
+  "xie": {"file": "docs/references/xie_2014_roaming_auth.pdf", "pdf_pages": [6, 7], "constants_ms": {"modular_exponentiation": 522, "H": 0.5, "SE/D": 8.7, "ECM": 63.075}, "own_ops": {"ECM": 6, "H": 7, "SE/D": 7}, "reported_seconds": 0.44285, "note": "Section 5 attributes these constants to references [17]-[19]; this is a different timing chain from Sadhukhan's references [50]-[51]."},
+  "read_checks": [
+    {"file": "sadhukhan_2021_ecc_iot_auth.pdf", "page": 27, "phrases": ["Time requirement", "17.1", "5.6", "0.32"]},
+    {"file": "sadhukhan_2021_ecc_iot_auth.pdf", "page": 28, "phrases": ["3360", "2720", "2368", "2304", "1600"]},
+    {"file": "sadhukhan_2021_ecc_iot_auth.pdf", "page": 29, "phrases": ["Smart card/device", "Sensor node", "356"]},
+    {"file": "turkanovic_2014_iot_wsn_auth.pdf", "page": 13, "phrases": ["Proposed scheme", "7Th", "5Th"]},
+    {"file": "shuai_2019_smart_home_auth.pdf", "page": 13, "phrases": ["1728", "3Texp", "16Th"]},
+    {"file": "fakroon_2020_smart_home_auth.pdf", "page": 18, "phrases": ["704", "1056", "384", "2304"]},
+    {"file": "gupta_2019_wearable_auth.pdf", "page": 12, "phrases": ["3808", "3184", "SHA3-256"]},
+    {"file": "ma_2024_blockchain_iov_auth.pdf", "page": 10, "phrases": ["3232", "3392", "1792"]},
+    {"file": "hasan_2023_kerberos_auth.pdf", "page": 12, "phrases": ["672", "Forward message"]},
+    {"file": "hasan_2018_aodv_flooding.pdf", "page": 5, "phrases": ["FLOW-AODV", "NS3", "PDR"]},
+    {"file": "alshawish_2022_mutual_auth.pdf", "page": 22, "phrases": ["470", "13.04", "5Mbps"]},
+    {"file": "alshawish_2022_mutual_auth.pdf", "page": 23, "phrases": ["no computational overhead is meas"]},
+    {"file": "xie_2014_roaming_auth.pdf", "page": 6, "phrases": ["0.063075", "0.0005", "0.44285"]},
+    {"file": "das_goswami_2015_biometric_auth.pdf", "page": 16, "phrases": ["1280", "640", "480"]},
+    {"file": "porambage_2014_two_phase_auth.pdf", "page": 4, "phrases": ["six message transfers"]},
+    {"file": "porambage_2014_two_phase_auth.pdf", "page": 5, "phrases": ["8444", "TelosB", "TinyOS"]}
+  ]
+}

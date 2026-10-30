@@ -1,0 +1,16 @@
+scheme,role,base_ops,primary_ops,base_model_ms,primary_model_ms,match,primary_file,pdf_pages,basis
+Turkanovic [12],user,"{""H"": 7}","{""H"": 7}",2.24,2.24,True,docs/references/turkanovic_2014_iot_wsn_auth.pdf,13,original table
+Turkanovic [12],device,"{""H"": 7}","{""H"": 5}",2.24,1.6,False,docs/references/turkanovic_2014_iot_wsn_auth.pdf,13,original table
+Turkanovic [12],server,"{""H"": 5}","{""H"": 7}",1.6,2.24,False,docs/references/turkanovic_2014_iot_wsn_auth.pdf,13,original table
+Dhillon-Karla [13],user,"{""H"": 8}","{""H"": 8}",2.56,2.56,True,docs/references/lightweight_biometrics_remote_user_authentication_for_iot.pdf,11,original table
+Dhillon-Karla [13],device,"{""H"": 6}","{""H"": 6}",1.92,1.92,True,docs/references/lightweight_biometrics_remote_user_authentication_for_iot.pdf,11,original table
+Dhillon-Karla [13],server,"{""H"": 8}","{""H"": 8}",2.56,2.56,True,docs/references/lightweight_biometrics_remote_user_authentication_for_iot.pdf,11,original table
+Cheng-Le [14],user,"{""ECM"": 2, ""H"": 9}","{""ECM"": 2, ""H"": 7}",37.08,36.44,False,docs/references/provably_secure_authentication_for_ad_hoc_wsn.pdf,9,"original table; author name Chang, not Cheng"
+Cheng-Le [14],device,"{""ECM"": 2, ""H"": 5}","{""ECM"": 2, ""H"": 5}",35.8,35.8,True,docs/references/provably_secure_authentication_for_ad_hoc_wsn.pdf,9,"original table; author name Chang, not Cheng"
+Cheng-Le [14],server,"{""H"": 7}","{""H"": 9}",2.24,2.88,False,docs/references/provably_secure_authentication_for_ad_hoc_wsn.pdf,9,"original table; author name Chang, not Cheng"
+Challa et al. [17],user,"{""H"": 5, ""SE/D"": 5, ""fe"": 1}","{""ECM"": 5, ""H"": 5}",46.7,87.1,False,docs/references/challa_2017_signature_key_establishment.pdf,"12,13",original table; no fuzzy extractor charged to own scheme
+Challa et al. [17],device,"{""ECM"": 4, ""H"": 3}","{""ECM"": 4, ""H"": 3}",69.36,69.36,True,docs/references/challa_2017_signature_key_establishment.pdf,"12,13",original table; no fuzzy extractor charged to own scheme
+Challa et al. [17],server,"{""ECM"": 5, ""H"": 4}","{""ECM"": 5, ""H"": 4}",86.78,86.78,True,docs/references/challa_2017_signature_key_establishment.pdf,"12,13",original table; no fuzzy extractor charged to own scheme
+Shuai [16],user,"{""ECM"": 1, ""H"": 6}","{""ECM"": 2, ""H"": 6}",19.02,36.12,False,docs/references/shuai_2019_smart_home_auth.pdf,"5,6,7,13","role counts recounted from algorithm, not a printed per-role cost table; XOR excluded to match BASE notation"
+Shuai [16],device,"{""ECM"": 1, ""H"": 3}","{""H"": 3}",18.06,0.96,False,docs/references/shuai_2019_smart_home_auth.pdf,"5,6,7,13","role counts recounted from algorithm, not a printed per-role cost table; XOR excluded to match BASE notation"
+Shuai [16],server,"{""ECM"": 1, ""H"": 7}","{""ECM"": 1, ""H"": 7}",19.34,19.34,True,docs/references/shuai_2019_smart_home_auth.pdf,"5,6,7,13","role counts recounted from algorithm, not a printed per-role cost table; XOR excluded to match BASE notation"

@@ -1,0 +1,544 @@
+{
+  "scope": "Arithmetic and curated source comparison, not a protocol-security proof or independent hardware/simulation reproduction.",
+  "source_page_checks": [
+    {
+      "file": "sadhukhan_2021_ecc_iot_auth.pdf",
+      "page": 27,
+      "phrases_found": 4
+    },
+    {
+      "file": "sadhukhan_2021_ecc_iot_auth.pdf",
+      "page": 28,
+      "phrases_found": 5
+    },
+    {
+      "file": "sadhukhan_2021_ecc_iot_auth.pdf",
+      "page": 29,
+      "phrases_found": 3
+    },
+    {
+      "file": "turkanovic_2014_iot_wsn_auth.pdf",
+      "page": 13,
+      "phrases_found": 3
+    },
+    {
+      "file": "shuai_2019_smart_home_auth.pdf",
+      "page": 13,
+      "phrases_found": 3
+    },
+    {
+      "file": "fakroon_2020_smart_home_auth.pdf",
+      "page": 18,
+      "phrases_found": 4
+    },
+    {
+      "file": "gupta_2019_wearable_auth.pdf",
+      "page": 12,
+      "phrases_found": 3
+    },
+    {
+      "file": "ma_2024_blockchain_iov_auth.pdf",
+      "page": 10,
+      "phrases_found": 3
+    },
+    {
+      "file": "hasan_2023_kerberos_auth.pdf",
+      "page": 12,
+      "phrases_found": 2
+    },
+    {
+      "file": "hasan_2018_aodv_flooding.pdf",
+      "page": 5,
+      "phrases_found": 3
+    },
+    {
+      "file": "alshawish_2022_mutual_auth.pdf",
+      "page": 22,
+      "phrases_found": 3
+    },
+    {
+      "file": "alshawish_2022_mutual_auth.pdf",
+      "page": 23,
+      "phrases_found": 1
+    },
+    {
+      "file": "xie_2014_roaming_auth.pdf",
+      "page": 6,
+      "phrases_found": 3
+    },
+    {
+      "file": "das_goswami_2015_biometric_auth.pdf",
+      "page": 16,
+      "phrases_found": 3
+    },
+    {
+      "file": "porambage_2014_two_phase_auth.pdf",
+      "page": 4,
+      "phrases_found": 1
+    },
+    {
+      "file": "porambage_2014_two_phase_auth.pdf",
+      "page": 5,
+      "phrases_found": 3
+    }
+  ],
+  "sadhukhan_correspondences": {
+    "timing_constants_matching": 5,
+    "communication_rows_matching": [
+      "Poorambage [11]",
+      "Turkanovic [12]",
+      "Dhillon-Karla [13]",
+      "Cheng-Le [14]",
+      "Jiang [15]",
+      "Shuai [16]",
+      "Wazid [17]",
+      "Sadhukhan [18]",
+      "Fakroon [19]"
+    ],
+    "storage_numeric_rows_matching": [
+      "Turkanovic [12]",
+      "Dhillon-Karla [13]",
+      "Wazid [17]",
+      "Sadhukhan [18]",
+      "Fakroon [19]"
+    ],
+    "source_storage_headers": [
+      "Smart card/device",
+      "Sensor node"
+    ],
+    "base_storage_headers": [
+      "Server Storage",
+      "Device Storage"
+    ]
+  },
+  "headline_checks": {
+    "with_jiang": {
+      "communication_comparators": 9,
+      "communication_best_comparator": "Sadhukhan [18]",
+      "communication_reduction_vs_best_percent": 36.0,
+      "communication_reduction_vs_mean_percent": 57.52212389380531,
+      "processing_printed_model_ms": {
+        "Proposed scheme": {
+          "device_and_server": 23.68,
+          "all_roles": 23.68
+        },
+        "Challa et al. [17]": {
+          "device_and_server": 156.14,
+          "all_roles": 202.84
+        },
+        "Turkanovic [12]": {
+          "device_and_server": 3.8400000000000003,
+          "all_roles": 6.08
+        },
+        "Poorambage [11]": {
+          "device_and_server": 329.70000000000005,
+          "all_roles": 400.66
+        },
+        "Dhillon-Karla [13]": {
+          "device_and_server": 4.48,
+          "all_roles": 7.04
+        },
+        "Cheng-Le [14]": {
+          "device_and_server": 38.040000000000006,
+          "all_roles": 75.12
+        },
+        "Shuai [16]": {
+          "device_and_server": 37.400000000000006,
+          "all_roles": 56.42000000000001
+        },
+        "Jiang [15]": {
+          "device_and_server": 4.800000000000001,
+          "all_roles": 7.040000000000001
+        },
+        "Wazid [17]": {
+          "device_and_server": 36.48,
+          "all_roles": 68.94
+        },
+        "Sadhukhan [18]": {
+          "device_and_server": 51.66,
+          "all_roles": 80.6
+        }
+      }
+    },
+    "without_jiang": {
+      "communication_comparators": 8,
+      "communication_best_comparator": "Sadhukhan [18]",
+      "communication_reduction_vs_best_percent": 36.0,
+      "communication_reduction_vs_mean_percent": 58.50891410048622,
+      "processing_printed_model_ms": {
+        "Proposed scheme": {
+          "device_and_server": 23.68,
+          "all_roles": 23.68
+        },
+        "Challa et al. [17]": {
+          "device_and_server": 156.14,
+          "all_roles": 202.84
+        },
+        "Turkanovic [12]": {
+          "device_and_server": 3.8400000000000003,
+          "all_roles": 6.08
+        },
+        "Poorambage [11]": {
+          "device_and_server": 329.70000000000005,
+          "all_roles": 400.66
+        },
+        "Dhillon-Karla [13]": {
+          "device_and_server": 4.48,
+          "all_roles": 7.04
+        },
+        "Cheng-Le [14]": {
+          "device_and_server": 38.040000000000006,
+          "all_roles": 75.12
+        },
+        "Shuai [16]": {
+          "device_and_server": 37.400000000000006,
+          "all_roles": 56.42000000000001
+        },
+        "Wazid [17]": {
+          "device_and_server": 36.48,
+          "all_roles": 68.94
+        },
+        "Sadhukhan [18]": {
+          "device_and_server": 51.66,
+          "all_roles": 80.6
+        }
+      }
+    },
+    "storage": {
+      "server_reduction_vs_smallest_printed_comparator_percent": 33.333333333333336,
+      "device_reduction_vs_smallest_printed_comparator_percent": 10.112359550561798,
+      "device_reduction_vs_corrected_32_plus_320_percent": 9.090909090909092,
+      "warning": "Arithmetic on printed numbers only; server/device roles are not preserved from the source."
+    }
+  },
+  "primary_operation_comparisons": [
+    {
+      "scheme": "Turkanovic [12]",
+      "role": "user",
+      "base_ops": "{\"H\": 7}",
+      "primary_ops": "{\"H\": 7}",
+      "base_model_ms": 2.24,
+      "primary_model_ms": 2.24,
+      "match": true,
+      "primary_file": "docs/references/turkanovic_2014_iot_wsn_auth.pdf",
+      "pdf_pages": "13",
+      "basis": "original table"
+    },
+    {
+      "scheme": "Turkanovic [12]",
+      "role": "device",
+      "base_ops": "{\"H\": 7}",
+      "primary_ops": "{\"H\": 5}",
+      "base_model_ms": 2.24,
+      "primary_model_ms": 1.6,
+      "match": false,
+      "primary_file": "docs/references/turkanovic_2014_iot_wsn_auth.pdf",
+      "pdf_pages": "13",
+      "basis": "original table"
+    },
+    {
+      "scheme": "Turkanovic [12]",
+      "role": "server",
+      "base_ops": "{\"H\": 5}",
+      "primary_ops": "{\"H\": 7}",
+      "base_model_ms": 1.6,
+      "primary_model_ms": 2.24,
+      "match": false,
+      "primary_file": "docs/references/turkanovic_2014_iot_wsn_auth.pdf",
+      "pdf_pages": "13",
+      "basis": "original table"
+    },
+    {
+      "scheme": "Dhillon-Karla [13]",
+      "role": "user",
+      "base_ops": "{\"H\": 8}",
+      "primary_ops": "{\"H\": 8}",
+      "base_model_ms": 2.56,
+      "primary_model_ms": 2.56,
+      "match": true,
+      "primary_file": "docs/references/lightweight_biometrics_remote_user_authentication_for_iot.pdf",
+      "pdf_pages": "11",
+      "basis": "original table"
+    },
+    {
+      "scheme": "Dhillon-Karla [13]",
+      "role": "device",
+      "base_ops": "{\"H\": 6}",
+      "primary_ops": "{\"H\": 6}",
+      "base_model_ms": 1.92,
+      "primary_model_ms": 1.92,
+      "match": true,
+      "primary_file": "docs/references/lightweight_biometrics_remote_user_authentication_for_iot.pdf",
+      "pdf_pages": "11",
+      "basis": "original table"
+    },
+    {
+      "scheme": "Dhillon-Karla [13]",
+      "role": "server",
+      "base_ops": "{\"H\": 8}",
+      "primary_ops": "{\"H\": 8}",
+      "base_model_ms": 2.56,
+      "primary_model_ms": 2.56,
+      "match": true,
+      "primary_file": "docs/references/lightweight_biometrics_remote_user_authentication_for_iot.pdf",
+      "pdf_pages": "11",
+      "basis": "original table"
+    },
+    {
+      "scheme": "Cheng-Le [14]",
+      "role": "user",
+      "base_ops": "{\"ECM\": 2, \"H\": 9}",
+      "primary_ops": "{\"ECM\": 2, \"H\": 7}",
+      "base_model_ms": 37.08,
+      "primary_model_ms": 36.44,
+      "match": false,
+      "primary_file": "docs/references/provably_secure_authentication_for_ad_hoc_wsn.pdf",
+      "pdf_pages": "9",
+      "basis": "original table; author name Chang, not Cheng"
+    },
+    {
+      "scheme": "Cheng-Le [14]",
+      "role": "device",
+      "base_ops": "{\"ECM\": 2, \"H\": 5}",
+      "primary_ops": "{\"ECM\": 2, \"H\": 5}",
+      "base_model_ms": 35.8,
+      "primary_model_ms": 35.8,
+      "match": true,
+      "primary_file": "docs/references/provably_secure_authentication_for_ad_hoc_wsn.pdf",
+      "pdf_pages": "9",
+      "basis": "original table; author name Chang, not Cheng"
+    },
+    {
+      "scheme": "Cheng-Le [14]",
+      "role": "server",
+      "base_ops": "{\"H\": 7}",
+      "primary_ops": "{\"H\": 9}",
+      "base_model_ms": 2.24,
+      "primary_model_ms": 2.88,
+      "match": false,
+      "primary_file": "docs/references/provably_secure_authentication_for_ad_hoc_wsn.pdf",
+      "pdf_pages": "9",
+      "basis": "original table; author name Chang, not Cheng"
+    },
+    {
+      "scheme": "Challa et al. [17]",
+      "role": "user",
+      "base_ops": "{\"H\": 5, \"SE/D\": 5, \"fe\": 1}",
+      "primary_ops": "{\"ECM\": 5, \"H\": 5}",
+      "base_model_ms": 46.7,
+      "primary_model_ms": 87.1,
+      "match": false,
+      "primary_file": "docs/references/challa_2017_signature_key_establishment.pdf",
+      "pdf_pages": "12,13",
+      "basis": "original table; no fuzzy extractor charged to own scheme"
+    },
+    {
+      "scheme": "Challa et al. [17]",
+      "role": "device",
+      "base_ops": "{\"ECM\": 4, \"H\": 3}",
+      "primary_ops": "{\"ECM\": 4, \"H\": 3}",
+      "base_model_ms": 69.36,
+      "primary_model_ms": 69.36,
+      "match": true,
+      "primary_file": "docs/references/challa_2017_signature_key_establishment.pdf",
+      "pdf_pages": "12,13",
+      "basis": "original table; no fuzzy extractor charged to own scheme"
+    },
+    {
+      "scheme": "Challa et al. [17]",
+      "role": "server",
+      "base_ops": "{\"ECM\": 5, \"H\": 4}",
+      "primary_ops": "{\"ECM\": 5, \"H\": 4}",
+      "base_model_ms": 86.78,
+      "primary_model_ms": 86.78,
+      "match": true,
+      "primary_file": "docs/references/challa_2017_signature_key_establishment.pdf",
+      "pdf_pages": "12,13",
+      "basis": "original table; no fuzzy extractor charged to own scheme"
+    },
+    {
+      "scheme": "Shuai [16]",
+      "role": "user",
+      "base_ops": "{\"ECM\": 1, \"H\": 6}",
+      "primary_ops": "{\"ECM\": 2, \"H\": 6}",
+      "base_model_ms": 19.02,
+      "primary_model_ms": 36.12,
+      "match": false,
+      "primary_file": "docs/references/shuai_2019_smart_home_auth.pdf",
+      "pdf_pages": "5,6,7,13",
+      "basis": "role counts recounted from algorithm, not a printed per-role cost table; XOR excluded to match BASE notation"
+    },
+    {
+      "scheme": "Shuai [16]",
+      "role": "device",
+      "base_ops": "{\"ECM\": 1, \"H\": 3}",
+      "primary_ops": "{\"H\": 3}",
+      "base_model_ms": 18.06,
+      "primary_model_ms": 0.96,
+      "match": false,
+      "primary_file": "docs/references/shuai_2019_smart_home_auth.pdf",
+      "pdf_pages": "5,6,7,13",
+      "basis": "role counts recounted from algorithm, not a printed per-role cost table; XOR excluded to match BASE notation"
+    },
+    {
+      "scheme": "Shuai [16]",
+      "role": "server",
+      "base_ops": "{\"ECM\": 1, \"H\": 7}",
+      "primary_ops": "{\"ECM\": 1, \"H\": 7}",
+      "base_model_ms": 19.34,
+      "primary_model_ms": 19.34,
+      "match": true,
+      "primary_file": "docs/references/shuai_2019_smart_home_auth.pdf",
+      "pdf_pages": "5,6,7,13",
+      "basis": "role counts recounted from algorithm, not a printed per-role cost table; XOR excluded to match BASE notation"
+    }
+  ],
+  "arithmetic_checks": {
+    "sadhukhan_sensor_storage_reported": 356,
+    "sadhukhan_sensor_storage_terms_sum": 352,
+    "sadhukhan_message_reported_values_sum": 1632,
+    "sadhukhan_message_literal_terms_sum": 1760,
+    "sadhukhan_table_total": 1600,
+    "fakroon_message_sum": 2304,
+    "fakroon_gateway_storage_reported": 1056,
+    "fakroon_gateway_storage_terms_sum": 1312,
+    "challa_own_model_ms": 243.24,
+    "challa_base_model_ms": 202.84,
+    "ma_own_phase_bits_sum": 3232,
+    "ma_jan_bits": 3392,
+    "gupta_own_bits": 3808,
+    "gupta_jan_bits": 3038,
+    "alshawish_message_bytes_sum": 470,
+    "xie_own_model_ms": 442.85
+  },
+  "digitized_plot_reductions": {
+    "fig1": {
+      "axis_label": "Communication Overhead (%)",
+      "mean_pointwise_reduction_vs_best_percent": 32.07161407698382,
+      "mean_pointwise_reduction_vs_mean_percent": 43.29970530599958,
+      "warning": "Digitized plotted heights; caption/axis units conflict. Not independent performance measurements."
+    },
+    "fig2": {
+      "axis_label": "Communication Cost (bits)",
+      "mean_pointwise_reduction_vs_best_percent": 23.116402780846123,
+      "mean_pointwise_reduction_vs_mean_percent": 26.82649064227786,
+      "warning": "Digitized plotted heights; caption/axis units conflict. Not independent performance measurements."
+    },
+    "fig3": {
+      "axis_label": "Storage Overhead (%)",
+      "mean_pointwise_reduction_vs_best_percent": 7.014000876397068,
+      "mean_pointwise_reduction_vs_mean_percent": 16.793026719657487,
+      "warning": "Digitized plotted heights; caption/axis units conflict. Not independent performance measurements."
+    }
+  },
+  "digitized_plot_correspondences": {
+    "fig1_vs_fig5": {
+      "uncensored_cells": 33,
+      "base_axis": "Communication Overhead (%)",
+      "jan_axis": "Average Processing Time (ns)",
+      "uniform_offset_base_minus_jan": 7.230991748460923,
+      "uniform_offset_rms_residual": 0.018556648831820056,
+      "uniform_offset_max_abs_residual": 0.04419111596283187,
+      "per_series_offsets": {
+        "Proposed": 7.227214315071758,
+        "Zhanfei 2024": 7.229950427176618,
+        "Hassan 2023": 7.237253327379025,
+        "Gupta 2019": 7.213475672273868,
+        "Gope 2016": 7.224472976398805,
+        "Hassan 2018": 7.244825734371934
+      },
+      "proposed_and_others_offsets": {
+        "Proposed": 7.227214315071758,
+        "others": 7.231831178102959
+      },
+      "two_group_offset_rms_residual": 0.018471013137069794,
+      "base_x": [
+        300,
+        600,
+        900,
+        1200,
+        1500,
+        1800
+      ],
+      "jan_x": [
+        200,
+        400,
+        600,
+        800,
+        1000,
+        1200
+      ]
+    },
+    "fig2_vs_fig7": {
+      "uncensored_cells": 30,
+      "base_axis": "Communication Cost (bits)",
+      "jan_axis": "Average End-to-End Delay (ms)",
+      "uniform_offset_base_minus_jan": 3.7804169757879222,
+      "uniform_offset_rms_residual": 0.559554284906656,
+      "uniform_offset_max_abs_residual": 1.1234513145694152,
+      "per_series_offsets": {
+        "Gope 2016": 3.500141222025267,
+        "Gupta 2019": 3.5034190729569894,
+        "Hassan 2023": 3.49878274462365,
+        "Zhanfei 2024": 3.500281476030338,
+        "Proposed": 4.899460363303367
+      },
+      "proposed_and_others_offsets": {
+        "Proposed": 4.899460363303367,
+        "others": 3.500656128909061
+      },
+      "two_group_offset_rms_residual": 0.0060392029183223795,
+      "base_x": [
+        300,
+        600,
+        900,
+        1200,
+        1500,
+        1800
+      ],
+      "jan_x": [
+        100.24,
+        300.11,
+        500.04,
+        699.91,
+        899.78,
+        1099.64
+      ]
+    },
+    "fig3_vs_fig8": {
+      "uncensored_cells": 6,
+      "base_axis": "Storage Overhead (%)",
+      "jan_axis": "Storage Overhead (%)",
+      "uniform_offset_base_minus_jan": 0.009857948435397168,
+      "uniform_offset_rms_residual": 0.008964595704391553,
+      "uniform_offset_max_abs_residual": 0.013121736680361262,
+      "per_series_offsets": {
+        "Proposed": 0.020034964686575396,
+        "Zhanfei 2024": 8.783457365879599e-05,
+        "Hassan 2023": 0.010030520535763143,
+        "Gupta 2019": 8.45253904150356e-05,
+        "Hassan 2018": 0.005930160310212207,
+        "Gope 2016": 0.02297968511575843
+      },
+      "proposed_and_others_offsets": {
+        "Proposed": 0.020034964686575396,
+        "others": 0.007822545185161522
+      },
+      "two_group_offset_rms_residual": 0.00772331821096647,
+      "base_x": [
+        "single group"
+      ],
+      "jan_x": [
+        "single group"
+      ]
+    }
+  },
+  "pending_jiang_changes_conclusion": false,
+  "pending_jiang_note": "Excluding Jiang still leaves the table's communication reduction at 36%, the role/header errors, and hash-only rows cheaper under the printed cost model. Jiang's own row remains unverified.",
+  "input_sha256": {
+    "research/citation_investigation/evidence.json": "fda9a0c324011ecf1a52958013266932e1c65783222dd3351f24b96482dc5a43",
+    "research/paper_audit/paper_tables.py": "b75273f02cb34f2ebea052dcb71969b368caed8d6721c8f8e6672b399dd94d21",
+    "research/omnet_emulation/targets/fig_targets.json": "e6148149ed5722f9de878a2c06290078d49e34a96c9580a59bbdff0529bd5b89",
+    "research/omnet_emulation/jan_compare/jan_targets.json": "85c6f715941feb553da74539fb7ca451ef8ebb6ddbdb4fe035b038735dcdda02"
+  }
+}
