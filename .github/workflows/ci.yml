@@ -33,3 +33,10 @@ jobs:
         with:
           name: bench-report-py${{ matrix.python-version }}
           path: bench_output/
+
+  device-vectors:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: C device core against the independent reference vectors
+        run: make -C firmware/esp8266/host check
