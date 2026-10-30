@@ -18,3 +18,6 @@ firmware/esp8266/.pio/
 firmware/esp8266/host/.bearssl/
 firmware/esp8266/host/host_test
 firmware/esp8266/host/prim_bench
+
+# built by `make check` in firmware/esp8266/host
+firmware/esp8266/host/vector_test
