@@ -1,0 +1,128 @@
+[
+  {
+    "file": "docs/references/alshawish_2022_mutual_auth.pdf",
+    "sha256": "845698f696345461b408b11177c61dcc6ca72f6a98e7b90c72541989314f3572",
+    "pages": 32,
+    "metadata_title": "An efficient mutual authentication scheme for IoT systems"
+  },
+  {
+    "file": "docs/references/base_paper.pdf",
+    "sha256": "55f3e0ece6b6e63456b26f4d84d6b0ae6e53e4189e495697623fcf6e20464cff",
+    "pages": 9,
+    "metadata_title": "A Low-Cost Hybrid Elliptic Curve Cryptography Authentication Protocol for Trustworthy Internet of Things Communication"
+  },
+  {
+    "file": "docs/references/challa_2017_signature_key_establishment.pdf",
+    "sha256": "8667ff146b819300eb4c2d3abbd36780ad4e5af5f02b17ed40bec56d45f67aeb",
+    "pages": 16,
+    "metadata_title": "Secure Signature-Based Authenticated Key Establishment Scheme for Future IoT Applications"
+  },
+  {
+    "file": "docs/references/chaotic_maps_three_factor_authentication.pdf",
+    "sha256": "856566b62169dd1d552a07cc33c61cd8ac30d8a18f8303fa6275413a5bd08eae",
+    "pages": 17,
+    "metadata_title": "Robust extended chaotic maps-based three-factor authentication scheme preserving biometric template privacy"
+  },
+  {
+    "file": "docs/references/das_goswami_2015_biometric_auth.pdf",
+    "sha256": "1594d513472f08aed36df5ac8470511324147c6560bf439f93b19ae3d848fe6f",
+    "pages": 18,
+    "metadata_title": ""
+  },
+  {
+    "file": "docs/references/fakroon_2020_smart_home_auth.pdf",
+    "sha256": "511c198de1e311ddefe904613685d9e948db17d20f5340ec605337f27daff1ca",
+    "pages": 20,
+    "metadata_title": "Secure remote anonymous user authentication scheme for smart home environment"
+  },
+  {
+    "file": "docs/references/gope_2016_realistic_auth.pdf",
+    "sha256": "e02a7586993430d71caa166ed8fd23d24da2f4c2b68670f2a4f1ef28c4d663b5",
+    "pages": 9,
+    "metadata_title": "A Realistic Lightweight Anonymous Authentication Protocol for Securing Real-Time Application Data Access in Wireless Sensor Networks"
+  },
+  {
+    "file": "docs/references/gupta_2019_wearable_auth.pdf",
+    "sha256": "b91d9dc64627f4ef13d3afef730b0806a1ab985af337fe0fcf3f9f854532b031",
+    "pages": 14,
+    "metadata_title": "A lightweight anonymous user authentication and key establishment scheme for wearable devices"
+  },
+  {
+    "file": "docs/references/hasan_2018_aodv_flooding.pdf",
+    "sha256": "5afaf87738e0678ffbb5b9aae0ba28a6ba52cba405348bdd206d1b8531e89e52",
+    "pages": 7,
+    "metadata_title": ""
+  },
+  {
+    "file": "docs/references/hasan_2023_kerberos_auth.pdf",
+    "sha256": "8dcc8afa72e39eca8652f2dc4c1bc7dbb82a47bd048429a7a064abad1736c2db",
+    "pages": 15,
+    "metadata_title": "degruyter_jisys_jisys-2021-0095 1..15 ++"
+  },
+  {
+    "file": "docs/references/jan_2025_ml_auth_edge_iov.pdf",
+    "sha256": "3bfa0b1e9679e7dd15149532dc9a90b83f7b94769362b7b22ef68a8020c2c9ec",
+    "pages": 11,
+    "metadata_title": "Subject:         "
+  },
+  {
+    "file": "docs/references/khan_2024_automotive_iot_auth.pdf",
+    "sha256": "0d0d4e7c0d847066046361dc9a992c1b0284b4e4952a5f4c567e05db9b62e5c2",
+    "pages": 14,
+    "metadata_title": "Enabling Trust in Automotive IoT: Lightweight Mutual Authentication Scheme for Electronic Connected Devices in Internet of Things"
+  },
+  {
+    "file": "docs/references/lightweight_biometrics_remote_user_authentication_for_iot.pdf",
+    "sha256": "d3f77a7fcbb6887bec95f4278e6e3cc0c01f79b174b6c2c2f21f9ccdbcce7007",
+    "pages": 16,
+    "metadata_title": "A lightweight biometrics based remote user authentication scheme for IoT services"
+  },
+  {
+    "file": "docs/references/literature_survey.pdf",
+    "sha256": "75629d93c927deb91ea04cf979824c2415eddd33677fb12ca89892f397419907",
+    "pages": 10,
+    "metadata_title": "Hybrid ECC-Based Mutual Authentication for Trustworthy Internet of Things Communication — Literature Survey"
+  },
+  {
+    "file": "docs/references/ma_2024_blockchain_iov_auth.pdf",
+    "sha256": "5fc98a5762144ba2f9d19b8c0af8a458265d79daa4d78daa569005b6f226e90f",
+    "pages": 12,
+    "metadata_title": "A Blockchain-Based Secure Distributed Authentication Scheme for Internet of Vehicles"
+  },
+  {
+    "file": "docs/references/porambage_2014_two_phase_auth.pdf",
+    "sha256": "dce520e879442972f266f1700d2fd84d0ed2f2cdbd169df9dbdc95f1fd658e08",
+    "pages": 6,
+    "metadata_title": "Two-phase authentication protocol for wireless sensor networks in distributed IoT applications"
+  },
+  {
+    "file": "docs/references/provably_secure_authentication_for_ad_hoc_wsn.pdf",
+    "sha256": "e5aba93c374f8c42332273a036cd156d41823ba8a7085972c52a7ec478a4af43",
+    "pages": 10,
+    "metadata_title": "A Provably Secure, Efficient, and Flexible Authentication Scheme for Ad hoc Wireless Sensor Networks"
+  },
+  {
+    "file": "docs/references/sadhukhan_2021_ecc_iot_auth.pdf",
+    "sha256": "32b0ab39352dcc47db3436e3c6adc4a29e31f608e1cc7e0cd6d0c56aed6a6cd6",
+    "pages": 38,
+    "metadata_title": "A lightweight remote user authentication scheme for IoT communication using elliptic curve cryptography"
+  },
+  {
+    "file": "docs/references/shuai_2019_smart_home_auth.pdf",
+    "sha256": "6a493d9c7772712b0674863cf19a1f19c6da94461572c3f4818a30486456c7e5",
+    "pages": 15,
+    "metadata_title": "Anonymous authentication scheme for smart home environment with provable security"
+  },
+  {
+    "file": "docs/references/turkanovic_2014_iot_wsn_auth.pdf",
+    "sha256": "da1dd20eb5e0be58c5d8d648ad6274e8d13b6143a1830aeb7d803bbc8db14460",
+    "pages": 17,
+    "metadata_title": ""
+  },
+  {
+    "file": "docs/references/xie_2014_roaming_auth.pdf",
+    "sha256": "db1f1fb1aa0f340be66c77f8f893826c7c7efe81a9817c498c5244e2512f6022",
+    "pages": 7,
+    "metadata_title": "Privacy-Preserving Mobile Roaming Authentication with Security Proof in Global Mobility Networks"
+  }
+]
