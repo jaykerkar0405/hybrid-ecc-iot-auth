@@ -6,13 +6,14 @@
 Reference implementation and measurement-based re-evaluation of a hybrid
 ECC + symmetric-key **mutual authentication protocol for IoT devices**.
 
-The repository contains four things:
+The repository contains five things:
 
 | Component | Location | What it is |
 |---|---|---|
 | Python reference implementation | [`hybrid_ecc_auth/`](hybrid_ecc_auth/) | Crypto primitives, protocol state machines, demo CLIs, benchmark harness and test suite |
 | ESP8266 firmware | [`firmware/esp8266/`](firmware/esp8266/) | C port of the device side, interoperating with the unmodified Python server |
-| Paper re-evaluation | [`research/paper_audit/`](research/paper_audit/) | Consistency audit of the source paper and cost model re-run with measured timings |
+| Reference vectors | [`hybrid_ecc_auth/tests/vectors/`](hybrid_ecc_auth/tests/vectors/) | Independently computed expected values that the Python and C implementations must reproduce byte for byte |
+| Paper re-evaluation | [`research/`](research/) | Consistency audit of the source paper, citation trace, OMNeT++ model and cost model re-run with measured timings |
 | IEEE manuscript | [`paper/`](paper/) | LaTeX source of the paper written from those findings |
 
 > **Research artifact, not production firmware.** There is no HSM, no formal
@@ -26,26 +27,41 @@ on Consumer Electronics*, vol. 72, no. 2, pp. 4483-4491, May 2026
 (DOI [10.1109/TCE.2026.3662053](https://doi.org/10.1109/TCE.2026.3662053)).
 This project is independent and not affiliated with the paper's authors or IEEE.
 
-## Key findings
+## What this project establishes
 
-Details and raw data are in [`research/paper_audit/FINDINGS.md`](research/paper_audit/FINDINGS.md).
+The source paper publishes no code or simulation model, so the findings are grouped by what each one depends on.
+Details and raw data are in [`research/paper_audit/FINDINGS.md`](research/paper_audit/FINDINGS.md) and
+[`research/citation_investigation/`](research/citation_investigation/).
 
-- **The headline savings (about 17% / 21% / 12%) cannot be derived** from the
-  paper's own Tables IV-VI under any definition we tried, and the tables
-  contradict the text (4 messages / 1024 bits vs. 2 messages / 264 bits).
-  The paper's simulated Fig. 1 could not be reproduced from published information
-  (no code or scenario is available); we make no claim about whether it is correct.
-- **Assumed timings differ from measured ones.** On an ESP8266, P-256 scalar
-  multiplication is about 16x slower than the paper assumes (276 ms vs. 17.1 ms),
-  while symmetric operations are 5-11x faster.
-- **Against ECC-based schemes** the protocol is roughly 60-2,500x cheaper.
-  **Against the hash-only schemes** in the same table (Turkanovic, Dhillon-Kalra,
-  and an unidentified row labelled "Jiang") it is more expensive once the session
-  KDF that the paper's own equations require is counted (about 4-14x on the
-  ESP8266). Jiang et al. as published is not hash-only (it uses a 32.4 ms chaotic-map
-  operation), so that comparison holds firmly only for the first two.
-- **No forward secrecy**, no elliptic-curve operation on the online path, and a
-  server lookup that scales linearly with the number of devices to resolve.
+**Follows from the paper's own tables and text (no implementation involved)**
+
+- The tables disagree with the text: Table IV gives 4 messages and 1024 bits, Section V-B gives 2 messages and
+  264 bits (and 2 x 128 is 256). The abstract's savings of about 17% / 21% / 12% cannot be derived from
+  Tables IV-VI under any definition we tried (best, mean, median, worst, each scheme).
+- Table V omits the session-key KDF that the paper's own Eq. 22 requires. With it counted, the hash-only rows of the
+  table (Turkanovic, Dhillon-Kalra and an unidentified row labelled "Jiang") are cheaper than the proposed scheme
+  (about 4-14x on the ESP8266). Jiang et al. as published is not hash-only, so this holds firmly only for the first two.
+- The Table III constants, the nine competitor rows of Table IV and the finite storage entries also appear in an earlier
+  paper the source cites (Sadhukhan et al., 2021), with the storage columns relabelled. We note the correspondence and
+  draw no conclusion about how the values were obtained.
+
+**Verified here**
+
+- The Python implementation and the C device core reproduce independent reference vectors byte for byte, and reject
+  tampered and replayed messages ([`docs/conformance.md`](docs/conformance.md)). This shows agreement with our reading of
+  Section III, not that the reading is the authors'.
+- Measured on an ESP8266, P-256 scalar multiplication is about 16x slower than the paper assumes (276 ms vs. 17.1 ms),
+  while symmetric operations are 5-11x faster. The timings were identical on two boards.
+- With measured constants the protocol is roughly 60-2,500x cheaper than the ECC-based schemes in the same table.
+- The protocol has no forward secrecy (the paper does not claim it), no elliptic-curve operation on the online path, and
+  a server lookup that scales linearly with the number of devices to resolve.
+
+**Not verifiable without the authors**
+
+- The paper's Figs. 1-3 and the OMNeT++ simulation behind them. We built our own model of the stated environment; it is a
+  sensitivity analysis, not a reproduction. We emailed the corresponding author on 27 October 2026
+  ([`docs/author-contact.md`](docs/author-contact.md)); anything that depends on their simulation stays unverified until
+  they reply.
 
 ## Quick start
 
@@ -88,8 +104,9 @@ pytest hybrid_ecc_auth/tests/ --cov=hybrid_ecc_auth.protocol --cov=hybrid_ecc_au
 ```
 
 The suite has unit tests per module, a 10,000-trial property test of
-session-key agreement (Eq. 20), and the eight adversarial cases SEC-01..SEC-08
-(replay, tamper, forgery, block-list, unlinkability, key freshness, coverage gate).
+session-key agreement (Eq. 20), the eight adversarial cases SEC-01..SEC-08
+(replay, tamper, forgery, block-list, unlinkability, key freshness, coverage gate), and
+conformance tests against the [independent reference vectors](hybrid_ecc_auth/tests/vectors/README.md).
 
 ### Benchmarks
 
@@ -112,6 +129,7 @@ docker compose up        # runs the benchmark; see docker-compose.yml and docker
 ```bash
 make -C firmware/esp8266/host                              # build the C core natively
 python firmware/esp8266/tools/interop.py -n 20             # check it against the Python server
+make -C firmware/esp8266/host check                        # check it against the reference vectors
 ```
 
 Flashing instructions are in [`firmware/esp8266/README.md`](firmware/esp8266/README.md).
@@ -129,12 +147,15 @@ hybrid_ecc_auth/            Python package
   storage/                  Replay window and block-list, demo keystore
   demo/                     hea-ta, hea-server, hea-device CLIs
   bench/                    Cost model, baseline tables, report generator
-  tests/                    unit/, property/, adversarial/
+  tests/                    unit/, property/, adversarial/, vectors/ (reference vectors)
 firmware/esp8266/           C protocol core, Arduino firmware, host tests, tools
-research/paper_audit/       Audit scripts, measured results, FINDINGS.md
+research/                   paper_audit/ (audit, measured results), citation_investigation/,
+                            reference_replication/, omnet_emulation/ (OMNeT++ model)
 paper/                      IEEE manuscript (LaTeX)
 docs/
   design.md                 Design decisions, architecture, symbol-to-code traceability
+  conformance.md            Equation-to-code matrix, assumption register
+  author-contact.md         Record of the email to the source paper's authors
   references/               Source paper and literature survey
   project/                  Product requirements and review presentation
   experiments/              AWS demo run (logs, results, report)
@@ -152,6 +173,8 @@ See [`docs/README.md`](docs/README.md) for a document index and
 - `storage/keystore.py` is demo-grade (file permissions only). Do not store real secrets in it.
 - Timing, power and fault-injection side channels are out of scope.
 - The nine baseline schemes are represented by the paper's reported numbers, not re-implemented.
+- Conformance means agreement with our reading of Section III. Where the paper is silent (encodings, epochs, pseudonym
+  resolution) the choices are recorded in [`docs/conformance.md`](docs/conformance.md) and need the authors' confirmation.
 
 The implementation follows the paper's **Section III nonce-based model**, not the
 replayable Section II algorithms. See [`docs/design.md`](docs/design.md).
