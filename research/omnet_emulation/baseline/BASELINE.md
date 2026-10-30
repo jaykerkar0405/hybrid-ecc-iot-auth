@@ -15,7 +15,7 @@ Model: `AuthNet.ned/.cc` (our re-implementation of the Table II environment; the
 Inputs are generated from the paper's Tables III-V by `gen_omnet_ini.py`. `build_and_run.sh` builds and runs on macOS.
 `omnet_results_macos.csv`: the earlier 3,385-run sweep re-run on this Mac; every row agrees with the stored WSL/OMNeT++ 6.0.3 results to a
 relative difference of 5e-14 (the stored file is rounded to 14 significant digits).
-`omnet_results_ext.csv` + `omnetpp_ext.ini`: added here (hash-indexed lookup variants; adversary-free runs; `HM_`/`AHM_` = the same with the measured ESP8266 80 MHz constants, used by `paper_baseline/make_figs.py`).
+`omnet_results_ext.csv` + `omnetpp_ext.ini`: added here (hash-indexed lookup variants; adversary-free runs; `HM_`/`AHM_` = the same with the measured ESP8266 80 MHz constants, used by `paper/make_figs.py`).
 `baseline_compare.py` prints the comparison below.
 
 **What Layer B does and does not show.** Table IV bits and Table V operation counts are *inputs* to the model

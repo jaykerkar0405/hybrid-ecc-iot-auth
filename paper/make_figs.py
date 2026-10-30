@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Figures for paper_baseline/main.tex. Every number is read from a repo file:
+"""Figures for paper/main.tex. Every number is read from a repo file:
   - omnet_results_macos.csv / omnet_results_ext.csv  (OMNeT++ output)
   - published_baseline.json                          (Tables III-V of the base paper)
   - research/paper_audit/results/esp8266_{80,160}mhz.csv (primitive timings on the ESP8266)
-Run: <venv>/bin/python -I paper_baseline/make_figs.py   (needs matplotlib)
+Run: <venv>/bin/python -I paper/make_figs.py   (needs matplotlib)
 """
 import csv, json, statistics as st
 from pathlib import Path
