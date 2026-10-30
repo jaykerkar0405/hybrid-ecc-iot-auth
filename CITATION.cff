@@ -19,6 +19,6 @@ authors:
     affiliation: "Vivekanand Education Society's Institute of Technology (VESIT), Mumbai"
   - family-names: Sondur
     given-names: Shanta
-    name-particle: Dr.
     affiliation: "Vivekanand Education Society's Institute of Technology (VESIT), Mumbai"
-keywords: [iot-security, mutual-authentication, elliptic-curve-cryptography, esp8266]
+keywords:
+  [iot-security, mutual-authentication, elliptic-curve-cryptography, esp8266]
