@@ -7,8 +7,15 @@ BSRC = $(wildcard $(BEARSSL)/src/hash/*.c $(BEARSSL)/src/kdf/*.c $(BEARSSL)/src/
         $(BEARSSL)/src/int/*.c)
 host_test: $(BEARSSL)/inc/bearssl.h $(SRC)
 	$(CC) $(CFLAGS) -o $@ $(SRC) $(BSRC)
+vector_test: $(BEARSSL)/inc/bearssl.h vector_test.c ../lib/hea_proto/hea_proto.c
+	$(CC) $(CFLAGS) -o $@ vector_test.c ../lib/hea_proto/hea_proto.c $(BSRC)
+
+# run the device core against the independent reference vectors
+check: vector_test
+	./vector_test ../../../hybrid_ecc_auth/tests/vectors/reference_vectors.txt
+
 clean:
-	rm -f host_test
+	rm -f host_test vector_test
 
 # BearSSL as shipped in the ESP8266 Arduino core (same sources the board runs)
 $(BEARSSL)/inc/bearssl.h:
