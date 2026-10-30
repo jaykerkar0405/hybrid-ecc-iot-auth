@@ -98,16 +98,17 @@ Table~\ref{tab:ops} lists what one handshake of the implementation executes (cou
 \midrule
 AEAD encrypt / decrypt ($T_{SE/D}$) & 1 / 1 & 1 / 1 \\
 Pseudonym hash $H_2$ & 1 & 1 per candidate \\
-Session-key KDF calls & 2 & 2 \\
+Pairwise-root KDF, Eq.~9 (first contact only) & 1 & 1 \\
+Session-key KDF, Eq.~16 & 1 & 1 \\
 Candidates scanned (linear) & --- & about 8 per device \\
 \midrule
 Message fields, $M_1$ / $M_2$ & \multicolumn{2}{c}{116 B / 57 B (1384 bits)} \\
-On the wire (JSON/base64) & \multicolumn{2}{c}{216 B / 133 B} \\
+On the wire (JSON/base64), $M_1$ / $M_2$ & \multicolumn{2}{c}{216 B / 133 B (2792 bits)} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-The symmetric operations match Table~V. Table~V does not list the session-key derivation required by the protocol's own key-derivation step or the pseudonym resolution; we report them separately so that the paper's accounting and the implementation's can be compared directly. Message size depends on the field encodings and the framing, which the paper does not fix; Table~IV lists 1024 bits over four messages, and we simulate that figure and the 264-bit, two-message figure of its text.
+The symmetric operations match Table~V. Table~V does not list the session-key derivation required by the protocol's own key-derivation step or the pseudonym resolution; we report them separately so that the paper's accounting and the implementation's can be compared directly. The table counts a first handshake; once the pairwise root is cached, each side performs only the session-key KDF. Field sizes are PID 32 B, GCM IV 12 B, ciphertext 56 B and tag 16 B for $M_1$, and a 5-byte server identity, IV 12 B, ciphertext 24 B and tag 16 B for $M_2$ (so $M_2$ grows with the identity length); ``on the wire'' adds the JSON and base64 encoding but no transport framing. Message size depends on the field encodings and the framing, which the paper does not fix; Table~IV lists 1024 bits over four messages, and we simulate that figure and the 264-bit, two-message figure of its text. Our field-level count of 1384 bits is above both, and with a 256-bit SHA-256 pseudonym $M_1$ alone exceeds 264 bits.
 
 \subsection{Communication cost}
 Fig.~\ref{fig:bits} shows the bits per session in the simulation without adversaries for the nine schemes of Table~IV that have operation counts in Table~V. All equal the paper's values, and the proposed scheme has the lowest communication cost. Because Table~IV's sizes are inputs to the model, this confirms the pipeline rather than the sizes themselves.

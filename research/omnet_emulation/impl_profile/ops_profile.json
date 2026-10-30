@@ -2,15 +2,29 @@
  "1": {
   "peers_on_server": 1,
   "device_ops": {
-   "KDF": 2,
+   "KDF_root": 1,
    "SHA256": 1,
    "AEAD_enc": 1,
-   "AEAD_dec": 1
+   "AEAD_dec": 1,
+   "KDF_session": 1
   },
   "server_ops": {
    "SHA256": 1,
-   "KDF": 2,
+   "KDF_root": 1,
    "AEAD_dec": 1,
+   "KDF_session": 1,
+   "AEAD_enc": 1
+  },
+  "device_ops_warm": {
+   "SHA256": 1,
+   "AEAD_enc": 1,
+   "AEAD_dec": 1,
+   "KDF_session": 1
+  },
+  "server_ops_warm": {
+   "SHA256": 2,
+   "AEAD_dec": 1,
+   "KDF_session": 1,
    "AEAD_enc": 1
   },
   "m1_raw_bytes": 116,
@@ -21,15 +35,29 @@
  "20": {
   "peers_on_server": 20,
   "device_ops": {
-   "KDF": 2,
+   "KDF_root": 1,
    "SHA256": 1,
    "AEAD_enc": 1,
-   "AEAD_dec": 1
+   "AEAD_dec": 1,
+   "KDF_session": 1
   },
   "server_ops": {
    "SHA256": 153,
-   "KDF": 2,
+   "KDF_root": 1,
    "AEAD_dec": 1,
+   "KDF_session": 1,
+   "AEAD_enc": 1
+  },
+  "device_ops_warm": {
+   "SHA256": 1,
+   "AEAD_enc": 1,
+   "AEAD_dec": 1,
+   "KDF_session": 1
+  },
+  "server_ops_warm": {
+   "SHA256": 154,
+   "AEAD_dec": 1,
+   "KDF_session": 1,
    "AEAD_enc": 1
   },
   "m1_raw_bytes": 116,
@@ -40,15 +68,29 @@
  "100": {
   "peers_on_server": 100,
   "device_ops": {
-   "KDF": 2,
+   "KDF_root": 1,
    "SHA256": 1,
    "AEAD_enc": 1,
-   "AEAD_dec": 1
+   "AEAD_dec": 1,
+   "KDF_session": 1
   },
   "server_ops": {
    "SHA256": 793,
-   "KDF": 2,
+   "KDF_root": 1,
    "AEAD_dec": 1,
+   "KDF_session": 1,
+   "AEAD_enc": 1
+  },
+  "device_ops_warm": {
+   "SHA256": 1,
+   "AEAD_enc": 1,
+   "AEAD_dec": 1,
+   "KDF_session": 1
+  },
+  "server_ops_warm": {
+   "SHA256": 794,
+   "AEAD_dec": 1,
+   "KDF_session": 1,
    "AEAD_enc": 1
   },
   "m1_raw_bytes": 116,
