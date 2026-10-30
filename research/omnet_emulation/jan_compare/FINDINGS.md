@@ -1,5 +1,13 @@
 # Jan et al. (IEEE IoT J. 12(5), 2025) Figs 5-8 vs base paper Figs 1-3
 
+> **Status and limits.** This file records a numerical relationship between plotted values. The values come from exact vector
+> extraction (see `../targets/README.md`; both extractions reproduce), so the fit residuals are at the extraction noise floor.
+> What it does not establish: how either figure was produced, which came first (the direction is inferred from publication
+> dates and clipping), or any intent. The base paper's corresponding author is also a co-author of Jan et al., so reuse of an
+> author's own data is one possible reading; whether it is disclosed or intended is not something these files can show. The
+> comparison is not used in the manuscript, and wording such as "derived" or "hand-edited" below should be read as a description of
+> the numbers, not of conduct.
+
 Source PDF: `docs/references/jan_2025_ml_auth_edge_iov.pdf` (DOI 10.1109/JIOT.2024.3483275).
 Exact values: `jan_targets.json` (from `jan_extract.py`); differences and model fits: `compare.json`
 (`jan_compare.py`); shape fits: `shape.json` (`jan_shape.py`). Base values: `../targets/fig_targets.json`.
