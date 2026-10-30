@@ -1267,7 +1267,7 @@ The base paper's Section~III protocol was implemented in Python and, on the devi
   \item \textbf{One library family.} Primitive costs are BearSSL's and OpenSSL's; other libraries, or a hardware HKDF/HMAC engine, would shift the constants.
   \item \textbf{Competitors modelled, not run.} Comparator costs are the base paper's operation counts multiplied by measured times. The ``Jiang'' and ``Shuai'' rows were traced only through secondary tables, and no storage entry could be checked. $T_C$ and $T_{fe}$ were not measured.
   \item \textbf{Simulation is a sensitivity analysis.} The OMNeT++ model is the team's own and uses guessed inputs. It says nothing definitive about the base paper's figures.
-  \item \textbf{Transcription limits.} Tables were transcribed from rendered PDFs (Table~V by hand), and figure values were read by eye. The authors of the base paper were not contacted.
+  \item \textbf{Transcription limits.} Tables were transcribed from rendered PDFs (Table~V by hand). Figure values were first read by eye and later extracted exactly from the PDF's vector graphics. The base paper's authors were contacted by email on 27~October 2026 to ask for the simulation model and the source of the Table~III constants; no reply had been received by 30~October 2026, so everything that depends on their simulation remains unverified.
 \end{itemize}
 
 \section{Conclusion}
@@ -1275,7 +1275,7 @@ This project set out to turn a published but unimplemented hybrid ECC mutual aut
 
 \section{Future Scope}
 \begin{itemize}
-  \item Obtain the base paper's simulation scenario from its authors and rerun Fig.~1 against it.
+  \item Rerun Fig.~1 against the base paper's simulation scenario, which was requested from its authors on 27~October 2026 (no reply yet).
   \item Measure an MCU with hardware AES and SHA, an 8/16-bit part and a Raspberry Pi~3, including energy.
   \item Read the original Shuai \emph{et al.}\ and two-factor Jiang \emph{et al.}\ papers to confirm the secondary tabulations, and verify the remaining Table~IV--VI entries.
   \item Implement and time Turkanovi\'{c} \emph{et al.}\ end to end on the microcontroller instead of modelling it.

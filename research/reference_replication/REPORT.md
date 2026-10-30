@@ -463,4 +463,4 @@ With only the first two rows answered, BASE's setup could be reproduced; without
 | user/client role | Tables IV and V already give per-role operation counts and bits, so a three-party flow (user, device, server) can be simulated; a decision is needed on how users map onto devices (Table V gives the proposed scheme no user cost) |
 | 128 kbit packet reading | a further sensitivity run (each message would take about 12.8 ms on a 10 Mbps link, far from the text's 128 bits) |
 | INET or SUMO radio and mobility | another download and a model of our own; without BASE's configuration it would still be a guess |
-| contacting the authors | a drafted (not sent) message listing the requests in 14.1 |
+| contacting the authors | a message listing the main requests in 14.1 was sent on 2026-10-27 (status in `docs/author-contact.md`) |
