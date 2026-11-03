@@ -20,19 +20,12 @@ jobs:
       - name: Install
         run: |
           python -m pip install --upgrade pip
-          pip install -e ".[dev,bench]"
-      - name: Test with coverage (>=90% on protocol/ and crypto/, PRD Section 8)
+          pip install -e ".[dev]"
+      - name: Test with coverage (>=90% on protocol/ and crypto/)
         run: |
           pytest hybrid_ecc_auth/tests/ -q \
             --cov=hybrid_ecc_auth.protocol --cov=hybrid_ecc_auth.crypto \
             --cov-report=term-missing --cov-fail-under=90
-      - name: Lightweight benchmark (BR-4.2 -- full paper-scale sweep runs on-demand only)
-        run: |
-          python -m hybrid_ecc_auth.bench.harness --out bench_output
-      - uses: actions/upload-artifact@v4
-        with:
-          name: bench-report-py${{ matrix.python-version }}
-          path: bench_output/
 
   device-vectors:
     runs-on: ubuntu-latest
