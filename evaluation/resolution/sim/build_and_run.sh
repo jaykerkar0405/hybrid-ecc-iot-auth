@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 # Build and run the pseudonym-resolution sweep (OMNeT++ 6.4.0, headless Cmdenv), then collect results.csv.
 # Needs ../cost_model.csv (run ../resolution_costs.py first). Build goes to ./build (git-ignored).
 set -euo pipefail

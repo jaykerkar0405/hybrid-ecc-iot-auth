@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 """Parse the .sca files of the resolution sweep into one CSV row per run (stdlib only)."""
 import csv, glob, re, sys
 from pathlib import Path

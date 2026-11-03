@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 """Unit tests for storage/session_log.py (replay window + block-list)."""
 
 from __future__ import annotations

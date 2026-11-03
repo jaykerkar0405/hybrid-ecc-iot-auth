@@ -1,3 +1,5 @@
+// Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+// SPDX-License-Identifier: Apache-2.0
 // Re-implementation (ours, NOT the code of the BASE authors) of the BASE Table II environment in plain OMNeT++ (no INET, no SUMO).
 // Copy of evaluation/resolution/sim/AuthNet.ned with a pluggable pseudonym-resolution cost (evaluation/resolution).
 
@@ -16,7 +18,7 @@ simple Core
         // --- scheme under test (generated from the paper tables by scripts/gen_omnet_ini.py) ---
         string scheme = default("unset");
         int nMessages = default(4);               // messages per session
-        int bitsTotal;                            // bits on air per session (BASE Table IV total)
+        int bitsTotal;                            // bits on air per session (the base paper's Table IV total)
         double deviceProcMs;                      // device compute per session
         double serverProcMs;                      // server compute per session
         bool pseudonymLookup = default(false);    // proposed scheme only: server scans N_s x W pseudonyms

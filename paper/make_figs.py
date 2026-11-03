@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 """Figures and the ranked complexity table for the pseudonym-resolution paper (both versions).
 Every number is read from a repository file:
   evaluation/resolution/measured.csv     implementation probe counts and state (resolution_costs.py)

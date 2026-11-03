@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 """Device-side state machine (FR-5): builds M1 (Eq. 12-15) and verifies M2
 (Eq. 17-19), deriving the ephemeral session key (Eq. 16) on success.
 
@@ -79,7 +81,7 @@ class Device(Entity):
         # contact with server B" -- only cross-session linkability *within*
         # one peer relationship is defended against (Section III-D's
         # unlinkability sketch is scoped to repeated observations of the
-        # same conversation). Documented per PRD Section 12's flagged
+        # same conversation). See docs/design.md for the
         # epoch/clock-drift implementation decision.
         self._epoch: dict[str, int] = {}
         # Optional clock epochs (our option, not the paper's): a callable

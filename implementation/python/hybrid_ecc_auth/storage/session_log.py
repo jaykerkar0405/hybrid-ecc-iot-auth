@@ -1,10 +1,12 @@
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 """Nonce/pseudonym replay-window bookkeeping (SEC-01) and the block-list for
 repeatedly failing entities (Section II "maximum of three attempts",
 FR-5.6, SEC-05). Shared by both Device and Server -- the paper describes
 the three-attempts rule symmetrically for "every object."
 
 Epoch/clock-drift handling is explicitly unspecified by the source paper
-(see PRD Section 12, risk row). This module documents its own tolerance
+(see docs/design.md, epoch semantics). This module documents its own tolerance
 window as an implementation decision, flagged for security review: a
 resolved pseudonym is accepted only if its epoch is strictly greater than
 the last epoch accepted for that peer, and the search for a matching

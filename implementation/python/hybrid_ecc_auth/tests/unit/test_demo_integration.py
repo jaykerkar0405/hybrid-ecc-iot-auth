@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 """End-to-end demo integration test over a real loopback TCP socket:
 exercises demo/_transport.py + demo/server_node.py's connection handler
 together with real Device/Server protocol objects (acceptance criteria 1

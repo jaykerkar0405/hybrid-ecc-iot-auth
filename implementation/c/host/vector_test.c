@@ -1,3 +1,5 @@
+// Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+// SPDX-License-Identifier: Apache-2.0
 /* Conformance of the ESP8266 device core to the independent reference vectors
  * (implementation/python/hybrid_ecc_auth/tests/vectors). Randomness is replaced by the vectors' fixed
  * N_i and GCM IV, so every output byte can be compared with the expected value.

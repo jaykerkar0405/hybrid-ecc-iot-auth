@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 """Typed protocol-layer exceptions (FR-5.2, SEC-01..SEC-08).
 
 These wrap lower-level crypto failures (e.g. cryptography.exceptions.InvalidTag)

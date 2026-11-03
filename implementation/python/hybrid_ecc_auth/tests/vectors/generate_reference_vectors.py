@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 """Independent reference vectors for the Section III protocol (issue #2).
 
 This script deliberately imports nothing from `hybrid_ecc_auth`. It restates the

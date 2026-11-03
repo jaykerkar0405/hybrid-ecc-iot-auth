@@ -1,4 +1,6 @@
-"""hea-server: runnable server process (PRD Section 4.2, step 2).
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
+"""hea-server: runnable server process.
 
 Loads a credential bundle written by `hea-ta enroll` and listens for
 framed authentication requests over TCP, handling them one connection at a

@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 """Server-side state machine (FR-5): resolves the incoming pseudonym
 (FR-4.2), verifies M1 (Eq. 12-15), derives the session key (Eq. 16), and
 builds M2 (Eq. 17-19). See protocol/device.py for the shared wire-plaintext
@@ -64,8 +66,8 @@ class Server(Entity):
         and epoch. Delegates to the configured resolver; the default
         LinearScan probes every enrolled peer over its bounded epoch window
         with a constant-time compare per candidate (the search itself is
-        not constant-time across peers -- see PRD 7.3, timing side-channels
-        are out of scope for this PoC).
+        not constant-time across peers; timing side-channels are out of
+        scope for this PoC -- see docs/design.md).
         """
         return self.resolver.resolve(pid)
 

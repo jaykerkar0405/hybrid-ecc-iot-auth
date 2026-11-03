@@ -1,3 +1,5 @@
+// Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+// SPDX-License-Identifier: Apache-2.0
 /* Device side of the hybrid ECC + symmetric-key mutual authentication
  * protocol (see implementation/python/hybrid_ecc_auth/protocol/device.py). Portable C: depends only
  * on BearSSL and on a platform-provided hea_random(). Byte-compatible with the

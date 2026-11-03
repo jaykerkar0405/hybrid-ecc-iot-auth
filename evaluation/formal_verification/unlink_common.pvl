@@ -1,3 +1,5 @@
+(* Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+   SPDX-License-Identifier: Apache-2.0 *)
 (* Shared by unlink_counter.pv and unlink_clock.pv. The server knows both devices A and B in both worlds, and
    resolves an incoming M1 with one destructor that returns whichever key opens it, which is what every correct
    resolver does. The PID inside the AEAD plaintext must equal the PID in clear. *)

@@ -1,3 +1,5 @@
+// Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+// SPDX-License-Identifier: Apache-2.0
 // OMNeT++ 6 model of device<->server authentication under the BASE Table II environment. Ours, not the BASE authors' code.
 // Self-contained network model. The only change: the server's pseudonym-resolution work is read, per number of
 // enrolled devices n, from cost_model.csv (written by evaluation/resolution/resolution_costs.py) and priced at tProbe per probe.

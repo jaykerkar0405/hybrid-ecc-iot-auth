@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 """Pseudonym-resolution schemes from RFID privacy work that do NOT keep the
 Section III wire format: each needs a fresh random value r sent in clear in
 M1. They are modelled at the resolution level only (device-side pseudonym

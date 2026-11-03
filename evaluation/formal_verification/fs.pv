@@ -1,3 +1,5 @@
+(* Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+   SPDX-License-Identifier: Apache-2.0 *)
 (* Forward secrecy. Same exchange as auth.pv with one honest device and server; after the sessions (phase 1)
    the pairwise key k* leaks. The base paper does not claim forward secrecy; this documents the property. *)
 

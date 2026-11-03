@@ -87,7 +87,7 @@ REJECTED by server: ReplayDetected: pseudonym for 'device-A' reuses stale epoch 
 [replay-demo] rejection confirms the server's freshness check is working as intended.
 ```
 
-Expected test results: `125 passed` and `15 checks, 0 failed`. The paper's 135-test count includes ten tests of the removed timing-audit package. The retained protocol, resolution, security and vector tests all pass.
+Expected test results: `125 passed` and `15 checks, 0 failed`.
 
 ## Reproducing the paper
 
@@ -135,7 +135,7 @@ Committed results allow inspection without installing the simulator or verifier.
 ```text
 implementation/
   python/hybrid_ecc_auth/   crypto, protocol, storage, demo, tests and vectors
-  c/               device core, Arduino sketch, host checks and tools
+  c/                       device core, Arduino sketch, host checks and tools
 evaluation/
   resolution/              probe counts, cost model, desynchronisation, sim/
   formal_verification/     ProVerif models, runner and logs

@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 """FR-1.4: AES-256-GCM authenticated encryption (Enc/Dec + MAC in Eq. 13, 14,
 17, 18). Per the paper's instantiation notes, the GCM tag doubles as the
 message authenticator (mu_1, sigma_2), so `encrypt` returns the ciphertext

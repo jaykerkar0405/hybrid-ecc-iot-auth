@@ -1,3 +1,5 @@
+(* Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+   SPDX-License-Identifier: Apache-2.0 *)
 (* Unlinkability with counter epochs: is "device A, then device A again" distinguishable from "device A, then
    device B"? Each session has its own epoch value (the counter never repeats). An active attacker sees all
    messages and talks to the server. Expected: the equivalence holds. *)

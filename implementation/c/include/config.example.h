@@ -1,3 +1,5 @@
+// Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+// SPDX-License-Identifier: Apache-2.0
 /* Copy of the shape that tools/gen_config.py writes to include/config.h
  * (gitignored: it holds Wi-Fi credentials and the device's long-term secret). */
 #pragma once

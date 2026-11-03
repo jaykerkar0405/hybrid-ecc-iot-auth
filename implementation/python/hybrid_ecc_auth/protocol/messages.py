@@ -1,6 +1,8 @@
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 """Wire-format (de)serialization for M1/M2, with a versioned schema.
 
-The protocol core is transport-agnostic (Section 4.3 of the PRD): this
+The protocol core is transport-agnostic: this
 module turns Message1/Message2 into a self-contained JSON blob (binary
 fields base64-encoded) and back. Framing (e.g. length-prefixing for a raw
 TCP stream) is a transport concern and lives in demo/, not here.

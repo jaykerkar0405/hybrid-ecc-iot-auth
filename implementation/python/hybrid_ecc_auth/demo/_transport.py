@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 """Section 4.3: local TCP sockets with length-prefixed framed JSON.
 
 The protocol core (protocol/messages.py) has no transport dependency and

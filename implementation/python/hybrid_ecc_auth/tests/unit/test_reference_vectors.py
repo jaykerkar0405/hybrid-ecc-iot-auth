@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 """Conformance of the Python implementation to the independent reference vectors.
 
 The expected values come from tests/vectors/generate_reference_vectors.py, which
