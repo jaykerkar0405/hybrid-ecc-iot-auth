@@ -6,11 +6,11 @@ Licensed under the Apache License, Version 2.0 (see LICENSE).
 This software is an independent, unofficial reference implementation of
 the mutual authentication protocol described in:
 
-  A. Al-Rasheed, R. Khan, A. Ahmad, A. Saeed, F. Alturise, and S. Alkhalaf,
-  "A Low-Cost Hybrid Elliptic Curve Cryptography Authentication Protocol
-  for Trustworthy Internet of Things Communication," IEEE Transactions on
-  Consumer Electronics, vol. 72, no. 2, pp. 4483-4491, May 2026.
-  DOI: 10.1109/TCE.2026.3662053
+A. Al-Rasheed, R. Khan, A. Ahmad, A. Saeed, F. Alturise, and S. Alkhalaf,
+"A Low-Cost Hybrid Elliptic Curve Cryptography Authentication Protocol
+for Trustworthy Internet of Things Communication," IEEE Transactions on
+Consumer Electronics, vol. 72, no. 2, pp. 4483-4491, May 2026.
+DOI: 10.1109/TCE.2026.3662053
 
 This project is not affiliated with, endorsed by, or
 reviewed by the paper's authors or IEEE.
