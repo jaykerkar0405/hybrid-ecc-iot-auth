@@ -1,6 +1,6 @@
 // OMNeT++ 6 model of device<->server authentication under the BASE Table II environment. Ours, not the BASE authors' code.
-// Copy of research/omnet_emulation/sim/AuthNet.cc. The only change: the server's pseudonym-resolution work is read, per number of
-// enrolled devices n, from cost_model.csv (written by research/pseudonym_resolution/resolution_costs.py) and priced at tProbe per probe.
+// Self-contained network model. The only change: the server's pseudonym-resolution work is read, per number of
+// enrolled devices n, from cost_model.csv (written by evaluation/resolution/resolution_costs.py) and priced at tProbe per probe.
 #include <omnetpp.h>
 #include <algorithm>
 #include <cmath>

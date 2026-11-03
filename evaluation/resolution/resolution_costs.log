@@ -17,4 +17,4 @@ Closed-form checks (steady state; honest = mean over uniformly drawn devices).
 O1, O2, O3, O4, CR: forged, per-epoch and state exact at every n; O2 and O4 honest exact; O1, O3, CR honest means within 4 observed SE (largest relative deviation 15.62%).
 MW (delta=32): honest <= delta*depth and forged <= delta at every n.
 TM (lifetime=128): honest / S^(2/3) = 0.50 .. 0.73; state bytes / S^(2/3) = 47.8 .. 54.5; misses 9 of 2100.
-wrote /Users/anonjr/Documents/Stuff/hybrid-ecc-iot-auth/research/pseudonym_resolution/measured.csv and /Users/anonjr/Documents/Stuff/hybrid-ecc-iot-auth/research/pseudonym_resolution/cost_model.csv
+wrote /Users/anonjr/Documents/Stuff/hybrid-ecc-iot-auth/evaluation/resolution/measured.csv and /Users/anonjr/Documents/Stuff/hybrid-ecc-iot-auth/evaluation/resolution/cost_model.csv

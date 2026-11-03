@@ -1,5 +1,5 @@
 /* Device side of the hybrid ECC + symmetric-key mutual authentication
- * protocol (see hybrid_ecc_auth/protocol/device.py). Portable C: depends only
+ * protocol (see implementation/python/hybrid_ecc_auth/protocol/device.py). Portable C: depends only
  * on BearSSL and on a platform-provided hea_random(). Byte-compatible with the
  * Python server's M1/M2 wire format (JSON + base64, v=1). */
 #ifndef HEA_PROTO_H

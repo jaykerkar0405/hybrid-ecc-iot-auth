@@ -23,7 +23,7 @@ jobs:
           pip install -e ".[dev]"
       - name: Test with coverage (>=90% on protocol/ and crypto/)
         run: |
-          pytest hybrid_ecc_auth/tests/ -q \
+          pytest implementation/python/hybrid_ecc_auth/tests/ -q \
             --cov=hybrid_ecc_auth.protocol --cov=hybrid_ecc_auth.crypto \
             --cov-report=term-missing --cov-fail-under=90
 
@@ -32,4 +32,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: C device core against the independent reference vectors
-        run: make -C firmware/esp8266/host check
+        run: make -C implementation/c/esp8266/host check

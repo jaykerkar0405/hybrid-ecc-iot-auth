@@ -5,22 +5,19 @@ __pycache__/
 .pytest_cache/
 .coverage
 htmlcov/
-bench_output/
-bench_output_*/
 creds/
 manifest.json
 *.last_m1
 
 # firmware
-firmware/esp8266/include/config.h
-firmware/esp8266/.creds/
-firmware/esp8266/.pio/
-firmware/esp8266/host/.bearssl/
-firmware/esp8266/host/host_test
-firmware/esp8266/host/prim_bench
+implementation/c/esp8266/include/config.h
+implementation/c/esp8266/.creds/
+implementation/c/esp8266/.pio/
+implementation/c/esp8266/host/.bearssl/
+implementation/c/esp8266/host/host_test
 
-# built by `make check` in firmware/esp8266/host
-firmware/esp8266/host/vector_test
+# built by `make check` in implementation/c/esp8266/host
+implementation/c/esp8266/host/vector_test
 
 # third-party papers: not redistributable, keep local only
 docs/references/*.pdf
@@ -28,3 +25,11 @@ docs/references/*.pdf
 !docs/references/hasan_2023_kerberos-authentication.pdf
 !docs/references/ma_2024_blockchain-iov-authentication.pdf
 !docs/references/xie_2014_roaming-authentication.pdf
+
+# LaTeX build products
+paper/**/*.aux
+paper/**/*.log
+paper/**/*.out
+paper/*.aux
+paper/*.log
+paper/*.out

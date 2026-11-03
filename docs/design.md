@@ -1,6 +1,6 @@
 # Protocol design notes
 
-Design decisions, architecture and paper-to-code traceability for the Python reference implementation (`hybrid_ecc_auth/`). Source paper: Al-Rasheed et al., *IEEE Transactions on Consumer Electronics*, vol. 72, no. 2, May 2026 (`docs/references/base_paper.pdf`).
+Design decisions, architecture and paper-to-code traceability for the Python reference implementation (`implementation/python/hybrid_ecc_auth/`). Source paper: Al-Rasheed et al., *IEEE Transactions on Consumer Electronics*, vol. 72, no. 2, May 2026 (DOI: 10.1109/TCE.2026.3662053).
 
 ## Design decision: Section III, not Section II
 
@@ -29,7 +29,7 @@ not as the security boundary itself.
 ## Architecture
 
 ```
-hybrid_ecc_auth/
+implementation/python/hybrid_ecc_auth/
   crypto/                 # FR-1: primitives only, no protocol logic
     curve.py              # NIST P-256 scalar mult (offline-phase only)
     hashes.py             # H1 (Eq 8), H2 (Eq 11), H3 (Eq 24)
@@ -54,26 +54,13 @@ hybrid_ecc_auth/
     ta_cli.py                  # hea-ta
     server_node.py              # hea-server
     device_node.py               # hea-device (incl. --replay-last)
-  bench/                        # Section 6: cost measurement + reporting
-    proposed.py                  # Real-code cost model (communication/processing/storage)
-    baselines/                    # Paper-reference cost tables (Tables IV-VI)
-    harness.py                     # CLI entry point, population-scaling sweep
-    report.py                       # Markdown/HTML/JSON/PNG/CSV report generator
   tests/
     unit/  property/  adversarial/
 ```
 
 ### A note on where Eq. 16 lives
 
-The PRD's traceability sketch (Appendix A) originally proposed `K_{ij,t}`
-living in `server.py`. In the implementation it lives in `entity.py`
-instead (`derive_session_key`), because both `device.py`'s
-`complete_auth` and `server.py`'s `handle_auth_request` need to run the
-*identical* Eq. 16 computation -- putting it in `entity.py` avoids
-duplicating that logic (or having `device.py` import from `server.py`,
-which would invert the natural dependency direction). See
-[Symbol-to-code traceability](#symbol-to-code-traceability) for the
-as-built mapping.
+Both device and server derive the session key in `entity.py`.
 
 ### A note on epoch semantics (implementation decision, flagged for review)
 
@@ -92,12 +79,7 @@ against, which matches the scope of the paper's own unlinkability sketch
 
 ## Non-production disclaimers
 
-- **Not an embedded/firmware implementation.** No MCU, RTOS, or radio
-  stack (XBee, LoRa, Zigbee) work is in scope.
-- **Not a production security product.** No HSM integration, no formal
-  verification (Tamarin/ProVerif) of the protocol, no penetration-test
-  engagement. The adversarial test suite (`tests/adversarial/`) is a set
-  of targeted unit tests, not a proof.
+- The C device port is a research artefact; the formal models assume perfect primitives.
 - **Static devices only.** Mobility, hand-off, and coverage-radius
   dynamics (the paper's Table II "Hand-off Time" / "device Speed") are out
   of scope; `protocol/entity.py`'s coverage predicate defaults to
@@ -109,11 +91,6 @@ against, which matches the scope of the paper's own unlinkability sketch
   `Server.resolve_pseudonym` uses a constant-time compare per candidate
   (`hmac.compare_digest`) to avoid a trivial per-comparison timing leak,
   but the search loop itself is not constant-time across peers.
-- **The nine baseline schemes are not re-implemented.** `bench/baselines/`
-  reproduces their paper-reported reference numbers (Tables IV-VI),
-  clearly labeled as such; full independent re-implementation is a v2
-  backlog item.
-
 ## Symbol-to-code traceability
 
 | Paper symbol | Eq. | Code reference |
@@ -128,3 +105,5 @@ against, which matches the scope of the paper's own unlinkability sketch
 | Correctness (Eq. 20) | 20 | `tests/property/test_session_key_agreement.py` |
 | `Allow_ij(t)` | 23 | `protocol/entity.py :: Entity.access_control_gate` |
 | Rekey (v2 stub) | 24 | `protocol/rekey.py` (raises `NotImplementedError` in v1) |
+
+SEC-xx and FR-xx identifiers in tests are historical labels for security properties and functional checks; they do not refer to a separate requirements deliverable.

@@ -2,7 +2,7 @@
 Section III wire format: each needs a fresh random value r sent in clear in
 M1. They are modelled at the resolution level only (device-side pseudonym
 generation plus server-side search), with every keyed-hash evaluation counted
-as one probe, the same unit as hybrid_ecc_auth/protocol/resolution.py.
+as one probe, the same unit as implementation/python/hybrid_ecc_auth/protocol/resolution.py.
 
   RandomizedHashLock  Weis, Sarma, Rivest and Engels (SPC 2003): the device
                       sends (r, H(lambda || r)); the server tries every key.

@@ -17,7 +17,7 @@ Outputs (next to this file):
   summary.txt      the closed-form checks
 
 Run from the repository root:
-    .venv/bin/python -I research/pseudonym_resolution/resolution_costs.py [--quick]
+    .venv/bin/python -I evaluation/resolution/resolution_costs.py [--quick]
 """
 from __future__ import annotations
 
@@ -30,7 +30,7 @@ import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(HERE.parents[1]))
+sys.path.insert(0, str(HERE.parents[1] / "implementation/python"))
 sys.path.insert(0, str(HERE))
 
 from hybrid_ecc_auth.crypto.hashes import h2_pseudonym  # noqa: E402

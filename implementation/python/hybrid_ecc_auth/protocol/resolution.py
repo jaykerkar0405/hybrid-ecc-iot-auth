@@ -21,7 +21,7 @@ Strategies that keep the paper's wire format (PID = H2(lambda || t)):
                        time-memory trade-off (Avoine and Oechslin)
 
 Strategies drawn from RFID work that change M1 (they need a fresh value r
-in clear) live in research/pseudonym_resolution/rfid_schemes.py, because
+in clear) live in evaluation/resolution/rfid_schemes.py, because
 they are not wire-compatible with the Section III exchange.
 
 Every resolver keeps `probes` (resolution work done for incoming

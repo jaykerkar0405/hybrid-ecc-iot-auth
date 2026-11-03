@@ -9,7 +9,7 @@ what that combination does. It describes OUR epoch choice (see
 docs/conformance.md, assumption register), not the paper's protocol.
 
 Run from the repository root:
-    .venv/bin/python -I research/pseudonym_resolution/desync_check.py
+    .venv/bin/python -I evaluation/resolution/desync_check.py
 """
 
 from __future__ import annotations
@@ -18,7 +18,7 @@ import os
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "implementation/python"))
 
 from hybrid_ecc_auth.protocol.device import Device  # noqa: E402
 from hybrid_ecc_auth.protocol.server import Server  # noqa: E402

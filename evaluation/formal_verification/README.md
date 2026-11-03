@@ -39,4 +39,4 @@ mutable state; that is why Q4 fails.
 - Symbolic model only: no computational bounds, no timing.
 - Q4 cannot be decided in ProVerif without state. The replay window is checked by test (SEC-01) instead.
 - The resolution destructor in the unlinkability models assumes that the server finds the right device. Its cost is not modelled.
-  The cost is the subject of `research/pseudonym_resolution/`.
+  The cost is the subject of `evaluation/resolution/`.

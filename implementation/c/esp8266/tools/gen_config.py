@@ -3,13 +3,13 @@
 include/config.h for the firmware. Secrets stay out of git (config.h and
 .creds/ are gitignored). Wi-Fi password comes from $WIFI_PASS or a prompt.
 
-  python firmware/esp8266/tools/gen_config.py --ssid MyWifi --server-host 192.168.1.23
+  python implementation/c/esp8266/tools/gen_config.py --ssid MyWifi --server-host 192.168.1.23
 """
 import argparse, getpass, hashlib, os, secrets, sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(HERE.parents[1]))
+sys.path.insert(0, str(HERE.parents[2] / "implementation/python"))
 from hybrid_ecc_auth.protocol.ta import TrustedAuthority
 
 DEVICE, SERVER = "esp8266-001", "server-A"

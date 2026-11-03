@@ -29,10 +29,11 @@ hea-device = "hybrid_ecc_auth.demo.device_node:main"
 hea-server = "hybrid_ecc_auth.demo.server_node:main"
 
 [tool.setuptools.packages.find]
+where = ["implementation/python"]
 include = ["hybrid_ecc_auth*"]
 
 [tool.pytest.ini_options]
-testpaths = ["hybrid_ecc_auth/tests"]
+testpaths = ["implementation/python/hybrid_ecc_auth/tests"]
 
 [tool.coverage.run]
-source = ["hybrid_ecc_auth/protocol", "hybrid_ecc_auth/crypto"]
+source = ["implementation/python/hybrid_ecc_auth/protocol", "implementation/python/hybrid_ecc_auth/crypto"]

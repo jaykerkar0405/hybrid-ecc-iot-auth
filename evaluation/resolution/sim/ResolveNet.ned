@@ -1,5 +1,5 @@
 // Re-implementation (ours, NOT the code of the BASE authors) of the BASE Table II environment in plain OMNeT++ (no INET, no SUMO).
-// Copy of research/omnet_emulation/sim/AuthNet.ned with a pluggable pseudonym-resolution cost (research/pseudonym_resolution).
+// Copy of research/omnet_emulation/sim/AuthNet.ned with a pluggable pseudonym-resolution cost (evaluation/resolution).
 
 simple Core
 {

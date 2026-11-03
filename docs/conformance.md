@@ -6,12 +6,12 @@ describe a different protocol. This page maps each equation and rule to code and
 A trace from an equation to a function is traceability; the **Evidence** column is what actually supports correctness.
 
 Evidence kinds: **vectors** = byte-for-byte match with the independent reference vectors
-([`hybrid_ecc_auth/tests/vectors/`](../hybrid_ecc_auth/tests/vectors/README.md)), **test** = existing unit, property or
+([`implementation/python/hybrid_ecc_auth/tests/vectors/`](../implementation/python/hybrid_ecc_auth/tests/vectors/README.md)), **test** = existing unit, property or
 adversarial test, **none** = no automated check.
 
 ## Equation-to-code matrix
 
-Python paths are relative to `hybrid_ecc_auth/`; C is `firmware/esp8266/lib/hea_proto/hea_proto.c` (device side only).
+Python paths are relative to `implementation/python/hybrid_ecc_auth/`; C is `implementation/c/esp8266/lib/hea_proto/hea_proto.c` (device side only).
 
 | Eq. / rule | Python | C | Evidence |
 |---|---|---|---|
@@ -23,8 +23,8 @@ Python paths are relative to `hybrid_ecc_auth/`; C is `firmware/esp8266/lib/hea_
 | Eq. 16 `K = KDF(k* ‖ N_i ‖ N_j ‖ t)` | `entity.py` `derive_session_key` | in `hea_complete` | vectors (K); test `test_entity.py`, property test |
 | Eq. 17–19 M2 `<ID_R, C2, sigma_2>` | `Server.handle_auth_request`; `Device.complete_auth`; `Message2` | `hea_complete` | vectors (exact wire bytes, device accepts, tamper and cross-session rejection) |
 | Eq. 20 `Pr[K_dev = K_srv] = 1` | both sides call `derive_session_key` | device side only | property test `test_session_key_agreement.py` (10,000 trials); vectors (both sides produce the vector K) |
-| Eq. 21 communication bits | `Message1/2.to_bytes` | `hea_build_m1` | sizes in [`research/omnet_emulation/impl_profile/`](../research/omnet_emulation/impl_profile/README.md) |
-| Eq. 22 online cost | whole flow | whole flow | op counts in the same profile (not a correctness check) |
+| Eq. 21 communication bits | `Message1/2.to_bytes` | `hea_build_m1` | wire sizes checked by independent vectors |
+| Eq. 22 online cost | whole flow | whole flow | resolution probe counts in `evaluation/resolution/` (not a correctness check) |
 | Eq. 23 `Allow = cov ∧ Auth` | `Entity.access_control_gate` | not implemented | test `test_sec08` |
 | Eq. 24 TA-assisted rekey | `protocol/rekey.py` raises `NotImplementedError` (stub) | not implemented | test `test_rekey_stub.py` only checks the stub |
 | Block after repeated failures | `storage/session_log.py`; `Server`/`Device` fail-fast checks | not implemented | test `test_session_log.py`, `test_sec05` |
@@ -37,7 +37,7 @@ is an abstract predicate in Python, with no radio model. Rekeying (Eq. 24) is a 
 ## Assumption register
 
 Encodings, key-derivation parameters, the AEAD split and the wire format are listed with their provenance in the
-[vector specification](../hybrid_ecc_auth/tests/vectors/README.md#specification-and-its-provenance). Further decisions
+[vector specification](../implementation/python/hybrid_ecc_auth/tests/vectors/README.md#specification-and-its-provenance). Further decisions
 that the paper does not fix, or that mix sections:
 
 | Decision | Our choice | Basis |

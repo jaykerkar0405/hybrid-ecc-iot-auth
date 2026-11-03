@@ -1,5 +1,5 @@
 /* Conformance of the ESP8266 device core to the independent reference vectors
- * (hybrid_ecc_auth/tests/vectors). Randomness is replaced by the vectors' fixed
+ * (implementation/python/hybrid_ecc_auth/tests/vectors). Randomness is replaced by the vectors' fixed
  * N_i and GCM IV, so every output byte can be compared with the expected value.
  * usage: vector_test <reference_vectors.txt> */
 #include <stdio.h>
