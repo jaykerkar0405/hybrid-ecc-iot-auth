@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "hybrid-ecc-auth"
-version = "0.1.0"
+version = "1.0.0"
 description = "Reference implementation of a hybrid ECC + symmetric-key mutual authentication protocol for IoT (proof-of-concept, not production)."
 readme = "README.md"
 requires-python = ">=3.11"

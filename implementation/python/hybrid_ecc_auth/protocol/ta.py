@@ -114,7 +114,7 @@ class TrustedAuthority:
 
     def share_mutual_peer_keys(self, creds: list[Credential]) -> None:
         """Convenience: every credential in `creds` learns every other's
-        lambda (full mesh peer-key distribution, as used by the demo/bench
+        lambda (full mesh peer-key distribution, as used by the demo
         harness for small device/server populations)."""
         for cred in creds:
             self.share_peer_keys(cred, [c for c in creds if c.identity != cred.identity])

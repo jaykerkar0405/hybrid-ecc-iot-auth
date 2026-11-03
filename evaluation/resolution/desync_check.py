@@ -9,7 +9,7 @@ what that combination does. It describes OUR epoch choice (see
 docs/conformance.md, assumption register), not the paper's protocol.
 
 Run from the repository root:
-    .venv/bin/python -I evaluation/resolution/desync_check.py
+    python -I evaluation/resolution/desync_check.py
 """
 
 from __future__ import annotations

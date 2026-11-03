@@ -16,13 +16,13 @@ the paper does not specify how. This folder measures seven ways of doing it. One
 ## Reproduce (from the repository root)
 
 ```bash
-.venv/bin/python -m pytest implementation/python/hybrid_ecc_auth/tests/unit/test_resolution.py -q      # 12 tests
-.venv/bin/python -I evaluation/resolution/resolution_costs.py           # measured.csv, cost_model.csv, summary.txt (~3 min)
+python -m pytest implementation/python/hybrid_ecc_auth/tests/unit/test_resolution.py -q      # 12 tests
+python -I evaluation/resolution/resolution_costs.py           # measured.csv, cost_model.csv, summary.txt (~3 min)
 evaluation/resolution/sim/build_and_run.sh                              # OMNeT++ 6.4, 960 runs -> sim/results.csv (~10 s)
-.venv/bin/python -I paper/make_figs.py                               # figures + ranked table
-(cd paper && tectonic v1_main.tex && tectonic v2_main.tex)
+python -I paper/make_figs.py                               # figures + ranked table
+(cd paper && tectonic main.tex)
 evaluation/formal_verification/run.sh                                             # ProVerif (paper version 2)
-.venv/bin/python -I evaluation/resolution/desync_check.py               # dropped-M1 and restart lockout
+python -I evaluation/resolution/desync_check.py               # dropped-M1 and restart lockout
 ```
 
 ## Files
@@ -44,3 +44,5 @@ evaluation/formal_verification/run.sh                                           
 - Storage is Table VI's 320 bits per enrolled device plus the resolution state, with one table entry charged at 40 B.
 - Assumptions that the paper does not fix: the adversary share and rate, the 10 s window, enrolment of every reachable
   device, and one O4 table extension per server per window.
+
+The sweep draws peer secrets from OS randomness. In particular, TM coverage and measurements vary between runs. The committed CSVs and summary are the published run; preserve them when regenerating the paper figures.

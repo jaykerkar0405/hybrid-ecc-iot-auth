@@ -1,24 +1,70 @@
 cff-version: 1.2.0
-message: "If you use this software or its findings, please cite it as below and also cite the source paper (see NOTICE)."
-title: "Hybrid ECC IoT Authentication: reference implementation and measurement-based re-evaluation"
+message: Please cite the paper and software, and also cite the base paper.
+title: 'hybrid-ecc-iot-auth: implementation, models and data for pseudonym resolution
+  in a two-message IoT authentication protocol'
 type: software
+version: 1.0.0
+date-released: '2026-11-03'
+repository-code: https://github.com/jaykerkar0405/hybrid-ecc-iot-auth
 license: Apache-2.0
-version: 0.1.0
-authors:
-  - family-names: Kerkar
-    given-names: Jay
-    affiliation: "Vivekanand Education Society's Institute of Technology (VESIT), Mumbai"
-  - family-names: Kelkar
-    given-names: Chaitanya
-    affiliation: "Vivekanand Education Society's Institute of Technology (VESIT), Mumbai"
-  - family-names: Poornamath
-    given-names: Chirag
-    affiliation: "Vivekanand Education Society's Institute of Technology (VESIT), Mumbai"
-  - family-names: Kolekar
-    given-names: Yash
-    affiliation: "Vivekanand Education Society's Institute of Technology (VESIT), Mumbai"
-  - family-names: Sondur
-    given-names: Shanta
-    affiliation: "Vivekanand Education Society's Institute of Technology (VESIT), Mumbai"
+authors: &id001
+- family-names: Kerkar
+  given-names: Jay
+  affiliation: Department of Information Technology, Vivekanand Education Society's
+    Institute of Technology (VESIT), Mumbai
+- family-names: Kelkar
+  given-names: Chaitanya
+  affiliation: Department of Information Technology, Vivekanand Education Society's
+    Institute of Technology (VESIT), Mumbai
+- family-names: Poornamath
+  given-names: Chirag
+  affiliation: Department of Information Technology, Vivekanand Education Society's
+    Institute of Technology (VESIT), Mumbai
+- family-names: Kolekar
+  given-names: Yash
+  affiliation: Department of Information Technology, Vivekanand Education Society's
+    Institute of Technology (VESIT), Mumbai
+- family-names: Sondur
+  given-names: Shanta
+  affiliation: Department of Information Technology, Vivekanand Education Society's
+    Institute of Technology (VESIT), Mumbai
 keywords:
-  [iot-security, mutual-authentication, elliptic-curve-cryptography, esp8266]
+- iot-security
+- pseudonym-resolution
+- unlinkability
+- proverif
+- omnet++
+preferred-citation:
+  type: unpublished
+  title: Pseudonym Resolution and Formal Verification of an Unlinkable Two-Message
+    IoT Authentication Protocol
+  authors: *id001
+  year: 2026
+  institution:
+    name: Department of Information Technology, Vivekanand Education Society's Institute
+      of Technology (VESIT), Mumbai
+references:
+- type: article
+  title: A Low-Cost Hybrid Elliptic Curve Cryptography Authentication Protocol for
+    Trustworthy Internet of Things Communication
+  authors:
+  - family-names: Al-Rasheed
+    given-names: Amal
+  - family-names: Khan
+    given-names: Rahim
+  - family-names: Ahmad
+    given-names: Aftab
+  - family-names: Saeed
+    given-names: Aamir
+  - family-names: Alturise
+    given-names: Fahad
+  - family-names: Alkhalaf
+    given-names: Salem
+  journal: IEEE Transactions on Consumer Electronics
+  volume: 72
+  issue: 2
+  start: 4483
+  end: 4491
+  month: 5
+  year: 2026
+  doi: 10.1109/TCE.2026.3662053

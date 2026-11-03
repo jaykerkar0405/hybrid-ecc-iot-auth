@@ -11,12 +11,12 @@ Talks to the unmodified Python `Server` over the same framed-JSON TCP wire forma
 
 ## Verify without hardware
     make -C implementation/c/esp8266/host
-    .venv/bin/python implementation/c/esp8266/tools/interop.py -n 20
+    python implementation/c/esp8266/tools/interop.py -n 20
 
 ## Run on the board
     python implementation/c/esp8266/tools/gen_config.py --ssid <wifi> --server-host <mac-lan-ip>   # writes include/config.h (gitignored)
     pio run -t upload && pio device monitor                                                  # 115200 baud
-    .venv/bin/python implementation/c/esp8266/tools/interop.py --listen                              # in another terminal
+    python implementation/c/esp8266/tools/interop.py --listen                              # in another terminal
 Compare the `fp=` session-key fingerprints printed by the board and by the server.
 If you restart the server, send `z` over serial to reset the device epoch to 0.
 

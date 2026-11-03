@@ -17,7 +17,7 @@ Outputs (next to this file):
   summary.txt      the closed-form checks
 
 Run from the repository root:
-    .venv/bin/python -I evaluation/resolution/resolution_costs.py [--quick]
+    python -I evaluation/resolution/resolution_costs.py [--quick]
 """
 from __future__ import annotations
 

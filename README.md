@@ -1,196 +1,176 @@
-# Hybrid ECC IoT Authentication
+# Pseudonym resolution in two-message IoT authentication
 
-[![License: Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
-![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)
+[![Licence: Apache-2.0](https://img.shields.io/badge/licence-Apache--2.0-blue)](LICENSE)
+[![Python: 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)](pyproject.toml)
 
-Reference implementation and measurement-based re-evaluation of a hybrid
-ECC + symmetric-key **mutual authentication protocol for IoT devices**.
+Implementation, models and data for *Pseudonym Resolution and Formal Verification of an Unlinkable Two-Message IoT Authentication Protocol* ([paper PDF](paper/main.pdf)). The server must identify an incoming pseudonym before it can perform a cryptographic check. The protocol specification leaves that resolution step and its cost open. This work compares seven resolution strategies, measures their probe counts, prices them in an OMNeT++ network model, demonstrates counter desynchronisation, and checks secrecy, agreement and unlinkability symbolically.
 
-The repository contains five things:
+## Paper
 
-| Component | Location | What it is |
-|---|---|---|
-| Python reference implementation | [`hybrid_ecc_auth/`](hybrid_ecc_auth/) | Crypto primitives, protocol state machines, demo CLIs, benchmark harness and test suite |
-| ESP8266 firmware | [`firmware/esp8266/`](firmware/esp8266/) | C port of the device side, interoperating with the unmodified Python server |
-| Reference vectors | [`hybrid_ecc_auth/tests/vectors/`](hybrid_ecc_auth/tests/vectors/) | Independently computed expected values that the Python and C implementations must reproduce byte for byte |
-| Paper re-evaluation | [`research/`](research/) | Consistency audit of the source paper, citation trace, OMNeT++ model and cost model re-run with measured timings |
-| IEEE manuscript | [`paper/`](paper/) | LaTeX source of the paper written from those findings |
+**Pseudonym Resolution and Formal Verification of an Unlinkable Two-Message IoT Authentication Protocol**. Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Dr. Shanta Sondur (project guide / mentor), 2026. Department of Information Technology, Vivekanand Education Society's Institute of Technology (VESIT), Mumbai. Unpublished manuscript; [source](paper/main.tex).
 
-> **Research artifact, not production firmware.** There is no HSM, no formal
-> verification and no side-channel hardening. See
-> [Scope and limitations](#scope-and-limitations).
+The specification is Amal Al-Rasheed, Rahim Khan, Aftab Ahmad, Aamir Saeed, Fahad Alturise and Salem Alkhalaf, “A Low-Cost Hybrid Elliptic Curve Cryptography Authentication Protocol for Trustworthy Internet of Things Communication,” *IEEE Transactions on Consumer Electronics*, 72(2), 4483–4491, May 2026, [doi:10.1109/TCE.2026.3662053](https://doi.org/10.1109/TCE.2026.3662053). This work is independent of and not affiliated with the base paper's authors or IEEE. It takes the two-message protocol as its specification and does not re-evaluate the other results of that paper.
 
-**Source paper:** A. Al-Rasheed, R. Khan, A. Ahmad, A. Saeed, F. Alturise and
-S. Alkhalaf, "A Low-Cost Hybrid Elliptic Curve Cryptography Authentication
-Protocol for Trustworthy Internet of Things Communication," *IEEE Transactions
-on Consumer Electronics*, vol. 72, no. 2, pp. 4483-4491, May 2026
-(DOI [10.1109/TCE.2026.3662053](https://doi.org/10.1109/TCE.2026.3662053)).
-This project is independent and not affiliated with the paper's authors or IEEE.
+## Key results
 
-## What this project establishes
+| Contribution | Result reported in the paper |
+|---|---|
+| Independent conformance vectors | Python and C: 15 checks each |
+| Resolution strategies | O1–O4, TM, CR and MW; measured probes checked against closed forms |
+| Network evaluation | 960 OMNeT++ runs; base column at N=1: 23.68 ms for every strategy |
+| Table strategy at N=1000 | O2: 24.4 ms with 5% adversaries |
+| On-demand counter scan | About 44 s at N=1000 with 5% adversaries |
+| Counter desynchronisation | Permanent lockout after eight dropped M1 messages |
+| ProVerif 2.05 | Q1–Q3 and Q5 true; Q4 false without replay state; forward secrecy false; U1 counter unlinkability true; U2 clock unlinkability fails |
 
-The source paper publishes no code or simulation model, so the findings are grouped by what each one depends on.
-Details and raw data are in [`research/paper_audit/FINDINGS.md`](research/paper_audit/FINDINGS.md) and
-[`research/citation_investigation/`](research/citation_investigation/).
+The base column uses the specification's arithmetic value. The model without resolution gives 23.86 ms at N=1 and 24.07 ms at N=1000 because it includes airtime and quantisation.
 
-**Follows from the paper's own tables and text (no implementation involved)**
+## What is in this repository
 
-- The tables disagree with the text: Table IV gives 4 messages and 1024 bits, Section V-B gives 2 messages and
-  264 bits (and 2 x 128 is 256). The abstract's savings of about 17% / 21% / 12% cannot be derived from
-  Tables IV-VI under any definition we tried (best, mean, median, worst, each scheme).
-- Table V omits the session-key KDF that the paper's own Eq. 22 requires. With it counted, the hash-only rows of the
-  table (Turkanovic, Dhillon-Kalra and an unidentified row labelled "Jiang") are cheaper than the proposed scheme
-  (about 4-14x on the ESP8266). Jiang et al. as published is not hash-only, so this holds firmly only for the first two.
-- The Table III constants, the nine competitor rows of Table IV and the finite storage entries also appear in an earlier
-  paper the source cites (Sadhukhan et al., 2021), with the storage columns relabelled. We note the correspondence and
-  draw no conclusion about how the values were obtained.
-
-**Verified here**
-
-- The Python implementation and the C device core reproduce independent reference vectors byte for byte, and reject
-  tampered and replayed messages ([`docs/conformance.md`](docs/conformance.md)). This shows agreement with our reading of
-  Section III, not that the reading is the authors'.
-- Measured on an ESP8266, P-256 scalar multiplication is about 16x slower than the paper assumes (276 ms vs. 17.1 ms),
-  while symmetric operations are 5-11x faster. The timings were identical on two boards.
-- With measured constants the protocol is roughly 60-2,500x cheaper than the ECC-based schemes in the same table.
-- The protocol has no forward secrecy (the paper does not claim it), no elliptic-curve operation on the online path, and
-  a server lookup that scales linearly with the number of devices to resolve.
-
-**Not verifiable without the authors**
-
-- The paper's Figs. 1-3 and the OMNeT++ simulation behind them. We built our own model of the stated environment; it is a
-  sensitivity analysis, not a reproduction. We emailed the corresponding author on 27 October 2026
-  ([`docs/author-contact.md`](docs/author-contact.md)); anything that depends on their simulation stays unverified until
-  they reply.
+| Paper contribution | Directory |
+|---|---|
+| Python exchange, resolvers and independent vectors | [implementation/python](implementation/python/hybrid_ecc_auth/) |
+| C device port, host checks and interop tool | [implementation/c](implementation/c/esp8266/) |
+| Probe counts, cost model, lockout and ResolveNet | [evaluation/resolution](evaluation/resolution/) |
+| Symbolic models and committed logs | [evaluation/formal_verification](evaluation/formal_verification/) |
+| Manuscript, figure generator, figures and PDF | [paper](paper/) |
 
 ## Quick start
 
-Requires Python 3.11+.
+Python 3.11 or newer and a C compiler are required. From the repository root:
 
-```bash
-python3 -m venv .venv && source .venv/bin/activate
-pip install -e ".[dev,bench]"
+```sh
+python -m venv .venv
+. .venv/bin/activate
+pip install -e ".[dev,figures]"
+hea-ta --help
+hea-server --help
+hea-device --help
 ```
 
-Run the three-party demo (offline TA provisioning, server, device) in three terminals:
+The help commands print usage for `hea-ta`, `hea-server` and `hea-device`. The `figures` extra supplies matplotlib, including its STIX fonts. The lock file records the development dependency versions.
 
-```bash
-# 1. Provision credentials offline
-cat > manifest.json <<'JSON'
-[
-  {"identity": "device-001", "role": "device"},
-  {"identity": "server-A", "role": "server"}
-]
-JSON
-hea-ta enroll --manifest manifest.json --out-dir creds/
+Terminal 1, provision demo credentials:
 
-# 2. Start the server
-hea-server start --credential creds/server-A.json --port 8443
-
-# 3. Authenticate a device
-hea-device authenticate --credential creds/device-001.json \
-    --server-id server-A --server-addr 127.0.0.1:8443
+```sh
+python -c 'import json; from pathlib import Path; Path("manifest.json").write_text(json.dumps([{"identity":"server-A","role":"server"},{"identity":"device-A","role":"device"}]))'
+hea-ta enroll --manifest manifest.json --out-dir creds
 ```
 
-Expected: `Mutual authentication succeeded with 'server-A'.` plus a session-key
-fingerprint (never the raw key). Add `--replay-last` to the device command to
-replay the previous request and watch the server reject it.
+Terminal 2, activate the same environment and start the server:
 
-### Tests
-
-```bash
-pytest hybrid_ecc_auth/tests/ -q
-pytest hybrid_ecc_auth/tests/ --cov=hybrid_ecc_auth.protocol --cov=hybrid_ecc_auth.crypto --cov-report=term-missing
+```sh
+hea-server start --credential creds/server-A.json --host 127.0.0.1 --port 8443
 ```
 
-The suite has unit tests per module, a 10,000-trial property test of
-session-key agreement (Eq. 20), the eight adversarial cases SEC-01..SEC-08
-(replay, tamper, forgery, block-list, unlinkability, key freshness, coverage gate), and
-conformance tests against the [independent reference vectors](hybrid_ecc_auth/tests/vectors/README.md).
+Terminal 3, activate the same environment, authenticate once and replay that message:
 
-### Benchmarks
-
-```bash
-python -m hybrid_ecc_auth.bench.harness          # quick run
-python -m hybrid_ecc_auth.bench.harness --full   # paper-scale sweep
+```sh
+hea-device authenticate --credential creds/device-A.json --server-id server-A --server-addr 127.0.0.1:8443
+hea-device authenticate --credential creds/device-A.json --server-id server-A --server-addr 127.0.0.1:8443 --replay-last
 ```
 
-Writes `bench_output/` (Markdown, HTML, JSON, PNG and CSV). The report separates
-costs **measured on this host** from the **paper's reference values** for the nine baseline schemes.
+A successful session prints `Mutual authentication succeeded with 'server-A'.`, a session-key fingerprint and a measured round-trip latency. Replaying exits with status 1 and prints a server rejection followed by `[replay-demo] rejection confirms the server's freshness check is working as intended.` Fingerprints and latency vary on each run. Use fresh credentials for a new demo; the device CLI counter lives in RAM.
 
-### Docker
-
-```bash
-docker compose up        # runs the benchmark; see docker-compose.yml and docker-entrypoint.sh
+```sh
+pytest implementation/python/hybrid_ecc_auth/tests -q
+make -C implementation/c/esp8266/host check
 ```
 
-### ESP8266 firmware
+Observed demo output (fingerprint and times are examples from one run):
 
-```bash
-make -C firmware/esp8266/host                              # build the C core natively
-python firmware/esp8266/tools/interop.py -n 20             # check it against the Python server
-make -C firmware/esp8266/host check                        # check it against the reference vectors
+```text
+Mutual authentication succeeded with 'server-A'.
+  session key fingerprint: c58040aa780504ee (SHA-256[:16] of K_ij,t -- never the raw key)
+  round-trip latency: 5.161 ms
+REJECTED by server: ReplayDetected: pseudonym for 'device-A' reuses stale epoch 0 (round-trip 3.139 ms)
+[replay-demo] rejection confirms the server's freshness check is working as intended.
 ```
 
-Flashing instructions are in [`firmware/esp8266/README.md`](firmware/esp8266/README.md).
+Expected test results: `125 passed` and `15 checks, 0 failed`. The paper's 135-test count includes ten tests of the removed timing-audit package. The retained protocol, resolution, security and vector tests all pass.
 
-### Reproducing the paper audit
+## Reproducing the paper
 
-The commands are in section 7 of [`research/paper_audit/FINDINGS.md`](research/paper_audit/FINDINGS.md).
+Run from the repository root with the environment above active. The full probe sweep takes about three minutes; the OMNeT++ sweep about ten seconds in the original environment. Every ProVerif model finishes in under one second there. Actual times depend on the machine.
+
+1. Unit, property, adversarial and Python vector tests, then the C vectors and interoperability:
+
+   ```sh
+   pytest implementation/python/hybrid_ecc_auth/tests -q --cov=hybrid_ecc_auth.protocol --cov=hybrid_ecc_auth.crypto --cov-report=term-missing --cov-fail-under=90
+   make -C implementation/c/esp8266/host check
+   make -C implementation/c/esp8266/host
+   python implementation/c/esp8266/tools/interop.py -n 5
+   ```
+
+2. Probe counts and the cost model; this rewrites the CSV and summary files. Peer secrets use OS randomness, so TM measurements vary; preserve the committed data when reproducing the published figures:
+
+   ```sh
+   python -I evaluation/resolution/resolution_costs.py
+   python -I evaluation/resolution/desync_check.py
+   ```
+
+3. Install OMNeT++ **6.4.0** at `~/opp/omnetpp-6.4.0`, then run the 960-run sweep:
+
+   ```sh
+   bash evaluation/resolution/sim/build_and_run.sh
+   ```
+
+4. Install ProVerif **2.05** on PATH (or pass its executable as the first argument):
+
+   ```sh
+   bash evaluation/formal_verification/run.sh
+   ```
+
+5. Generate the figures and ranked table, then build the paper with Tectonic (validated with 0.17.0):
+
+   ```sh
+   python -I paper/make_figs.py
+   (cd paper && tectonic main.tex)
+   ```
+
+Committed results allow inspection without installing the simulator or verifier. See the [resolution notes](evaluation/resolution/README.md), [formal results](evaluation/formal_verification/README.md), [design](docs/design.md) and [conformance matrix](docs/conformance.md).
 
 ## Repository layout
 
+```text
+implementation/
+  python/hybrid_ecc_auth/   crypto, protocol, storage, demo, tests and vectors
+  c/esp8266/               device core, Arduino sketch, host checks and tools
+evaluation/
+  resolution/              probe counts, cost model, desynchronisation, sim/
+  formal_verification/     ProVerif models, runner and logs
+paper/                     main.tex, authors.tex, body.tex, main.pdf, figures
+docs/                      design, conformance and reference access catalogue
 ```
-hybrid_ecc_auth/            Python package
-  crypto/                   P-256, hashes, HKDF, AES-256-GCM, nonces
-  protocol/                 TA, device, server, messages, login gate, errors
-  storage/                  Replay window and block-list, demo keystore
-  demo/                     hea-ta, hea-server, hea-device CLIs
-  bench/                    Cost model, baseline tables, report generator
-  tests/                    unit/, property/, adversarial/, vectors/ (reference vectors)
-firmware/esp8266/           C protocol core, Arduino firmware, host tests, tools
-research/                   paper_audit/ (audit, measured results), citation_investigation/,
-                            reference_replication/, omnet_emulation/ (OMNeT++ model)
-paper/                      IEEE manuscript (LaTeX)
-docs/
-  design.md                 Design decisions, architecture, symbol-to-code traceability
-  conformance.md            Equation-to-code matrix, assumption register
-  author-contact.md         Record of the email to the source paper's authors
-  references/               Source paper and literature survey
-  project/                  Product requirements and review presentation
-  experiments/              AWS demo run (logs, results, report)
-.github/                    CI workflow, issue and PR templates
-```
-
-See [`docs/README.md`](docs/README.md) for a document index and
-[`docs/design.md`](docs/design.md) for the protocol design.
 
 ## Scope and limitations
 
-- Not production firmware or a security product: no HSM, no formal verification
-  (Tamarin/ProVerif), no penetration test.
-- Static devices only; mobility and hand-off are out of scope.
-- `storage/keystore.py` is demo-grade (file permissions only). Do not store real secrets in it.
-- Timing, power and fault-injection side channels are out of scope.
-- The nine baseline schemes are represented by the paper's reported numbers, not re-implemented.
-- Conformance means agreement with our reading of Section III. Where the paper is silent (encodings, epochs, pseudonym
-  resolution) the choices are recorded in [`docs/conformance.md`](docs/conformance.md) and need the authors' confirmation.
+This is a research artefact, not production firmware. The file-based demo keystore is not a secure element. Conformance means agreement with our reading of the specification; only its authors can confirm that reading. Epoch semantics, windows, table choices, the adversary rate, authentication window and enrolment rule are our assumptions.
 
-The implementation follows the paper's **Section III nonce-based model**, not the
-replayable Section II algorithms. See [`docs/design.md`](docs/design.md).
+The network model is ours, not the base paper authors' simulation. Saturated latencies depend on those assumptions. Probes use the base paper's Table III constant, with no hardware timings reported. CR and MW change M1 and are modelled at the resolution level only. The TM parameters are one point of its trade-off curve.
 
-## Authors
+Verification is symbolic only and assumes perfect primitives. Q4 needs replay state; the implementation's replay window is tested, with a stateful proof left to future work. Clock epochs permit linking sessions in the same epoch. Counter epochs can permanently desynchronise. Rekeying remains a stub and coverage is an abstract predicate.
 
-Department of Information Technology,
-[Vivekanand Education Society's Institute of Technology (VESIT)](https://vesit.ves.ac.in/), Mumbai, India.
+## Third-party material
 
-Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar.
-Project guide: Dr. Shanta Sondur.
+Closed third-party papers, including the base paper, are not redistributed. The [reference access catalogue](docs/references/README.md) provides citations, publisher links and document-level access evidence. Four openly licensed references are tracked under their own licences.
 
 ## Citation
 
-See [`CITATION.cff`](CITATION.cff). Please also cite the source paper above.
+```bibtex
+@unpublished{kerkar2026pseudonym,
+  title = {Pseudonym Resolution and Formal Verification of an Unlinkable Two-Message IoT Authentication Protocol},
+  author = {Kerkar, Jay and Kelkar, Chaitanya and Poornamath, Chirag and Kolekar, Yash and Sondur, Shanta},
+  year = {2026},
+  note = {Department of Information Technology, Vivekanand Education Society's Institute of Technology, Mumbai},
+  url = {https://github.com/jaykerkar0405/hybrid-ecc-iot-auth}
+}
+```
 
-## License
+Software metadata and the preferred manuscript citation are in [CITATION.cff](CITATION.cff). Cite the base paper too.
 
-Apache License 2.0. See [`LICENSE`](LICENSE) and [`NOTICE`](NOTICE).
+## Authors and licence
+
+Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Dr. Shanta Sondur (project guide / mentor), in paper order. All are affiliated with the Department of Information Technology, Vivekanand Education Society's Institute of Technology (VESIT), Mumbai.
+
+Copyright 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur. Software is licensed under [Apache-2.0](LICENSE); see [NOTICE](NOTICE). VESIT is the affiliation and is not claimed as a copyright owner.

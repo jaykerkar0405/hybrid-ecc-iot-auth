@@ -1,5 +1,5 @@
 hybrid-ecc-auth
-Copyright 2026 the project contributors.
+Copyright 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur.
 
 Licensed under the Apache License, Version 2.0 (see LICENSE).
 
@@ -12,10 +12,7 @@ the mutual authentication protocol described in:
   Consumer Electronics, vol. 72, no. 2, pp. 4483-4491, May 2026.
   DOI: 10.1109/TCE.2026.3662053
 
-A copy of the paper is included for reference at docs/references/base_paper.pdf
-under fair-use/academic-reference terms; it is not covered by this
-project's Apache-2.0 license and all rights remain with IEEE and the
-original authors. This project is not affiliated with, endorsed by, or
+This project is not affiliated with, endorsed by, or
 reviewed by the paper's authors or IEEE.
 
 Third-party dependencies (cryptography, pytest, matplotlib, hypothesis,
