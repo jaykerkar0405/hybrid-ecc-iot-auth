@@ -12,7 +12,7 @@ vector_test: $(BEARSSL)/inc/bearssl.h vector_test.c ../lib/hea_proto/hea_proto.c
 
 # run the device core against the independent reference vectors
 check: vector_test
-	./vector_test ../../../python/hybrid_ecc_auth/tests/vectors/reference_vectors.txt
+	./vector_test ../../python/hybrid_ecc_auth/tests/vectors/reference_vectors.txt
 
 clean:
 	rm -f host_test vector_test

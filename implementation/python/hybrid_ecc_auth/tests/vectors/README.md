@@ -8,7 +8,7 @@ implementations must reproduce those values byte for byte:
 | Implementation | Check | Run |
 |---|---|---|
 | Python reference | `implementation/python/hybrid_ecc_auth/tests/unit/test_reference_vectors.py` | `pytest implementation/python/hybrid_ecc_auth/tests/unit/test_reference_vectors.py` |
-| C device core (ESP8266 port, built for the host) | `implementation/c/esp8266/host/vector_test.c` | `make -C implementation/c/esp8266/host check` |
+| C device core (ESP8266 port, built for the host) | `implementation/c/host/vector_test.c` | `make -C implementation/c/host check` |
 
 Regenerate with `python generate_reference_vectors.py`; `--check` fails if the committed
 files are stale. The generator first checks its own primitives against RFC 5869

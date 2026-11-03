@@ -30,7 +30,7 @@ The base column uses the specification's arithmetic value. The model without res
 | Paper contribution | Directory |
 |---|---|
 | Python exchange, resolvers and independent vectors | [implementation/python](implementation/python/hybrid_ecc_auth/) |
-| C device port, host checks and interop tool | [implementation/c](implementation/c/esp8266/) |
+| C device port, host checks and interop tool | [implementation/c](implementation/c/) |
 | Probe counts, cost model, lockout and ResolveNet | [evaluation/resolution](evaluation/resolution/) |
 | Symbolic models and committed logs | [evaluation/formal_verification](evaluation/formal_verification/) |
 | Manuscript, figure generator, figures and PDF | [paper](paper/) |
@@ -74,7 +74,7 @@ A successful session prints `Mutual authentication succeeded with 'server-A'.`, 
 
 ```sh
 pytest implementation/python/hybrid_ecc_auth/tests -q
-make -C implementation/c/esp8266/host check
+make -C implementation/c/host check
 ```
 
 Observed demo output (fingerprint and times are examples from one run):
@@ -97,9 +97,9 @@ Run from the repository root with the environment above active. The full probe s
 
    ```sh
    pytest implementation/python/hybrid_ecc_auth/tests -q --cov=hybrid_ecc_auth.protocol --cov=hybrid_ecc_auth.crypto --cov-report=term-missing --cov-fail-under=90
-   make -C implementation/c/esp8266/host check
-   make -C implementation/c/esp8266/host
-   python implementation/c/esp8266/tools/interop.py -n 5
+   make -C implementation/c/host check
+   make -C implementation/c/host
+   python implementation/c/tools/interop.py -n 5
    ```
 
 2. Probe counts and the cost model; this rewrites the CSV and summary files. Peer secrets use OS randomness, so TM measurements vary; preserve the committed data when reproducing the published figures:
@@ -135,7 +135,7 @@ Committed results allow inspection without installing the simulator or verifier.
 ```text
 implementation/
   python/hybrid_ecc_auth/   crypto, protocol, storage, demo, tests and vectors
-  c/esp8266/               device core, Arduino sketch, host checks and tools
+  c/               device core, Arduino sketch, host checks and tools
 evaluation/
   resolution/              probe counts, cost model, desynchronisation, sim/
   formal_verification/     ProVerif models, runner and logs

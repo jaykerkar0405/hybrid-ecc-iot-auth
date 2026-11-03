@@ -10,14 +10,14 @@ manifest.json
 *.last_m1
 
 # firmware
-implementation/c/esp8266/include/config.h
-implementation/c/esp8266/.creds/
-implementation/c/esp8266/.pio/
-implementation/c/esp8266/host/.bearssl/
-implementation/c/esp8266/host/host_test
+implementation/c/include/config.h
+implementation/c/.creds/
+implementation/c/.pio/
+implementation/c/host/.bearssl/
+implementation/c/host/host_test
 
-# built by `make check` in implementation/c/esp8266/host
-implementation/c/esp8266/host/vector_test
+# built by `make check` in implementation/c/host
+implementation/c/host/vector_test
 
 # third-party papers: not redistributable, keep local only
 docs/references/*.pdf

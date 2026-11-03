@@ -11,7 +11,7 @@ adversarial test, **none** = no automated check.
 
 ## Equation-to-code matrix
 
-Python paths are relative to `implementation/python/hybrid_ecc_auth/`; C is `implementation/c/esp8266/lib/hea_proto/hea_proto.c` (device side only).
+Python paths are relative to `implementation/python/hybrid_ecc_auth/`; C is `implementation/c/lib/hea_proto/hea_proto.c` (device side only).
 
 | Eq. / rule | Python | C | Evidence |
 |---|---|---|---|

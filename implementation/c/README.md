@@ -10,13 +10,13 @@ Talks to the unmodified Python `Server` over the same framed-JSON TCP wire forma
 - Offline enrollment stays on the laptop (P-256/TA math is not run on the chip); the board gets λ_device and λ_server.
 
 ## Verify without hardware
-    make -C implementation/c/esp8266/host
-    python implementation/c/esp8266/tools/interop.py -n 20
+    make -C implementation/c/host
+    python implementation/c/tools/interop.py -n 20
 
 ## Run on the board
-    python implementation/c/esp8266/tools/gen_config.py --ssid <wifi> --server-host <mac-lan-ip>   # writes include/config.h (gitignored)
+    python implementation/c/tools/gen_config.py --ssid <wifi> --server-host <mac-lan-ip>   # writes include/config.h (gitignored)
     pio run -t upload && pio device monitor                                                  # 115200 baud
-    python implementation/c/esp8266/tools/interop.py --listen                              # in another terminal
+    python implementation/c/tools/interop.py --listen                              # in another terminal
 Compare the `fp=` session-key fingerprints printed by the board and by the server.
 If you restart the server, send `z` over serial to reset the device epoch to 0.
 

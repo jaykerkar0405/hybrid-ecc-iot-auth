@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """Run the project's real Python Server and drive the C device against it.
 
-  python implementation/c/esp8266/tools/interop.py            # native C client (no hardware)
-  python implementation/c/esp8266/tools/interop.py --listen   # just serve; point the ESP8266 at it
+  python implementation/c/tools/interop.py            # native C client (no hardware)
+  python implementation/c/tools/interop.py --listen   # just serve; point the ESP8266 at it
 
 Both modes print the session-key fingerprint the Python server derived, so it
 can be compared with the fingerprint the C device prints."""
 import argparse, hashlib, json, os, socket, subprocess, sys, tempfile, threading
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[4]
+ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / "implementation/python"))
 from hybrid_ecc_auth.demo import _transport
 from hybrid_ecc_auth.protocol.errors import AuthenticationError
@@ -57,7 +57,7 @@ def main():
     ap.add_argument("--master-hex", default=None, help="reuse a TA master secret (hex); default: random")
     a = ap.parse_args()
 
-    saved = ROOT / "implementation/c/esp8266/.creds/master.hex"
+    saved = ROOT / "implementation/c/.creds/master.hex"
     if a.master_hex:
         master = bytes.fromhex(a.master_hex)
     elif a.listen and saved.exists():
@@ -78,7 +78,7 @@ def main():
     if a.listen:
         print(f"[server] listening on :{a.port}; device {DEVICE!r} lam={lam_d}\n         server lam={lam_s}", flush=True)
         threading.Event().wait()
-    binary = ROOT / "implementation/c/esp8266/host/host_test"
+    binary = ROOT / "implementation/c/host/host_test"
     out = subprocess.run([str(binary), lam_d, lam_s, SERVER, "127.0.0.1", str(a.port), str(a.n)],
                          capture_output=True, text=True)
     print(out.stdout, end="")

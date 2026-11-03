@@ -32,4 +32,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: C device core against the independent reference vectors
-        run: make -C implementation/c/esp8266/host check
+        run: make -C implementation/c/host check
