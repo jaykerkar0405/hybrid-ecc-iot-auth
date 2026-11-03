@@ -17,7 +17,7 @@ The methodology follows the order in which each result depends on the previous o
 Each phase serves one of the objectives of Section~1.3, and every number reported later can be regenerated from the repository.
 
 \section{Requirement Gathering}
-The project is a research study of a published protocol, so its requirements were gathered by \emph{document analysis} rather than by surveys or interviews. The team studied the base paper~\cite{base} equation by equation (Eqs.~8--24, Tables~II--VI) and recorded, for every equation, the code that implements it and the evidence that checks it (the equation-to-code matrix in \texttt{docs/conformance.md}). Every decision that the paper does not fix (epoch semantics, search window, failure threshold, nonce length, persistence of the epoch) was written into an \emph{assumption register} together with its basis. The RFID literature reviewed in Chapter~2 supplied the candidate resolution strategies and their known costs. Requirements were refined through review meetings with the project guide \flag{F6}.
+The project is a research study of a published protocol, so its requirements were gathered by \emph{document analysis} rather than by surveys or interviews. The team studied the base paper~\cite{base} equation by equation (Eqs.~8--24, Tables~II--VI) and recorded, for every equation, the code that implements it and the evidence that checks it (the equation-to-code matrix in \texttt{docs/conformance.md}). Every decision that the paper does not fix (epoch semantics, search window, failure threshold, nonce length, persistence of the epoch) was written into an \emph{assumption register} together with its basis. The RFID literature reviewed in Chapter~2 supplied the candidate resolution strategies and their known costs. Requirements were refined through review meetings with the project guide.
 
 \subsection{Functional Requirements}
 \begin{enumerate}[label=FR-\arabic*]
@@ -191,33 +191,41 @@ The network evaluation follows the paper's conditions and changes only the resol
 For formal verification, the exchange is modelled in ProVerif~2.05~\cite{proverif} in the symbolic model with an active attacker, with unbounded servers, honest and corrupt devices and sessions. The server may resolve a pseudonym to \emph{any} enrolled device and must then decrypt and check $PID=H_2(\lambda_V\|t)$, so every property that holds, holds for every resolver that returns a correct device. Unlinkability is checked as observational equivalence~\cite{blanchet08} in the style of~\cite{arapinis}.
 
 \section{Gantt chart for Timeline}\label{sec:gantt}
-Figure~\ref{fig:gantt} shows the project schedule. The bars are taken from the dates of the corresponding commits in the project repository (first and last commit of each activity). \flag{F10}
+Figure~\ref{fig:gantt} reconstructs the project schedule from the team's account and the confirmed academic milestones. The base paper became available on 6 February 2026. The Semester~VI work covered literature review, understanding the specification and environment setup, particularly between Reviews~6.1 and~6.2. The implementation and evaluation were completed during the interval between Reviews~7.1 and~7.2. Activity bars show approximate month-level periods; the internal allocation of implementation, simulation, verification and writing is retrospective, rather than a record of exact start and finish dates. The dated milestones are confirmed by the team. Repository commit dates are not used as activity dates.
 
 \begin{figure}[H]
 \centering
-\resizebox{\textwidth}{!}{%
 \begin{ganttchart}[
-  time slot format=isodate,
-  x unit=0.118cm, y unit chart=0.66cm, y unit title=0.55cm,
-  bar height=0.55, bar/.append style={fill=blue!45, draw=blue!60!black},
+  x unit=0.81cm, y unit chart=0.48cm, y unit title=0.48cm,
+  hgrid, vgrid,
+  bar height=0.48, bar/.append style={fill=blue!35, draw=blue!60!black},
   milestone/.append style={fill=orange!80!black, draw=orange!50!black},
-  bar label font=\footnotesize, milestone label font=\footnotesize\itshape,
+  bar label font=\scriptsize, milestone label font=\scriptsize,
+  bar label node/.append style={text width=5.1cm, align=right},
+  milestone label node/.append style={text width=5.1cm, align=right},
   title label font=\scriptsize\bfseries, title height=1,
-  today=2026-11-03, today label={\scriptsize 3 Nov}, today rule/.style={draw=red!70, dashed}
-]{2026-08-24}{2026-11-08}
-\gantttitlecalendar{month=name} \\
-\ganttbar{Base-paper study, requirements (PRD)}{2026-08-25}{2026-08-30} \\
-\ganttbar{Literature survey}{2026-08-26}{2026-08-30} \\
-\ganttbar{Python implementation, containers}{2026-08-26}{2026-08-27} \\
-\ganttmilestone{Review 7.1 presentation}{2026-08-30} \\
-\ganttbar{Deployment experiments (AWS)}{2026-09-27}{2026-10-02} \\
-\ganttbar{C device core, ESP8266 firmware, benchmarks}{2026-10-02}{2026-10-06} \\
-\ganttbar{Cost-table audit, baseline replication}{2026-10-02}{2026-10-29} \\
-\ganttbar{Reference vectors, conformance matrix, CI}{2026-10-30}{2026-10-30} \\
-\ganttmilestone{Resolution study, OMNeT++, ProVerif, paper}{2026-11-03} \\
-\ganttbar{Artefact clean-up and release}{2026-11-03}{2026-11-03}
-\end{ganttchart}}
-\caption{Gantt chart of the project timeline (from repository commit dates)}
+  title list options={var=\x}
+]{1}{10}
+\gantttitle{2026 --- approximate activity periods}{10} \\
+\gantttitlelist{Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov}{1} \\
+\ganttmilestone{Base paper available: 6 Feb}{1} \\
+\ganttbar{Initial study and synopsis preparation}{1}{2} \\
+\ganttmilestone{Synopsis submitted: 5 Mar}{2} \\
+\ganttmilestone{Review 6.1: 17 Mar}{2} \\
+\ganttbar{Literature, protocol study and setup}{2}{3} \\
+\ganttmilestone{Review 6.2: 15 Apr}{3} \\
+\ganttmilestone{Logbook and attendance report: 28 Apr}{3} \\
+\ganttmilestone{Review 7.1: 21 Aug}{7} \\
+\ganttbar{Python protocol core and demo}{7}{8} \\
+\ganttbar{C port and tests on two ESP8266 boards}{8}{9} \\
+\ganttbar{Resolvers and probe measurements}{8}{9} \\
+\ganttbar{OMNeT++ network evaluation}{9}{9} \\
+\ganttbar{ProVerif models and analysis}{9}{9} \\
+\ganttbar{Conformance tests, results and paper}{8}{9} \\
+\ganttmilestone{Review 7.2: 27 Oct}{9} \\
+\ganttbar{Report preparation and final documentation}{9}{10}
+\end{ganttchart}
+\caption{Retrospective Gantt chart: approximate activity periods and confirmed milestones. Blank months carry no inferred activity dates.}
 \label{fig:gantt}
 \end{figure}
 
@@ -445,31 +453,35 @@ Figure~\ref{fig:dfd0} is the context-level (level~0) DFD: the system exchanges e
 \end{figure}
 
 \subsection{Timeline Chart}
-The Gantt chart above shows activities and their durations; Figure~\ref{fig:timeline} instead shows the project's milestones, i.e.\ the dates on which each deliverable became available in the repository.
+Figure~\ref{fig:timeline} lists the confirmed milestones supplied by the team. Unlike the activity bars in Figure~\ref{fig:gantt}, these dates are not estimates and do not depend on repository history. The events are spaced for readability, not in proportion to elapsed time.
 
 \begin{figure}[H]
 \centering
-\resizebox{\textwidth}{!}{%
-\begin{tikzpicture}[font=\scriptsize, >=Stealth]
-\draw[very thick, ->] (0,0) -- (14.4,0);
-\fill[orange!80!black] (0.3,0) circle (2.2pt);
-\draw (0.3,0) -- (0.3,0.55); \node[above, align=center] at (0.3,0.55) {\textbf{25 Aug}\\ Repository, base paper\\and PRD};
-\fill[orange!80!black] (1.2,0) circle (2.2pt);
-\draw (1.2,0) -- (1.2,-0.55); \node[below, align=center] at (1.2,-0.55) {\textbf{30 Aug}\\ Review 7.1\\presentation};
-\fill[orange!80!black] (4.9,0) circle (2.2pt);
-\draw (4.9,0) -- (4.9,0.55); \node[above, align=center] at (4.9,0.55) {\textbf{27 Sep}\\ AWS demo\\set-up};
-\fill[orange!80!black] (5.6,0) circle (2.2pt);
-\draw (5.6,0) -- (5.6,-0.55); \node[below, align=center] at (5.6,-0.55) {\textbf{2 Oct}\\ ESP8266 firmware,\\C core, benchmarks};
-\fill[orange!80!black] (7.6,0) circle (2.2pt);
-\draw (7.6,0) -- (7.6,0.55); \node[above, align=center] at (7.6,0.55) {\textbf{20 Oct}\\ Baseline replication,\\first OMNeT++ model};
-\fill[orange!80!black] (8.9,0) circle (2.2pt);
-\draw (8.9,0) -- (8.9,-0.55); \node[below, align=center] at (8.9,-0.55) {\textbf{26 Oct}\\ Replication merged\\(PR \#1)};
-\fill[orange!80!black] (10.7,0) circle (2.2pt);
-\draw (10.7,0) -- (10.7,0.55); \node[above, align=center] at (10.7,0.55) {\textbf{30 Oct}\\ Independent vectors,\\conformance, CI};
-\fill[orange!80!black] (12.9,0) circle (2.2pt);
-\draw (12.9,0) -- (12.9,-0.55); \node[below, align=center] at (12.9,-0.55) {\textbf{3 Nov}\\ Resolution study, ProVerif,\\final paper, release (PR \#16)};
-\end{tikzpicture}}
-\caption{Timeline chart of project milestones (2026)}
+\begin{tikzpicture}[font=\small, >=Stealth]
+\draw[very thick, ->] (0,0.6) -- (0,-8.2);
+\fill[orange!80!black] (0,-0.0) circle (2.5pt);
+\node[left, align=right] at (-0.2,-0.0) {\textbf{6 February}};
+\node[right, text width=8.7cm, align=left] at (0.3,-0.0) {Base paper published};
+\fill[orange!80!black] (0,-1.2) circle (2.5pt);
+\node[left, align=right] at (-0.2,-1.2) {\textbf{5 March}};
+\node[right, text width=8.7cm, align=left] at (0.3,-1.2) {Synopsis submitted};
+\fill[orange!80!black] (0,-2.4) circle (2.5pt);
+\node[left, align=right] at (-0.2,-2.4) {\textbf{17 March}};
+\node[right, text width=8.7cm, align=left] at (0.3,-2.4) {Review 6.1};
+\fill[orange!80!black] (0,-3.6) circle (2.5pt);
+\node[left, align=right] at (-0.2,-3.6) {\textbf{15 April}};
+\node[right, text width=8.7cm, align=left] at (0.3,-3.6) {Review 6.2};
+\fill[orange!80!black] (0,-4.8) circle (2.5pt);
+\node[left, align=right] at (-0.2,-4.8) {\textbf{28 April}};
+\node[right, text width=8.7cm, align=left] at (0.3,-4.8) {Semester VI logbook and attendance report prepared};
+\fill[orange!80!black] (0,-6.0) circle (2.5pt);
+\node[left, align=right] at (-0.2,-6.0) {\textbf{21 August}};
+\node[right, text width=8.7cm, align=left] at (0.3,-6.0) {Review 7.1};
+\fill[orange!80!black] (0,-7.2) circle (2.5pt);
+\node[left, align=right] at (-0.2,-7.2) {\textbf{27 October}};
+\node[right, text width=8.7cm, align=left] at (0.3,-7.2) {Review 7.2};
+\end{tikzpicture}
+\caption{Confirmed project milestones in 2026 (spacing not to scale)}
 \label{fig:timeline}
 \end{figure}
 
@@ -483,12 +495,14 @@ The Gantt chart above shows activities and their durations; Figure~\ref{fig:time
 \begin{tabularx}{\textwidth}{|p{0.27\textwidth}|X|p{0.17\textwidth}|}
 \hline
 \textbf{Component} & \textbf{Specification / use} & \textbf{Status}\\ \hline
-Development computers & Laptops of the team members, used for development, measurement, OMNeT++ and ProVerif runs, and as the server in the demonstration. \flag{F11} & Already available\\ \hline
+Team development laptop & Apple MacBook Pro (14-inch, 2023), Apple M2 Pro, 16\,GB unified memory, macOS. Model specifications include 200\,GB/s memory bandwidth and a 14.2-inch Liquid Retina XDR display (3024\,$\times$\,1964 pixels)~\cite{apple}. & Already available\\ \hline
 Machine used for this report's re-runs & 12th Gen Intel Core i5-12500H, 16 logical CPUs, 15\,GiB RAM, Linux 6.18 (tests, C vector check, interoperability, desynchronisation, probe sweep and figure generation) & Already available\\ \hline
-ESP8266 development board (NodeMCU) & Device side of the protocol in C; 80\,MHz stock clock (160\,MHz selectable), Wi-Fi, no hardware cryptography; epoch persisted to flash. Optional: the port can be verified without hardware through the host build. \flag{F7} & Additionally required\\ \hline
+ESP8266 development boards (NodeMCU), two units & Two team-owned boards were used to test the device-side C firmware: 80\,MHz stock clock (160\,MHz selectable), Wi-Fi, no hardware cryptography; epoch persisted to flash. The host build also checks the port without hardware. & Already owned; \rupee\,0 additional cost\\ \hline
 Network & Wi-Fi access point / LAN connecting the board and the server laptop & Already available\\ \hline
 \end{tabularx}
 \end{table}
+
+The laptop model, chip and memory were confirmed by the team. The exact CPU/GPU configuration, SSD capacity and installed macOS version were not recorded, so configuration-specific values are not inferred from Apple's available options. The Linux machine listed separately is the environment recorded for this report's re-runs.
 
 \section{Software Requirements}
 \begin{table}[H]
@@ -525,15 +539,15 @@ Git, GitHub, GitHub Actions & Version control, code review through pull requests
 \begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{0.06\textwidth}|p{0.18\textwidth}|X|p{0.17\textwidth}|}
 \hline
 \textbf{Sr. No.} & \textbf{Item / Resource} & \textbf{Description} & \textbf{Estimated Cost (\rupee)}\\ \hline
-1 & Hardware & Team laptops (existing resource); ESP8266 NodeMCU board(s) for the device demonstration & Laptops: existing; board(s): \flag{F7}\\ \hline
+1 & Hardware & Existing team laptops and two already-owned ESP8266 NodeMCU boards used for testing & \rupee\,0 additional cost\\ \hline
 2 & Software / Tools & Python and libraries, GCC, BearSSL, PlatformIO, ProVerif, OMNeT++ (free for academic use), \LaTeX & \rupee\,0 (free/open-source)\\ \hline
-3 & Cloud / Hosting & GitHub repository and GitHub Actions (free tier). An AWS instance used in an earlier experiment is not part of the final evaluation. \flag{F8} & \rupee\,0 for the final work; AWS: \flag{F8}\\ \hline
+3 & Repository / CI & GitHub repository and GitHub Actions (free tier) & \rupee\,0\\ \hline
 4 & APIs / Services & None used & \rupee\,0\\ \hline
-5 & Other Expenses & Publication or conference fees, printing and binding of this report & \flag{F9}\\ \hline
- & \textbf{Total Estimated Cost} & & \flag{F9}\\ \hline
+5 & Other Expenses & Publication or conference fees, printing and binding of this report & \textit{To be confirmed}\\ \hline
+ & \textbf{Total Estimated Cost} & & \textit{To be confirmed}\\ \hline
 \end{tabularx}
 \end{table}
-The estimate follows the department's instructions: resources that were already available (the team's laptops and the network) are listed as existing resources with no purchase cost, and all software is free or open source and is listed at \rupee\,0. The only project-specific purchase is the ESP8266 development board used to run the device side of the protocol on real hardware; the study itself (measurement, simulation and verification) needs no paid resource. No recurring expense is incurred for the final work.
+The estimate follows the department's instructions: resources that were already available (the team's laptops and the network) are listed as existing resources with no purchase cost, and all software is free or open source and is listed at \rupee\,0. Both ESP8266 boards were already owned by the team, so no board purchase was required. The confirmed additional cost of the development and evaluation resources is zero. Publication, printing and binding expenses, and therefore the overall estimated total, remain to be confirmed.
 
 \section{Conclusion}
-This chapter set out a methodology in which every phase builds on a checked result: the protocol is implemented from Section~III of~\cite{base} and pinned down with independent vectors; the need for resolution is derived from the specification alone; seven strategies drawn from RFID private identification are implemented with closed-form costs; their probe counts are measured, validated and priced under the paper's own constants in an OMNeT++ model of its network; and the security properties are checked in ProVerif. Requirements were gathered by analysing the specification and recorded in a conformance matrix and an assumption register. The layered architecture separates primitives, protocol logic, storage, transport and evaluation, so that resolvers can be exchanged without touching the protocol. All software is free, the hardware already existed apart from an inexpensive development board, and the schedule was met, which provides a sound foundation for the implementation and results in the next chapter.
+This chapter set out a methodology in which every phase builds on a checked result: the protocol is implemented from Section~III of~\cite{base} and pinned down with independent vectors; the need for resolution is derived from the specification alone; seven strategies drawn from RFID private identification are implemented with closed-form costs; their probe counts are measured, validated and priced under the paper's own constants in an OMNeT++ model of its network; and the security properties are checked in ProVerif. Requirements were gathered by analysing the specification and recorded in a conformance matrix and an assumption register. The layered architecture separates primitives, protocol logic, storage, transport and evaluation, so that resolvers can be exchanged without touching the protocol. All software is free or available for academic use, and the laptops and both development boards were already owned. The retrospective schedule records the confirmed milestones and approximate activity periods, providing context for the implementation and results in the next chapter.

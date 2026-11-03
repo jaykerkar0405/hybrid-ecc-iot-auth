@@ -6,9 +6,10 @@
 %  Build (from this folder):  xelatex main && xelatex main && xelatex main
 %  Fonts are bundled in fonts/: Gelasio (metric-compatible with Georgia) and
 %  Liberation Serif (metric-compatible with Times New Roman), both SIL OFL.
-%  Every number in this report comes from the repository at commit e21993a
+%  Evaluation numbers come from the repository at commit e21993a
 %  (paper/, evaluation/, implementation/) or from the runs logged in results/.
-%  Items marked \flag{...} are listed in flags.md and must be resolved.
+%  Project milestones and hardware details were confirmed by the team.
+%  Pending attachments and expenses are marked directly in the report.
 % ============================================================================
 % Fallback for TeX installations without Latin Modern OpenType (harmless elsewhere):
 % the class selects its default font before fontspec is loaded.
@@ -72,9 +73,6 @@
 \counterwithin{figure}{chapter}
 \counterwithin{table}{chapter}
 \numberwithin{equation}{chapter}
-
-\definecolor{flagred}{RGB}{200,0,0}
-\newcommand{\flag}[1]{\textcolor{flagred}{\textbf{[FLAG #1]}}}
 
 \lstset{
   basicstyle=\ttfamily\footnotesize,
@@ -208,12 +206,12 @@ AY (2026-27)\par}
 \includegraphics[width=\textwidth]{images/ves_banner.png}\par\vspace{4pt}
 {\georgia\bfseries\itshape\fontsize{20}{24}\selectfont Certificate\par}\vspace{10pt}
 This is to certify that project entitled\\
-{\georgia\bfseries\fontsize{13}{16}\selectfont ``\ProjectTitle''\par}\vspace{16pt}
+{\georgia\bfseries\fontsize{13}{16}\selectfont \ProjectTitle\par}\vspace{16pt}
 {\georgia\bfseries Group Members Names\par}
-\flag{F2} \StudentA{} (Roll No. \RollA)\\
-\flag{F2} \StudentB{} (Roll No. \RollB)\\
-\flag{F2} \StudentC{} (Roll No. \RollC)\\
-\flag{F2} \StudentD{} (Roll No. \RollD)\par\vspace{10pt}
+Mr.\ \StudentA{} (Roll No. \RollA)\\
+Mr.\ \StudentB{} (Roll No. \RollB)\\
+Mr.\ \StudentC{} (Roll No. \RollC)\\
+Mr.\ \StudentD{} (Roll No. \RollD)\par\vspace{10pt}
 In partial fulfilment of the Fourth Year (Sem. VI-Sem.VII), Bachelor of Engineering (B.E.) Degree in Information Technology at the University of Mumbai\par\vspace{10pt}
 Academic Year 2026-27
 \end{center}
@@ -222,7 +220,7 @@ Academic Year 2026-27
 \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}cc@{}}
 \GuideName & External Examiner\\
 Project Mentor & \\[0.55in]
-Dr.(Mrs.)Shalu Chopra & Dr.(Mrs.)J.M. Nair\\
+Dr.\ (Mrs.)\ Shalu Chopra & Dr.\ (Mrs.)\ J.\ M.\ Nair\\
 H.O.D & Principal\\
 \end{tabular*}}
 \vspace{0.5in}
@@ -259,7 +257,7 @@ Lightweight authentication protocols for the Internet of Things (IoT) often hide
 
 % ============================== ACKNOWLEDGEMENT ==============================
 \prelimtitle[\upshape]{ACKNOWLEDGEMENT}
-The project report on ``\ProjectTitle'' is the outcome of the guidance, moral support and devotion bestowed on our group throughout our work. For this we acknowledge and express our profound sense of gratitude to everybody who has been the source of inspiration throughout project preparation. First and foremost we offer our sincere thanks to Dr.(Mrs.) Shalu Chopra, Head of the Department of Information Technology, to \flag{F3}, Deputy Head of the Department, and to our project guide \GuideName, \flag{F4}, for their valuable inputs and the consistent guidance and support they provided. We also thank Vivekanand Education Society's Institute of Technology for providing a stimulating atmosphere and a conducive work environment.
+The project report on ``\ProjectTitle'' is the outcome of the guidance, moral support and devotion bestowed on our group throughout our work. For this we acknowledge and express our profound sense of gratitude to everybody who has been the source of inspiration throughout project preparation. First and foremost we offer our sincere thanks to Dr.\ (Mrs.)\ Shalu Chopra, Head of the Department of Information Technology, to Dr.\ Manoj Sabnis, Deputy Head of the Department, and to our project guide \GuideName, Professor, for their valuable inputs and the consistent guidance and support they provided. We also thank Vivekanand Education Society's Institute of Technology for providing a stimulating atmosphere and a conducive work environment.
 
 \vspace{0.8in}
 \noindent\sigblock{\StudentA{} (\RollA)}\hfill\sigblock{\StudentB{} (\RollB)}\\[0.7in]
