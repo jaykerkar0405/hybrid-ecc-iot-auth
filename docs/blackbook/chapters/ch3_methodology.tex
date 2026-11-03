@@ -495,14 +495,14 @@ Figure~\ref{fig:timeline} lists the confirmed milestones supplied by the team. U
 \begin{tabularx}{\textwidth}{|p{0.27\textwidth}|X|p{0.17\textwidth}|}
 \hline
 \textbf{Component} & \textbf{Specification / use} & \textbf{Status}\\ \hline
-Team development laptop & Apple MacBook Pro (14-inch, 2023), Apple M2 Pro, 16\,GB unified memory, macOS. Model specifications include 200\,GB/s memory bandwidth and a 14.2-inch Liquid Retina XDR display (3024\,$\times$\,1964 pixels)~\cite{apple}. & Already available\\ \hline
+Development and evaluation laptop & Apple MacBook Pro (14-inch, 2023), identifier \texttt{Mac14,9}, model \texttt{MPHE3HN/A}. Apple M2 Pro: 10-core CPU (6 performance + 4 efficiency), 16-core GPU, 16\,GB unified memory, 512\,GB-class SSD. Model specifications include 200\,GB/s memory bandwidth and a 14.2-inch Liquid Retina XDR display (3024\,$\times$\,1964 pixels)~\cite{apple}. Used for the original OMNeT++ and ProVerif runs. & Already available\\ \hline
 Machine used for this report's re-runs & 12th Gen Intel Core i5-12500H, 16 logical CPUs, 15\,GiB RAM, Linux 6.18 (tests, C vector check, interoperability, desynchronisation, probe sweep and figure generation) & Already available\\ \hline
 ESP8266 development boards (NodeMCU), two units & Two team-owned boards were used to test the device-side C firmware: 80\,MHz stock clock (160\,MHz selectable), Wi-Fi, no hardware cryptography; epoch persisted to flash. The host build also checks the port without hardware. & Already owned; \rupee\,0 additional cost\\ \hline
 Network & Wi-Fi access point / LAN connecting the board and the server laptop & Already available\\ \hline
 \end{tabularx}
 \end{table}
 
-The laptop model, chip and memory were confirmed by the team. The exact CPU/GPU configuration, SSD capacity and installed macOS version were not recorded, so configuration-specific values are not inferred from Apple's available options. The Linux machine listed separately is the environment recorded for this report's re-runs.
+The team confirmed the configuration directly from the MacBook and confirmed that the same machine was used for the original OMNeT++ and ProVerif runs. Its current operating system is macOS~26.6.2 (build \texttt{25G83}). The 512\,GB-class SSD is reported by macOS as a 494.4\,GB container, with approximately 460\,GiB shown for the root filesystem; these are capacity-reporting values for the same drive. The Linux machine listed separately is the environment used for this report's re-runs.
 
 \section{Software Requirements}
 \begin{table}[H]
@@ -514,7 +514,7 @@ The laptop model, chip and memory were confirmed by the team. The exact CPU/GPU 
 \begin{tabularx}{\textwidth}{|p{0.27\textwidth}|X|}
 \hline
 \textbf{Software} & \textbf{Version and purpose}\\ \hline
-Operating system & Linux or macOS (CI runs on Ubuntu)\\ \hline
+Operating system & MacBook current configuration: macOS~26.6.2 (build \texttt{25G83}); report re-runs: Linux~6.18; CI: Ubuntu\\ \hline
 Python & 3.11 or newer (CI: 3.11 and 3.12; this report's re-runs: 3.14.9); reference implementation, measurement and figure scripts\\ \hline
 \texttt{cryptography} & $\geq$\,41.0 (50.0.2 in the re-runs): AES-256-GCM, HKDF-SHA256, SHA-256, P-256\\ \hline
 pytest, pytest-cov, Hypothesis & Unit, property and adversarial tests; coverage gate of 90\%\\ \hline

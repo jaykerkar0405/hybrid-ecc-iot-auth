@@ -12,7 +12,15 @@ Black Book for _Pseudonym Resolution and Formal Verification of an Unlinkable Tw
 | `fonts/`    | Gelasio (Georgia-compatible) and Liberation Serif/Mono (Times/Courier-compatible), SIL OFL    |
 | `results/`  | Logs of the runs made for this report (tests, C vectors, interop, desync, probe sweep, demo)  |
 
-Publication documents, the plagiarism report and final expenses remain marked as pending in the report.
+The hardware section records the confirmed MacBook configuration used for the original OMNeT++ and ProVerif runs, separately from the Linux machine used for the report's re-runs.
+
+The remaining submission details are:
+
+- Publication venue and submission/acceptance details, the final paper and the presentation certificate when available.
+- The plagiarism report.
+- Publication, printing and binding expenses, and the overall estimated total.
+- Copyright application and registration details when available; the codebase's application is being prepared.
+- Certificate completion: external examiner's name, date, place, signatures and college seal, as required by the department.
 
 ## Build
 

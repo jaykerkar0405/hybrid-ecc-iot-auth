@@ -93,6 +93,8 @@ Expected test results: `125 passed` and `15 checks, 0 failed`.
 
 Run from the repository root with the environment above active. The full probe sweep takes about three minutes; the OMNeT++ sweep about ten seconds in the original environment. Every ProVerif model finishes in under one second there. Actual times depend on the machine.
 
+The team confirms that the original OMNeT++ and ProVerif runs used a 14-inch MacBook Pro (2023; Mac14,9, MPHE3HN/A), with an Apple M2 Pro, a 10-core CPU (6 performance + 4 efficiency), a 16-core GPU, 16 GB unified memory and a 512 GB-class SSD. Its current OS is macOS 26.6.2 (build 25G83).
+
 1. Unit, property, adversarial and Python vector tests, then the C vectors and interoperability:
 
    ```sh
