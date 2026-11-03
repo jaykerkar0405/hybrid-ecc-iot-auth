@@ -1,0 +1,16 @@
+ok    epoch0: pairwise root k*
+ok    epoch0: M1 wire bytes (PID, C1, mu_1)
+ok    epoch0: epoch advanced after M1
+ok    epoch0: M2 accepted, session key K
+ok    epoch0: tampered M2 ciphertext rejected
+ok    epoch0: tampered M2 tag rejected
+ok    epoch0: tampered M2 IV rejected
+ok    epoch3: pairwise root k*
+ok    epoch3: M1 wire bytes (PID, C1, mu_1)
+ok    epoch3: epoch advanced after M1
+ok    epoch3: M2 accepted, session key K
+ok    epoch3: tampered M2 ciphertext rejected
+ok    epoch3: tampered M2 tag rejected
+ok    epoch3: tampered M2 IV rejected
+ok    replay: M2 of another session rejected
+15 checks, 0 failed

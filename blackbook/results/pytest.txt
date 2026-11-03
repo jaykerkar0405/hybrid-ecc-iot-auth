@@ -1,0 +1,26 @@
+........................................................................ [ 57%]
+.....................................................                    [100%]
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.14.9-final-0 ________________
+
+Name                                                           Stmts   Miss  Cover   Missing
+--------------------------------------------------------------------------------------------
+implementation/python/hybrid_ecc_auth/crypto/__init__.py           0      0   100%
+implementation/python/hybrid_ecc_auth/crypto/aead.py              22      1    95%   52
+implementation/python/hybrid_ecc_auth/crypto/curve.py             13      0   100%
+implementation/python/hybrid_ecc_auth/crypto/hashes.py            18      0   100%
+implementation/python/hybrid_ecc_auth/crypto/kdf.py                6      0   100%
+implementation/python/hybrid_ecc_auth/crypto/nonce.py              8      0   100%
+implementation/python/hybrid_ecc_auth/protocol/__init__.py         0      0   100%
+implementation/python/hybrid_ecc_auth/protocol/device.py          73      4    95%   65, 104, 147-148
+implementation/python/hybrid_ecc_auth/protocol/entity.py          35      0   100%
+implementation/python/hybrid_ecc_auth/protocol/errors.py           9      0   100%
+implementation/python/hybrid_ecc_auth/protocol/login_gate.py      18      0   100%
+implementation/python/hybrid_ecc_auth/protocol/messages.py        54      3    94%   100, 109-110
+implementation/python/hybrid_ecc_auth/protocol/rekey.py            3      0   100%
+implementation/python/hybrid_ecc_auth/protocol/resolution.py     242     12    95%   94, 115, 173, 212, 215, 266, 270, 312, 318, 360, 365, 373
+implementation/python/hybrid_ecc_auth/protocol/server.py          56      3    95%   50, 100-101
+implementation/python/hybrid_ecc_auth/protocol/ta.py              47      1    98%   114
+--------------------------------------------------------------------------------------------
+TOTAL                                                            604     24    96%
+125 passed in 1.65s

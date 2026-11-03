@@ -1,0 +1,15 @@
+[server] accepted esp8266-001 from 127.0.0.1 fp=ce1fc453f175529e
+[server] accepted esp8266-001 from 127.0.0.1 fp=64a16244598cb0c8
+[server] accepted esp8266-001 from 127.0.0.1 fp=711572f764f5cbd1
+[server] accepted esp8266-001 from 127.0.0.1 fp=f477f3c76b98bfc6
+[server] accepted esp8266-001 from 127.0.0.1 fp=9f478232c437650c
+[server] rejected ReplayDetected: pseudonym for 'esp8266-001' reuses stale epoch 4
+RESULT ok epoch=0 m1_bytes=216 fp=ce1fc453f175529e
+RESULT ok epoch=1 m1_bytes=216 fp=64a16244598cb0c8
+RESULT ok epoch=2 m1_bytes=216 fp=711572f764f5cbd1
+RESULT ok epoch=3 m1_bytes=216 fp=f477f3c76b98bfc6
+RESULT ok epoch=4 m1_bytes=216 fp=9f478232c437650c
+RESULT replay rc=-1 ReplayDetected: pseudonym for 'esp8266-001' reuses stale epoch 4
+RESULT summary ok=5/5
+session keys agree for 5/5 handshakes: True
+server rejected replay: ('rejected', 'ReplayDetected')
