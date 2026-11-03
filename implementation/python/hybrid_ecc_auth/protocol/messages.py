@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 """Wire-format (de)serialization for M1/M2, with a versioned schema.
 
 The protocol core is transport-agnostic: this

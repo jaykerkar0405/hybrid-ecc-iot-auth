@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 """Device-side state machine (FR-5): builds M1 (Eq. 12-15) and verifies M2
 (Eq. 17-19), deriving the ephemeral session key (Eq. 16) on success.
 

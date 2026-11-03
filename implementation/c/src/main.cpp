@@ -1,3 +1,5 @@
+// Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+// SPDX-License-Identifier: Apache-2.0
 // ESP8266 (NodeMCU) device for the hybrid ECC + symmetric-key mutual
 // authentication protocol. Protocol core: lib/hea_proto (portable C + BearSSL).
 //

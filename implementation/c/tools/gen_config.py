@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 """Enroll the device + server with the project's offline TA and write
 include/config.h for the firmware. Secrets stay out of git (config.h and
 .creds/ are gitignored). Wi-Fi password comes from $WIFI_PASS or a prompt.

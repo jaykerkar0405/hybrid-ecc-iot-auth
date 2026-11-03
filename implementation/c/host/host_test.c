@@ -1,3 +1,5 @@
+// Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+// SPDX-License-Identifier: Apache-2.0
 /* Native build of the ESP8266 protocol core, used to prove byte-compatibility
  * with the Python server without hardware.
  * usage: host_test <lam_dev_hex> <lam_srv_hex> <server_id> <host> <port> <n> */

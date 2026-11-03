@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 """FR-1.2: Hash function wrappers H1, H2, H3 -- SHA-256 (paper's
 "Instantiation Notes": H_{1,2,3} via SHA-256).
 

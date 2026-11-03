@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 """Shared base for Device and Server (Section III model).
 
 Holds: the TA-issued credential, the pluggable coverage predicate (FR-7),

@@ -1,3 +1,5 @@
+(* Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+   SPDX-License-Identifier: Apache-2.0 *)
 (* Shared declarations: the Section III exchange of Al-Rasheed et al., IEEE TCE 72(2), 2026 (Eqs. 8-20).
    Our model, not the authors'. Symbolic (Dolev-Yao) primitives:
      kdf_root  Eq. 9   k* = KDF(lambda_V || lambda_R)

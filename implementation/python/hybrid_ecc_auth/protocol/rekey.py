@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 """FR-8.1 / NG5: stub interface for Eq. 24 TA-assisted periodic rekeying.
 
 k*_ij^(u+1) = KDF(k*_ij^(u) || H3(u))

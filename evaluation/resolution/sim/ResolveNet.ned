@@ -1,3 +1,5 @@
+// Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+// SPDX-License-Identifier: Apache-2.0
 // Re-implementation (ours, NOT the code of the BASE authors) of the BASE Table II environment in plain OMNeT++ (no INET, no SUMO).
 // Copy of evaluation/resolution/sim/AuthNet.ned with a pluggable pseudonym-resolution cost (evaluation/resolution).
 

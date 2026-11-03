@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 """FR-6: Login Phase (optional, togglable pre-authentication gate).
 
 Implements the Section II-B login check -- MAC address + H_D = h(MAC_D ||

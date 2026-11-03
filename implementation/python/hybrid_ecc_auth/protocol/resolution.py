@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 """Server-side pseudonym resolution strategies.
 
 The base paper (Al-Rasheed et al., Sec. III, Eq. 11) has the device send

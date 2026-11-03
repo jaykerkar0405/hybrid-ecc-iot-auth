@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 """Nonce/pseudonym replay-window bookkeeping (SEC-01) and the block-list for
 repeatedly failing entities (Section II "maximum of three attempts",
 FR-5.6, SEC-05). Shared by both Device and Server -- the paper describes

@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 """Required adversarial test cases (SEC-01..SEC-08).
 
 The adversary model (base paper Section III-M) is a PPT

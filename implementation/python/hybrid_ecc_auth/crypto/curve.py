@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 """FR-1.1: Elliptic curve group -- NIST P-256 (secp256r1) via `cryptography`.
 
 Satisfies the paper's abstract group description (F_q, E/F_q, G) of prime

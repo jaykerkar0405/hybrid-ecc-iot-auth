@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 """FR-2: Offline Registration (Trusted Authority phase).
 
 Mirrors the paper's Section II offline/registration phase and Section IV-A

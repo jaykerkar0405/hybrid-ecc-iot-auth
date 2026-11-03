@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 """FR-1.3: HKDF-SHA256 (RFC 5869) wrapper for Eq. 9, Eq. 16, and Eq. 24."""
 
 from __future__ import annotations

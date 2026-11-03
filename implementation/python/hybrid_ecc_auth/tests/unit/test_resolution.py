@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 """Pseudonym-resolution strategies (protocol/resolution.py): every strategy
 must authenticate honest devices through the full Section III exchange,
 reject replays, and spend exactly the probes its closed form predicts."""

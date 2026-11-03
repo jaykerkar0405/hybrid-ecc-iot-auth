@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+# SPDX-License-Identifier: Apache-2.0
 """FR-1.5: CSPRNG nonce generation, ell = 128 bits by default (configurable
 to 192/256 per Section III-K), for the protocol's freshness nonces N_i, N_j.
 """
