@@ -21,3 +21,10 @@ firmware/esp8266/host/prim_bench
 
 # built by `make check` in firmware/esp8266/host
 firmware/esp8266/host/vector_test
+
+# third-party papers: not redistributable, keep local only
+docs/references/*.pdf
+!docs/references/das_2015_biometric-authentication.pdf
+!docs/references/hasan_2023_kerberos-authentication.pdf
+!docs/references/ma_2024_blockchain-iov-authentication.pdf
+!docs/references/xie_2014_roaming-authentication.pdf
