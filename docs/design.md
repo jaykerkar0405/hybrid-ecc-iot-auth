@@ -1,6 +1,6 @@
 # Protocol design notes
 
-Design decisions, architecture and paper-to-code traceability for the Python reference implementation (`implementation/python/hybrid_ecc_auth/`). Source paper: Al-Rasheed et al., *IEEE Transactions on Consumer Electronics*, vol. 72, no. 2, May 2026 (DOI: 10.1109/TCE.2026.3662053).
+Design decisions, architecture and paper-to-code traceability for the Python reference implementation (`implementation/python/hybrid_ecc_auth/`). Source paper: Al-Rasheed et al., _IEEE Transactions on Consumer Electronics_, vol. 72, no. 2, May 2026 (DOI: 10.1109/TCE.2026.3662053).
 
 ## Design decision: Section III, not Section II
 
@@ -22,7 +22,7 @@ close to the paper's notation (`PID`, `C1`, `mu1`, `C2`, `sigma2`,
 (Eq. 8-23) -- see [Symbol-to-code traceability](#symbol-to-code-traceability).
 
 The Section II-B login check (MAC + `H_D = h(MAC_D || PWD)`) is still
-implemented, but as an *optional*, disabled-by-default pre-check
+implemented, but as an _optional_, disabled-by-default pre-check
 (`protocol/login_gate.py`) that can run before the Section III exchange,
 not as the security boundary itself.
 
@@ -71,9 +71,9 @@ tracks epoch **per peer relationship** (`Device._epoch: dict[peer_id,
 int]`), not as one global counter, so that `Server.resolve_pseudonym`'s
 bounded search window (`storage/session_log.py`) -- which starts at "never
 seen" for each peer independently -- stays valid even when a device talks
-to multiple servers. Trade-off: two different servers' *first* contact
+to multiple servers. Trade-off: two different servers' _first_ contact
 with the same device both observe `PID = H2(lambda_Vi, 0)`; only
-cross-session linkability *within* one peer relationship is defended
+cross-session linkability _within_ one peer relationship is defended
 against, which matches the scope of the paper's own unlinkability sketch
 (Section III-D). See the docstring in `protocol/device.py` for detail.
 
@@ -91,19 +91,20 @@ against, which matches the scope of the paper's own unlinkability sketch
   `Server.resolve_pseudonym` uses a constant-time compare per candidate
   (`hmac.compare_digest`) to avoid a trivial per-comparison timing leak,
   but the search loop itself is not constant-time across peers.
+
 ## Symbol-to-code traceability
 
-| Paper symbol | Eq. | Code reference |
-|---|---|---|
-| `lambda_X` | 8 | `protocol/ta.py :: derive_long_term_secret` |
-| `k*_ij` | 9 | `protocol/entity.py :: derive_pairwise_root` (cached via `Entity.get_pairwise_root`, FR-3.2) |
-| `cov_ij(t)` | 10 | `protocol/entity.py :: Entity.coverage_predicate` / `Entity.coverage_ok` |
-| `PID_{Vi,t}` | 11 | `protocol/device.py :: Device.current_pseudonym` (uses `crypto/hashes.py :: h2_pseudonym`) |
-| `N_i, C1, mu_1, M1` | 12-15 | `protocol/device.py :: Device.build_auth_request` |
-| `K_{ij,t}` | 16 | `protocol/entity.py :: derive_session_key` (called from both `device.py` and `server.py`) |
-| `sigma_2, C2, M2` | 17-19 | `protocol/server.py :: Server.handle_auth_request` |
-| Correctness (Eq. 20) | 20 | `tests/property/test_session_key_agreement.py` |
-| `Allow_ij(t)` | 23 | `protocol/entity.py :: Entity.access_control_gate` |
-| Rekey (v2 stub) | 24 | `protocol/rekey.py` (raises `NotImplementedError` in v1) |
+| Paper symbol         | Eq.   | Code reference                                                                               |
+| -------------------- | ----- | -------------------------------------------------------------------------------------------- |
+| `lambda_X`           | 8     | `protocol/ta.py :: derive_long_term_secret`                                                  |
+| `k*_ij`              | 9     | `protocol/entity.py :: derive_pairwise_root` (cached via `Entity.get_pairwise_root`, FR-3.2) |
+| `cov_ij(t)`          | 10    | `protocol/entity.py :: Entity.coverage_predicate` / `Entity.coverage_ok`                     |
+| `PID_{Vi,t}`         | 11    | `protocol/device.py :: Device.current_pseudonym` (uses `crypto/hashes.py :: h2_pseudonym`)   |
+| `N_i, C1, mu_1, M1`  | 12-15 | `protocol/device.py :: Device.build_auth_request`                                            |
+| `K_{ij,t}`           | 16    | `protocol/entity.py :: derive_session_key` (called from both `device.py` and `server.py`)    |
+| `sigma_2, C2, M2`    | 17-19 | `protocol/server.py :: Server.handle_auth_request`                                           |
+| Correctness (Eq. 20) | 20    | `tests/property/test_session_key_agreement.py`                                               |
+| `Allow_ij(t)`        | 23    | `protocol/entity.py :: Entity.access_control_gate`                                           |
+| Rekey (v2 stub)      | 24    | `protocol/rekey.py` (raises `NotImplementedError` in v1)                                     |
 
 SEC-xx and FR-xx identifiers in tests are historical labels for security properties and functional checks; they do not refer to a separate requirements deliverable.

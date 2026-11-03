@@ -3,37 +3,37 @@
 [![Licence: Apache-2.0](https://img.shields.io/badge/licence-Apache--2.0-blue)](LICENSE)
 [![Python: 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)](pyproject.toml)
 
-Implementation, models and data for *Pseudonym Resolution and Formal Verification of an Unlinkable Two-Message IoT Authentication Protocol* ([paper PDF](paper/main.pdf)). The server must identify an incoming pseudonym before it can perform a cryptographic check. The protocol specification leaves that resolution step and its cost open. This work compares seven resolution strategies, measures their probe counts, prices them in an OMNeT++ network model, demonstrates counter desynchronisation, and checks secrecy, agreement and unlinkability symbolically.
+Implementation, models and data for _Pseudonym Resolution and Formal Verification of an Unlinkable Two-Message IoT Authentication Protocol_ ([paper PDF](paper/main.pdf)). The server must identify an incoming pseudonym before it can perform a cryptographic check. The protocol specification leaves that resolution step and its cost open. This work compares seven resolution strategies, measures their probe counts, prices them in an OMNeT++ network model, demonstrates counter desynchronisation, and checks secrecy, agreement and unlinkability symbolically.
 
 ## Paper
 
 **Pseudonym Resolution and Formal Verification of an Unlinkable Two-Message IoT Authentication Protocol**. Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Dr. Shanta Sondur (project guide / mentor), 2026. Department of Information Technology, Vivekanand Education Society's Institute of Technology (VESIT), Mumbai. Unpublished manuscript; [source](paper/main.tex).
 
-The specification is Amal Al-Rasheed, Rahim Khan, Aftab Ahmad, Aamir Saeed, Fahad Alturise and Salem Alkhalaf, “A Low-Cost Hybrid Elliptic Curve Cryptography Authentication Protocol for Trustworthy Internet of Things Communication,” *IEEE Transactions on Consumer Electronics*, 72(2), 4483–4491, May 2026, [doi:10.1109/TCE.2026.3662053](https://doi.org/10.1109/TCE.2026.3662053). This work is independent of and not affiliated with the base paper's authors or IEEE. It takes the two-message protocol as its specification and does not re-evaluate the other results of that paper.
+The specification is Amal Al-Rasheed, Rahim Khan, Aftab Ahmad, Aamir Saeed, Fahad Alturise and Salem Alkhalaf, “A Low-Cost Hybrid Elliptic Curve Cryptography Authentication Protocol for Trustworthy Internet of Things Communication,” _IEEE Transactions on Consumer Electronics_, 72(2), 4483–4491, May 2026, [doi:10.1109/TCE.2026.3662053](https://doi.org/10.1109/TCE.2026.3662053). This work is independent of and not affiliated with the base paper's authors or IEEE. It takes the two-message protocol as its specification and does not re-evaluate the other results of that paper.
 
 ## Key results
 
-| Contribution | Result reported in the paper |
-|---|---|
-| Independent conformance vectors | Python and C: 15 checks each |
-| Resolution strategies | O1–O4, TM, CR and MW; measured probes checked against closed forms |
-| Network evaluation | 960 OMNeT++ runs; base column at N=1: 23.68 ms for every strategy |
-| Table strategy at N=1000 | O2: 24.4 ms with 5% adversaries |
-| On-demand counter scan | About 44 s at N=1000 with 5% adversaries |
-| Counter desynchronisation | Permanent lockout after eight dropped M1 messages |
-| ProVerif 2.05 | Q1–Q3 and Q5 true; Q4 false without replay state; forward secrecy false; U1 counter unlinkability true; U2 clock unlinkability fails |
+| Contribution                    | Result reported in the paper                                                                                                         |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Independent conformance vectors | Python and C: 15 checks each                                                                                                         |
+| Resolution strategies           | O1–O4, TM, CR and MW; measured probes checked against closed forms                                                                   |
+| Network evaluation              | 960 OMNeT++ runs; base column at N=1: 23.68 ms for every strategy                                                                    |
+| Table strategy at N=1000        | O2: 24.4 ms with 5% adversaries                                                                                                      |
+| On-demand counter scan          | About 44 s at N=1000 with 5% adversaries                                                                                             |
+| Counter desynchronisation       | Permanent lockout after eight dropped M1 messages                                                                                    |
+| ProVerif 2.05                   | Q1–Q3 and Q5 true; Q4 false without replay state; forward secrecy false; U1 counter unlinkability true; U2 clock unlinkability fails |
 
 The base column uses the specification's arithmetic value. The model without resolution gives 23.86 ms at N=1 and 24.07 ms at N=1000 because it includes airtime and quantisation.
 
 ## What is in this repository
 
-| Paper contribution | Directory |
-|---|---|
-| Python exchange, resolvers and independent vectors | [implementation/python](implementation/python/hybrid_ecc_auth/) |
-| C device port, host checks and interop tool | [implementation/c](implementation/c/) |
-| Probe counts, cost model, lockout and ResolveNet | [evaluation/resolution](evaluation/resolution/) |
-| Symbolic models and committed logs | [evaluation/formal_verification](evaluation/formal_verification/) |
-| Manuscript, figure generator, figures and PDF | [paper](paper/) |
+| Paper contribution                                 | Directory                                                         |
+| -------------------------------------------------- | ----------------------------------------------------------------- |
+| Python exchange, resolvers and independent vectors | [implementation/python](implementation/python/hybrid_ecc_auth/)   |
+| C device port, host checks and interop tool        | [implementation/c](implementation/c/)                             |
+| Probe counts, cost model, lockout and ResolveNet   | [evaluation/resolution](evaluation/resolution/)                   |
+| Symbolic models and committed logs                 | [evaluation/formal_verification](evaluation/formal_verification/) |
+| Manuscript, figure generator, figures and PDF      | [paper](paper/)                                                   |
 
 ## Quick start
 
