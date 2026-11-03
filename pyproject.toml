@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=68", "wheel"]
+requires = ["setuptools>=77.0.3", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -8,10 +8,21 @@ version = "1.0.0"
 description = "Reference implementation of a hybrid ECC + symmetric-key mutual authentication protocol for IoT (proof-of-concept, not production)."
 readme = "README.md"
 requires-python = ">=3.11"
-license = { text = "Apache-2.0" }
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+authors = [
+    { name = "Jay Kerkar" },
+    { name = "Chaitanya Kelkar" },
+    { name = "Chirag Poornamath" },
+    { name = "Yash Kolekar" },
+    { name = "Shanta Sondur" },
+]
 dependencies = [
     "cryptography>=41.0",
 ]
+
+[project.urls]
+Repository = "https://github.com/jaykerkar0405/hybrid-ecc-iot-auth"
 
 [project.optional-dependencies]
 dev = [

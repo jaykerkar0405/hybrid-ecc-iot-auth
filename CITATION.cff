@@ -8,7 +8,7 @@ version: 1.0.0
 date-released: "2026-11-03"
 repository-code: https://github.com/jaykerkar0405/hybrid-ecc-iot-auth
 license: Apache-2.0
-authors: &id001
+authors:
   - family-names: Kerkar
     given-names: Jay
     affiliation:
@@ -45,7 +45,32 @@ preferred-citation:
   title:
     Pseudonym Resolution and Formal Verification of an Unlinkable Two-Message
     IoT Authentication Protocol
-  authors: *id001
+  authors:
+    - family-names: Kerkar
+      given-names: Jay
+      affiliation:
+        Department of Information Technology, Vivekanand Education Society's
+        Institute of Technology (VESIT), Mumbai
+    - family-names: Kelkar
+      given-names: Chaitanya
+      affiliation:
+        Department of Information Technology, Vivekanand Education Society's
+        Institute of Technology (VESIT), Mumbai
+    - family-names: Poornamath
+      given-names: Chirag
+      affiliation:
+        Department of Information Technology, Vivekanand Education Society's
+        Institute of Technology (VESIT), Mumbai
+    - family-names: Kolekar
+      given-names: Yash
+      affiliation:
+        Department of Information Technology, Vivekanand Education Society's
+        Institute of Technology (VESIT), Mumbai
+    - family-names: Sondur
+      given-names: Shanta
+      affiliation:
+        Department of Information Technology, Vivekanand Education Society's
+        Institute of Technology (VESIT), Mumbai
   year: 2026
   institution:
     name:
