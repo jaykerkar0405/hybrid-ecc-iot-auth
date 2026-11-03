@@ -79,7 +79,7 @@ class Device(Entity):
         # contact with server B" -- only cross-session linkability *within*
         # one peer relationship is defended against (Section III-D's
         # unlinkability sketch is scoped to repeated observations of the
-        # same conversation). Documented per PRD Section 12's flagged
+        # same conversation). See docs/design.md for the
         # epoch/clock-drift implementation decision.
         self._epoch: dict[str, int] = {}
         # Optional clock epochs (our option, not the paper's): a callable

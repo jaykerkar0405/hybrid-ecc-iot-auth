@@ -7,11 +7,11 @@ mutual authentication exchange (protocol/device.py, protocol/server.py).
 This is deliberately kept separate from, and disabled by default relative
 to, the core authentication phase: the source paper treats login and
 mutual authentication as sequential phases, and the design decision
-documented in the PRD is to rely on Section III's nonce-based exchange
+documented in docs/design.md is to rely on Section III's nonce-based exchange
 (with fresh N_i/N_j per session) as the actual security boundary. The
 login gate's static H_D is not refreshed per session and is therefore not
-a replay-resistant credential on its own -- see the PRD's "Design
-decision" callout.
+a replay-resistant credential on its own -- see the "Design decision"
+section in docs/design.md.
 """
 
 from __future__ import annotations

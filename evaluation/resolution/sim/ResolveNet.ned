@@ -16,7 +16,7 @@ simple Core
         // --- scheme under test (generated from the paper tables by scripts/gen_omnet_ini.py) ---
         string scheme = default("unset");
         int nMessages = default(4);               // messages per session
-        int bitsTotal;                            // bits on air per session (BASE Table IV total)
+        int bitsTotal;                            // bits on air per session (the base paper's Table IV total)
         double deviceProcMs;                      // device compute per session
         double serverProcMs;                      // server compute per session
         bool pseudonymLookup = default(false);    // proposed scheme only: server scans N_s x W pseudonyms

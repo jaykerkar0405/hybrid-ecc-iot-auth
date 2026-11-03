@@ -1,4 +1,4 @@
-"""hea-server: runnable server process (PRD Section 4.2, step 2).
+"""hea-server: runnable server process.
 
 Loads a credential bundle written by `hea-ta enroll` and listens for
 framed authentication requests over TCP, handling them one connection at a

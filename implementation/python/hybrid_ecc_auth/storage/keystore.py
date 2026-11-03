@@ -1,6 +1,6 @@
 """Local, demo-grade credential storage.
 
-NON-PRODUCTION CAVEAT (PRD Section 7.3): this is file-based storage
+Non-production caveat: this is file-based storage
 protected only by OS-level file permissions (0600 on POSIX). It is NOT
 equivalent to a hardware security module or secure element and MUST NOT be
 used to store real secrets.

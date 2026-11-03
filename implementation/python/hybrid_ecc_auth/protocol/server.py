@@ -64,8 +64,8 @@ class Server(Entity):
         and epoch. Delegates to the configured resolver; the default
         LinearScan probes every enrolled peer over its bounded epoch window
         with a constant-time compare per candidate (the search itself is
-        not constant-time across peers -- see PRD 7.3, timing side-channels
-        are out of scope for this PoC).
+        not constant-time across peers; timing side-channels are out of
+        scope for this PoC -- see docs/design.md).
         """
         return self.resolver.resolve(pid)
 

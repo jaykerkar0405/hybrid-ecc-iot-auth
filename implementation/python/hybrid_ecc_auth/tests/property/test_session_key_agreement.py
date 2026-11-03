@@ -1,6 +1,6 @@
 """Correctness invariant (Eq. 20): Pr[K_{ij,t}^(V) = K_{ij,t}^(R)] = 1.
 
-Non-functional requirement (PRD Section 8): verified in >= 10,000
+Non-functional requirement: verified in >= 10,000
 randomized trials with zero failures, across multiple device/server pairs
 and multiple simultaneous devices per server.
 """

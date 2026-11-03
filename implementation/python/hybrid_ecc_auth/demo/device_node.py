@@ -1,4 +1,4 @@
-"""hea-device: runnable device process (PRD Section 4.2, steps 3-4).
+"""hea-device: runnable device process.
 
 `authenticate` builds M1, sends it to a server, verifies M2, and on
 success prints the derived session key's fingerprint (never the raw key)

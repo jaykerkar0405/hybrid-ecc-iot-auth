@@ -1,6 +1,6 @@
-"""Required adversarial test cases (PRD Section 7.2, SEC-01..SEC-08).
+"""Required adversarial test cases (SEC-01..SEC-08).
 
-The adversary model (PRD Section 7.1 / paper Section III-M) is a PPT
+The adversary model (base paper Section III-M) is a PPT
 attacker that fully controls the channel -- eavesdrop, replay, drop,
 reorder, inject -- but cannot compromise the offline TA phase or extract
 lambda_X without physical/implementation-level compromise.

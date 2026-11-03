@@ -1,4 +1,4 @@
-"""hea-ta: offline TA provisioning CLI (PRD Section 4.2, step 1).
+"""hea-ta: offline TA provisioning CLI.
 
 Reads a manifest of entities to enroll, derives each lambda_X (Eq. 8) and
 the pairwise peer-key lists (Section II model, FR-3.1) entirely locally --
