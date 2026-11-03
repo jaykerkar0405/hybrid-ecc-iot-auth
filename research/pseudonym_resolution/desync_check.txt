@@ -1,0 +1,12 @@
+drops  prior_success  next three honest handshakes
+    6  False          ['ok', 'ok', 'ok']
+    7  False          ['ok', 'ok', 'ok']
+    8  False          ['UnknownPeerError', 'UnknownPeerError', 'UnknownPeerError']
+    9  False          ['UnknownPeerError', 'UnknownPeerError', 'UnknownPeerError']
+   12  False          ['UnknownPeerError', 'UnknownPeerError', 'UnknownPeerError']
+    6  True           ['ok', 'ok', 'ok']
+    7  True           ['ok', 'ok', 'ok']
+    8  True           ['UnknownPeerError', 'UnknownPeerError', 'UnknownPeerError']
+    9  True           ['UnknownPeerError', 'UnknownPeerError', 'UnknownPeerError']
+   12  True           ['UnknownPeerError', 'UnknownPeerError', 'UnknownPeerError']
+device restart after 3 successful handshakes: ReplayDetected

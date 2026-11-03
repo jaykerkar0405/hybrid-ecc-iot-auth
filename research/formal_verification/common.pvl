@@ -1,0 +1,26 @@
+(* Shared declarations: the Section III exchange of Al-Rasheed et al., IEEE TCE 72(2), 2026 (Eqs. 8-20).
+   Our model, not the authors'. Symbolic (Dolev-Yao) primitives:
+     kdf_root  Eq. 9   k* = KDF(lambda_V || lambda_R)
+     h2        Eq. 11  PID = H2(lambda_V || t)
+     aead      Eqs. 13-15, 17-18: authenticated encryption with associated data (one AES-GCM call each)
+     kdf_sess  Eq. 16  K = KDF(k* || N_i || N_j || t)
+   GCM IVs are abstracted away (each aead() output is a distinct term). *)
+
+free c: channel.
+
+type key.
+type nonce.
+type epoch.
+type id.
+
+const empty: bitstring.
+
+fun kdf_root(key, key): key.
+fun h2(key, epoch): bitstring.
+fun kdf_sess(key, nonce, nonce, epoch): key.
+fun aead(key, bitstring, bitstring): bitstring.
+reduc forall k: key, m: bitstring, ad: bitstring; open(k, aead(k, m, ad), ad) = m.
+
+(* Used only to test the secrecy of a derived session key. *)
+fun enc_test(key, bitstring): bitstring.
+reduc forall k: key, m: bitstring; dec_test(k, enc_test(k, m)) = m.

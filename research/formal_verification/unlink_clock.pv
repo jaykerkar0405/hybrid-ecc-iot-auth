@@ -1,0 +1,10 @@
+(* Unlinkability with clock epochs: the same two scenarios, but both sessions fall in the same epoch t, as with a
+   clock epoch longer than the gap between the sessions. Expected: the equivalence FAILS (equal pseudonyms). *)
+process
+  new idR: id; new lamR: key; out(c, idR);
+  new lamA: key; new lamB: key;
+  ( new t: epoch;
+    let kA = kdf_root(lamA, lamR) in let kB = kdf_root(lamB, lamR) in
+    ( Device(idR, lamA, kA, t)
+    | Device(idR, choice[lamA, lamB], choice[kA, kB], t)
+    | ! Server(idR, kA, kB) ) )

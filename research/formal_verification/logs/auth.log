@@ -1,0 +1,289 @@
+Process 0 (that is, the initial process):
+{1}!
+{2}new idR: id;
+{3}new lamR: key;
+{4}out(c, idR);
+(
+    {5}!
+    {6}let idR_1: id = idR in
+    {7}let lamR_1: key = lamR in
+    {8}new idV: id;
+    {9}new lamV: key;
+    {10}let k: key = kdf_root(lamV,lamR_1) in
+    {11}insert pairs(idV,idR_1,lamV,k,true);
+    {12}out(c, idV);
+    {13}!
+    {14}let idV_1: id = idV in
+    {15}let lamV_1: key = lamV in
+    {16}new t: epoch;
+    {17}new ni: nonce;
+    {18}let pid: bitstring = h2(lamV_1,t) in
+    {19}event DevStart(idV_1,idR_1,ni,t);
+    {20}out(c, (pid,aead(k,(pid,ni,t),empty)));
+    {21}in(c, (=idR_1,c2: bitstring));
+    {22}let (nj: nonce,=t) = open(k,c2,(pid,ni)) in
+    {23}let sk: key = kdf_sess(k,ni,nj,t) in
+    {24}event DevKey(idV_1,idR_1,ni,nj,t,sk);
+    {25}out(c, enc_test(sk,secretD))
+) | (
+    {26}!
+    {27}let idR_2: id = idR in
+    {28}let lamR_2: key = lamR in
+    {29}new idX: id;
+    {30}new lamX: key;
+    {31}let kx: key = kdf_root(lamX,lamR_2) in
+    {32}insert pairs(idX,idR_2,lamX,kx,false);
+    {33}out(c, (idX,lamX,kx))
+) | (
+    {34}!
+    {35}let idR_3: id = idR in
+    {36}in(c, (pid_1: bitstring,c1: bitstring));
+    {47}get pairs(idV_2: id,=idR_3,lamV_2: key,k_1: key,honest: bool) in
+    {37}let (=pid_1,ni_1: nonce,t_1: epoch) = open(k_1,c1,empty) in
+    {38}if (pid_1 = h2(lamV_2,t_1)) then
+    {39}new nj_1: nonce;
+    {40}let sk_1: key = kdf_sess(k_1,ni_1,nj_1,t_1) in
+    {41}if honest then
+        {42}event SrvAcceptM1(idV_2,idR_3,ni_1,t_1);
+        {43}event SrvKey(idV_2,idR_3,ni_1,nj_1,t_1,sk_1);
+        {44}out(c, (idR_3,aead(k_1,(nj_1,t_1),(pid_1,ni_1))));
+        {45}out(c, enc_test(sk_1,secretS))
+    else
+        {46}out(c, (idR_3,aead(k_1,(nj_1,t_1),(pid_1,ni_1))))
+)
+
+--  Process 1 (that is, process 0, with let moved downwards):
+{1}!
+{2}new idR: id;
+{3}new lamR: key;
+{4}out(c, idR);
+(
+    {5}!
+    {8}new idV: id;
+    {9}new lamV: key;
+    {7}let lamR_1: key = lamR in
+    {10}let k: key = kdf_root(lamV,lamR_1) in
+    {6}let idR_1: id = idR in
+    {11}insert pairs(idV,idR_1,lamV,k,true);
+    {12}out(c, idV);
+    {13}!
+    {16}new t: epoch;
+    {17}new ni: nonce;
+    {14}let idV_1: id = idV in
+    {19}event DevStart(idV_1,idR_1,ni,t);
+    {15}let lamV_1: key = lamV in
+    {18}let pid: bitstring = h2(lamV_1,t) in
+    {20}out(c, (pid,aead(k,(pid,ni,t),empty)));
+    {21}in(c, (=idR_1,c2: bitstring));
+    {22}let (nj: nonce,=t) = open(k,c2,(pid,ni)) in
+    {23}let sk: key = kdf_sess(k,ni,nj,t) in
+    {24}event DevKey(idV_1,idR_1,ni,nj,t,sk);
+    {25}out(c, enc_test(sk,secretD))
+) | (
+    {26}!
+    {29}new idX: id;
+    {30}new lamX: key;
+    {28}let lamR_2: key = lamR in
+    {31}let kx: key = kdf_root(lamX,lamR_2) in
+    {27}let idR_2: id = idR in
+    {32}insert pairs(idX,idR_2,lamX,kx,false);
+    {33}out(c, (idX,lamX,kx))
+) | (
+    {34}!
+    {36}in(c, (pid_1: bitstring,c1: bitstring));
+    {35}let idR_3: id = idR in
+    {47}get pairs(idV_2: id,=idR_3,lamV_2: key,k_1: key,honest: bool) in
+    {37}let (=pid_1,ni_1: nonce,t_1: epoch) = open(k_1,c1,empty) in
+    {38}if (pid_1 = h2(lamV_2,t_1)) then
+    {39}new nj_1: nonce;
+    {41}if honest then
+    (
+        {42}event SrvAcceptM1(idV_2,idR_3,ni_1,t_1);
+        {40}let sk_1: key = kdf_sess(k_1,ni_1,nj_1,t_1) in
+        {43}event SrvKey(idV_2,idR_3,ni_1,nj_1,t_1,sk_1);
+        {44}out(c, (idR_3,aead(k_1,(nj_1,t_1),(pid_1,ni_1))));
+        {45}out(c, enc_test(sk_1,secretS))
+    )
+    else
+        {46}out(c, (idR_3,aead(k_1,(nj_1,t_1),(pid_1,ni_1))))
+)
+
+-- Query not attacker(secretD[]) in process 1.
+Translating the process into Horn clauses...
+Completing...
+Starting query not attacker(secretD[])
+RESULT not attacker(secretD[]) is true.
+-- Query not attacker(secretS[]) in process 1.
+Translating the process into Horn clauses...
+Completing...
+Starting query not attacker(secretS[])
+RESULT not attacker(secretS[]) is true.
+-- Query event(SrvAcceptM1(v,r,ni_2,t_2)) ==> event(DevStart(v,r,ni_2,t_2)) in process 1.
+Translating the process into Horn clauses...
+Completing...
+Starting query event(SrvAcceptM1(v,r,ni_2,t_2)) ==> event(DevStart(v,r,ni_2,t_2))
+goal reachable: b-event(DevStart(idV_3,idR_4,ni_2,t_2)) -> event(SrvAcceptM1(idV_3,idR_4,ni_2,t_2))
+Abbreviations:
+idV_3 = idV[!2 = @sid,!1 = @sid_1]
+idR_4 = idR[!1 = @sid_1]
+ni_2 = ni[!3 = @sid_2,!2 = @sid,!1 = @sid_1]
+t_2 = t[!3 = @sid_2,!2 = @sid,!1 = @sid_1]
+RESULT event(SrvAcceptM1(v,r,ni_2,t_2)) ==> event(DevStart(v,r,ni_2,t_2)) is true.
+-- Query inj-event(SrvAcceptM1(v,r,ni_2,t_2)) ==> inj-event(DevStart(v,r,ni_2,t_2)) in process 1.
+Translating the process into Horn clauses...
+Completing...
+Starting query inj-event(SrvAcceptM1(v,r,ni_2,t_2)) ==> inj-event(DevStart(v,r,ni_2,t_2))
+goal reachable: @sid ≠ @sid_1 && b-inj-event(DevStart(idV_3,idR_4,ni_2,t_2),@occ19_1) -> inj-event(SrvAcceptM1(idV_3,idR_4,ni_2,t_2),@occ42_1) && inj-event(SrvAcceptM1(idV_3,idR_4,ni_2,t_2),@occ42_2)
+Abbreviations:
+idV_3 = idV[!2 = @sid_2,!1 = @sid_3]
+idR_4 = idR[!1 = @sid_3]
+ni_2 = ni[!3 = @sid_4,!2 = @sid_2,!1 = @sid_3]
+t_2 = t[!3 = @sid_4,!2 = @sid_2,!1 = @sid_3]
+lamV_3 = lamV[!2 = @sid_2,!1 = @sid_3]
+lamR_3 = lamR[!1 = @sid_3]
+@occ42_1 = @occ42[honest = true,k_1 = kdf_root(lamV_3,lamR_3),lamV_2 = lamV_3,idV_2 = idV_3,c1 = aead(kdf_root(lamV_3,lamR_3),(h2(lamV_3,t_2),ni_2,t_2),empty),pid_1 = h2(lamV_3,t_2),!2 = @sid,!1 = @sid_3]
+@occ42_2 = @occ42[honest = true,k_1 = kdf_root(lamV_3,lamR_3),lamV_2 = lamV_3,idV_2 = idV_3,c1 = aead(kdf_root(lamV_3,lamR_3),(h2(lamV_3,t_2),ni_2,t_2),empty),pid_1 = h2(lamV_3,t_2),!2 = @sid_1,!1 = @sid_3]
+@occ19_1 = @occ19[!3 = @sid_4,!2 = @sid_2,!1 = @sid_3]
+
+Derivation:
+Abbreviations:
+idV_3 = idV[!2 = @sid,!1 = @sid_1]
+idR_4 = idR[!1 = @sid_1]
+ni_2 = ni[!3 = @sid_2,!2 = @sid,!1 = @sid_1]
+t_2 = t[!3 = @sid_2,!2 = @sid,!1 = @sid_1]
+lamV_3 = lamV[!2 = @sid,!1 = @sid_1]
+lamR_3 = lamR[!1 = @sid_1]
+@occ42_1 = @occ42[honest = true,k_1 = kdf_root(lamV_3,lamR_3),lamV_2 = lamV_3,idV_2 = idV_3,c1 = aead(kdf_root(lamV_3,lamR_3),(h2(lamV_3,t_2),ni_2,t_2),empty),pid_1 = h2(lamV_3,t_2),!2 = @sid_3,!1 = @sid_1]
+@occ42_2 = @occ42[honest = true,k_1 = kdf_root(lamV_3,lamR_3),lamV_2 = lamV_3,idV_2 = idV_3,c1 = aead(kdf_root(lamV_3,lamR_3),(h2(lamV_3,t_2),ni_2,t_2),empty),pid_1 = h2(lamV_3,t_2),!2 = @sid_4,!1 = @sid_1]
+@occ19_1 = @occ19[!3 = @sid_2,!2 = @sid,!1 = @sid_1]
+
+1. The event DevStart(idV_3,idR_4,ni_2,t_2) (with occurrence name @occ19_1) may be executed at {19}.
+So the message (h2(lamV_3,t_2),aead(kdf_root(lamV_3,lamR_3),(h2(lamV_3,t_2),ni_2,t_2),empty)) may be sent to the attacker at output {20}.
+attacker((h2(lamV_3,t_2),aead(kdf_root(lamV_3,lamR_3),(h2(lamV_3,t_2),ni_2,t_2),empty))).
+
+2. By 1, the attacker may know (h2(lamV_3,t_2),aead(kdf_root(lamV_3,lamR_3),(h2(lamV_3,t_2),ni_2,t_2),empty)).
+Using the function 2-proj-2-tuple the attacker may obtain aead(kdf_root(lamV_3,lamR_3),(h2(lamV_3,t_2),ni_2,t_2),empty).
+attacker(aead(kdf_root(lamV_3,lamR_3),(h2(lamV_3,t_2),ni_2,t_2),empty)).
+
+3. By 1, the attacker may know (h2(lamV_3,t_2),aead(kdf_root(lamV_3,lamR_3),(h2(lamV_3,t_2),ni_2,t_2),empty)).
+Using the function 1-proj-2-tuple the attacker may obtain h2(lamV_3,t_2).
+attacker(h2(lamV_3,t_2)).
+
+4. By 3, the attacker may know h2(lamV_3,t_2).
+By 2, the attacker may know aead(kdf_root(lamV_3,lamR_3),(h2(lamV_3,t_2),ni_2,t_2),empty).
+Using the function 2-tuple the attacker may obtain (h2(lamV_3,t_2),aead(kdf_root(lamV_3,lamR_3),(h2(lamV_3,t_2),ni_2,t_2),empty)).
+attacker((h2(lamV_3,t_2),aead(kdf_root(lamV_3,lamR_3),(h2(lamV_3,t_2),ni_2,t_2),empty))).
+
+5. The entry pairs(idV_3,idR_4,lamV_3,kdf_root(lamV_3,lamR_3),true) may be inserted in a table at insert {11}.
+table(pairs(idV_3,idR_4,lamV_3,kdf_root(lamV_3,lamR_3),true)).
+
+6. The message (h2(lamV_3,t_2),aead(kdf_root(lamV_3,lamR_3),(h2(lamV_3,t_2),ni_2,t_2),empty)) that the attacker may have by 4 may be received at input {36}.
+The entry pairs(idV_3,idR_4,lamV_3,kdf_root(lamV_3,lamR_3),true) that may be in a table by 5 may be read at get {47}.
+So event SrvAcceptM1(idV_3,idR_4,ni_2,t_2) may be executed at {42} in session @sid_4.
+inj-event(SrvAcceptM1(idV_3,idR_4,ni_2,t_2),@occ42_2).
+
+7. By 6, inj-event(SrvAcceptM1(idV_3,idR_4,ni_2,t_2),@occ42_2).
+The goal is reached, represented in the following fact:
+inj-event(SrvAcceptM1(idV_3,idR_4,ni_2,t_2),@occ42_2).
+
+8. The message (h2(lamV_3,t_2),aead(kdf_root(lamV_3,lamR_3),(h2(lamV_3,t_2),ni_2,t_2),empty)) that the attacker may have by 4 may be received at input {36}.
+The entry pairs(idV_3,idR_4,lamV_3,kdf_root(lamV_3,lamR_3),true) that may be in a table by 5 may be read at get {47}.
+So event SrvAcceptM1(idV_3,idR_4,ni_2,t_2) may be executed at {42} in session @sid_3.
+inj-event(SrvAcceptM1(idV_3,idR_4,ni_2,t_2),@occ42_1).
+
+9. By 8, inj-event(SrvAcceptM1(idV_3,idR_4,ni_2,t_2),@occ42_1).
+The goal is reached, represented in the following fact:
+inj-event(SrvAcceptM1(idV_3,idR_4,ni_2,t_2),@occ42_1).
+
+10. By 9, inj-event(SrvAcceptM1(idV_3,idR_4,ni_2,t_2),@occ42_1).
+By 7, inj-event(SrvAcceptM1(idV_3,idR_4,ni_2,t_2),@occ42_2).
+We have @occ42_1 ≠ @occ42_2.
+The goals for injectivity are reached, combined in the following fact:
+inj-event(SrvAcceptM1(idV_3,idR_4,ni_2,t_2),@occ42_1) && inj-event(SrvAcceptM1(idV_3,idR_4,ni_2,t_2),@occ42_2).
+
+
+A more detailed output of the traces is available with
+  set traceDisplay = long.
+
+new idR: id creating idR_5 at {2} in copy a
+
+new lamR: key creating lamR_4 at {3} in copy a
+
+out(c, ~M) with ~M = idR_5 at {4} in copy a
+
+new idV: id creating idV_4 at {8} in copy a, a_1
+
+new lamV: key creating lamV_4 at {9} in copy a, a_1
+
+insert pairs(idV_4,idR_5,lamV_4,kdf_root(lamV_4,lamR_4),true) at {11} in copy a, a_1
+
+out(c, ~M_1) with ~M_1 = idV_4 at {12} in copy a, a_1
+
+new t: epoch creating t_3 at {16} in copy a, a_1, a_2
+
+new ni: nonce creating ni_3 at {17} in copy a, a_1, a_2
+
+event DevStart(idV_4,idR_5,ni_3,t_3) at {19} in copy a, a_1, a_2
+
+out(c, (~M_2,~M_3)) with ~M_2 = h2(lamV_4,t_3), ~M_3 = aead(kdf_root(lamV_4,lamR_4),(h2(lamV_4,t_3),ni_3,t_3),empty) at {20} in copy a, a_1, a_2
+
+in(c, (~M_2,~M_3)) with ~M_2 = h2(lamV_4,t_3), ~M_3 = aead(kdf_root(lamV_4,lamR_4),(h2(lamV_4,t_3),ni_3,t_3),empty) at {36} in copy a, a_3
+
+get pairs(idV_4,idR_5,lamV_4,kdf_root(lamV_4,lamR_4),true) at {47} in copy a, a_3
+
+new nj_1: nonce creating nj_2 at {39} in copy a, a_3
+
+event SrvAcceptM1(idV_4,idR_5,ni_3,t_3) at {42} in copy a, a_3 (goal)
+
+event SrvKey(idV_4,idR_5,ni_3,nj_2,t_3,kdf_sess(kdf_root(lamV_4,lamR_4),ni_3,nj_2,t_3)) at {43} in copy a, a_3
+
+out(c, (~M_4,~M_5)) with ~M_4 = idR_5, ~M_5 = aead(kdf_root(lamV_4,lamR_4),(nj_2,t_3),(h2(lamV_4,t_3),ni_3)) at {44} in copy a, a_3
+
+out(c, ~M_6) with ~M_6 = enc_test(kdf_sess(kdf_root(lamV_4,lamR_4),ni_3,nj_2,t_3),secretS) at {45} in copy a, a_3
+
+in(c, (~M_2,~M_3)) with ~M_2 = h2(lamV_4,t_3), ~M_3 = aead(kdf_root(lamV_4,lamR_4),(h2(lamV_4,t_3),ni_3,t_3),empty) at {36} in copy a, a_4
+
+get pairs(idV_4,idR_5,lamV_4,kdf_root(lamV_4,lamR_4),true) at {47} in copy a, a_4
+
+new nj_1: nonce creating nj_3 at {39} in copy a, a_4
+
+event SrvAcceptM1(idV_4,idR_5,ni_3,t_3) at {42} in copy a, a_4 (goal)
+
+The event SrvAcceptM1(idV_4,idR_5,ni_3,t_3) is executed at {42} in copy a, a_3.
+The event SrvAcceptM1(idV_4,idR_5,ni_3,t_3) is executed at {42} in copy a, a_4.
+A trace has been found.
+RESULT inj-event(SrvAcceptM1(v,r,ni_2,t_2)) ==> inj-event(DevStart(v,r,ni_2,t_2)) is false.
+RESULT (but event(SrvAcceptM1(v,r,ni_2,t_2)) ==> event(DevStart(v,r,ni_2,t_2)) is true.)
+-- Query inj-event(DevKey(v,r,ni_2,nj_2,t_2,k_2)) ==> inj-event(SrvKey(v,r,ni_2,nj_2,t_2,k_2)) in process 1.
+Translating the process into Horn clauses...
+Completing...
+Starting query inj-event(DevKey(v,r,ni_2,nj_2,t_2,k_2)) ==> inj-event(SrvKey(v,r,ni_2,nj_2,t_2,k_2))
+goal reachable: b-inj-event(SrvKey(idV_3,idR_4,ni_2,nj_2,t_2,kdf_sess(kdf_root(lamV_3,lamR_3),ni_2,nj_2,t_2)),@occ43_1) -> inj-event(DevKey(idV_3,idR_4,ni_2,nj_2,t_2,kdf_sess(kdf_root(lamV_3,lamR_3),ni_2,nj_2,t_2)),@occ24_1)
+The hypothesis occurs strictly before the conclusion.
+Abbreviations:
+idV_3 = idV[!2 = @sid,!1 = @sid_1]
+idR_4 = idR[!1 = @sid_1]
+ni_2 = ni[!3 = @sid_2,!2 = @sid,!1 = @sid_1]
+lamV_3 = lamV[!2 = @sid,!1 = @sid_1]
+lamR_3 = lamR[!1 = @sid_1]
+t_2 = t[!3 = @sid_2,!2 = @sid,!1 = @sid_1]
+nj_2 = nj_1[honest = true,k_1 = kdf_root(lamV_3,lamR_3),lamV_2 = lamV_3,idV_2 = idV_3,c1 = aead(kdf_root(lamV_3,lamR_3),(h2(lamV_3,t_2),ni_2,t_2),empty),pid_1 = h2(lamV_3,t_2),!2 = @sid_3,!1 = @sid_1]
+@occ24_1 = @occ24[c2 = aead(kdf_root(lamV_3,lamR_3),(nj_2,t_2),(h2(lamV_3,t_2),ni_2)),!3 = @sid_2,!2 = @sid,!1 = @sid_1]
+@occ43_1 = @occ43[honest = true,k_1 = kdf_root(lamV_3,lamR_3),lamV_2 = lamV_3,idV_2 = idV_3,c1 = aead(kdf_root(lamV_3,lamR_3),(h2(lamV_3,t_2),ni_2,t_2),empty),pid_1 = h2(lamV_3,t_2),!2 = @sid_3,!1 = @sid_1]
+RESULT inj-event(DevKey(v,r,ni_2,nj_2,t_2,k_2)) ==> inj-event(SrvKey(v,r,ni_2,nj_2,t_2,k_2)) is true.
+
+--------------------------------------------------------------
+Verification summary:
+
+Query not attacker(secretD[]) is true.
+
+Query not attacker(secretS[]) is true.
+
+Query event(SrvAcceptM1(v,r,ni_2,t_2)) ==> event(DevStart(v,r,ni_2,t_2)) is true.
+
+Query inj-event(SrvAcceptM1(v,r,ni_2,t_2)) ==> inj-event(DevStart(v,r,ni_2,t_2)) is false.
+
+Query inj-event(DevKey(v,r,ni_2,nj_2,t_2,k_2)) ==> inj-event(SrvKey(v,r,ni_2,nj_2,t_2,k_2)) is true.
+
+--------------------------------------------------------------
+

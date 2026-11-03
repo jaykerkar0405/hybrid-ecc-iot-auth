@@ -1,0 +1,69 @@
+(* Secrecy and authentication of the Section III exchange.
+   Unbounded servers, each with unboundedly many honest and corrupt enrolled devices and unboundedly many sessions.
+   A corrupt device's long-term secret and pairwise key are given to the attacker.
+   Epochs: every M1 uses a fresh epoch value (counter epochs that never repeat).
+   Resolution: the server may pick ANY enrolled device (get ... in), then must decrypt and check PID = H2(lambda_V || t).
+   So the results hold for every resolution method that returns a correct device. *)
+
+table pairs(id, id, key, key, bool).  (* device id, server id, lambda_V, k*, honest : written by the TA, offline *)
+
+free secretD, secretS: bitstring [private].
+
+event DevStart(id, id, nonce, epoch).
+event SrvAcceptM1(id, id, nonce, epoch).
+event SrvKey(id, id, nonce, nonce, epoch, key).
+event DevKey(id, id, nonce, nonce, epoch, key).
+
+(* Q1, Q2: session keys of honest pairs stay secret (device side, server side). *)
+query attacker(secretD).
+query attacker(secretS).
+(* Q3: when the server accepts M1 from an honest device, that device sent it (non-injective agreement on V, R, N_i, t). *)
+query v: id, r: id, ni: nonce, t: epoch; event(SrvAcceptM1(v, r, ni, t)) ==> event(DevStart(v, r, ni, t)).
+(* Q4: the same, injectively. Expected to FAIL without replay state: the model has no epoch window. *)
+query v: id, r: id, ni: nonce, t: epoch; inj-event(SrvAcceptM1(v, r, ni, t)) ==> inj-event(DevStart(v, r, ni, t)).
+(* Q5: when the device accepts M2, the server has derived the same key with the same nonces, injectively. *)
+query v: id, r: id, ni: nonce, nj: nonce, t: epoch, k: key;
+  inj-event(DevKey(v, r, ni, nj, t, k)) ==> inj-event(SrvKey(v, r, ni, nj, t, k)).
+
+let Device(idV: id, idR: id, lamV: key, k: key) =
+  new t: epoch; new ni: nonce;
+  let pid = h2(lamV, t) in
+  event DevStart(idV, idR, ni, t);
+  out(c, (pid, aead(k, (pid, ni, t), empty)));
+  in(c, (=idR, c2: bitstring));
+  let (nj: nonce, =t) = open(k, c2, (pid, ni)) in
+  let sk = kdf_sess(k, ni, nj, t) in
+  event DevKey(idV, idR, ni, nj, t, sk);
+  out(c, enc_test(sk, secretD)).
+
+let Server(idR: id) =
+  in(c, (pid: bitstring, c1: bitstring));
+  get pairs(idV: id, =idR, lamV: key, k: key, honest: bool) in
+  let (=pid, ni: nonce, t: epoch) = open(k, c1, empty) in
+  if pid = h2(lamV, t) then
+  new nj: nonce;
+  let sk = kdf_sess(k, ni, nj, t) in
+  if honest then (
+    event SrvAcceptM1(idV, idR, ni, t);
+    event SrvKey(idV, idR, ni, nj, t, sk);
+    out(c, (idR, aead(k, (nj, t), (pid, ni))));
+    out(c, enc_test(sk, secretS))
+  ) else
+    out(c, (idR, aead(k, (nj, t), (pid, ni)))).
+
+let Enrol(idR: id, lamR: key) =
+  new idV: id; new lamV: key;
+  let k = kdf_root(lamV, lamR) in
+  insert pairs(idV, idR, lamV, k, true);
+  out(c, idV);
+  ! Device(idV, idR, lamV, k).
+
+let EnrolCorrupt(idR: id, lamR: key) =
+  new idX: id; new lamX: key;
+  let kx = kdf_root(lamX, lamR) in
+  insert pairs(idX, idR, lamX, kx, false);
+  out(c, (idX, lamX, kx)).
+
+process
+  ! ( new idR: id; new lamR: key; out(c, idR);
+      ( (! Enrol(idR, lamR)) | (! EnrolCorrupt(idR, lamR)) | (! Server(idR)) ) )

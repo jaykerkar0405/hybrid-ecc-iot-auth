@@ -6,13 +6,11 @@ layout this module and device.py both implement.
 
 from __future__ import annotations
 
-import hmac
 from dataclasses import dataclass
 
 from cryptography.exceptions import InvalidTag
 
 from ..crypto import aead
-from ..crypto.hashes import h2_pseudonym
 from ..crypto.nonce import DEFAULT_NONCE_BITS, generate_nonce
 from ..storage.session_log import SessionLog
 from .entity import Entity, derive_session_key
@@ -24,6 +22,7 @@ from .errors import (
     UnknownPeerError,
 )
 from .messages import Message1, Message2
+from .resolution import LinearScan, Resolver
 
 
 @dataclass(frozen=True)
@@ -43,6 +42,7 @@ class Server(Entity):
         max_attempts: int = 3,
         forward_tolerance: int = 8,
         replay_lookback: int = 16,
+        resolver: Resolver | None = None,
     ):
         if credential.role != "server":
             raise ValueError(f"Server requires a credential with role='server', got {credential.role!r}")
@@ -53,24 +53,21 @@ class Server(Entity):
             forward_tolerance=forward_tolerance,
             replay_lookback=replay_lookback,
         )
+        # Pseudonym resolution is not specified by the base paper; the
+        # default LinearScan is the original behaviour of this method.
+        # See protocol/resolution.py for the alternatives.
+        self.resolver = resolver if resolver is not None else LinearScan()
+        self.resolver.attach(self.credential.peer_secrets, self.session_log)
 
     def resolve_pseudonym(self, pid: bytes) -> tuple[str, int]:
         """FR-4.2: resolve an incoming pseudonym to a known device identity
-        and epoch via a bounded local search, using a constant-time compare
-        per candidate to avoid a trivial timing side-channel on any single
-        comparison (the search itself is not constant-time across peers --
-        see PRD 7.3, timing side-channels are out of scope for this PoC).
+        and epoch. Delegates to the configured resolver; the default
+        LinearScan probes every enrolled peer over its bounded epoch window
+        with a constant-time compare per candidate (the search itself is
+        not constant-time across peers -- see PRD 7.3, timing side-channels
+        are out of scope for this PoC).
         """
-        for peer_identity, peer_lam in self.credential.peer_secrets.items():
-            for epoch in self.session_log.epoch_search_window(peer_identity):
-                candidate_pid = h2_pseudonym(peer_lam, epoch)
-                if hmac.compare_digest(candidate_pid, pid):
-                    if self.session_log.is_stale_epoch(peer_identity, epoch):
-                        raise ReplayDetected(
-                            f"pseudonym for {peer_identity!r} reuses stale epoch {epoch}"
-                        )
-                    return peer_identity, epoch
-        raise UnknownPeerError("pseudonym did not resolve to any known, in-window peer")
+        return self.resolver.resolve(pid)
 
     def handle_auth_request(self, msg1_bytes: bytes) -> AuthResult:
         msg1 = Message1.from_bytes(msg1_bytes)
@@ -101,7 +98,7 @@ class Server(Entity):
             self.session_log.record_failure(peer_identity)
             raise IntegrityError(f"decrypted PID/epoch does not match message header for {peer_identity}")
 
-        self.session_log.accept_epoch(peer_identity, epoch)
+        self.resolver.accept(peer_identity, epoch, n_i)
         self.session_log.record_success(peer_identity)
 
         n_j = generate_nonce(self.nonce_bits)

@@ -1,0 +1,20 @@
+(* Shared by unlink_counter.pv and unlink_clock.pv. The server knows both devices A and B in both worlds, and
+   resolves an incoming M1 with one destructor that returns whichever key opens it, which is what every correct
+   resolver does. The PID inside the AEAD plaintext must equal the PID in clear. *)
+fun resolve(key, key, bitstring, bitstring): bitstring
+reduc forall k1: key, k2: key, m: bitstring, ad: bitstring; resolve(k1, k2, aead(k1, m, ad), ad) = (k1, m)
+otherwise forall k1: key, k2: key, m: bitstring, ad: bitstring; resolve(k1, k2, aead(k2, m, ad), ad) = (k2, m).
+
+let Server(idR: id, kA: key, kB: key) =
+  in(c, (pid: bitstring, c1: bitstring));
+  let (k: key, (=pid, ni: nonce, t: epoch)) = resolve(kA, kB, c1, empty) in
+  new nj: nonce;
+  out(c, (idR, aead(k, (nj, t), (pid, ni)))).
+
+let Device(idR: id, lamV: key, k: key, t: epoch) =
+  new ni: nonce;
+  let pid = h2(lamV, t) in
+  out(c, (pid, aead(k, (pid, ni, t), empty)));
+  in(c, (=idR, c2: bitstring));
+  let (nj: nonce, =t) = open(k, c2, (pid, ni)) in
+  0.

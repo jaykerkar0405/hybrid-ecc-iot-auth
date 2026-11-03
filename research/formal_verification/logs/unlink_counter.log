@@ -1,0 +1,101 @@
+Biprocess 0 (that is, the initial process):
+{1}new idR: id;
+{2}new lamR: key;
+{3}out(c, idR);
+{4}new lamA: key;
+{5}new lamB: key;
+{6}new t1: epoch;
+{7}new t2: epoch;
+{8}let kA: key = kdf_root(lamA,lamR) in
+{9}let kB: key = kdf_root(lamB,lamR) in
+(
+    {10}let idR_1: id = idR in
+    {11}let lamV: key = lamA in
+    {12}let t: epoch = t1 in
+    {13}new ni: nonce;
+    {14}let pid: bitstring = h2(lamV,t) in
+    {15}out(c, (pid,aead(kA,(pid,ni,t),empty)));
+    {16}in(c, (=idR_1,c2: bitstring));
+    {17}let (nj: nonce,=t) = open(kA,c2,(pid,ni)) in
+    0
+) | (
+    {18}let idR_2: id = idR in
+    {19}let lamV_1: key = choice[lamA,lamB] in
+    {20}let k: key = choice[kA,kB] in
+    {21}let t_1: epoch = t2 in
+    {22}new ni_1: nonce;
+    {23}let pid_1: bitstring = h2(lamV_1,t_1) in
+    {24}out(c, (pid_1,aead(k,(pid_1,ni_1,t_1),empty)));
+    {25}in(c, (=idR_2,c2_1: bitstring));
+    {26}let (nj_1: nonce,=t_1) = open(k,c2_1,(pid_1,ni_1)) in
+    0
+) | (
+    {27}!
+    {28}let idR_3: id = idR in
+    {29}in(c, (pid_2: bitstring,c1: bitstring));
+    {30}let (k_1: key,(=pid_2,ni_2: nonce,t_2: epoch)) = resolve(kA,kB,c1,empty) in
+    {31}new nj_2: nonce;
+    {32}out(c, (idR_3,aead(k_1,(nj_2,t_2),(pid_2,ni_2))))
+)
+
+-- Observational equivalence in biprocess 1 (that is, biprocess 0, with let moved downwards):
+{1}new idR: id;
+{2}new lamR: key;
+{3}out(c, idR);
+{4}new lamA: key;
+{5}new lamB: key;
+{6}new t1: epoch;
+{7}new t2: epoch;
+{8}let kA: key = kdf_root(lamA,lamR) in
+(
+    {13}new ni: nonce;
+    {12}let t: epoch = t1 in
+    {11}let lamV: key = lamA in
+    {14}let pid: bitstring = h2(lamV,t) in
+    {15}out(c, (pid,aead(kA,(pid,ni,t),empty)));
+    {10}let idR_1: id = idR in
+    {16}in(c, (=idR_1,c2: bitstring));
+    {17}let (nj: nonce,=t) = open(kA,c2,(pid,ni)) in
+    0
+) | (
+    {9}let kB: key = kdf_root(lamB,lamR) in
+    (
+        {22}new ni_1: nonce;
+        {21}let t_1: epoch = t2 in
+        {19}let lamV_1: key = choice[lamA,lamB] in
+        {23}let pid_1: bitstring = h2(lamV_1,t_1) in
+        {20}let k: key = choice[kA,kB] in
+        {24}out(c, (pid_1,aead(k,(pid_1,ni_1,t_1),empty)));
+        {18}let idR_2: id = idR in
+        {25}in(c, (=idR_2,c2_1: bitstring));
+        {26}let (nj_1: nonce,=t_1) = open(k,c2_1,(pid_1,ni_1)) in
+        0
+    ) | (
+        {27}!
+        {29}in(c, (pid_2: bitstring,c1: bitstring));
+        {30}let (k_1: key,(=pid_2,ni_2: nonce,t_2: epoch)) = resolve(kA,kB,c1,empty) in
+        {31}new nj_2: nonce;
+        {28}let idR_3: id = idR in
+        {32}out(c, (idR_3,aead(k_1,(nj_2,t_2),(pid_2,ni_2))))
+    )
+)
+
+Translating the process into Horn clauses...
+Termination warning: v ≠ v_1 && attacker2(v_2,v) && attacker2(v_2,v_1) -> bad
+Selecting 0
+Termination warning: v ≠ v_1 && attacker2(v,v_2) && attacker2(v_1,v_2) -> bad
+Selecting 0
+Completing...
+Termination warning: v ≠ v_1 && attacker2(v_2,v) && attacker2(v_2,v_1) -> bad
+Selecting 0
+Termination warning: v ≠ v_1 && attacker2(v,v_2) && attacker2(v_1,v_2) -> bad
+Selecting 0
+RESULT Observational equivalence is true.
+
+--------------------------------------------------------------
+Verification summary:
+
+Observational equivalence is true.
+
+--------------------------------------------------------------
+

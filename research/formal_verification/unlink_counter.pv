@@ -1,0 +1,11 @@
+(* Unlinkability with counter epochs: is "device A, then device A again" distinguishable from "device A, then
+   device B"? Each session has its own epoch value (the counter never repeats). An active attacker sees all
+   messages and talks to the server. Expected: the equivalence holds. *)
+process
+  new idR: id; new lamR: key; out(c, idR);
+  new lamA: key; new lamB: key;
+  ( new t1: epoch; new t2: epoch;
+    let kA = kdf_root(lamA, lamR) in let kB = kdf_root(lamB, lamR) in
+    ( Device(idR, lamA, kA, t1)
+    | Device(idR, choice[lamA, lamB], choice[kA, kB], t2)
+    | ! Server(idR, kA, kB) ) )

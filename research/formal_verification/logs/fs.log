@@ -1,0 +1,229 @@
+Process 0 (that is, the initial process):
+{1}new idV: id;
+{2}new idR: id;
+{3}new lamV: key;
+{4}new lamR: key;
+{5}let k: key = kdf_root(lamV,lamR) in
+{6}out(c, (idV,idR));
+(
+    {7}!
+    {8}let idV_1: id = idV in
+    {9}let idR_1: id = idR in
+    {10}let lamV_1: key = lamV in
+    {11}new t: epoch;
+    {12}new ni: nonce;
+    {13}let pid: bitstring = h2(lamV_1,t) in
+    {14}out(c, (pid,aead(k,(pid,ni,t),empty)));
+    {15}in(c, (=idR_1,c2: bitstring));
+    {16}let (nj: nonce,=t) = open(k,c2,(pid,ni)) in
+    {17}let sk: key = kdf_sess(k,ni,nj,t) in
+    {18}out(c, enc_test(sk,secretD))
+) | (
+    {19}!
+    {20}let idR_2: id = idR in
+    {21}let lamV_2: key = lamV in
+    {22}in(c, (pid_1: bitstring,c1: bitstring));
+    {23}let (=pid_1,ni_1: nonce,t_1: epoch) = open(k,c1,empty) in
+    {24}if (pid_1 = h2(lamV_2,t_1)) then
+    {25}new nj_1: nonce;
+    {26}out(c, (idR_2,aead(k,(nj_1,t_1),(pid_1,ni_1))))
+) | (
+    {27}phase 1;
+    {28}out(c, k)
+)
+
+--  Process 1 (that is, process 0, with let moved downwards):
+{1}new idV: id;
+{2}new idR: id;
+{3}new lamV: key;
+{4}new lamR: key;
+{6}out(c, (idV,idR));
+{5}let k: key = kdf_root(lamV,lamR) in
+(
+    {7}!
+    {11}new t: epoch;
+    {12}new ni: nonce;
+    {10}let lamV_1: key = lamV in
+    {13}let pid: bitstring = h2(lamV_1,t) in
+    {14}out(c, (pid,aead(k,(pid,ni,t),empty)));
+    {9}let idR_1: id = idR in
+    {15}in(c, (=idR_1,c2: bitstring));
+    {16}let (nj: nonce,=t) = open(k,c2,(pid,ni)) in
+    {17}let sk: key = kdf_sess(k,ni,nj,t) in
+    {18}out(c, enc_test(sk,secretD))
+) | (
+    {19}!
+    {22}in(c, (pid_1: bitstring,c1: bitstring));
+    {23}let (=pid_1,ni_1: nonce,t_1: epoch) = open(k,c1,empty) in
+    {21}let lamV_2: key = lamV in
+    {24}if (pid_1 = h2(lamV_2,t_1)) then
+    {25}new nj_1: nonce;
+    {20}let idR_2: id = idR in
+    {26}out(c, (idR_2,aead(k,(nj_1,t_1),(pid_1,ni_1))))
+) | (
+    {27}phase 1;
+    {28}out(c, k)
+)
+
+-- Query not attacker_p1(secretD[]) in process 1.
+Translating the process into Horn clauses...
+Completing...
+Starting query not attacker_p1(secretD[])
+goal reachable: attacker_p1(secretD[])
+
+Derivation:
+Abbreviations:
+ni_2 = ni[!1 = @sid]
+t_2 = t[!1 = @sid]
+nj_2 = nj_1[c1 = aead(kdf_root(lamV[],lamR[]),(h2(lamV[],t_2),ni_2,t_2),empty),pid_1 = h2(lamV[],t_2),!1 = @sid_1]
+
+1. The message (h2(lamV[],t_2),aead(kdf_root(lamV[],lamR[]),(h2(lamV[],t_2),ni_2,t_2),empty)) may be sent to the attacker at output {14}.
+attacker((h2(lamV[],t_2),aead(kdf_root(lamV[],lamR[]),(h2(lamV[],t_2),ni_2,t_2),empty))).
+
+2. By 1, the attacker may know (h2(lamV[],t_2),aead(kdf_root(lamV[],lamR[]),(h2(lamV[],t_2),ni_2,t_2),empty)).
+Using the function 2-proj-2-tuple the attacker may obtain aead(kdf_root(lamV[],lamR[]),(h2(lamV[],t_2),ni_2,t_2),empty).
+attacker(aead(kdf_root(lamV[],lamR[]),(h2(lamV[],t_2),ni_2,t_2),empty)).
+
+3. By 1, the attacker may know (h2(lamV[],t_2),aead(kdf_root(lamV[],lamR[]),(h2(lamV[],t_2),ni_2,t_2),empty)).
+Using the function 1-proj-2-tuple the attacker may obtain h2(lamV[],t_2).
+attacker(h2(lamV[],t_2)).
+
+4. By 3, the attacker may know h2(lamV[],t_2).
+By 2, the attacker may know aead(kdf_root(lamV[],lamR[]),(h2(lamV[],t_2),ni_2,t_2),empty).
+Using the function 2-tuple the attacker may obtain (h2(lamV[],t_2),aead(kdf_root(lamV[],lamR[]),(h2(lamV[],t_2),ni_2,t_2),empty)).
+attacker((h2(lamV[],t_2),aead(kdf_root(lamV[],lamR[]),(h2(lamV[],t_2),ni_2,t_2),empty))).
+
+5. The message (h2(lamV[],t_2),aead(kdf_root(lamV[],lamR[]),(h2(lamV[],t_2),ni_2,t_2),empty)) that the attacker may have by 4 may be received at input {22}.
+So the message (idR[],aead(kdf_root(lamV[],lamR[]),(nj_2,t_2),(h2(lamV[],t_2),ni_2))) may be sent to the attacker at output {26}.
+attacker((idR[],aead(kdf_root(lamV[],lamR[]),(nj_2,t_2),(h2(lamV[],t_2),ni_2)))).
+
+6. By 5, the attacker may know (idR[],aead(kdf_root(lamV[],lamR[]),(nj_2,t_2),(h2(lamV[],t_2),ni_2))).
+Using the function 2-proj-2-tuple the attacker may obtain aead(kdf_root(lamV[],lamR[]),(nj_2,t_2),(h2(lamV[],t_2),ni_2)).
+attacker(aead(kdf_root(lamV[],lamR[]),(nj_2,t_2),(h2(lamV[],t_2),ni_2))).
+
+7. The message (idV[],idR[]) may be sent to the attacker at output {6}.
+attacker((idV[],idR[])).
+
+8. By 7, the attacker may know (idV[],idR[]).
+Using the function 2-proj-2-tuple the attacker may obtain idR[].
+attacker(idR[]).
+
+9. By 8, the attacker may know idR[].
+By 6, the attacker may know aead(kdf_root(lamV[],lamR[]),(nj_2,t_2),(h2(lamV[],t_2),ni_2)).
+Using the function 2-tuple the attacker may obtain (idR[],aead(kdf_root(lamV[],lamR[]),(nj_2,t_2),(h2(lamV[],t_2),ni_2))).
+attacker((idR[],aead(kdf_root(lamV[],lamR[]),(nj_2,t_2),(h2(lamV[],t_2),ni_2)))).
+
+10. The message (idR[],aead(kdf_root(lamV[],lamR[]),(nj_2,t_2),(h2(lamV[],t_2),ni_2))) that the attacker may have by 9 may be received at input {15}.
+So the message enc_test(kdf_sess(kdf_root(lamV[],lamR[]),ni_2,nj_2,t_2),secretD[]) may be sent to the attacker at output {18}.
+attacker(enc_test(kdf_sess(kdf_root(lamV[],lamR[]),ni_2,nj_2,t_2),secretD[])).
+
+11. By 10, the attacker may know enc_test(kdf_sess(kdf_root(lamV[],lamR[]),ni_2,nj_2,t_2),secretD[]).
+So the attacker may know enc_test(kdf_sess(kdf_root(lamV[],lamR[]),ni_2,nj_2,t_2),secretD[]) in phase 1.
+attacker_p1(enc_test(kdf_sess(kdf_root(lamV[],lamR[]),ni_2,nj_2,t_2),secretD[])).
+
+12. Using the function empty the attacker may obtain empty in phase 1.
+attacker_p1(empty).
+
+13. By 2, the attacker may know aead(kdf_root(lamV[],lamR[]),(h2(lamV[],t_2),ni_2,t_2),empty).
+So the attacker may know aead(kdf_root(lamV[],lamR[]),(h2(lamV[],t_2),ni_2,t_2),empty) in phase 1.
+attacker_p1(aead(kdf_root(lamV[],lamR[]),(h2(lamV[],t_2),ni_2,t_2),empty)).
+
+14. The message kdf_root(lamV[],lamR[]) may be sent to the attacker in phase 1 at output {28}.
+attacker_p1(kdf_root(lamV[],lamR[])).
+
+15. By 14, the attacker may know kdf_root(lamV[],lamR[]) in phase 1.
+By 13, the attacker may know aead(kdf_root(lamV[],lamR[]),(h2(lamV[],t_2),ni_2,t_2),empty) in phase 1.
+By 12, the attacker may know empty in phase 1.
+Using the function open the attacker may obtain (h2(lamV[],t_2),ni_2,t_2) in phase 1.
+attacker_p1((h2(lamV[],t_2),ni_2,t_2)).
+
+16. By 15, the attacker may know (h2(lamV[],t_2),ni_2,t_2) in phase 1.
+Using the function 3-proj-3-tuple the attacker may obtain t_2 in phase 1.
+attacker_p1(t_2).
+
+17. By 15, the attacker may know (h2(lamV[],t_2),ni_2,t_2) in phase 1.
+Using the function 2-proj-3-tuple the attacker may obtain ni_2 in phase 1.
+attacker_p1(ni_2).
+
+18. By 3, the attacker may know h2(lamV[],t_2).
+So the attacker may know h2(lamV[],t_2) in phase 1.
+attacker_p1(h2(lamV[],t_2)).
+
+19. By 18, the attacker may know h2(lamV[],t_2) in phase 1.
+By 17, the attacker may know ni_2 in phase 1.
+Using the function 2-tuple the attacker may obtain (h2(lamV[],t_2),ni_2) in phase 1.
+attacker_p1((h2(lamV[],t_2),ni_2)).
+
+20. By 6, the attacker may know aead(kdf_root(lamV[],lamR[]),(nj_2,t_2),(h2(lamV[],t_2),ni_2)).
+So the attacker may know aead(kdf_root(lamV[],lamR[]),(nj_2,t_2),(h2(lamV[],t_2),ni_2)) in phase 1.
+attacker_p1(aead(kdf_root(lamV[],lamR[]),(nj_2,t_2),(h2(lamV[],t_2),ni_2))).
+
+21. By 14, the attacker may know kdf_root(lamV[],lamR[]) in phase 1.
+By 20, the attacker may know aead(kdf_root(lamV[],lamR[]),(nj_2,t_2),(h2(lamV[],t_2),ni_2)) in phase 1.
+By 19, the attacker may know (h2(lamV[],t_2),ni_2) in phase 1.
+Using the function open the attacker may obtain (nj_2,t_2) in phase 1.
+attacker_p1((nj_2,t_2)).
+
+22. By 21, the attacker may know (nj_2,t_2) in phase 1.
+Using the function 1-proj-2-tuple the attacker may obtain nj_2 in phase 1.
+attacker_p1(nj_2).
+
+23. By 14, the attacker may know kdf_root(lamV[],lamR[]) in phase 1.
+By 17, the attacker may know ni_2 in phase 1.
+By 22, the attacker may know nj_2 in phase 1.
+By 16, the attacker may know t_2 in phase 1.
+Using the function kdf_sess the attacker may obtain kdf_sess(kdf_root(lamV[],lamR[]),ni_2,nj_2,t_2) in phase 1.
+attacker_p1(kdf_sess(kdf_root(lamV[],lamR[]),ni_2,nj_2,t_2)).
+
+24. By 23, the attacker may know kdf_sess(kdf_root(lamV[],lamR[]),ni_2,nj_2,t_2) in phase 1.
+By 11, the attacker may know enc_test(kdf_sess(kdf_root(lamV[],lamR[]),ni_2,nj_2,t_2),secretD[]) in phase 1.
+Using the function dec_test the attacker may obtain secretD[] in phase 1.
+attacker_p1(secretD[]).
+
+25. By 24, attacker_p1(secretD[]).
+The goal is reached, represented in the following fact:
+attacker_p1(secretD[]).
+
+
+A more detailed output of the traces is available with
+  set traceDisplay = long.
+
+new idV: id creating idV_2 at {1}
+
+new idR: id creating idR_3 at {2}
+
+new lamV: key creating lamV_3 at {3}
+
+new lamR: key creating lamR_1 at {4}
+
+out(c, (~M,~M_1)) with ~M = idV_2, ~M_1 = idR_3 at {6}
+
+new t: epoch creating t_3 at {11} in copy a
+
+new ni: nonce creating ni_3 at {12} in copy a
+
+out(c, (~M_2,~M_3)) with ~M_2 = h2(lamV_3,t_3), ~M_3 = aead(kdf_root(lamV_3,lamR_1),(h2(lamV_3,t_3),ni_3,t_3),empty) at {14} in copy a
+
+in(c, (~M_2,~M_3)) with ~M_2 = h2(lamV_3,t_3), ~M_3 = aead(kdf_root(lamV_3,lamR_1),(h2(lamV_3,t_3),ni_3,t_3),empty) at {22} in copy a_1
+
+new nj_1: nonce creating nj_3 at {25} in copy a_1
+
+out(c, (~M_4,~M_5)) with ~M_4 = idR_3, ~M_5 = aead(kdf_root(lamV_3,lamR_1),(nj_3,t_3),(h2(lamV_3,t_3),ni_3)) at {26} in copy a_1
+
+in(c, (~M_1,~M_5)) with ~M_1 = idR_3, ~M_5 = aead(kdf_root(lamV_3,lamR_1),(nj_3,t_3),(h2(lamV_3,t_3),ni_3)) at {15} in copy a
+
+out(c, ~M_6) with ~M_6 = enc_test(kdf_sess(kdf_root(lamV_3,lamR_1),ni_3,nj_3,t_3),secretD) at {18} in copy a
+
+out(c, ~M_7) with ~M_7 = kdf_root(lamV_3,lamR_1) at {28}
+
+The attacker has the message dec_test(kdf_sess(~M_7,2-proj-3-tuple(open(~M_7,~M_3,empty)),1-proj-2-tuple(open(~M_7,~M_5,(~M_2,2-proj-3-tuple(open(~M_7,~M_3,empty))))),2-proj-2-tuple(open(~M_7,~M_5,(~M_2,2-proj-3-tuple(open(~M_7,~M_3,empty)))))),~M_6) = secretD in phase 1.
+A trace has been found.
+RESULT not attacker_p1(secretD[]) is false.
+
+--------------------------------------------------------------
+Verification summary:
+
+Query not attacker_p1(secretD[]) is false.
+
+--------------------------------------------------------------
+

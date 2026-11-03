@@ -57,6 +57,7 @@ class Device(Entity):
         nonce_bits: int = DEFAULT_NONCE_BITS,
         session_timeout: float = DEFAULT_SESSION_TIMEOUT_SECONDS,
         max_attempts: int = 3,
+        epoch_clock=None,
     ):
         if credential.role != "device":
             raise ValueError(f"Device requires a credential with role='device', got {credential.role!r}")
@@ -81,13 +82,18 @@ class Device(Entity):
         # same conversation). Documented per PRD Section 12's flagged
         # epoch/clock-drift implementation decision.
         self._epoch: dict[str, int] = {}
+        # Optional clock epochs (our option, not the paper's): a callable
+        # returning the current epoch number. When set, t comes from the
+        # clock instead of the per-peer counter, and does not advance per
+        # message. See protocol/resolution.py (ClockScan, ClockTable).
+        self.epoch_clock = epoch_clock
         self._pending: dict[str, _PendingSession] = {}
 
     def current_pseudonym(self, peer_id: str, epoch: int | None = None) -> bytes:
         """PID_{Vi,t} = H2(lambda_Vi || t) (Eq. 11, FR-4.1) for the given
         peer relationship's current (or explicitly given) epoch."""
         if epoch is None:
-            epoch = self._epoch.get(peer_id, 0)
+            epoch = self.epoch_clock() if self.epoch_clock is not None else self._epoch.get(peer_id, 0)
         return h2_pseudonym(self.credential.lam, epoch)
 
     def build_auth_request(self, peer_id: str) -> bytes:
@@ -98,7 +104,7 @@ class Device(Entity):
             raise CoverageError(f"{peer_id} is out of coverage range (cov_ij(t) = False)")
 
         k_star = self.get_pairwise_root(peer_id)
-        epoch = self._epoch.get(peer_id, 0)
+        epoch = self.epoch_clock() if self.epoch_clock is not None else self._epoch.get(peer_id, 0)
         pid = self.current_pseudonym(peer_id, epoch)
         n_i = generate_nonce(self.nonce_bits)
 
@@ -109,7 +115,8 @@ class Device(Entity):
         self._pending[peer_id] = _PendingSession(
             peer_identity=peer_id, epoch=epoch, pid=pid, n_i=n_i, k_star=k_star, created_at=time.monotonic()
         )
-        self._epoch[peer_id] = epoch + 1
+        if self.epoch_clock is None:
+            self._epoch[peer_id] = epoch + 1
         return msg1.to_bytes()
 
     def complete_auth(self, msg2_bytes: bytes) -> bytes:

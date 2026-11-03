@@ -1,0 +1,27 @@
+(* Forward secrecy. Same exchange as auth.pv with one honest device and server; after the sessions (phase 1)
+   the pairwise key k* leaks. The base paper does not claim forward secrecy; this documents the property. *)
+
+free secretD: bitstring [private].
+query attacker(secretD) phase 1.
+
+let Device(idV: id, idR: id, lamV: key, k: key) =
+  new t: epoch; new ni: nonce;
+  let pid = h2(lamV, t) in
+  out(c, (pid, aead(k, (pid, ni, t), empty)));
+  in(c, (=idR, c2: bitstring));
+  let (nj: nonce, =t) = open(k, c2, (pid, ni)) in
+  let sk = kdf_sess(k, ni, nj, t) in
+  out(c, enc_test(sk, secretD)).
+
+let Server(idR: id, lamV: key, k: key) =
+  in(c, (pid: bitstring, c1: bitstring));
+  let (=pid, ni: nonce, t: epoch) = open(k, c1, empty) in
+  if pid = h2(lamV, t) then
+  new nj: nonce;
+  out(c, (idR, aead(k, (nj, t), (pid, ni)))).
+
+process
+  new idV: id; new idR: id; new lamV: key; new lamR: key;
+  let k = kdf_root(lamV, lamR) in
+  out(c, (idV, idR));
+  ( (! Device(idV, idR, lamV, k)) | (! Server(idR, lamV, k)) | (phase 1; out(c, k)) )

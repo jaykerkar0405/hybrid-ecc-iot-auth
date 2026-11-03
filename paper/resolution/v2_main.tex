@@ -1,0 +1,33 @@
+% Version 2. Build: tectonic v2_main.tex  (figures: ../../.venv/bin/python -I make_figs.py from the repo root)
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifXeTeX
+  \usepackage{unicode-math}
+  \setmainfont{texgyretermes}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+  \setmathfont{texgyretermes-math.otf}
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{newtxtext,newtxmath}
+\fi
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage[hyphens]{url}
+\usepackage{cite}
+\usepackage[expansion=false]{microtype}
+\usepackage{array}
+\usepackage{balance}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\usepackage[hidelinks]{hyperref}
+\newif\iffv
+\fvtrue
+
+\begin{document}
+\title{Pseudonym Resolution and Formal Verification of an Unlinkable Two-Message IoT Authentication Protocol}
+\input{authors.tex}
+\maketitle
+\input{body.tex}
+\end{document}
