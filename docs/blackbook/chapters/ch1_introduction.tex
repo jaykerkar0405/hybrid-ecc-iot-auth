@@ -1,0 +1,79 @@
+% ============================== CHAPTER 1 ==============================
+\chapterdivider{1}{INTRODUCTION}
+\chapter{Introduction}
+
+\section{Introduction}
+The Internet of Things (IoT) connects large numbers of small, resource-constrained devices, such as sensors, meters and controllers, to servers that collect their data and issue commands. Before a device and a server exchange application data they must authenticate each other and agree on a fresh session key. Because the devices have little processing power, memory and energy, much recent work proposes \emph{lightweight} mutual-authentication protocols that use only symmetric primitives (hash functions, message authentication codes and authenticated encryption) during the online phase, and reserve public-key operations, if any, for an offline set-up phase.
+
+Privacy is a second requirement. If a device sends the same identifier in every session, an eavesdropper can follow it across sessions and locations. Many protocols therefore replace the identity with a \emph{pseudonym} that changes over time. If two pseudonyms of the same device cannot be linked without a secret, the protocol is said to provide \emph{unlinkability}.
+
+Al-Rasheed et al.~\cite{base} propose such a protocol, a low-cost hybrid elliptic-curve-cryptography (ECC) authentication protocol published in the \emph{IEEE Transactions on Consumer Electronics} in 2026. A trusted authority (TA) gives every device--server pair a pairwise key in an offline phase. Online, the device and the server authenticate in two messages using symmetric primitives only. The device sends a pseudonym $PID=H_2(\lambda_V\|t)$ in clear, where $\lambda_V$ is the device's long-term secret and $t$ is an epoch. The epoch $t$ and the device's nonce $N_i$ travel inside a ciphertext encrypted under the pairwise key $k^\star$.
+
+This project takes that protocol as its specification. It implements it, verifies the implementation against independent test vectors, and then studies one step that the specification needs but does not describe: how the server finds out which device a pseudonym belongs to. We call this step \emph{pseudonym resolution}. The project measures what resolution costs, how that cost depends on the way the open choices are filled, what failure modes each choice introduces, and which security properties depend on the choice.
+
+\section{Problem Definition}
+In the protocol of~\cite{base}, the server cannot decrypt the first message $M_1$ until it knows which device sent it, because the key $k^\star$ is specific to the device. Yet the pseudonym in $M_1$ is designed to hide exactly that. Every correct server must therefore map the pseudonym $PID$ to a device $V$ and an epoch $t$ by computing pseudonyms from the secrets it holds, before any cryptographic check can be made.
+
+The specification says only that the pseudonym is ``rotated with time (or epoch) $t$''. It does not say whether $t$ is a per-device counter or a clock, nor whether the server searches on demand or prepares a table in advance. Its cost model (Table~V and Eq.~22 of~\cite{base}) charges the server a constant $2T_H+2T_{SE/D}$ per session whatever the number of devices, so it contains no resolution term at all. RFID privacy research, which has studied the same problem under the name \emph{private identification} for about twenty years~\cite{weis,ohkubo,molnar,avoine05,ado05,tsudik}, shows that without precomputation a server that must identify one of $N$ devices from an unlinkable response does $O(N)$ work.
+
+The problem addressed by this project is therefore:
+\begin{quote}
+\emph{To determine, for the two-message protocol of~\cite{base}, how the unspecified pseudonym-resolution step can be filled, what each choice costs in time and memory as the network grows, how each choice behaves under forged messages and dropped messages, and which of the protocol's security properties depend on the choice.}
+\end{quote}
+The problem matters to anyone who would deploy or extend the protocol: a server operator who implements resolution naively may see latency grow from milliseconds to tens of seconds, or may expose devices to a permanent lockout, without any warning from the published cost model.
+
+\section{Objectives}
+The objectives of the project are:
+\begin{enumerate}
+\item To implement the online exchange of Section~III of~\cite{base} in Python, and the device side in C for the ESP8266, and to show that both reproduce independently generated reference vectors byte for byte (15 checks each).
+\item To show from the specification alone that every correct server must perform pseudonym resolution, and to identify the choices that the specification leaves open.
+\item To implement seven resolution strategies (four that keep the wire format and three adapted from RFID research), and to measure their probe counts for $N=1$ to $10{,}000$ devices, checking them against closed-form expressions.
+\item To price the measured probe counts with the paper's own per-operation constants in an OMNeT++ model of the paper's stated network, for networks of 1 to 1,000 devices with and without adversaries (960 simulation runs), and to rank the strategies by session latency and server storage.
+\item To characterise the failure modes of each strategy, namely denial of service through forged pseudonyms and desynchronisation through dropped messages.
+\item To verify with ProVerif~2.05 which security properties (session-key secrecy, agreement, injective authentication, forward secrecy and unlinkability) hold independently of the resolver and which depend on the epoch and replay choices.
+\item To release the implementation, scripts, models and data openly so that every reported number can be reproduced.
+\end{enumerate}
+
+\section{Motivation}
+Published lightweight protocols are usually judged by the cost figures in their own evaluation tables, which count hash and encryption operations per session. If a step that grows with the size of the network is missing from those tables, the published comparison favours the protocol for reasons that will not survive deployment. The base protocol of~\cite{base} claims a per-session cost of 23.68\,ms, but that figure is only meaningful once the server knows which device it is talking to.
+
+The project was motivated by a concrete observation made while implementing the protocol: our first server implementation had to scan every enrolled device over a window of epochs for every incoming message, and this cost did not appear anywhere in the paper. RFID research offers several well-studied answers to the same problem, such as hash locks, hash chains, key trees, time--memory trade-offs and time-based tables, but they had not been compared under the cost constants and network conditions of this protocol. Doing so makes the protocol's cost claim testable, gives implementers a concrete recommendation, and shows which parts of the specification need to be stated explicitly.
+
+\section{Scope of the Work}
+\textbf{In scope.}
+\begin{itemize}
+\item The online two-message exchange of Section~III (Eqs.~8--24) of~\cite{base}, instantiated with AES-256-GCM, HKDF-SHA256 and SHA-256, as the paper's instantiation notes suggest.
+\item A Python reference implementation (trusted authority, device, server, session log, demonstration command-line tools) and a C port of the device side, with independent reference vectors.
+\item Seven pseudonym-resolution strategies (O1--O4, TM, CR, MW), their probe counts, server state and closed forms.
+\item An OMNeT++ model of the paper's Table~II network in which only the resolution term is added to the paper's cost model.
+\item Denial-of-service and desynchronisation behaviour, and symbolic security analysis in ProVerif.
+\end{itemize}
+\textbf{Intended users.} Researchers and engineers who design, evaluate or deploy pseudonym-based IoT authentication, and reviewers who want to reproduce the results.
+
+\textbf{Out of scope.}
+\begin{itemize}
+\item Re-evaluating the other results of~\cite{base}; the protocol is taken as the specification.
+\item Device mobility and hand-off; devices are static and coverage is an abstract predicate.
+\item Re-keying (Eq.~24), which remains a stub.
+\item Hardware timings: probes are priced with the paper's constant $T_H=0.32$\,ms.
+\item Side channels (timing, power, fault injection), computational security proofs, and production-grade key storage.
+\end{itemize}
+
+\section{Feasibility Study}
+\textbf{Technical feasibility.} All components use mature, freely available tools: Python with the \texttt{cryptography} library, BearSSL for the C port, OMNeT++~6.4 for network simulation and ProVerif~2.05 for symbolic verification. The whole evaluation runs on an ordinary laptop: the full probe-count sweep takes about three minutes, the 960-run OMNeT++ sweep about ten seconds in the original environment, and every ProVerif model finishes in under one second. The device port runs on a low-cost ESP8266 (NodeMCU) board, and can be checked without hardware through a host build.
+
+\textbf{Operational feasibility.} The implementation provides command-line tools for enrolment (\texttt{hea-ta}), the server (\texttt{hea-server}) and the device (\texttt{hea-device}), so the protocol can be demonstrated on one machine in three terminals. A continuous-integration workflow runs the test suite (with a 90\% coverage gate) and the C vector check on every push.
+
+\textbf{Economic feasibility.} All software used is free or open source, and the computers used were already available to the team. The only hardware specific to the project is the ESP8266 development board used for the optional on-device demonstration (Section~\ref{sec:cost}).
+
+\textbf{Schedule feasibility.} The work was organised in phases (specification and implementation, conformance, resolution study, simulation, verification, reporting) that fit within the academic year; the schedule is shown in Section~\ref{sec:gantt}.
+
+\section{Organization of the report}
+\begin{itemize}
+\item \textbf{Chapter 1} introduces the problem domain, defines the problem, and states the objectives, motivation, scope and feasibility of the project.
+\item \textbf{Chapter 2} reviews the base protocol and the RFID private-identification literature, compares them, and identifies the research gaps that the project addresses.
+\item \textbf{Chapter 3} presents the proposed methodology: requirements, the protocol and the seven resolution strategies, the project timeline, the architecture and UML diagrams, and the hardware, software and cost requirements.
+\item \textbf{Chapter 4} describes the implementation, presents the results (conformance, probe counts, network simulation, desynchronisation and formal verification), and analyses them.
+\item \textbf{Chapter 5} states the limitations, concludes the report and outlines future work.
+\end{itemize}
+The report ends with the references and an appendix containing the publication details.

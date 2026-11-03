@@ -1,0 +1,277 @@
+% ============================================================================
+%  Capstone Project Black Book (AY 2026-27), Department of Information Technology, VESIT
+%  Layout follows "Capstone_BB Format_2026-27" (title page, certificate, declaration,
+%  abstract, contents, lists, acknowledgement, chapter divider pages, running header).
+%
+%  Build (from this folder):  xelatex main && xelatex main && xelatex main
+%  Fonts are bundled in fonts/: Gelasio (metric-compatible with Georgia) and
+%  Liberation Serif (metric-compatible with Times New Roman), both SIL OFL.
+%  Evaluation numbers come from the repository at commit e21993a
+%  (paper/, evaluation/, implementation/) or from the runs logged in results/.
+%  Project milestones and hardware details were confirmed by the team.
+%  Pending attachments and expenses are marked directly in the report.
+% ============================================================================
+% Fallback for TeX installations without Latin Modern OpenType (harmless elsewhere):
+% the class selects its default font before fontspec is loaded.
+\DeclareFontFamily{TU}{bbfallback}{}
+\DeclareFontShape{TU}{bbfallback}{m}{n}{<->"[fonts/LiberationSerif-Regular.ttf]:mapping=tex-text"}{}
+\renewcommand{\rmdefault}{bbfallback}
+\renewcommand{\familydefault}{bbfallback}
+\fontfamily{bbfallback}\selectfont
+\documentclass[12pt,a4paper,oneside]{report}
+
+% ---------- Page layout ----------
+\usepackage[a4paper,left=1.5in,right=1in,top=1in,bottom=1in,headheight=16pt,headsep=18pt]{geometry}
+
+% ---------- Fonts (XeLaTeX) ----------
+\usepackage{mathspec}
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont{LiberationSerif}[Path=fonts/,Extension=.ttf,Ligatures=TeX,UprightFont=*-Regular,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-BoldItalic]
+\setmathsfont(Digits,Latin)[Path=fonts/,Extension=.ttf,Ligatures=TeX,UprightFont=*-Regular,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-BoldItalic]{LiberationSerif}
+\setmonofont{LiberationMono}[Path=fonts/,Extension=.ttf,Ligatures=TeX,UprightFont=*-Regular,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-BoldItalic,Scale=MatchLowercase]
+\setsansfont{LiberationSerif}[Path=fonts/,Extension=.ttf,Ligatures=TeX,UprightFont=*-Regular,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-BoldItalic]
+\usepackage{polyglossia}
+\setdefaultlanguage[variant=british]{english}
+\newfontfamily\georgia{Gelasio}[Path=fonts/,Extension=.ttf,Ligatures=TeX,UprightFont=*-Regular,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-BoldItalic]
+\renewcommand{\familydefault}{\rmdefault}\normalfont
+\newcommand{\rupee}{{\georgia ₹}}
+
+% ---------- Spacing ----------
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{indentfirst}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlength{\emergencystretch}{3em}
+\tolerance=1500
+
+% ---------- Packages ----------
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage[table]{xcolor}
+\usepackage{enumitem}
+\setlist{itemsep=2pt,topsep=4pt,parsep=0pt}
+\usepackage{listings}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,shapes.geometric,shapes.misc,shapes.multipart,fit,backgrounds}
+\usepackage{pgfgantt}
+\usepackage{placeins}
+\usepackage{etoolbox}
+\usepackage{ifthen}
+\usepackage[hyphens]{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage{caption}
+\captionsetup{font=normalsize,labelsep=colon,skip=6pt}
+\captionsetup[table]{position=top}
+\counterwithin{figure}{chapter}
+\counterwithin{table}{chapter}
+\numberwithin{equation}{chapter}
+
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  breaklines=true,
+  frame=single,
+  numbers=left,
+  numberstyle=\tiny,
+  captionpos=b,
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false,
+  aboveskip=6pt,belowskip=6pt
+}
+\lstdefinestyle{terminal}{numbers=none,basicstyle=\ttfamily\scriptsize,backgroundcolor=\color{black!4}}
+\lstdefinestyle{pseudo}{numbers=left,mathescape=true,basicstyle=\ttfamily\small,
+  morekeywords={for,each,in,do,if,then,else,return,raise,end,while,function,and,or,not}}
+
+% ---------- Section headings (Georgia, as in the format) ----------
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+  {\georgia\bfseries\fontsize{20}{26}\selectfont}
+  {\chaptertitlename\ \thechapter}{14pt}{}
+\titlespacing*{\chapter}{0pt}{-6pt}{20pt}
+\titleformat{\section}{\georgia\bfseries\fontsize{14}{18}\selectfont}{\thesection}{0.8em}{}
+\titlespacing*{\section}{0pt}{14pt}{6pt}
+\titleformat{\subsection}{\georgia\bfseries\fontsize{12}{15}\selectfont}{\thesubsection}{0.8em}{}
+\titlespacing*{\subsection}{0pt}{10pt}{4pt}
+\titleformat{\subsubsection}{\georgia\bfseries\itshape\fontsize{12}{15}\selectfont}{\thesubsubsection}{0.8em}{}
+
+% ---------- Contents, list of figures, list of tables ----------
+\usepackage{tocloft}
+\renewcommand{\cfttoctitlefont}{\georgia\bfseries\fontsize{20}{26}\selectfont}
+\renewcommand{\cftloftitlefont}{\georgia\bfseries\fontsize{20}{26}\selectfont}
+\renewcommand{\cftlottitlefont}{\georgia\bfseries\fontsize{20}{26}\selectfont}
+\renewcommand{\cftchapfont}{\georgia\bfseries}
+\renewcommand{\cftchappagefont}{\georgia\bfseries}
+\renewcommand{\cftchappresnum}{Chapter }
+\renewcommand{\cftchapaftersnum}{.}
+\setlength{\cftchapnumwidth}{5.6em}
+\renewcommand{\cftchapleader}{\hfill}
+\setlength{\cftbeforechapskip}{10pt}
+\setlength{\cftsecindent}{1.5em}
+\setlength{\cftsubsecindent}{4.0em}
+\setlength{\cftfigindent}{0em}
+\setlength{\cfttabindent}{0em}
+\setlength{\cftfignumwidth}{3.2em}
+\setlength{\cfttabnumwidth}{3.2em}
+
+% ---------- Running header: short title over a rule ----------
+\newcommand{\ProjectTitle}{Pseudonym Resolution and Formal Verification of an Unlinkable Two-Message IoT Authentication Protocol}
+\newcommand{\ShortTitle}{Pseudonym Resolution in Two-Message IoT Authentication}
+\usepackage{fancyhdr}
+\fancypagestyle{bb}{%
+  \fancyhf{}%
+  \fancyhead[R]{\small\ShortTitle}%
+  \fancyfoot[C]{\small\thepage}%
+  \renewcommand{\headrulewidth}{1.5pt}%
+  \renewcommand{\footrulewidth}{0pt}}
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyhead[R]{\small\ShortTitle}%
+  \fancyfoot[C]{\small\thepage}%
+  \renewcommand{\headrulewidth}{1.5pt}}
+\pagestyle{bb}
+
+% Front-matter title (centred, Georgia bold italic, as for "Declaration")
+\newcommand{\prelimtitle}[2][\itshape]{%
+  \begin{center}{\georgia\bfseries#1\fontsize{16}{20}\selectfont #2\par}\end{center}\vspace{18pt}}
+
+% Divider page before each chapter: "CHAPTER: n" and the chapter name, centred
+\newcommand{\chapterdivider}[2]{%
+  \clearpage\thispagestyle{empty}%
+  \vspace*{\fill}%
+  \begin{center}%
+  {\bfseries\fontsize{14}{18}\selectfont CHAPTER: #1\par}\vspace{28pt}%
+  {\bfseries\fontsize{14}{18}\selectfont #2\par}%
+  \end{center}%
+  \vspace*{\fill}\clearpage}
+
+% Signature block used in the declaration and acknowledgement
+\newcommand{\sigblock}[1]{%
+  \begin{minipage}[t]{0.46\textwidth}\centering
+  \rule{1.4in}{0.4pt}\\[-2pt]{\bfseries (Signature)}\\#1\end{minipage}}
+
+% ---------- Report details ----------
+\newcommand{\StudentA}{Jay Kerkar}
+\newcommand{\StudentB}{Chaitanya Kelkar}
+\newcommand{\StudentC}{Chirag Poornamath}
+\newcommand{\StudentD}{Yash Kolekar}
+\newcommand{\RollA}{16}
+\newcommand{\RollB}{15}
+\newcommand{\RollC}{26}
+\newcommand{\RollD}{17}
+\newcommand{\GuideName}{Dr.\ Shanta Sondur}
+
+\begin{document}
+
+% ============================== TITLE PAGE ==============================
+\begin{titlepage}
+\singlespacing
+\begin{center}
+\vspace*{-0.55in}
+\includegraphics[width=1.35in]{images/mu_logo.png}\par\vspace{6pt}
+{\bfseries\fontsize{14}{18}\selectfont \MakeUppercase{\ProjectTitle}\par}\vspace{6pt}
+{\fontsize{12}{15}\selectfont ON\par}\vspace{8pt}
+{\fontsize{12}{15}\selectfont Submitted in partial fulfillment of the requirements of\\ the degree of\par}\vspace{6pt}
+{\georgia\bfseries\fontsize{13}{16}\selectfont Bachelor of Engineering\par}\vspace{8pt}
+{\georgia\bfseries\fontsize{13}{16}\selectfont (Information Technology)\par}\vspace{8pt}
+{\fontsize{11}{14}\selectfont By\par}\vspace{4pt}
+{\georgia\bfseries\fontsize{13}{18}\selectfont
+\StudentA{} -- Roll No (\RollA)\\
+\StudentB{} -- Roll No (\RollB)\\
+\StudentC{} -- Roll No (\RollC)\\
+\StudentD{} -- Roll No (\RollD)\par}\vspace{6pt}
+{\fontsize{11}{14}\selectfont Under the guidance of\par}\vspace{4pt}
+{\bfseries\fontsize{13}{16}\selectfont \MakeUppercase{\GuideName}\par}\vspace{6pt}
+\includegraphics[width=0.85in]{images/vesit_logo.png}\par\vspace{6pt}
+{\georgia\bfseries\fontsize{11}{14}\selectfont Department of Information Technology\\[3pt]
+VIVEKANAND EDUCATION SOCIETY'S INSTITUTE OF TECHNOLOGY,\\ Chembur, Mumbai 400074\\[3pt]
+(An Autonomous Institute, Affiliated to University of Mumbai)\\[8pt]
+AY (2026-27)\par}
+\end{center}
+\end{titlepage}
+
+% ============================== CERTIFICATE ==============================
+\pagenumbering{roman}
+\setcounter{page}{1}
+\thispagestyle{empty}
+\begin{center}
+\vspace*{-0.5in}
+\includegraphics[width=\textwidth]{images/ves_banner.png}\par\vspace{4pt}
+{\georgia\bfseries\itshape\fontsize{20}{24}\selectfont Certificate\par}\vspace{10pt}
+This is to certify that project entitled\\
+{\georgia\bfseries\fontsize{13}{16}\selectfont \ProjectTitle\par}\vspace{16pt}
+{\georgia\bfseries Group Members Names\par}
+Mr.\ \StudentA{} (Roll No. \RollA)\\
+Mr.\ \StudentB{} (Roll No. \RollB)\\
+Mr.\ \StudentC{} (Roll No. \RollC)\\
+Mr.\ \StudentD{} (Roll No. \RollD)\par\vspace{10pt}
+In partial fulfilment of the Fourth Year (Sem. VI-Sem.VII), Bachelor of Engineering (B.E.) Degree in Information Technology at the University of Mumbai\par\vspace{10pt}
+Academic Year 2026-27
+\end{center}
+\vspace{0.55in}
+{\georgia\bfseries
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}cc@{}}
+\GuideName & External Examiner\\
+Project Mentor & \\[0.55in]
+Dr.\ (Mrs.)\ Shalu Chopra & Dr.\ (Mrs.)\ J.\ M.\ Nair\\
+H.O.D & Principal\\
+\end{tabular*}}
+\vspace{0.5in}
+
+\noindent Date:\ \ \ /\ \ \ /2026\\
+Place:\\
+VESIT, Chembur \hfill College Seal
+\clearpage
+
+% ============================== DECLARATION ==============================
+\prelimtitle{Declaration}
+I declare that this written submission represents my ideas in my own words and where others' ideas or words have been included, I have adequately cited and referenced the original sources. I also declare that I have adhered to all principles of academic honesty and integrity and have not misrepresented or fabricated or falsified any idea/data/fact/source in my submission. I understand that any violation of the above will be cause for disciplinary action by the Institute and can also evoke penal action from the sources which have thus not been properly cited or from whom proper permission has not been taken when needed.
+
+\vspace{0.8in}
+\noindent\sigblock{\StudentA{} (\RollA)}\hfill\sigblock{\StudentB{} (\RollB)}\\[0.7in]
+\noindent\sigblock{\StudentC{} (\RollC)}\hfill\sigblock{\StudentD{} (\RollD)}
+\clearpage
+
+% ============================== ABSTRACT ==============================
+\prelimtitle[\upshape]{Abstract}
+Lightweight authentication protocols for the Internet of Things (IoT) often hide a device's identity behind a pseudonym that changes with every epoch, so that an eavesdropper cannot link two sessions of the same device. In the two-message protocol of Al-Rasheed et al.\ (IEEE Transactions on Consumer Electronics, 2026), the device sends the pseudonym in clear and encrypts everything else under a key that is specific to the device. The server therefore has to find out which device sent a message before it can decrypt or verify it. This project shows, from the specification alone, that every correct server needs this \emph{pseudonym resolution} step, and that the protocol neither specifies it nor includes it in its cost model. The protocol was implemented in Python, with a C port of the device side for the ESP8266, and both were checked byte for byte against independent reference vectors (15 checks each). Seven resolution strategies were added and their probe counts were measured and checked against closed forms: four that keep the wire format, and three adapted from RFID privacy research (randomized hash locks, key trees and rainbow time--memory trade-offs). The counts were priced with the base paper's own per-operation constants in an OMNeT++ model of its stated network (960 runs). At one device every strategy keeps the published 23.68\,ms per session. At 1,000 devices with 5\% adversaries, a precomputed table keeps a session at 24.4\,ms, while the on-demand counter scan reaches about 44\,s, because each forged pseudonym forces a full scan that the block-list never sees. Counter epochs also lock a device out permanently after eight dropped messages. A ProVerif analysis shows that session-key secrecy and agreement hold for every correct resolver; unlinkability holds with counter epochs and fails with clock epochs; and injective device authentication needs replay state that the specification leaves open. The code, models and data are released openly.
+
+\vspace{12pt}
+\noindent\textbf{\textit{Keywords}}--\textit{IoT authentication, pseudonym resolution, unlinkability, private identification, scalability, OMNeT++, formal verification, ProVerif}
+\clearpage
+
+% ============================== CONTENTS / LISTS ==============================
+\tableofcontents
+\clearpage
+\listoffigures
+\clearpage
+\listoftables
+\clearpage
+
+% ============================== ACKNOWLEDGEMENT ==============================
+\prelimtitle[\upshape]{ACKNOWLEDGEMENT}
+The project report on ``\ProjectTitle'' is the outcome of the guidance, moral support and devotion bestowed on our group throughout our work. For this we acknowledge and express our profound sense of gratitude to everybody who has been the source of inspiration throughout project preparation. First and foremost we offer our sincere thanks to Dr.\ (Mrs.)\ Shalu Chopra, Head of the Department of Information Technology, to Dr.\ Manoj Sabnis, Deputy Head of the Department, and to our project guide \GuideName, Professor, for their valuable inputs and the consistent guidance and support they provided. We also thank Vivekanand Education Society's Institute of Technology for providing a stimulating atmosphere and a conducive work environment.
+
+\vspace{0.8in}
+\noindent\sigblock{\StudentA{} (\RollA)}\hfill\sigblock{\StudentB{} (\RollB)}\\[0.7in]
+\noindent\sigblock{\StudentC{} (\RollC)}\hfill\sigblock{\StudentD{} (\RollD)}
+
+% ============================== MAIN MATTER ==============================
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\input{chapters/ch1_introduction}
+\input{chapters/ch2_literature}
+\input{chapters/ch3_methodology}
+\input{chapters/ch4_implementation}
+\input{chapters/ch5_conclusion}
+
+\end{document}

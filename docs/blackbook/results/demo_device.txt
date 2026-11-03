@@ -1,0 +1,10 @@
+$ hea-device authenticate --credential creds/device-A.json --server-id server-A --server-addr 127.0.0.1:18443
+Mutual authentication succeeded with 'server-A'.
+  session key fingerprint: e74617a2626ea74f (SHA-256[:16] of K_ij,t -- never the raw key)
+  round-trip latency: 2.103 ms
+[exit 0]
+$ hea-device authenticate --credential creds/device-A.json --server-id server-A --server-addr 127.0.0.1:18443 --replay-last
+[replay-demo] resending previously captured M1 (216 bytes) to 127.0.0.1:18443 ...
+REJECTED by server: ReplayDetected: pseudonym for 'device-A' reuses stale epoch 0 (round-trip 1.402 ms)
+[replay-demo] rejection confirms the server's freshness check is working as intended.
+[exit 1]

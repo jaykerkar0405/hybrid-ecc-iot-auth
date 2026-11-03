@@ -1,0 +1,9 @@
+Runs made on 2026-11-03 against commit e21993a (origin/main) for the blackbook.
+Machine: 12th Gen Intel Core i5-12500H, 16 logical CPUs, 15 GiB RAM, Linux 6.18.60-1-lts
+Python 3.14.9; cryptography 50.0.2; pytest 9.2.0; pytest-cov 7.1.0; hypothesis 6.170.14; matplotlib 3.11.2
+GCC 16.2.1; BearSSL from github.com/earlephilhower/bearssl-esp8266 (shallow clone, as the Makefile does)
+Not re-run here (tools not installed): OMNeT++ 6.4 sweep (sim/results.csv used as committed), ProVerif 2.05 (logs used as committed).
+resolution_costs.py was re-run in a scratch copy: all non-TM rows of measured.csv identical to the committed file;
+TM rows differ (OS randomness, as documented). The report uses the committed data, which the paper uses.
+paper/make_figs.py re-run on the committed data: table_ranked.tex and summary.json identical to the committed files.
+Demo server was run on port 18443 instead of 8443.

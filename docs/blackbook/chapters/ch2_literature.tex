@@ -1,0 +1,121 @@
+% ============================== CHAPTER 2 ==============================
+\chapterdivider{2}{LITERATURE SURVEY}
+\chapter{Literature Survey}
+
+\section{Introduction}
+The project sits at the meeting point of two bodies of work: lightweight mutual authentication for IoT devices, represented here by the protocol of Al-Rasheed et al.~\cite{base} that serves as our specification, and \emph{private identification} in RFID systems, where a reader must identify a tag from a response that is deliberately unlinkable. Studying both is necessary before building anything, because the problem that the project addresses, a server that must identify a device from an unlinkable pseudonym, is new only to the first body of work. The second has studied it since the early 2000s and offers a range of solutions with known time and memory costs.
+
+The survey therefore reviews the base protocol in detail, then the main RFID approaches to private identification: randomized hash locks, hash chains, key trees, time--memory trade-offs and time-based tables, together with the comparative study that analysed them. The sources include a journal paper, conference papers and an RFID Privacy Workshop paper. For each one we record the problem, the method, the cost of identification, its limitations, and what the project takes from it. The comparison in Table~\ref{tab:litsurvey} and the gap analysis in Section~\ref{sec:gaps} then show why the project is needed.
+
+\section{Review of Literature Survey}
+
+\subsection*{Paper 1: A Low-Cost Hybrid Elliptic Curve Cryptography Authentication Protocol for Trustworthy Internet of Things Communication}
+\textbf{Authors and year:} A.~Al-Rasheed, R.~Khan, A.~Ahmad, A.~Saeed, F.~Alturise and S.~Alkhalaf, 2026~\cite{base}. \emph{IEEE Transactions on Consumer Electronics}, vol.~72, no.~2, pp.~4483--4491. Link: \url{https://doi.org/10.1109/TCE.2026.3662053}.
+
+\textbf{Summary.} The paper proposes a mutual-authentication protocol between IoT devices and servers that confines expensive operations to an offline phase. A trusted authority derives each entity's long-term secret $\lambda_X=H_1(ID_X\|s)$ and each device--server pair's pairwise key $k^\star=\mathrm{KDF}(\lambda_V\|\lambda_R)$ (Eqs.~8--9). The online phase (Section~III, Eqs.~11--20) has two messages. The device sends a pseudonym $PID=H_2(\lambda_V\|t)$ together with an authenticated encryption of $PID$, a nonce $N_i$ and the epoch $t$. The server answers with an authenticated encryption of its nonce $N_j$, and both sides derive the session key $K=\mathrm{KDF}(k^\star\|N_i\|N_j\|t)$. The evaluation uses per-operation constants (Table~III, e.g.\ $T_H=0.32$\,ms per hash), a per-side cost of $2T_H+2T_{SE/D}=11.84$\,ms (Table~V), i.e.\ 23.68\,ms per session, 1,024 bits over four messages, 320 bits of server storage per device (Table~VI) and a simulated network described in Table~II.
+
+\textbf{Observations.} The pseudonym is the only field in clear, and the key needed to open the message is specific to the device, so the server must identify the device before it can verify anything. The paper does not say how it does this, nor whether $t$ is a counter or a clock, and its cost model (Table~V, Eq.~22) has no term that grows with the number of devices. Its security argument is an informal sketch, and the paper does not claim forward secrecy. Section~II describes a different, narrative version of the online phase (Algorithms~1--2) that reuses a static digest without a per-session nonce.
+
+\textbf{Inference drawn.} The Section~III exchange is a clean, symmetric-only design and is the specification that the project implements. The missing resolution step and its missing cost are the central gap that the project studies, and the paper's own constants and network are the conditions under which we evaluate every strategy.
+
+\subsection*{Paper 2: Security and Privacy Aspects of Low-Cost Radio Frequency Identification Systems}
+\textbf{Authors and year:} S.~A.~Weis, S.~E.~Sarma, R.~L.~Rivest and D.~W.~Engels, 2003 (proceedings 2004)~\cite{weis}. \emph{Security in Pervasive Computing (SPC 2003)}, LNCS~2802, Springer, pp.~201--212. Link: \url{https://saweis.net/pdfs/spc-rfid.pdf}.
+
+\textbf{Summary.} The paper analyses the security and privacy risks of low-cost RFID tags, which cannot run conventional public-key cryptography, and proposes hash-based access-control mechanisms. In the \emph{randomized hash lock}, a tag answers each query with a fresh random value $r$ and $H(k\|r)$, so successive answers cannot be linked.
+
+\textbf{Observations.} Because every answer is different, the reader cannot look the tag up directly: it must try the key of every tag it knows, which costs $O(N)$ hash evaluations per identification. The scheme needs no state on the reader beyond the keys, but its identification cost grows linearly with the number of tags.
+
+\textbf{Inference drawn.} This is the simplest private-identification scheme and the baseline for linear search. The project adapts it as strategy \textbf{CR}. It needs a fresh $r$ in clear, so it changes the first message of the base protocol.
+
+\subsection*{Paper 3: Cryptographic Approach to ``Privacy-Friendly'' Tags}
+\textbf{Authors and year:} M.~Ohkubo, K.~Suzuki and S.~Kinoshita, 2003~\cite{ohkubo}. \emph{RFID Privacy Workshop}, MIT, Cambridge, MA, USA. Link: \url{https://rfidprivacy.media.mit.edu/2003/papers/ohkubo.pdf}.
+
+\textbf{Summary.} The paper (often called OSK) proposes tags whose secret state evolves through a one-way hash chain: after each answer the tag replaces its state with its hash, and the answer is a second hash of the state. An attacker who later reads a tag's current state cannot recompute its earlier answers, which gives \emph{forward privacy}.
+
+\textbf{Observations.} To identify a tag the back-end must walk the hash chain of every tag up to a maximum depth $m$, which costs $O(Nm)$ hash evaluations. If the tag is queried many times without the back-end seeing the answers, the chain moves beyond the search depth.
+
+\textbf{Inference drawn.} Counter epochs in our implementation produce successive values $H_2(\lambda\|t)$ rather than evolving the secret through a hash chain. Strategy \textbf{O1} borrows the OSK search structure by trying candidate devices and epochs within a bounded window. In our implementation, advancing the counter beyond that window causes permanent lockout after $F$ dropped messages; this is a result about our resolver, rather than a claim that OSK and the base protocol have identical state or security properties.
+
+\subsection*{Paper 4: Privacy and Security in Library RFID: Issues, Practices, and Architectures}
+\textbf{Authors and year:} D.~Molnar and D.~Wagner, 2004~\cite{molnar}. \emph{Proc.\ 11th ACM Conference on Computer and Communications Security (CCS)}, pp.~210--219. Link: \url{https://people.eecs.berkeley.edu/~daw/papers/librfid-ccs04.pdf}.
+
+\textbf{Summary.} The paper studies RFID deployments in libraries and the privacy threats they create, and proposes a private-authentication scheme in which tag secrets are arranged in a tree. A tag answers with one keyed hash per level of the tree, and the reader descends level by level.
+
+\textbf{Observations.} With branching factor $\delta$ the reader's work drops to $O(\delta\log_\delta N)$, which scales well. The price is that tags share their internal (non-leaf) keys with other tags, so compromising one tag reveals keys that weaken the privacy of others.
+
+\textbf{Inference drawn.} The project adapts the tree as strategy \textbf{MW} with $\delta=32$. It is the only strategy that is both small and fast in our results, but it changes the first message and weakens the privacy model, which the base protocol does not allow for.
+
+\subsection*{Paper 5: A Scalable and Provably Secure Hash-Based RFID Protocol}
+\textbf{Authors and year:} G.~Avoine and P.~Oechslin, 2005~\cite{avoine05}. \emph{Proc.\ 3rd IEEE International Conference on Pervasive Computing and Communications Workshops (PerCom Workshops)}, pp.~110--114. Link: \url{https://infoscience.epfl.ch/bitstreams/baee95bc-ffe8-4c59-9ad0-705e229253ec/download}.
+
+\textbf{Summary.} The paper keeps the forward privacy of OSK hash chains but makes identification faster with a Hellman-style time--memory trade-off~\cite{hellman}: the back-end precomputes chains over the space of all (tag, state) pairs and stores only their end points, using rainbow tables~\cite{oechslin}.
+
+\textbf{Observations.} Identification time and memory both become about $O((Nm)^{2/3})$ instead of $O(Nm)$ time. The precomputation covers the chosen range of tag states. The paper also discusses periodically rebuilding tables and advancing the stored chain starting points to keep this range manageable.
+
+\textbf{Inference drawn.} The project adapts the trade-off as strategy \textbf{TM} (lifetime $m=128$ epochs, six rainbow tables). In our parameterisation the tables cover a fixed lifetime rather than a sliding window; TM is dominated by the table strategies in our setting.
+
+\subsection*{Paper 6: Reducing Time Complexity in RFID Systems}
+\textbf{Authors and year:} G.~Avoine, E.~Dysli and P.~Oechslin, 2005 (proceedings 2006)~\cite{ado05}. \emph{Selected Areas in Cryptography (SAC 2005)}, LNCS~3897, Springer, pp.~291--306. Link: \url{https://sites.uclouvain.be/security/download/papers/AvoineDO-2005-sac.pdf}.
+
+\textbf{Summary.} The paper compares private-identification approaches by the time and memory a reader needs to identify one tag. It analyses the tree-based scheme of Molnar and Wagner and quantifies how much privacy is lost when some tags are compromised, and applies the time--memory trade-off to OSK.
+
+\textbf{Observations.} Tree-based schemes are fast but leak privacy under tag compromise. Hash-chain schemes keep forward privacy, and with a time--memory trade-off their cost becomes practical. The comparison is made per tag, not under network load or attack.
+
+\textbf{Inference drawn.} The project's ranked comparison (Table~\ref{tab:ranked}) follows the same idea, comparing time against memory. It extends the comparison to network scale, to the cost constants of a specific IoT protocol, and to the load created by forged messages.
+
+\subsection*{Paper 7: YA-TRAP: Yet Another Trivial RFID Authentication Protocol}
+\textbf{Authors and year:} G.~Tsudik, 2006~\cite{tsudik}. \emph{Proc.\ 4th IEEE International Conference on Pervasive Computing and Communications Workshops (PerCom Workshops)}, pp.~640--643. Link: \url{https://ics.uci.edu/~gtsudik/paps/t-2006.pdf}.
+
+\textbf{Summary.} YA-TRAP uses reader-supplied timestamps and a tag-held secret. A tag stores the last accepted timestamp and answers a strictly newer, valid timestamp with a keyed hash. A repeated, older or out-of-range timestamp instead produces a pseudorandom reply. The back-end precomputes expected keyed hashes for a timestamp and identifies valid responses by table lookup.
+
+\textbf{Observations.} Valid identification is a constant-time lookup after $N$ hashes of precomputation for a timestamp. The tag's timestamp check prevents repeated queries at that timestamp from eliciting the same valid reply. An adversary supplying a far-future timestamp can nevertheless disrupt availability, as the paper discusses.
+
+\textbf{Inference drawn.} Strategy \textbf{O4} borrows the precomputed-table idea for our clock-epoch model, which does not implement YA-TRAP's tag-side timestamp acceptance rule. In our model, two sessions in one epoch share a pseudonym and can be linked; our ProVerif result applies to that model, not to the original YA-TRAP protocol.
+
+\FloatBarrier
+\begin{table}[H]
+\centering
+\caption{Comparative Summary of Literature Survey}
+\label{tab:litsurvey}
+\footnotesize
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{0.04\textwidth}|p{0.13\textwidth}|>{\raggedright\arraybackslash}p{0.15\textwidth}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Sr. No.} & \textbf{Author(s) \& Year} & \textbf{Paper Title} & \textbf{Methodology / Technology Used} & \textbf{Key Observations} & \textbf{Inference Drawn}\\ \hline
+1 & Al-Rasheed et al., 2026~\cite{base} & Low-cost hybrid ECC authentication protocol for trustworthy IoT & Offline TA key derivation; two-message symmetric exchange with epoch pseudonym, AEAD and KDF & Resolution of the pseudonym is required but not specified; cost model constant in $N$ & Specification for the project; source of the gap and of the cost constants\\ \hline
+2 & Weis et al., 2003~\cite{weis} & Security and privacy aspects of low-cost RFID systems & Hash lock; randomized hash lock $(r,H(k\|r))$ & Unlinkable answers; reader search $O(N)$ & Strategy CR (changes $M_1$)\\ \hline
+3 & Ohkubo et al., 2003~\cite{ohkubo} & Cryptographic approach to ``privacy-friendly'' tags & Hash-chain tag state (OSK) & Forward privacy; search $O(Nm)$; desynchronises if answers are lost & OSK-style search adapted in O1\\ \hline
+4 & Molnar and Wagner, 2004~\cite{molnar} & Privacy and security in library RFID & Tree of shared keys, one keyed hash per level & $O(\delta\log_\delta N)$; compromise of one tag weakens others & Strategy MW (changes $M_1$)\\ \hline
+5 & Avoine and Oechslin, 2005~\cite{avoine05} & A scalable and provably secure hash-based RFID protocol & Rainbow time--memory trade-off over OSK chains & $O((Nm)^{2/3})$ time and memory; tables cover a chosen state range & Strategy TM\\ \hline
+6 & Avoine, Dysli and Oechslin, 2005~\cite{ado05} & Reducing time complexity in RFID systems & Comparative time/memory analysis; privacy under compromise & Tree schemes leak under compromise; comparison is per tag, no network load & Method for our ranked time--memory comparison\\ \hline
+7 & Tsudik, 2006~\cite{tsudik} & YA-TRAP: yet another trivial RFID authentication protocol & Time-based answers; per-period precomputed table & $O(1)$ valid lookup after $N$ hashes; repeated timestamps get pseudorandom replies & O4 borrows tables; same-epoch linkability is a result of our model\\ \hline
+\end{tabularx}
+\end{table}
+
+\section{Research gaps}\label{sec:gaps}
+The review shows that the base protocol relies on a step that it neither specifies nor costs, and that the RFID literature, which offers solutions to that step, has never evaluated them under the conditions of this protocol. Table~\ref{tab:gaps} lists the gaps and how the project responds to each.
+
+\begin{table}[H]
+\centering
+\caption{Research Gap Analysis}
+\label{tab:gaps}
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{0.05\textwidth}|>{\raggedright\arraybackslash}p{0.22\textwidth}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Sr. No.} & \textbf{Existing Approach / System} & \textbf{Identified Limitation / Research Gap} & \textbf{Proposed Project's Approach}\\ \hline
+1 & Al-Rasheed et al.~\cite{base}, Section~III & The server must resolve $PID$ before any check, but the resolution step and the epoch semantics are not specified & Prove from the specification that resolution is required; map the open choices (epoch semantics, resolution method)\\ \hline
+2 & Al-Rasheed et al.~\cite{base}, Tables~III--V, Eq.~22 & Cost model charges a constant $2T_H+2T_{SE/D}$ per session, with no term that grows with $N$ & Measure probe counts for seven strategies; price them at $T_H=0.32$\,ms in an OMNeT++ model of the paper's Table~II network\\ \hline
+3 & RFID private identification~\cite{weis,ohkubo,molnar,avoine05,tsudik} & Evaluated for RFID tags, not under the cost constants and network of an IoT authentication protocol & Adapt each scheme to the protocol (O1--O4, TM, CR, MW) and rank them by latency and storage at up to 1,000 devices\\ \hline
+4 & Comparative study~\cite{ado05} & Time and memory per tag only; no network load and no forged traffic & Add 5\% adversaries sending forged $M_1$ at 1\,Hz and model server queueing\\ \hline
+5 & Base protocol, threat model & Desynchronisation of counter epochs under dropped messages is not considered & Demonstrate the lockout after $F=8$ dropped messages and test it for each strategy\\ \hline
+6 & Base protocol, security sketch & Informal; does not state which properties depend on epoch and replay choices & ProVerif models of secrecy, agreement, injectivity, forward secrecy and unlinkability for every correct resolver\\ \hline
+\end{tabularx}
+\end{table}
+
+The most significant gap is the first two together: a required step with no specification and no cost. A server cannot authenticate a device that it has not yet identified, so the protocol's headline figure of 23.68\,ms per session is only valid if resolution is free, which, as the RFID literature shows, it is not unless the server spends memory on precomputation. This gap justifies the project, because it can be closed with measurement rather than speculation: the protocol, its constants and its network are all published, and the candidate solutions are well understood.
+
+\section{Conclusion}
+The literature shows a clear pattern. Lightweight IoT protocols such as~\cite{base} hide the device behind an unlinkable pseudonym and evaluate their cost per session as if the server already knew the device. RFID research shows that identifying a device from an unlinkable answer costs $O(N)$ work unless the server precomputes, and offers a family of trade-offs between time, memory, message format and privacy: hash locks, hash chains, key trees, time--memory trade-offs and time-based tables. The common limitations are linear search cost, desynchronisation of counter-based state, and loss of privacy when keys are shared or answers repeat.
+
+The research gaps of Section~\ref{sec:gaps} are therefore that the base protocol neither specifies nor costs resolution, and that the known solutions have not been compared under its conditions or analysed for their effect on its security properties. These findings set the objectives of the project and justify its methods: an implementation that is checked against independent vectors, measured probe counts checked against closed forms, a network simulation under the paper's own constants, and symbolic verification. The next chapter presents the methodology built on these choices.
