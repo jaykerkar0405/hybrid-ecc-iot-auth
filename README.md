@@ -130,7 +130,7 @@ The team confirms that the original OMNeT++ and ProVerif runs used a 14-inch Mac
    (cd paper && tectonic main.tex)
    ```
 
-Committed results allow inspection without installing the simulator or verifier. See the [resolution notes](evaluation/resolution/README.md), [formal results](evaluation/formal_verification/README.md), [design](docs/design.md) and [conformance matrix](docs/conformance.md).
+Committed results allow inspection without installing the simulator or verifier. See the [resolution notes](evaluation/resolution/README.md), [formal results](evaluation/formal_verification/README.md), [design](docs/design.md), [conformance matrix](docs/conformance.md) and [literature survey](docs/literature_survey.pdf).
 
 ## Repository layout
 
@@ -142,7 +142,7 @@ evaluation/
   resolution/              probe counts, cost model, desynchronisation, sim/
   formal_verification/     ProVerif models, runner and logs
 paper/                     main.tex, authors.tex, body.tex, main.pdf, figures
-docs/                      design, conformance and reference access catalogue
+docs/                      design, conformance, literature survey (PDF), blackbook and reference access catalogue
 ```
 
 ## Scope and limitations
