@@ -8,6 +8,7 @@ Black Book for _Pseudonym Resolution and Formal Verification of an Unlinkable Tw
 | `chapters/` | Chapters 1–5, references and appendix                                                         |
 | `main.pdf`  | Compiled report                                                                               |
 | `figures/`  | Evaluation figures, regenerated from the committed data with `paper/make_figs.py`             |
+| `reports/`  | Submission reports: plagiarism similarity and AI writing detection                         |
 | `images/`   | Logos extracted from the format PDF                                                           |
 | `fonts/`    | Gelasio (Georgia-compatible) and Liberation Serif/Mono (Times/Courier-compatible), SIL OFL    |
 | `results/`  | Logs of the runs made for this report (tests, C vectors, interop, desync, probe sweep, demo)  |
@@ -18,6 +19,7 @@ The remaining submission details are:
 
 - Publication venue and submission/acceptance details, the final paper and the presentation certificate when available.
 - The plagiarism report.
+- The AI writing detection report.
 - Publication, printing and binding expenses, and the overall estimated total.
 - Copyright application and registration details when available; the codebase's application is being prepared.
 - Certificate completion: external examiner's name, date, place, signatures and college seal, as required by the department.
