@@ -257,6 +257,46 @@ Table~\ref{tab:desync} is the output of \texttt{desync\_check.py} for counter ep
 \end{tabular}
 \end{table}
 
+\subsection*{Sensitivity to the assumptions}
+The base paper does not fix the adversary share and rate, the authentication window or the enrolment rule, and the per-probe cost $T_H=0.32$\,ms is the paper's constant rather than a measurement on our hardware. Their effect was examined in two ways, without new simulation runs (\texttt{evaluation/resolution/sensitivity.py}, output in \texttt{sensitivity.txt}).
+
+First, the committed OMNeT++ sweep already contains every strategy with and without adversaries (Table~\ref{tab:advcmp}). At $N=1000$ the ranking is identical in both cases.
+
+\begin{table}[H]
+\centering
+\caption{Simulated mean session latency at $N=1000$ with and without adversaries (ms, mean of five seeds)}
+\label{tab:advcmp}
+\small
+\begin{tabular}{|l|r|r|r|r|r|r|r|}
+\hline
+ & \textbf{O2} & \textbf{O4} & \textbf{MW} & \textbf{CR} & \textbf{O3} & \textbf{TM} & \textbf{O1}\\ \hline
+No adversaries & 24.43 & 24.48 & 31.43 & 77.18 & 258.7 & 595.8 & 19,219\\ \hline
+5\% adversaries & 24.40 & 24.59 & 31.38 & 94.89 & 1,108 & 12,850 & 44,010\\ \hline
+\end{tabular}
+\end{table}
+
+Second, the offered load $\rho$ of the mean server at $N=1000$ was computed from the committed cost model and runs as $\rho=\lambda_h(S+h(n)\,T_H)+\lambda_a f(n)\,T_H$, where $S=11.84$\,ms is the paper's server cost per session, $h$ and $f$ are the measured honest and forged probes, $n=258$ is the mean number of devices enrolled per server, and $\lambda_h$ and $\lambda_a$ are the honest and forged request rates per server (O4 adds its per-epoch extension). A server with $\rho\ge1$ cannot keep up and its queue grows for the whole window. Table~\ref{tab:sens} varies one assumption at a time from the baseline.
+
+\begin{table}[H]
+\centering
+\caption{Offered load $\rho$ of the mean server at $N=1000$, one assumption varied at a time (baseline: 5\% adversaries at 1\,Hz, 10\,s window, reachable enrolment, $T_H=0.32$\,ms; $\rho\ge1$ means saturated)}
+\label{tab:sens}
+\small
+\begin{tabular}{|l|r|r|r|r|r|r|r|}
+\hline
+\textbf{Case} & \textbf{O2} & \textbf{O4} & \textbf{MW} & \textbf{CR} & \textbf{O3} & \textbf{TM} & \textbf{O1}\\ \hline
+Baseline & 0.02 & 0.03 & 0.04 & 0.19 & 0.52 & 1.68 & 4.16\\ \hline
+No adversaries & 0.02 & 0.03 & 0.04 & 0.11 & 0.27 & 0.41 & 2.09\\ \hline
+20\% adversaries & 0.02 & 0.03 & 0.05 & 0.44 & 1.26 & 5.47 & 10.3\\ \hline
+Adversary rate 2\,Hz & 0.02 & 0.03 & 0.04 & 0.27 & 0.77 & 2.94 & 6.22\\ \hline
+Window 5\,s & 0.05 & 0.06 & 0.08 & 0.30 & 0.79 & 2.09 & 6.25\\ \hline
+Window 20\,s & 0.01 & 0.02 & 0.02 & 0.14 & 0.38 & 1.47 & 3.11\\ \hline
+$T_H=0.16$\,ms & 0.02 & 0.03 & 0.03 & 0.11 & 0.27 & 0.85 & 2.09\\ \hline
+$T_H=0.64$\,ms & 0.03 & 0.04 & 0.06 & 0.36 & 1.01 & 3.33 & 8.29\\ \hline
+Nearest enrolment & 0.02 & 0.02 & 0.04 & 0.04 & 0.06 & 0.36 & 0.35\\ \hline
+\end{tabular}
+\end{table}
+
 \subsection*{Formal verification}
 Table~\ref{tab:fv} lists the ProVerif~2.05 results (committed logs in \path{evaluation/formal_verification/logs/}); every model finishes in under one second.
 
@@ -287,9 +327,13 @@ U2 & Unlinkability, clock epochs, two sessions in one epoch & fails (equal PIDs)
 
 \textbf{Time against memory.} No strategy that keeps the wire format is both fast and small (Figure~\ref{fig:storage}b). O2 buys constant time with $F$ table entries per device (328\,KB in total at $n=1000$), and O4 with $W_t$ entries per device (144\,KB). TM sits in between, at 131\,KB and 1,478 probes, and is dominated here because its table must cover a device's whole lifetime ($m=128$ epochs), not only the current window. MW is the only point that is both small and fast, and it pays with a different $M_1$ and a weaker privacy model.
 
-\textbf{Desynchronisation.} With counter epochs the device advances $t$ every time it builds $M_1$, and the server searches at most $F$ epochs ahead of the last one it accepted. An adversary who drops $F=8$ consecutive $M_1$ messages therefore locks the device out for good (Table~\ref{tab:desync}), with or without an earlier successful session. The lockout holds for O1 and O2, and a unit test checks it for both. A device whose counter lives in RAM is also rejected as a replay after a restart. Message dropping is within the threat model of~\cite{base}. Clock epochs (O3, O4), CR and MW have no per-device counter and cannot desynchronise this way; TM tolerates any number of drops until $t$ reaches the lifetime $m$.
+\textbf{Desynchronisation.} With counter epochs the device advances $t$ every time it builds $M_1$, and the server searches at most $F$ epochs ahead of the last one it accepted. An adversary who drops $F$ consecutive $M_1$ messages therefore locks the device out for good (Table~\ref{tab:desync}, with $F=8$), with or without an earlier successful session. The threshold is the window parameter $F$, which the specification does not fix; a larger $F$ delays the lockout but does not remove it. The lockout holds for O1 and O2, and a unit test checks it for both. A device whose counter lives in RAM is also rejected as a replay after a restart. Message dropping is within the threat model of~\cite{base}. Clock epochs (O3, O4), CR and MW have no per-device counter and cannot desynchronise this way; TM tolerates any number of drops until $t$ reaches the lifetime $m$.
 
 \textbf{Security properties.} The ProVerif results separate the properties that the resolver cannot affect from those it decides. Session-key secrecy (Q1, Q2), agreement on $(V,R,N_i,t)$ (Q3) and injective key agreement for the device (Q5) hold for every correct resolver; Q5 holds because $N_i$ is fresh and bound as associated data of $M_2$. Injective authentication of the device (Q4) fails without replay state: ProVerif finds a trace in which one $M_1$ is accepted twice, so injectivity rests on the epoch window (O1, O2, TM) or the nonce cache (O3, O4), which the specification leaves open. With clock epochs the attacker links two sessions in one epoch by testing their pseudonyms for equality (U2); with counter epochs the equivalence holds (U1). Forward secrecy does not hold, and the base paper does not claim it: a later leak of $k^\star$ reveals $N_i$, $N_j$ and $t$ from the ciphertexts and with them the session key.
+
+\textbf{Sensitivity to the assumptions.} The adversaries change the absolute latencies but not the ranking: without them O1 still reaches 19.2\,s, and O2, O4 and MW move by less than 0.2\,ms (Table~\ref{tab:advcmp}). Across adversary shares of 0 to 20\%, adversary rates of 0.5 to 2\,Hz, windows of 5 to 20\,s and $T_H$ from 0.16 to 0.64\,ms, the order of the strategies by offered load is the order of Table~\ref{tab:ranked}, and O2 and O4 stay below $\rho=0.06$ (Table~\ref{tab:sens}). The absolute figures do depend on the assumptions: O1 saturates the mean server unless $T_H<0.076$\,ms, and with 20\% adversaries or $T_H=0.64$\,ms O3 saturates as well. $\rho$ describes the mean server; the busiest server enrols up to 396 devices, which is why O3 already queues in the simulation at $\rho=0.52$. The enrolment rule matters most. If a server enrols only the devices attached to it ($n\approx20$), no strategy saturates, and CR and MW swap places, as do TM and O1, but O2 and O4 remain first. The window parameters $L$, $F$ and $W_t$ act only through the closed forms of Table~\ref{tab:design}: the lockout threshold equals $F$, and O2's state grows as $40F+8$ bytes per device. The recommendation to precompute therefore holds under every assumption varied, whereas figures such as the 44\,s of O1 hold only under the baseline.
+
+\textbf{What the validation shows and does not show.} Every result rests on a check that can be rerun: the reference vectors and the interoperability run for the implementations, the closed forms for the probe counts, the model without resolution against the paper's 23.68\,ms (23.86\,ms at $N=1$ and 24.07\,ms at $N=1000$, a 0.8 to 1.7\% difference from airtime and quantisation), and ProVerif for the security properties. The offered-load analysis, computed independently of the simulator, also orders the strategies exactly as the simulation does. The checks have limits. The authors' code is not available, so the vectors encode our reading of Section~III of~\cite{base}: they show that both implementations agree with that reading, not that it is the authors' intent. The network model is checked against the paper only where the paper gives a figure, at one device and with no resolution, and its behaviour in saturation has not been compared with another simulator.
 
 \textbf{Comparison with the objectives.} Table~\ref{tab:objectives} relates each objective of Section~1.3 to the evidence obtained.
 
@@ -305,8 +349,8 @@ U2 & Unlinkability, clock epochs, two sessions in one epoch & fails (equal PIDs)
 1 & Conformant Python and C implementations & 15/15 vector checks in each; 5/5 interoperable handshakes; 125 tests pass\\ \hline
 2 & Resolution required; open choices identified & Five-step argument from the specification and the vectors (Section~3.3); two open choices\\ \hline
 3 & Seven strategies, measured and validated & Closed forms exact for O1--O4 and CR; honest means within 4 SE; MW within its bound; TM 9 misses in 2,100\\ \hline
-4 & Network pricing and ranking & 960 OMNeT++ runs; O2 at 24.4\,ms and O1 at 44\,s at $N=1000$ with 5\% adversaries\\ \hline
-5 & Failure modes & Forged pseudonyms cost O1 $Wn$ probes and O2/O4 none; lockout after 8 dropped messages\\ \hline
+4 & Network pricing and ranking & 960 OMNeT++ runs; O2 at 24.4\,ms and O1 at 44\,s at $N=1000$ with 5\% adversaries; ranking unchanged without adversaries and under every assumption varied (Table~\ref{tab:sens})\\ \hline
+5 & Failure modes & Forged pseudonyms cost O1 $Wn$ probes and O2/O4 none; lockout after $F$ dropped messages ($F=8$ here)\\ \hline
 6 & Formal analysis & Q1--Q3, Q5, U1 true; Q4, FS false; U2 fails\\ \hline
 7 & Open release & Code, models, data and logs in the public repository\\ \hline
 \end{tabularx}
@@ -333,4 +377,4 @@ U2 & Unlinkability, clock epochs, two sessions in one epoch & fails (equal PIDs)
 \end{itemize}
 
 \section{Conclusion}
-The protocol of~\cite{base} was implemented in Python and, on the device side, in C, and both reproduce the independent reference vectors byte for byte. Seven resolution strategies were implemented and measured, and their probe counts match the closed forms. Under the paper's own constants and network, the choice of resolver decides whether the server stays at the paper's 23.68\,ms per session or saturates at tens of seconds: O2 holds 24.4\,ms at 1,000 devices with 5\% adversaries, while O1 reaches 44\,s. The choice also decides whether forged pseudonyms are free to send and whether eight dropped messages lock a device out. The formal analysis shows that secrecy and agreement do not depend on the choice, while unlinkability and injective authentication do. All seven objectives were met, within the limitations listed above. The next chapter concludes the report and outlines future work.
+The protocol of~\cite{base} was implemented in Python and, on the device side, in C, and both reproduce the independent reference vectors byte for byte. Seven resolution strategies were implemented and measured, and their probe counts match the closed forms. Under the paper's own constants and network, the choice of resolver decides whether the server stays at the paper's 23.68\,ms per session or saturates at tens of seconds: O2 holds 24.4\,ms at 1,000 devices with 5\% adversaries, while O1 reaches 44\,s. The choice also decides whether forged pseudonyms are free to send and whether $F$ dropped messages ($F=8$ here) lock a device out. Varying the assumptions changes these absolute figures but not the ranking. The formal analysis shows that secrecy and agreement do not depend on the choice, while unlinkability and injective authentication do. All seven objectives were met, within the limitations listed above. The next chapter concludes the report and outlines future work.
