@@ -7,16 +7,18 @@
 \begin{abstract}
 In many lightweight IoT authentication protocols, a device sends an unlinkable, epoch-rotated pseudonym in clear and
 encrypts everything else under a key that depends on the device. A server therefore has to find out which device sent a
-message before it can decrypt or verify it. We study this resolution step for the two-message protocol of Al-Rasheed
-et al.\ (IEEE TCE, 2026). From the specification alone, we show that every correct server needs the step, and that the
-protocol neither specifies it nor costs it. We implement the exchange in Python, check it against independent reference
+message before it can decrypt or verify it. Our objective is to determine, for the two-message protocol of Al-Rasheed
+et al.\ (IEEE TCE, 2026), how this resolution step can be filled, what each choice costs as the network grows, how it
+behaves under forged and dropped messages, and which security properties depend on it. From the specification alone, we
+show that every correct server needs the step, and that the protocol neither specifies it nor costs it. We implement the exchange in Python, check it against independent reference
 vectors, and add seven resolution strategies: four that keep the wire format and three from RFID privacy research
 (randomized hash locks, key trees and rainbow time-memory trade-offs). Probe counts are measured on the implementation
 and checked against closed forms. They are then priced with the paper's own per-operation constants in an OMNeT++ model
 of its stated network. At one device every strategy reproduces the paper's 23.68\,ms per session. At 1{,}000 devices with
 5\% adversaries, a precomputed table keeps the session at 24.4\,ms. The on-demand scan that the specification suggests
-reaches 44\,s, because each forged pseudonym forces a full scan that the block-list never sees. Counter epochs also lock a
-device out for good after eight dropped messages.
+reaches 44\,s, because each forged pseudonym forces a full scan that the block-list never sees. With counter epochs, a
+device that misses $F$ consecutive messages ($F=8$ here) is locked out for good. Varying our assumptions changes these
+absolute figures but not the ranking.
 \iffv
 A ProVerif analysis shows that session-key secrecy and agreement hold for every correct resolver. Unlinkability holds
 with counter epochs and fails with clock epochs, and injective authentication of the device needs the replay state that
@@ -34,7 +36,8 @@ IoT authentication, pseudonym resolution, unlinkability, private identification,
 Lightweight mutual-authentication protocols for IoT devices often hide the device's identity behind a pseudonym that
 changes over time, so that an eavesdropper cannot link two sessions of the same device. Al-Rasheed et
 al.~\cite{base} propose such a protocol. Devices and servers share pairwise keys from an offline phase, and they
-authenticate in two messages using symmetric primitives only. The device sends $PID=H_2(\lambda_V\|t)$ in clear. The
+authenticate in two messages using symmetric primitives only; the elliptic-curve operations from which the protocol
+takes its name belong to the offline phase. The device sends $PID=H_2(\lambda_V\|t)$ in clear. The
 epoch $t$ and the nonce $N_i$ travel inside a ciphertext under the pairwise key $k^\star$.
 
 This design has a cost on the server side. The server cannot decrypt the first message until it knows which device sent
@@ -44,7 +47,21 @@ precomputation, a reader that must identify one of $N$ tags from an unlinkable r
 of~\cite{base}, the step is not specified, and the cost model (its Table~V and Eq.~22) has no term for it. Its evaluation
 assigns the server a constant $2T_H+2T_{SE/D}$ per session, whatever the number of devices.
 
-This paper makes the following contributions:
+\textbf{Motivation.} Lightweight protocols are compared through the cost figures in their own evaluation tables. If a
+step whose cost grows with the network is missing from those tables, the comparison favours the protocol for reasons that
+do not survive deployment. We met this step while implementing the protocol: our first server had to scan every enrolled
+device over a window of epochs for every incoming message, and that cost appears nowhere in~\cite{base}. An operator who
+fills the step in the obvious way may therefore see sessions grow from milliseconds to seconds, or devices locked out,
+with no warning from the published cost model.
+
+\textbf{Objective.} For the protocol of~\cite{base}, we set out to determine (i)~whether pseudonym resolution is required
+and what the specification leaves open; (ii)~how the step can be filled, and what each choice costs in time and memory
+as the network grows; (iii)~how each choice behaves under forged and dropped messages\iffv; and (iv)~which security
+properties depend on the choice\fi. We answer these under the paper's own constants and network, so that every result
+can be compared directly with its published figures.
+
+This paper makes the following contributions, which answer objective (i) (contribution~1), (ii) (2 and 3)\iffv, (iii)
+(4) and (iv) (5)\else{} and (iii) (4)\fi:
 \begin{enumerate}
 \item \emph{The resolution gap.} From the specification alone, we show that every correct server must resolve the
 pseudonym before any cryptographic check, and we state which choices the specification leaves open
@@ -54,16 +71,17 @@ method: four that keep the wire format, and three adapted from RFID work that ch
 closed-form or measured cost (Section~\ref{sec:design}).
 \item \emph{A ranked comparison under the paper's own conditions.} Probe counts measured on an open implementation are
 priced with the paper's Table~III constants. They are evaluated in an OMNeT++ model of its Table~II network, and the
-one-device column is taken from the paper itself (Section~\ref{sec:results}, Table~\ref{tab:ranked}).
+one-device column is taken from the paper itself. We also test how far the ranking depends on our assumptions
+(Section~\ref{sec:results}, Table~\ref{tab:ranked}).
 \item \emph{Failure modes.} We show the denial-of-service and desynchronisation behaviour of each strategy, including a
-permanent lockout after eight dropped messages, which the paper's threat model allows.
+permanent lockout after $F$ dropped messages, which the paper's threat model allows.
 \iffv
 \item \emph{A formal analysis.} ProVerif models establish which security properties are independent of the resolver,
 and which depend on the epoch choice (Section~\ref{sec:fv}).
 \fi
 \end{enumerate}
-We do not re-evaluate the other results of~\cite{base}. We take its protocol as the specification and build on the parts
-that we reproduced exactly.
+Section~\ref{sec:validation} states how each result was validated. We do not re-evaluate the other results
+of~\cite{base}. We take its protocol as the specification and build on the parts that we reproduced exactly.
 
 \section{Background}\label{sec:background}
 \subsection{The protocol}
@@ -78,11 +96,9 @@ $M_2=\langle ID_R,\mathrm{AEAD}_{k^\star}(N_j\|t;\,PID\|N_i)\rangle$. Both sides
 $K=\mathrm{KDF}(k^\star\|N_i\|N_j\|t)$ (Eqs.~11--20). We instantiate AEAD as AES-256-GCM~\cite{gcm}, KDF as
 HKDF-SHA256~\cite{hkdf} and $H$ as SHA-256~\cite{fips180}, as the instantiation notes of~\cite{base} suggest.
 
-Our Python implementation of this exchange, and a C port of its device side, reproduce reference vectors byte for byte
-(15 checks each). The vectors were computed by a generator that shares no code with the implementations. They cover the
-pairwise key, the pseudonym, the wire bytes of $M_1$ and $M_2$, and the session key, together with the rejection of
-tampered and replayed messages. The vectors fix the message layout that the next section relies on: the pseudonym is the
-only field in clear, and $N_i$ and $t$ are inside the AEAD ciphertext under $k^\star$.
+We implemented this exchange in Python, with a C port of the device side, and validated both against independent
+reference vectors (Section~\ref{sec:validation}). The vectors fix the message layout that the next section relies on: the
+pseudonym is the only field in clear, and $N_i$ and $t$ are inside the AEAD ciphertext under $k^\star$.
 
 \subsection{Private identification in RFID}
 The same problem appears when an RFID reader must identify a tag that answers with an unlinkable value. Four lines of work
@@ -179,15 +195,35 @@ MW & none / $+r$, $+(d-1)$ tags & $\le\delta d$ & $\le\delta$ & none & $32\times
 \end{tabular}
 \end{table*}
 
-\textbf{Validation.} For each strategy and each $N\in\{1,2,5,\dots,10^4\}$ (15 values), a script builds the server in
-steady state. It resolves 200 pseudonyms of randomly drawn devices (50 for the scanning strategies above $N=2{,}000$) and 5 forged
-ones, and counts
-every $H_2$ call. For O1--O4 and CR, the forged and per-epoch counts and the state equal the closed forms exactly. O2
-and O4 need exactly 1 and 0 probes per authentication. The honest means of O1, O3 and CR lie within four standard
-errors of the formulas. MW never exceeds $\delta d$. In our parameter runs ($N=40$ to 500), the TM tables covered 99.6--99.8\% of
-points, and in the sweep 9 of 2{,}100 honest pseudonyms were missed; the device then retries with its next epoch. Twelve unit tests run each wire-compatible
-strategy through the full handshake. They check its probe counts, replay rejection and lockout behaviour, and they show
-that two sessions in one clock epoch share a pseudonym. All 125 tests pass.
+\section{Validation}\label{sec:validation}
+Each result rests on one of these checks, all of which can be rerun from the repository.
+\begin{itemize}
+\item \emph{Protocol implementation.} The Python implementation and the C port of the device side reproduce reference
+vectors byte for byte (15 checks each). The vectors were computed by a generator that shares no code with either
+implementation. They cover the pairwise key, the pseudonym, the wire bytes of $M_1$ and $M_2$, and the session key,
+together with the rejection of tampered and replayed messages. A C device and the Python server complete five handshakes
+with matching session keys, and the server rejects a replayed $M_1$. All 125 unit and property tests pass.
+\item \emph{Resolution strategies.} For each strategy and each $N\in\{1,2,5,\dots,10^4\}$ (15 values), a script builds the
+server in steady state. It resolves 200 pseudonyms of randomly drawn devices (50 for the scanning strategies above
+$N=2{,}000$) and 5 forged ones, and counts every $H_2$ call. For O1--O4 and CR, the forged and per-epoch counts and the
+state equal the closed forms of Table~\ref{tab:design} exactly. O2 and O4 need exactly 1 and 0 probes per
+authentication. The honest means of O1, O3 and CR lie within four standard errors of the formulas, and MW never exceeds
+$\delta d$. In our parameter runs ($N=40$ to 500), the TM tables covered 99.6--99.8\% of points, and in the sweep 9 of
+2{,}100 honest pseudonyms were missed; the device then retries with its next epoch. Twelve unit tests run each
+wire-compatible strategy through the full handshake and check its probe counts, replay rejection and lockout. A rerun of
+the sweep reproduced every non-TM count exactly; TM varies because its peer secrets are random.
+\item \emph{Network model.} With the resolution term removed, the model gives 23.86\,ms at $N=1$ and 24.07\,ms at
+$N=1000$, against the paper's arithmetic value of 23.68\,ms. The 0.8--1.7\% difference is airtime and quantisation, which
+the paper's arithmetic leaves out. The load of the mean server, computed independently of the simulator from the cost
+model, orders the strategies exactly as the simulation does (Section~\ref{sec:sens}).
+\iffv
+\item \emph{Security properties.} ProVerif checks the security claims symbolically (Section~\ref{sec:fv}).
+\fi
+\end{itemize}
+\textbf{What the validation does not show.} The authors' code is not available, so the vectors encode our reading of
+Section~III of~\cite{base}: both implementations agree with that reading, which may not be the authors' intent. The
+network model is checked against the paper only at one device without resolution, the one point where the paper gives a
+figure, and its saturated behaviour has not been compared with another simulator.
 
 \section{Evaluation Method}\label{sec:method}
 We follow the paper's evaluation conditions and change only the resolution term.
@@ -205,9 +241,8 @@ for O4, one epoch extension per server inside the window.
 \item \emph{Runs}: five seeds per point and $N\in\{1,10,100,200,\dots,1000\}$, with and without adversaries. That is
 960 runs in total, reported as means.
 \end{itemize}
-The model is ours, not the authors'. With the resolution term removed, it gives 23.86\,ms at $N=1$ and 24.07\,ms at
-$N=1000$, against the paper's arithmetic value of 23.68\,ms. The difference is airtime and quantisation. The
-\emph{base} column of Table~\ref{tab:ranked} ($N=1$) is therefore the paper's own figure: 23.68\,ms from Tables~III and~V,
+The model is ours, not the authors' (Section~\ref{sec:validation} gives its validation, and Section~\ref{sec:sens}
+the effect of these assumptions). The \emph{base} column of Table~\ref{tab:ranked} ($N=1$) is therefore the paper's own figure: 23.68\,ms from Tables~III and~V,
 and 320 bits of server storage from Table~VI. Storage at larger $N$ is Table~VI's 320 bits per enrolled device plus the
 resolution state, averaged over the servers of the simulated network.
 
@@ -286,10 +321,52 @@ time per authentication ($T_H=0.32$\,ms per probe) against storage, at $N=1000$.
 With counter epochs, the device advances $t$ every time it builds $M_1$. The server searches at most $F$ epochs ahead of
 the last one it accepted. In our implementation, an adversary who drops $F=8$ consecutive $M_1$ messages locks the device
 out for good: every later handshake fails with an unknown pseudonym, with or without an earlier successful session. The
-lockout holds for O1 and O2, and a unit test checks it for both. A device whose counter lives in RAM is also rejected as
+lockout holds for O1 and O2, and a unit test checks it for both. The threshold is $F$, which the specification does not
+fix. A larger $F$ delays the lockout but does not remove it. A device whose counter lives in RAM is also rejected as
 a replay after a restart; we observed this for O1. Message dropping is within the threat model of~\cite{base}. Clock epochs (O3, O4), CR and MW have no
 per-device counter, so they cannot desynchronise this way. TM tolerates any number of drops until $t$ reaches the
 lifetime $m$.
+
+\subsection{Sensitivity to the assumptions}\label{sec:sens}
+The paper does not fix the adversary share and rate, the authentication window or the enrolment rule, and $T_H$ is its
+constant, not our measurement. We bound their effect without new simulation runs. First, the simulation was run with and
+without adversaries (Fig.~\ref{fig:latency}): at $N=1000$ the ranking is the same, and O2, O4 and MW move by less than
+0.2\,ms. Second, we compute the offered load of the mean server at $N=1000$ from the committed cost model,
+$\rho=\lambda_h(S+hT_H)+\lambda_a fT_H$, where $S=11.84$\,ms is the paper's server cost per session, $h$ and $f$ are the
+measured honest and forged probes at the mean enrolment $n=258$, and $\lambda_h$ and $\lambda_a$ are the honest and forged
+rates per server. $\rho\ge1$ means saturation (Table~\ref{tab:sens}).
+
+\begin{table}[t]
+\centering
+\caption{Offered load $\rho$ of the mean server at $N=1000$, one assumption varied at a time from the baseline (5\%
+adversaries at 1\,Hz, 10\,s window, reachable enrolment, $T_H=0.32$\,ms). $\rho\ge1$: saturated.}
+\label{tab:sens}
+\footnotesize
+\setlength{\tabcolsep}{2.6pt}
+\begin{tabular}{@{}l r r r r r r r@{}}
+\toprule
+Case & O2 & O4 & MW & CR & O3 & TM & O1 \\
+\midrule
+Baseline              & 0.02 & 0.03 & 0.04 & 0.19 & 0.52 & 1.68 & 4.16 \\
+No adversaries        & 0.02 & 0.03 & 0.04 & 0.11 & 0.27 & 0.41 & 2.09 \\
+20\% adversaries      & 0.02 & 0.03 & 0.05 & 0.44 & 1.26 & 5.47 & 10.3 \\
+Adversary rate 2\,Hz  & 0.02 & 0.03 & 0.04 & 0.27 & 0.77 & 2.94 & 6.22 \\
+Window 5\,s           & 0.05 & 0.06 & 0.08 & 0.30 & 0.79 & 2.09 & 6.25 \\
+Window 20\,s          & 0.01 & 0.02 & 0.02 & 0.14 & 0.38 & 1.47 & 3.11 \\
+$T_H=0.16$\,ms        & 0.02 & 0.03 & 0.03 & 0.11 & 0.27 & 0.85 & 2.09 \\
+$T_H=0.64$\,ms        & 0.03 & 0.04 & 0.06 & 0.36 & 1.01 & 3.33 & 8.29 \\
+Nearest enrolment     & 0.02 & 0.02 & 0.04 & 0.04 & 0.06 & 0.36 & 0.35 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Except in the last row, the order by $\rho$ is that of Table~\ref{tab:ranked}, and O2 and O4 stay below 0.06. The
+absolute figures do depend on the assumptions: O1 saturates unless $T_H<0.076$\,ms, and O3 saturates with 20\%
+adversaries or $T_H=0.64$\,ms. (The busiest server enrols up to 396 devices, which is why O3 already queues in the
+simulation at $\rho=0.52$.) If a server enrols only the devices attached to it ($n\approx20$), nothing saturates and the
+lower ranks reorder, but O2 and O4 stay first. $L$, $F$ and $W_t$ act only through the closed forms of
+Table~\ref{tab:design}. The recommendation of Section~\ref{sec:disc} therefore holds under every assumption we varied,
+while figures such as O1's 44\,s hold only under the baseline.
 
 \iffv
 \section{Formal Verification}\label{sec:fv}
@@ -337,7 +414,7 @@ Q4 cannot be settled in ProVerif with the replay window included, because the wi
 window by test instead, and leave a stateful proof (for example in Tamarin) to future work.
 \fi
 
-\section{Discussion}
+\section{Discussion}\label{sec:disc}
 \textbf{What a deployment should choose.} A server that uses counter epochs should precompute (O2). One probe per
 authentication and no hashing on forged input remove both the scaling and the denial-of-service problem, at about
 $40F$ bytes per device. The lockout after $F$ dropped messages remains, so the device needs a resynchronisation path, or
@@ -354,14 +431,14 @@ one table lookup for a precomputed table. Its storage model needs the table.
 
 \section{Limitations}
 \begin{itemize}
-\item The simulation is our model of the paper's stated environment, not the authors' simulation, which is not
-available. The adversary rate, the authentication window and the enrolment rule are our assumptions, and the saturated
-latencies of O1, O3 and TM depend on them.
+\item The simulation is our model of the paper's environment; the authors' is not available. Our adversary, window and
+enrolment assumptions set the saturated latencies of O1, O3 and TM but not the ranking; beyond the adversary share, this
+is shown from the mean-server load, not new runs (Section~\ref{sec:sens}).
 \item We price probes with the paper's Table~III constant ($T_H=0.32$\,ms) and report no hardware timings.
-\item CR and MW change $M_1$, and we model them at the resolution level only.
-\item The TM parameters (six tables, $m=128$) are one point of its trade-off curve.
-\item Our epoch, window and table choices are ours, not the paper's.
-\item Conformance means agreement with our reading of Section~III, which only the authors can confirm.
+\item CR and MW change $M_1$ and are modelled at the resolution level only. The TM parameters (six tables, $m=128$) are
+one point of its trade-off curve.
+\item Our epoch, window and table choices are ours, and conformance means agreement with our reading of Section~III,
+which only the authors can confirm.
 \iffv
 \item The ProVerif results are symbolic and assume perfect primitives.
 \else
@@ -370,15 +447,19 @@ latencies of O1, O3 and TM depend on them.
 \end{itemize}
 
 \section{Conclusion}
-A server cannot authenticate a device that it has not yet identified. In the protocol of~\cite{base}, that
-identification is a required step with no specification and no cost in the model. Under the paper's own constants and
-network, the choice of how to fill the gap decides whether the server stays at the paper's 23.68\,ms per session or
-saturates at tens of seconds. It also decides whether a few dropped messages lock a device out, and whether forged
-pseudonyms are free to send. Precomputed tables, the oldest answer from RFID private identification, keep the protocol's
-cost claim intact at a memory cost of tens of kilobytes per server.
+We set out to determine how the unspecified resolution step of~\cite{base} can be filled and what the choice decides.
+(i)~\emph{Requirement.} Every correct server must resolve the pseudonym before any cryptographic check. The specification
+leaves open the epoch semantics, the resolution method and the replay state, and its cost model has no term for the step.
+(ii)~\emph{Cost.} Under the paper's own constants and network, the choice decides whether a session stays at the paper's
+23.68\,ms or reaches tens of seconds at 1{,}000 devices. Precomputed tables (O2, O4), the oldest answer from RFID private
+identification, stay within 1\,ms of the published figure at 46--93\,KB per server. This ranking holds under every
+assumption we varied, while the size of the slowdown depends on them.
+(iii)~\emph{Failure modes.} With on-demand scanning, every forged pseudonym costs a full scan that the block-list never
+sees, while a table rejects it with no hashing. Counter epochs lock a device out after $F$ dropped messages, so a
+deployment needs a resynchronisation path.
 \iffv
-The formal analysis shows that the protocol's secrecy and agreement properties do not depend on this choice, while
-unlinkability and injective authentication do.
+(iv)~\emph{Security.} Session-key secrecy and agreement do not depend on the resolver, while unlinkability and injective
+device authentication depend on the epoch and replay choices.
 \fi
 The implementation, the counting scripts, the OMNeT++ model\iffv, the ProVerif models\fi{} and all results are open at
 \url{https://github.com/jaykerkar0405/hybrid-ecc-iot-auth}.
