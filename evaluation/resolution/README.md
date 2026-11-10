@@ -19,6 +19,7 @@ the paper does not specify how. This folder measures seven ways of doing it. One
 python -m pytest implementation/python/hybrid_ecc_auth/tests/unit/test_resolution.py -q      # 12 tests
 python -I evaluation/resolution/resolution_costs.py           # measured.csv, cost_model.csv, summary.txt (~3 min)
 evaluation/resolution/sim/build_and_run.sh                              # OMNeT++ 6.4, 960 runs -> sim/results.csv (~10 s)
+python -I evaluation/resolution/sensitivity.py > evaluation/resolution/sensitivity.txt   # assumption sensitivity (no new runs)
 python -I paper/make_figs.py                               # figures + ranked table
 (cd paper && tectonic main.tex)
 evaluation/formal_verification/run.sh                                             # ProVerif (paper version 2)
@@ -36,6 +37,8 @@ python -I evaluation/resolution/desync_check.py               # dropped-M1 and r
 | `sim/ResolveNet.*` | Self-contained network model. The only change is that the server's resolution work comes from `cost_model.csv`, priced at T_H = 0.32 ms (Table III). |
 | `sim/omnetpp.ini` | Table II environment and Tables III-V constants. `R_*` runs have 5% adversaries at 1 Hz; `H_*` runs have none. N = 1, 10, 100 to 1,000, 5 seeds. |
 | `sim/results.csv` | One row per run (960 rows) |
+| `sensitivity.py` | Sensitivity to the assumptions the base paper does not fix. Reads only `cost_model.csv` and `sim/results.csv` (no new simulation): the simulated ranking with and without adversaries, and the offered load of the mean server at N = 1,000 with one assumption varied at a time. |
+| `sensitivity.txt` | Output of `sensitivity.py` (paper Table III, black book Tables 4.5 and 4.6) |
 
 ## Conventions
 

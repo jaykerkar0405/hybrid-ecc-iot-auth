@@ -1,0 +1,36 @@
+Committed runs at N=1000: 50 servers, mean enrolled n=258 (max 396), 20 sessions per server per window
+
+Simulated mean latency at N=1000 (ms), from sim/results.csv
+      no adversaries  5% adversaries
+O2             24.43           24.40
+O4             24.48           24.59
+MW             31.43           31.38
+CR             77.18           94.89
+O3            258.73         1108.37
+TM            595.76        12850.42
+O1          19218.53        44010.49
+ranking, no adversaries: O2 O4 MW CR O3 TM O1
+ranking, 5% adversaries: O2 O4 MW CR O3 TM O1
+
+Offered load rho of the mean server at N=1000, one assumption varied at a time (rho >= 1: saturated)
+case                           O2       O4       MW       CR       O3       TM       O1  order by rho
+baseline (paper)            0.024    0.032    0.040    0.189    0.519    1.675    4.155  O2 O4 MW CR O3 TM O1
+adversary share 0%          0.024    0.032    0.037    0.107    0.271    0.411    2.091  O2 O4 MW CR O3 TM O1
+adversary share 10%         0.024    0.032    0.043    0.272    0.766    2.939    6.219  O2 O4 MW CR O3 TM O1
+adversary share 20%         0.024    0.032    0.048    0.437    1.262    5.468   10.347  O2 O4 MW CR O3 TM O1
+adversary rate 0.5 Hz       0.024    0.032    0.038    0.148    0.395    1.043    3.123  O2 O4 MW CR O3 TM O1
+adversary rate 2 Hz         0.024    0.032    0.043    0.272    0.766    2.939    6.219  O2 O4 MW CR O3 TM O1
+window 5 s                  0.049    0.056    0.077    0.296    0.790    2.086    6.246  O2 O4 MW CR O3 TM O1
+window 20 s                 0.012    0.020    0.021    0.136    0.383    1.470    3.110  O2 O4 MW CR O3 TM O1
+T_H 0.16 ms                 0.024    0.028    0.032    0.106    0.271    0.849    2.089  O2 O4 MW CR O3 TM O1
+T_H 0.64 ms                 0.025    0.040    0.056    0.355    1.014    3.327    8.287  O2 O4 MW CR O3 TM O1
+enrolment nearest           0.024    0.024    0.037    0.037    0.062    0.363    0.347  O2 O4 CR MW O3 O1 TM
+
+Largest T_H (ms) at which the mean server is not saturated, baseline otherwise (paper: 0.32 ms)
+O2    488.1600
+O4     37.8419
+MW     19.4077
+CR      1.8884
+O3      0.6311
+TM      0.1892
+O1      0.0756
