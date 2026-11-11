@@ -155,7 +155,7 @@ probe is one evaluation of $H_2$ (or the equivalent keyed hash), and price it at
  {decrypt with $k^\star_V$, verify $\mu_1$\\ (Table V: $2T_H+2T_{SE/D}$)};
 \draw[<-, thick] ($(D.south)+(0,-3.7)$) -- node[above]{$M_2=\langle ID_R,\;\mathrm{AEAD}_{k^\star}(N_j\|t;\,PID\|N_i)\rangle$} ($(S.south)+(0,-3.7)$);
 \end{tikzpicture}
-\caption{Where resolution sits. The server needs $k^\star_V$ to open $M_1$, but $V$ is hidden behind $PID$.}
+\caption{Position of pseudonym resolution in the exchange. The server needs $k^\star_V$ to open $M_1$, but $V$ is hidden behind $PID$.}
 \label{fig:flow}
 \end{figure}
 
@@ -220,7 +220,7 @@ model, orders the strategies exactly as the simulation does (Section~\ref{sec:se
 \item \emph{Security properties.} ProVerif checks the security claims symbolically (Section~\ref{sec:fv}).
 \fi
 \end{itemize}
-\textbf{What the validation does not show.} The authors' code is not available, so the vectors encode our reading of
+\textbf{Limits of the validation.} The authors' code is not available, so the vectors encode our reading of
 Section~III of~\cite{base}: both implementations agree with that reading, which may not be the authors' intent. The
 network model is checked against the paper only at one device without resolution, the one point where the paper gives a
 figure, and its saturated behaviour has not been compared with another simulator.
@@ -415,7 +415,7 @@ window by test instead, and leave a stateful proof (for example in Tamarin) to f
 \fi
 
 \section{Discussion}\label{sec:disc}
-\textbf{What a deployment should choose.} A server that uses counter epochs should precompute (O2). One probe per
+\textbf{Deployment recommendation.} A server that uses counter epochs should precompute (O2). One probe per
 authentication and no hashing on forged input remove both the scaling and the denial-of-service problem, at about
 $40F$ bytes per device. The lockout after $F$ dropped messages remains, so the device needs a resynchronisation path, or
 the server needs a larger $F$, which costs table space linearly. If devices have clocks, O4 has the lowest latency and
@@ -424,7 +424,7 @@ epoch length then trades privacy against the per-epoch rebuild of $N$ probes. On
 acceptable only for small $N$ and a trusted network. With 5\% adversaries, O1 is already 21 times the paper's
 per-session cost at 100 devices.
 
-\textbf{What the specification should state.} The protocol needs three decisions that it does not state: the epoch
+\textbf{Specification gaps.} The protocol needs three decisions that it does not state: the epoch
 semantics, the resolution method, and the replay state that makes device authentication injective. Its cost model
 needs a resolution term. That term is $(N-1)W/2+L+2$ probes for an on-demand counter scan, and at least one probe or
 one table lookup for a precomputed table. Its storage model needs the table.

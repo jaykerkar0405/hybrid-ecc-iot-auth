@@ -94,7 +94,7 @@ $T_H$ & Cost of one hash, 0.32\,ms (Table~III of~\cite{base}); one \emph{probe} 
 \end{tabular}
 \end{table}
 
-\subsection*{Why resolution is required}
+\subsection*{Need for pseudonym resolution}
 Each step of the argument uses only the specification or a fact confirmed by the reference vectors:
 \begin{enumerate}
 \item $M_1$ carries $PID$ in clear; $t$ and $N_i$ are only inside the ciphertext under $k^\star$ (Eqs.~13--15, confirmed byte for byte).
@@ -119,7 +119,7 @@ Two choices are left open and together decide the cost: the \emph{epoch semantic
  {decrypt with $k^\star_V$, verify $\mu_1$\\ (Table~V of~\cite{base}: $2T_H+2T_{SE/D}$)};
 \draw[<-, thick] ($(D.south)+(0,-5.6)$) -- node[above]{$M_2=\langle ID_R,\;\mathrm{AEAD}_{k^\star}(N_j\|t;\,PID\|N_i)\rangle$} ($(S.south)+(0,-5.6)$);
 \end{tikzpicture}
-\caption{Where pseudonym resolution sits in the exchange. The server needs $k^\star_V$ to open $M_1$, but $V$ is hidden behind $PID$.}
+\caption{Position of pseudonym resolution in the exchange. The server needs $k^\star_V$ to open $M_1$, but $V$ is hidden behind $PID$.}
 \label{fig:flow}
 \end{figure}
 
