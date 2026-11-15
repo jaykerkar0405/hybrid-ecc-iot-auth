@@ -741,5 +741,35 @@
   "O3": 932.9706252751828,
   "TM": 4456.0325176834995,
   "O1": 10600.3746452052
+ },
+ "single_server_n1000_kb": {
+  "O2": {
+   "resolution_state": 320.3125,
+   "total_with_base_storage": 359.375
+  },
+  "O4": {
+   "resolution_state": 140.625,
+   "total_with_base_storage": 179.6875
+  },
+  "MW": {
+   "resolution_state": 1.0,
+   "total_with_base_storage": 40.0625
+  },
+  "CR": {
+   "resolution_state": 0.0,
+   "total_with_base_storage": 39.0625
+  },
+  "O3": {
+   "resolution_state": 23.4375,
+   "total_with_base_storage": 62.5
+  },
+  "TM": {
+   "resolution_state": 127.875,
+   "total_with_base_storage": 166.9375
+  },
+  "O1": {
+   "resolution_state": 7.8125,
+   "total_with_base_storage": 46.875
+  }
  }
 }
