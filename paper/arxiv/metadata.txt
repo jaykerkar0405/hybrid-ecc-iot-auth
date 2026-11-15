@@ -1,0 +1,29 @@
+arXiv submission form fields (paste-ready). DO NOT UPLOAD until the SPIN 2027 preprint policy is confirmed or the review is over.
+
+TITLE (plain text)
+Pseudonym Resolution and Formal Verification of an Unlinkable Two-Message IoT Authentication Protocol
+
+AUTHORS
+Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar, Shanta Sondur
+
+ABSTRACT (1534 characters; arXiv rejects abstracts over 1920; metadata is ASCII-only; limit confirmed on https://info.arxiv.org/help/prep.html)
+Many lightweight IoT authentication protocols send an unlinkable pseudonym in clear and encrypt the rest under a device-specific key, so the server must identify the sender before decrypting. We study this resolution step for the two-message protocol of Al-Rasheed et al. (IEEE Transactions on Consumer Electronics, 2026), the base paper. We show that every correct server needs the step, and that the base paper neither specifies nor costs it. We implement the protocol, check it against independent reference vectors, and add seven resolution strategies: five that keep the wire format, two that change the first message. Five adapt RFID privacy research. We measure probe counts and price them with the base paper's constants in an OMNeT++ model of its network. Without resolution, our model gives 23.86 ms at one device, 0.8% above the base paper's 23.68 ms. At 1,000 devices with 5% adversaries, a precomputed table keeps the session at 24.4 ms, while the on-demand scan reaches 44 s, because each forged pseudonym forces a full scan that no failure count sees. With counter epochs, a device that misses F consecutive messages (F = 8) is locked out for good. Varying our assumptions changes the absolute figures but not the lead of the precomputed tables. ProVerif shows that session-key secrecy and agreement hold for every correct resolver, unlinkability holds with counter epochs but fails with clock epochs, and injective device authentication needs replay state the specification leaves open. Code, models and data are open.
+
+COMMENTS
+14 pages, 4 figures, 5 tables. Code and data: https://github.com/jaykerkar0405/hybrid-ecc-iot-auth
+(No venue line, by recommendation. Note: Comments are frozen at announcement and can only be changed by a replacement version.)
+
+PRIMARY CATEGORY
+cs.CR (Cryptography and Security)
+
+CROSS-LIST (suggested)
+cs.NI (Networking and Internet Architecture)
+Optional additional fits: cs.PF (Performance), because the main results are latency and scaling measurements; cs.LO (Logic in Computer Science), because of the ProVerif analysis. I would add none, or at most cs.PF.
+
+LICENCE
+NOT SET. Recommendation: "arXiv.org perpetual, non-exclusive license 1.0". The choice is irrevocable once announced.
+
+PROCESSOR
+XeLaTeX. The package contains 00README.json selecting it (documented format); alternatively choose "XeLaTeX" in the processor step of the submission form. TeX Live 2025 is arXiv's default.
+
+PDF page size: A4. Package: arxiv-submission.tar.gz (main.tex, body.tex, figs/, 00README.json).
