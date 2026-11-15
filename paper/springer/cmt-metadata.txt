@@ -1,0 +1,30 @@
+SPIN 2027 / Microsoft CMT submission metadata (paste-ready)
+Generated from paper/body.tex and paper/springer/main.tex. The author list is FROZEN after submission: authors cannot be added or removed later.
+
+TITLE
+Pseudonym Resolution and Formal Verification of an Unlinkable Two-Message IoT Authentication Protocol
+
+ABSTRACT (244 words)
+Many lightweight IoT authentication protocols send an unlinkable pseudonym in clear and encrypt the rest under a device-specific key, so the server must identify the sender before decrypting. We study this resolution step for the two-message protocol of Al-Rasheed et al. (IEEE Transactions on Consumer Electronics, 2026), the base paper. We show that every correct server needs the step, and that the base paper neither specifies nor costs it. We implement the protocol, check it against independent reference vectors, and add seven resolution strategies: five that keep the wire format, two that change the first message. Five adapt RFID privacy research. We measure probe counts and price them with the base paper's constants in an OMNeT++ model of its network. Without resolution, our model gives 23.86 ms at one device, 0.8% above the base paper's 23.68 ms. At 1,000 devices with 5% adversaries, a precomputed table keeps the session at 24.4 ms, while the on-demand scan reaches 44 s, because each forged pseudonym forces a full scan that no failure count sees. With counter epochs, a device that misses F consecutive messages (F = 8) is locked out for good. Varying our assumptions changes the absolute figures but not the lead of the precomputed tables. ProVerif shows that session-key secrecy and agreement hold for every correct resolver, unlinkability holds with counter epochs but fails with clock epochs, and injective device authentication needs replay state the specification leaves open. Code, models and data are open.
+
+KEYWORDS
+IoT authentication; Pseudonym resolution; Unlinkability; Private identification; Scalability; ProVerif
+
+SUGGESTED TRACK
+Track C: Communication Systems, IoT and Cloud Computing
+(Track C is listed on the public SPIN 2027 call for papers; see paper/submission-evidence/spin2027-track-c-2026-11-15.png)
+
+AUTHORS (in order; affiliation identical for all five)
+1. Jay Kerkar, jaykerkar0405@gmail.com   (ORCID: https://orcid.org/0009-0007-4612-6097)
+2. Chaitanya Kelkar, chaitanyakelkar07@gmail.com   (CORRESPONDING AUTHOR)
+3. Chirag Poornamath, chiragpoornamath@gmail.com
+4. Yash Kolekar, yashkolekar1234@gmail.com
+5. Shanta Sondur, shanta.sondur@ves.ac.in
+Affiliation: Department of Information Technology, Vivekanand Education Society's Institute of Technology, Mumbai, India
+Corresponding author: Chaitanya Kelkar, chaitanyakelkar07@gmail.com
+Other ORCIDs: none supplied.
+Funding: none (statement in the camera-ready: "No funding was received for this research.")
+Competing interests (camera-ready): "The Capstone Project course requires students to protect their work by a patent, copyright or trademark filing before publishing it. The authors have no other competing interests to declare." (every author must confirm this wording)
+
+REMINDER
+Authors are taken from CMT: they cannot be added or removed after submission. Check names, order and emails before pressing Submit.

@@ -1,0 +1,76 @@
+% Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+% SPDX-License-Identifier: Apache-2.0
+% SPIN 2027 (Springer LNEE proceedings), single-column llncs format. Wrapper only: the content is ../body.tex, the references
+% are ../refs.bib, the figures and table macros are in figs/ (python -I paper/make_figs.py --width 4.803 --stack --out
+% paper/springer/figs from the repository root: 122 mm wide, panels stacked, 8-9 pt text).
+% Uses Springer's official llncs.cls v2.25 (2026/09/03) and splncs04.bst in this directory (checksums: ../vendor/*/provenance.json).
+% Build: pdflatex main; bibtex main; pdflatex main; pdflatex main.
+% Review build (anonymous) = the default. Camera-ready: change the next line to \anonymousfalse, or build with
+%   pdflatex "\def\CAMERA{}\input{main}".   \NOFV on the command line drops the formal-verification material.
+\documentclass[runningheads]{llncs}
+\newif\ifanonymous
+\anonymoustrue   % <- the single switch: \anonymoustrue = review build, \anonymousfalse = camera-ready
+\ifdefined\CAMERA\anonymousfalse\fi
+\newif\iffv
+\fvtrue
+\ifdefined\NOFV\fvfalse\fi
+\newif\ifshortpaper
+\shortpapertrue
+\newif\ifspringer
+\springertrue
+\newif\ifbibtexrefs
+\bibtexrefstrue
+\newcommand{\fpos}{!tb}
+\renewcommand{\topfraction}{.85}\renewcommand{\bottomfraction}{.7}\renewcommand{\textfraction}{.1}\renewcommand{\floatpagefraction}{.7}                        % float placement: top or bottom of a page
+\newcommand{\flowgap}{6.4cm}\newcommand{\flowtw}{5.3cm}   % Fig. 1 geometry (distance device-server, box text width)
+\newcommand{\floatstart}[1]{\edef\floattmp{\noexpand\begin{#1}[\fpos]}\floattmp}   % \begin{#1}[placement]
+
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{textcomp}      % upright micro sign \textmu
+\usepackage{url}
+\usepackage{tikz}
+\hfuzz=1pt                   % do not report sub-point overfull boxes
+\setlength{\emergencystretch}{1em}   % only helps line breaking; no metric of the template changes
+\usetikzlibrary{arrows.meta,positioning,calc}
+
+% Cross-reference macros: "Sect. 7.5" (running text), "Section 7.5" (sentence start), "Fig. 2", "Table 2", "Eq. (1)".
+% Pointers into the base paper are literal text in the body (e.g. "Table V of [1]") and do not use these.
+\newcommand{\secref}[1]{Sect.~\ref{#1}}
+\newcommand{\Secref}[1]{Section~\ref{#1}}
+\newcommand{\secsref}[2]{Sects.~\ref{#1} and~\ref{#2}}
+\newcommand{\figref}[1]{Fig.~\ref{#1}}
+\newcommand{\tabref}[1]{Table~\ref{#1}}
+\newcommand{\eqnref}[1]{Eq.~(\ref{#1})}
+\newcommand{\designref}{Tables~\ref{tab:design} and~\ref{tab:designb}}
+\newcommand{\runin}[1]{\paragraph{#1}}
+
+% Keywords sit inside the abstract in llncs: 4-6 keywords, first letter capitalised.
+\newcommand{\abstractkeywords}{%
+\keywords{IoT authentication \and Pseudonym resolution \and Unlinkability \and Private identification \and Scalability%
+\iffv \and ProVerif\fi}}
+\newcommand{\afterabstract}{}
+
+\begin{document}
+\title{Pseudonym Resolution and Formal Verification of an Unlinkable Two-Message IoT Authentication Protocol}
+\ifanonymous
+  \titlerunning{Pseudonym Resolution in IoT Authentication}
+  \author{Anonymous Author(s)}
+  \authorrunning{Anonymous}
+  \institute{Anonymous Institution}
+  \pdfinfo{/Title (Pseudonym Resolution and Formal Verification of an Unlinkable Two-Message IoT Authentication Protocol) /Author ()}
+\else
+  \titlerunning{Pseudonym Resolution in IoT Authentication}
+  \author{Jay Kerkar\inst{1}\orcidID{0009-0007-4612-6097} \and Chaitanya Kelkar\inst{1} \and Chirag Poornamath\inst{1} \and
+  Yash Kolekar\inst{1} \and Shanta Sondur\inst{1}}
+  \authorrunning{J. Kerkar et al.}
+  \institute{Department of Information Technology, Vivekanand Education Society's Institute of Technology, Mumbai, India\\
+  \email{jaykerkar0405@gmail.com, chaitanyakelkar07@gmail.com, chiragpoornamath@gmail.com, yashkolekar1234@gmail.com, shanta.sondur@ves.ac.in}}
+  \pdfinfo{/Title (Pseudonym Resolution and Formal Verification of an Unlinkable Two-Message IoT Authentication Protocol) /Author (Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar, Shanta Sondur)}
+\fi
+\maketitle
+\input{../body.tex}
+\end{document}
