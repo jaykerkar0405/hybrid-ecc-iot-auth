@@ -21,7 +21,7 @@ python -I evaluation/resolution/resolution_costs.py           # measured.csv, co
 evaluation/resolution/sim/build_and_run.sh                              # OMNeT++ 6.4, 960 runs -> sim/results.csv (~10 s)
 python -I evaluation/resolution/sensitivity.py > evaluation/resolution/sensitivity.txt   # assumption sensitivity (no new runs)
 python -I paper/make_figs.py                               # figures + ranked table
-(cd paper && tectonic main.tex)
+(cd paper/ieee && pdflatex main.tex)   # three passes
 evaluation/formal_verification/run.sh                                             # ProVerif (paper version 2)
 python -I evaluation/resolution/desync_check.py               # dropped-M1 and restart lockout
 ```

@@ -3,11 +3,11 @@
 [![Licence: Apache-2.0](https://img.shields.io/badge/licence-Apache--2.0-blue)](LICENSE)
 [![Python: 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)](pyproject.toml)
 
-Implementation, models and data for _Pseudonym Resolution and Formal Verification of an Unlinkable Two-Message IoT Authentication Protocol_ ([paper PDF](paper/main.pdf)). The server must identify an incoming pseudonym before it can perform a cryptographic check. The protocol specification leaves that resolution step and its cost open. This work compares seven resolution strategies, measures their probe counts, prices them in an OMNeT++ network model, demonstrates counter desynchronisation, and checks secrecy, agreement and unlinkability symbolically.
+Implementation, models and data for _Pseudonym Resolution and Formal Verification of an Unlinkable Two-Message IoT Authentication Protocol_ ([paper PDF](paper/ieee/main.pdf)). The server must identify an incoming pseudonym before it can perform a cryptographic check. The protocol specification leaves that resolution step and its cost open. This work compares seven resolution strategies, measures their probe counts, prices them in an OMNeT++ network model, demonstrates counter desynchronisation, and checks secrecy, agreement and unlinkability symbolically.
 
 ## Paper
 
-**Pseudonym Resolution and Formal Verification of an Unlinkable Two-Message IoT Authentication Protocol**. Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Dr. Shanta Sondur (project guide / mentor), 2026. Department of Information Technology, Vivekanand Education Society's Institute of Technology (VESIT), Mumbai. Unpublished manuscript; [source](paper/main.tex).
+**Pseudonym Resolution and Formal Verification of an Unlinkable Two-Message IoT Authentication Protocol**. Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur, 2026. Department of Information Technology, Vivekanand Education Society's Institute of Technology (VESIT), Mumbai. Unpublished manuscript; [source](paper/body.tex).
 
 The specification is Amal Al-Rasheed, Rahim Khan, Aftab Ahmad, Aamir Saeed, Fahad Alturise and Salem Alkhalaf, “A Low-Cost Hybrid Elliptic Curve Cryptography Authentication Protocol for Trustworthy Internet of Things Communication,” _IEEE Transactions on Consumer Electronics_, 72(2), 4483–4491, May 2026, [doi:10.1109/TCE.2026.3662053](https://doi.org/10.1109/TCE.2026.3662053). This work is independent of and not affiliated with the base paper's authors or IEEE. It takes the two-message protocol as its specification and does not re-evaluate the other results of that paper.
 
@@ -123,11 +123,11 @@ The team confirms that the original OMNeT++ and ProVerif runs used a 14-inch Mac
    bash evaluation/formal_verification/run.sh
    ```
 
-5. Generate the figures and ranked table, then build the paper with Tectonic (validated with 0.17.0):
+5. Generate the figures and ranked table, then build the paper (see [paper/README.md](paper/README.md) for the Springer and arXiv builds):
 
    ```sh
    python -I paper/make_figs.py
-   (cd paper && tectonic main.tex)
+   (cd paper/ieee && pdflatex main.tex && pdflatex main.tex && pdflatex main.tex)
    ```
 
 Committed results allow inspection without installing the simulator or verifier. See the [resolution notes](evaluation/resolution/README.md), [formal results](evaluation/formal_verification/README.md), [design](docs/design.md), [conformance matrix](docs/conformance.md) and [literature survey](docs/literature_survey.pdf).
@@ -141,7 +141,7 @@ implementation/
 evaluation/
   resolution/              probe counts, cost model, desynchronisation, sim/
   formal_verification/     ProVerif models, runner and logs
-paper/                     main.tex, authors.tex, body.tex, main.pdf, figures
+paper/                     shared body.tex, authors.tex, refs.bib, make_figs.py; ieee/, springer/, arxiv/ wrappers and builds
 docs/                      design, conformance, literature survey (PDF), blackbook and reference access catalogue
 ```
 
