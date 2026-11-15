@@ -1,0 +1,694 @@
+{
+  "omnet": {
+    "source": "https://api.crossref.org/works/10.4108/icst.simutools2008.3027",
+    "DOI": "10.4108/icst.simutools2008.3027",
+    "title": [
+      "AN OVERVIEW OF THE OMNeT++ SIMULATION ENVIRONMENT"
+    ],
+    "author": [
+      {
+        "given": "András",
+        "family": "Varga",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Rudolf",
+        "family": "Hornig",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "publisher": "ICST",
+    "publisher_location": null,
+    "pages": null,
+    "article_number": null,
+    "volume": null,
+    "published": {
+      "date-parts": [
+        [
+          2008
+        ]
+      ]
+    },
+    "published_print": {
+      "date-parts": [
+        [
+          2008
+        ]
+      ]
+    },
+    "published_online": null,
+    "event": {
+      "name": "1st International ICST Conference on Simulation Tools and Techniques for Communications, Networks and Systems",
+      "location": "Marseille, France",
+      "acronym": "SIMUTOOLS",
+      "number": "1",
+      "sponsor": [
+        "ICST"
+      ],
+      "start": {
+        "date-parts": [
+          [
+            2008,
+            3,
+            3
+          ]
+        ]
+      },
+      "end": {
+        "date-parts": [
+          [
+            2007,
+            3,
+            7
+          ]
+        ]
+      }
+    }
+  },
+  "avoine05": {
+    "source": "https://api.crossref.org/works/10.1109/percomw.2005.12",
+    "DOI": "10.1109/percomw.2005.12",
+    "title": [
+      "A Scalable and Provably Secure Hash-Based RFID Protocol"
+    ],
+    "author": [
+      {
+        "given": "G.",
+        "family": "Avoine",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "P.",
+        "family": "Oechslin",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "publisher": "IEEE",
+    "publisher_location": null,
+    "pages": "110-114",
+    "article_number": null,
+    "volume": null,
+    "published": null,
+    "published_print": null,
+    "published_online": null,
+    "event": {
+      "name": "Third IEEE International Conference on Pervasive Computing and Communications Workshops",
+      "location": "Kauai Island, HI, USA"
+    }
+  },
+  "tsudik": {
+    "source": "https://api.crossref.org/works/10.1109/percomw.2006.152",
+    "DOI": "10.1109/percomw.2006.152",
+    "title": [
+      "YA-TRAP: Yet Another Trivial RFID Authentication Protocol"
+    ],
+    "author": [
+      {
+        "given": "G.",
+        "family": "Tsudik",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "publisher": "IEEE",
+    "publisher_location": null,
+    "pages": "640-643",
+    "article_number": null,
+    "volume": null,
+    "published": null,
+    "published_print": null,
+    "published_online": null,
+    "event": {
+      "name": "Fourth Annual IEEE International Conference on Pervasive Computing and Communications Workshops (PERCOMW'06)",
+      "location": "Pisa, Italy"
+    }
+  },
+  "molnar": {
+    "source": "https://api.crossref.org/works/10.1145/1030083.1030112",
+    "DOI": "10.1145/1030083.1030112",
+    "title": [
+      "Privacy and security in library RFID"
+    ],
+    "author": [
+      {
+        "given": "David",
+        "family": "Molnar",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "University of California at Berkeley"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "David",
+        "family": "Wagner",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "University of California at Berkeley"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "publisher": "ACM",
+    "publisher_location": "New York, NY, USA",
+    "pages": "210-219",
+    "article_number": null,
+    "volume": null,
+    "published": {
+      "date-parts": [
+        [
+          2004,
+          10,
+          25
+        ]
+      ]
+    },
+    "published_print": {
+      "date-parts": [
+        [
+          2004,
+          10,
+          25
+        ]
+      ]
+    },
+    "published_online": {
+      "date-parts": [
+        [
+          2004,
+          10,
+          25
+        ]
+      ]
+    },
+    "event": {
+      "name": "CCS04: 11th ACM Conference on Computer and Communications Security 2004",
+      "location": "Washington DC USA",
+      "acronym": "CCS04",
+      "sponsor": [
+        "SIGSAC ACM Special Interest Group on Security, Audit, and Control",
+        "ACM Association for Computing Machinery"
+      ]
+    }
+  },
+  "weis": {
+    "source": "https://api.crossref.org/works/10.1007/978-3-540-39881-3_18",
+    "DOI": "10.1007/978-3-540-39881-3_18",
+    "title": [
+      "Security and Privacy Aspects of Low-Cost Radio Frequency Identification Systems"
+    ],
+    "author": [
+      {
+        "given": "Stephen A.",
+        "family": "Weis",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Sanjay E.",
+        "family": "Sarma",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Ronald L.",
+        "family": "Rivest",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Daniel W.",
+        "family": "Engels",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "publisher": "Springer Berlin Heidelberg",
+    "publisher_location": "Berlin, Heidelberg",
+    "pages": "201-212",
+    "article_number": null,
+    "volume": null,
+    "published": {
+      "date-parts": [
+        [
+          2004
+        ]
+      ]
+    },
+    "published_print": {
+      "date-parts": [
+        [
+          2004
+        ]
+      ]
+    },
+    "published_online": null,
+    "event": null
+  },
+  "ado05": {
+    "source": "https://api.crossref.org/works/10.1007/11693383_20",
+    "DOI": "10.1007/11693383_20",
+    "title": [
+      "Reducing Time Complexity in RFID Systems"
+    ],
+    "author": [
+      {
+        "given": "Gildas",
+        "family": "Avoine",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Etienne",
+        "family": "Dysli",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Philippe",
+        "family": "Oechslin",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "publisher": "Springer Berlin Heidelberg",
+    "publisher_location": "Berlin, Heidelberg",
+    "pages": "291-306",
+    "article_number": null,
+    "volume": null,
+    "published": {
+      "date-parts": [
+        [
+          2006
+        ]
+      ]
+    },
+    "published_print": {
+      "date-parts": [
+        [
+          2006
+        ]
+      ]
+    },
+    "published_online": null,
+    "event": null
+  },
+  "oechslin": {
+    "source": "https://api.crossref.org/works/10.1007/978-3-540-45146-4_36",
+    "DOI": "10.1007/978-3-540-45146-4_36",
+    "title": [
+      "Making a Faster Cryptanalytic Time-Memory Trade-Off"
+    ],
+    "author": [
+      {
+        "given": "Philippe",
+        "family": "Oechslin",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "publisher": "Springer Berlin Heidelberg",
+    "publisher_location": "Berlin, Heidelberg",
+    "pages": "617-630",
+    "article_number": null,
+    "volume": null,
+    "published": {
+      "date-parts": [
+        [
+          2003
+        ]
+      ]
+    },
+    "published_print": {
+      "date-parts": [
+        [
+          2003
+        ]
+      ]
+    },
+    "published_online": null,
+    "event": null
+  },
+  "tiplea": {
+    "source": "https://api.crossref.org/works/10.5220/0010544804950506",
+    "DOI": "10.5220/0010544804950506",
+    "title": [
+      "Practically Efficient RFID Scheme with Constant-time Identification"
+    ],
+    "author": [
+      {
+        "given": "Ferucio",
+        "family": "Ţiplea",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Department of Computer Science, Alexandru Ioan Cuza University of Iaşi, Iaşi, Romania, --- Select a Country ---"
+          },
+          {
+            "name": "Simion Stoilow Institute of Mathematics of the Romanian Academy, Bucharest, Romania, --- Select a Country ---"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Cristian",
+        "family": "Hristea",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Simion Stoilow Institute of Mathematics of the Romanian Academy, Bucharest, Romania, --- Select a Country ---"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "publisher": "SCITEPRESS - Science and Technology Publications",
+    "publisher_location": null,
+    "pages": "495-506",
+    "article_number": null,
+    "volume": null,
+    "published": {
+      "date-parts": [
+        [
+          2021
+        ]
+      ]
+    },
+    "published_print": {
+      "date-parts": [
+        [
+          2021
+        ]
+      ]
+    },
+    "published_online": null,
+    "event": {
+      "name": "18th International Conference on Security and Cryptography",
+      "location": "Online Streaming, --- Select a Country ---",
+      "start": {
+        "date-parts": [
+          [
+            2021,
+            7,
+            6
+          ]
+        ]
+      },
+      "end": {
+        "date-parts": [
+          [
+            2021,
+            7,
+            8
+          ]
+        ]
+      }
+    }
+  },
+  "norrman21": {
+    "source": "https://api.crossref.org/works/10.5220/0010554002100221",
+    "DOI": "10.5220/0010554002100221",
+    "title": [
+      "Formal Analysis of EDHOC Key Establishment for Constrained IoT Devices"
+    ],
+    "author": [
+      {
+        "given": "Karl",
+        "family": "Norrman",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "KTH Royal Institute of Technology, Stockholm, Sweden, --- Select a Country ---"
+          },
+          {
+            "name": "Ericsson Research, Security, Stockholm, Sweden, --- Select a Country ---"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Vaishnavi",
+        "family": "Sundararajan",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "University of California Santa Cruz, U.S.A., --- Select a Country ---"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Alessandro",
+        "family": "Bruni",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "IT University of Copenhagen, Copenhagen, Denmark, --- Select a Country ---"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "publisher": "SCITEPRESS - Science and Technology Publications",
+    "publisher_location": null,
+    "pages": "210-221",
+    "article_number": null,
+    "volume": null,
+    "published": {
+      "date-parts": [
+        [
+          2021
+        ]
+      ]
+    },
+    "published_print": {
+      "date-parts": [
+        [
+          2021
+        ]
+      ]
+    },
+    "published_online": null,
+    "event": {
+      "name": "18th International Conference on Security and Cryptography",
+      "location": "Online Streaming, --- Select a Country ---",
+      "start": {
+        "date-parts": [
+          [
+            2021,
+            7,
+            6
+          ]
+        ]
+      },
+      "end": {
+        "date-parts": [
+          [
+            2021,
+            7,
+            8
+          ]
+        ]
+      }
+    }
+  },
+  "norrman23": {
+    "source": "https://api.crossref.org/works/10.1007/978-3-031-36840-0_11",
+    "DOI": "10.1007/978-3-031-36840-0_11",
+    "title": [
+      "Extended Formal Analysis of the EDHOC Protocol in Tamarin"
+    ],
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0003-0164-1478",
+        "authenticated-orcid": false,
+        "given": "Karl",
+        "family": "Norrman",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-5945-5208",
+        "authenticated-orcid": false,
+        "given": "Vaishnavi",
+        "family": "Sundararajan",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Alessandro",
+        "family": "Bruni",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "publisher": "Springer Nature Switzerland",
+    "publisher_location": "Cham",
+    "pages": "224-248",
+    "article_number": null,
+    "volume": null,
+    "published": {
+      "date-parts": [
+        [
+          2023
+        ]
+      ]
+    },
+    "published_print": {
+      "date-parts": [
+        [
+          2023
+        ]
+      ]
+    },
+    "published_online": {
+      "date-parts": [
+        [
+          2023,
+          7,
+          22
+        ]
+      ]
+    },
+    "event": null
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "download_page": "https://www.springernature.com/gp/authors/publish-a-book/step-by-step-conference-proceedings",
+  "download_url": "https://cms-resources.apps.public.k8s.springernature.io/springer-cms/rest/v1/content/26361882/data/v8",
+  "checked": "2026-11-15",
+  "archive_sha256": "42afb32ed4fadc9e209134ec65dab1bd2a7ead42f9a3f8abb184f250c4a197b9",
+  "files": {
+    "llncs.cls": "04ec99046ad9867f6cd54ffd1ef8c47c767b327d1baec77536db0528cd492fa2",
+    "splncs04.bst": "f36c3a17e5304a692706359aafa9de709395a085e579eb47c027095aeaa35174",
+    "readme.txt": "d5a69ddfcd5d316877c301e9504c6302d1f1dc7b2c8f128d8066cdd0b0a7e21a",
+    "samplepaper.tex": "08142e057525c0edcab3e62a7028084a136cdbd7a66af8eb5157c2e5ae1806a6",
+    "llncsdoc.pdf": "bda75de93cd92490d678172e98a11bcbb0dc76a88831333bf0ef2aa9fdb4d006",
+    "history.txt": "9a4a85d0e7ab49fa35c638fee5e4083ae2b5bd0f5a943113098dc2e86e62d261"
+  },
+  "fresh_download_sha256": "42afb32ed4fadc9e209134ec65dab1bd2a7ead42f9a3f8abb184f250c4a197b9",
+  "fresh_download_matches_original": true,
+  "class_header": "% LLNCS DOCUMENT CLASS -- version 2.25 (03-Sep-2026)",
+  "verification_build": {
+    "engine": "pdfLaTeX, TeX Live 2026/Arch Linux",
+    "pages": 17,
+    "status": "overlength; no page cuts applied; diagnostic only"
+  }
+}
