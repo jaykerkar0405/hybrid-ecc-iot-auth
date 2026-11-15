@@ -1,0 +1,95 @@
+% Copyright (c) 2026 Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar and Shanta Sondur
+% SPDX-License-Identifier: Apache-2.0
+% IEEE conference build (US Letter, single-blind by default). Wrapper only: the content is ../body.tex and ../authors.tex,
+% the figures are ../figs/ (python -I paper/make_figs.py from the repository root).
+% Build with pdfLaTeX from paper/ieee/:  pdflatex main.tex  (three passes; the reference list is inline, no BibTeX run)
+% Variants without editing this file, on the command line:  pdflatex "\def\NOFV{}\def\ANON{}\input{main}"
+%   \NOFV  = version without formal verification        \ANON = double-blind (author block, repository link, PDF author removed)
+% Venue fields (defaults): conference none (generic), page limit none (target 6-8), single-blind, US Letter.
+\documentclass[conference]{IEEEtran}
+\usepackage{amsmath,amssymb}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}      % Times text and Times-compatible math (psnfss, in every TeX Live)
+\usepackage{textcomp}      % upright micro sign \textmu
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage[hyphens]{url}
+\usepackage{cite}
+\usepackage[expansion=false]{microtype}
+\usepackage{array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\usepackage[hidelinks]{hyperref}
+% shared sources live one directory up
+\makeatletter\def\input@path{{../}}\makeatother
+\graphicspath{{../}}
+
+% Version switches
+\newif\iffv
+\fvtrue
+\newif\ifanonymous
+\anonymousfalse
+\ifdefined\NOFV\fvfalse\fi
+\ifdefined\ANON\anonymoustrue\fi
+
+% Cross-reference macros: "Section VII-E", "Fig. 2" (also at the start of a sentence), "Table II", "(1)".
+% Pointers into the base paper are literal text in the body and do not use these.
+\newcommand{\secref}[1]{Section~\ref{#1}}
+\newcommand{\secsref}[2]{Sections~\ref{#1} and~\ref{#2}}
+\newcommand{\figref}[1]{Fig.~\ref{#1}}
+\newcommand{\tabref}[1]{Table~\ref{#1}}
+\newcommand{\eqnref}[1]{(\ref{#1})}
+
+% Venue hooks used by the shared body
+\newif\ifshortpaper
+\shortpaperfalse
+\newif\ifspringer
+\springerfalse
+\newif\ifbibtexrefs
+\bibtexrefsfalse
+\newcommand{\fpos}{t}                         % float placement: top of column or page
+\newcommand{\flowgap}{5.0cm}\newcommand{\flowtw}{3.55cm}   % Fig. 1 geometry (distance device-server, box text width)
+\newcommand{\floatstart}[1]{\edef\floattmp{\noexpand\begin{#1}[\fpos]}\floattmp}   % \begin{#1}[placement]
+\newcommand{\Secref}[1]{\secref{#1}}          % section pointer at the start of a sentence
+\newcommand{\designref}{\tabref{tab:design}}
+\newcommand{\runin}[1]{\textbf{#1}}           % run-in heading
+\newcommand{\doi}[1]{doi: \nolinkurl{#1}.}    % DOI as printed in the inline reference list
+\newcommand{\abstractkeywords}{}
+\newcommand{\afterabstract}{%
+\begin{IEEEkeywords}
+IoT authentication, pseudonym resolution, unlinkability, private identification, scalability, OMNeT++%
+\iffv, formal verification, ProVerif\fi
+\end{IEEEkeywords}}
+
+% PDF metadata: title always; author only in the single-blind version
+\hypersetup{pdftitle={Pseudonym Resolution and Formal Verification of an Unlinkable Two-Message IoT Authentication Protocol}}
+\ifanonymous
+  \hypersetup{pdfauthor={}, pdfcreator={}, pdfproducer={}, pdfkeywords={}}
+\else
+  \hypersetup{pdfauthor={Jay Kerkar, Chaitanya Kelkar, Chirag Poornamath, Yash Kolekar, Shanta Sondur}}
+\fi
+
+% Balance the two columns of the last page. \IEEEtriggeratref{N} runs the trigger command at reference N, and
+% \enlargethispage{-X in} shortens both columns of that page by X inches, so the last page fills evenly. N and X were found
+% by measuring the column bottoms for each variant and are valid only for the current text: re-tune them after any content
+% change (a stand-alone scan script is not kept; vary X until the two columns end at the same height).
+\iffv
+  \ifanonymous
+    \IEEEtriggeratref{3}\IEEEtriggercmd{\enlargethispage{-4.75in}}
+  \else
+    \IEEEtriggeratref{3}\IEEEtriggercmd{\enlargethispage{-3.5in}}
+  \fi
+\else
+  \ifanonymous
+    \IEEEtriggeratref{3}\IEEEtriggercmd{\enlargethispage{-4.4in}}
+  \else
+    \IEEEtriggeratref{1}\IEEEtriggercmd{\enlargethispage{-1.4in}}
+  \fi
+\fi
+
+\begin{document}
+\title{Pseudonym Resolution and Formal Verification\\of an Unlinkable Two-Message IoT\\Authentication Protocol}
+\input{authors.tex}
+\maketitle
+\input{body.tex}
+\end{document}
