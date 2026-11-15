@@ -33,3 +33,11 @@ paper/**/*.out
 paper/*.aux
 paper/*.log
 paper/*.out
+
+# SPIN 2027 (LLNCS) build artefacts
+spin/*.aux
+spin/*.log
+spin/*.out
+spin/*.bbl
+spin/*.blg
+spin/DescriptionTexts.txt
