@@ -1,0 +1,131 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{https://doi.org/#1}
+
+\bibitem{base}
+Al-Rasheed, A., Khan, R., Ahmad, A., Saeed, A., Alturise, F., Alkhalaf, S.: A
+  low-cost hybrid elliptic curve cryptography authentication protocol for
+  trustworthy {Internet of Things} communication. IEEE Transactions on Consumer
+  Electronics  \textbf{72}(2),  4483--4491 (May 2026).
+  \doi{10.1109/TCE.2026.3662053}
+
+\bibitem{arapinis}
+Arapinis, M., Chothia, T., Ritter, E., Ryan, M.: Analysing unlinkability and
+  anonymity using the applied pi calculus. In: Proceedings of the 23rd IEEE
+  Computer Security Foundations Symposium (CSF). pp. 107--121 (Jul 2010).
+  \doi{10.1109/CSF.2010.15}
+
+\bibitem{ado05}
+Avoine, G., Dysli, E., Oechslin, P.: Reducing time complexity in {RFID}
+  systems. In: Selected Areas in Cryptography (SAC 2005). Lecture Notes in
+  Computer Science, vol.~3897, pp. 291--306. Springer (2006).
+  \doi{10.1007/11693383_20}
+
+\bibitem{avoine05}
+Avoine, G., Oechslin, P.: A scalable and provably secure hash-based {RFID}
+  protocol. In: Proceedings of the 3rd IEEE International Conference on
+  Pervasive Computing and Communications Workshops (PerCom Workshops). pp.
+  110--114 (2005). \doi{10.1109/PERCOMW.2005.12}
+
+\bibitem{proverif}
+Blanchet, B.: Modeling and verifying security protocols with the applied pi
+  calculus and {ProVerif}. Foundations and Trends in Privacy and Security
+  \textbf{1}(1--2),  1--135 (Oct 2016). \doi{10.1561/3300000004}
+
+\bibitem{blanchet08}
+Blanchet, B., Abadi, M., Fournet, C.: Automated verification of selected
+  equivalences for security protocols. The Journal of Logic and Algebraic
+  Programming  \textbf{75}(1),  3--51 (Feb 2008).
+  \doi{10.1016/j.jlap.2007.06.002}
+
+\bibitem{budykho}
+Budykho, K., Boureanu, I., Wesemeyer, S., Romero, D., Lewis, M., Rahulan, Y.,
+  Rajaona, F., Schneider, S.: Fine-grained trackability in protocol executions.
+  In: Proceedings of the Network and Distributed System Security Symposium
+  (NDSS). Internet Society (2023). \doi{10.14722/ndss.2023.24289}
+
+\bibitem{gcm}
+Dworkin, M.: Recommendation for block cipher modes of operation:
+  {Galois/Counter Mode (GCM)} and {GMAC}. NIST Special Publication 800-38D,
+  National Institute of Standards and Technology (Nov 2007).
+  \doi{10.6028/NIST.SP.800-38D}
+
+\bibitem{hellman}
+Hellman, M.E.: A cryptanalytic time-memory trade-off. IEEE Transactions on
+  Information Theory  \textbf{26}(4),  401--406 (Jul 1980).
+  \doi{10.1109/TIT.1980.1056220}
+
+\bibitem{hkdf}
+Krawczyk, H., Eronen, P.: {HMAC}-based extract-and-expand key derivation
+  function ({HKDF}). RFC~5869, IETF (May 2010). \doi{10.17487/RFC5869}
+
+\bibitem{lee25}
+Lee, H.J., Kook, S., Kim, K., Ryu, J., Lee, Y., Won, D.: {LAMT}: Lightweight
+  and anonymous authentication scheme for medical {Internet of Things}
+  services. Sensors  \textbf{25}(3), ~821 (Jan 2025). \doi{10.3390/s25030821}
+
+\bibitem{molnar}
+Molnar, D., Wagner, D.: Privacy and security in library {RFID}: Issues,
+  practices, and architectures. In: Proceedings of the 11th ACM Conference on
+  Computer and Communications Security (CCS). pp. 210--219 (Oct 2004).
+  \doi{10.1145/1030083.1030112}
+
+\bibitem{fips180}
+{National Institute of Standards and Technology}: Secure hash standard ({SHS}).
+  FIPS PUB 180-4, National Institute of Standards and Technology (Aug 2015).
+  \doi{10.6028/NIST.FIPS.180-4}
+
+\bibitem{norrman21}
+Norrman, K., Sundararajan, V., Bruni, A.: Formal analysis of {EDHOC} key
+  establishment for constrained {IoT} devices. In: Proceedings of the 18th
+  International Conference on Security and Cryptography (SECRYPT). pp.
+  210--221. SciTePress (2021). \doi{10.5220/0010554002100221}
+
+\bibitem{norrman23}
+Norrman, K., Sundararajan, V., Bruni, A.: Extended formal analysis of the
+  {EDHOC} protocol in {Tamarin}. In: E-Business and Telecommunications, pp.
+  224--248. Communications in Computer and Information Science, Springer
+  (2023). \doi{10.1007/978-3-031-36840-0_11}
+
+\bibitem{oechslin}
+Oechslin, P.: Making a faster cryptanalytic time-memory trade-off. In: Advances
+  in Cryptology -- CRYPTO 2003. Lecture Notes in Computer Science, vol.~2729,
+  pp. 617--630. Springer (2003). \doi{10.1007/978-3-540-45146-4_36}
+
+\bibitem{ohkubo}
+Ohkubo, M., Suzuki, K., Kinoshita, S.: Cryptographic approach to
+  ``privacy-friendly'' tags. In: RFID Privacy Workshop. MIT, Cambridge, MA, USA
+  (Nov 2003)
+
+\bibitem{tiplea}
+{\c{T}}iplea, F.L., Hristea, C.: Practically efficient {RFID} scheme with
+  constant-time identification. In: Proceedings of the 18th International
+  Conference on Security and Cryptography (SECRYPT). pp. 495--506. SciTePress
+  (2021). \doi{10.5220/0010544804950506}
+
+\bibitem{tsudik}
+Tsudik, G.: {YA-TRAP}: Yet another trivial {RFID} authentication protocol. In:
+  Proceedings of the 4th IEEE International Conference on Pervasive Computing
+  and Communications Workshops (PerCom Workshops). pp. 640--643 (2006).
+  \doi{10.1109/PERCOMW.2006.152}
+
+\bibitem{omnet}
+Varga, A., Hornig, R.: An overview of the {OMNeT++} simulation environment. In:
+  Proceedings of the 1st International ICST Conference on Simulation Tools and
+  Techniques for Communications, Networks and Systems (SIMUTools). ICST (2008).
+  \doi{10.4108/ICST.SIMUTOOLS2008.3027}
+
+\bibitem{weis}
+Weis, S.A., Sarma, S.E., Rivest, R.L., Engels, D.W.: Security and privacy
+  aspects of low-cost radio frequency identification systems. In: Security in
+  Pervasive Computing (SPC 2003). Lecture Notes in Computer Science, vol.~2802,
+  pp. 201--212. Springer (2004). \doi{10.1007/978-3-540-39881-3_18}
+
+\bibitem{wu22}
+Wu, T.Y., Meng, Q., Kumari, S., Zhang, P.: Rotating behind security: A
+  lightweight authentication protocol based on {IoT}-enabled cloud computing
+  environments. Sensors  \textbf{22}(10), ~3858 (May 2022).
+  \doi{10.3390/s22103858}
+
+\end{thebibliography}
