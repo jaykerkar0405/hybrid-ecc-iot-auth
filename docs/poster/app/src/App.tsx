@@ -29,7 +29,7 @@ import {
 import { cn } from "@/lib/utils"
 
 import chartLatency from "./assets/chart_latency.svg"
-import logo from "./assets/vesit_logo.png"
+import logo from "./assets/vesit_logo.jpg"
 
 /* ---------- shared building blocks (all built on the shadcn components) ---------- */
 
