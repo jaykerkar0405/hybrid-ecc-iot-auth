@@ -9,6 +9,7 @@ Black Book for _Pseudonym Resolution and Formal Verification of an Unlinkable Tw
 | `main.pdf`  | Compiled report                                                                               |
 | `figures/`  | Evaluation figures, regenerated from the committed data with `paper/make_figs.py`             |
 | `reports/`  | Turnitin similarity and AI writing detection reports for the project paper, embedded in the appendix |
+| `publication/` | Submitted SPIN 2027 review manuscript and submission record for Appendix A.I             |
 | `ipr/`      | Submitted copyright Form XIV for the software, reproduced in Appendix A.II                   |
 | `images/`   | Logos extracted from the format PDF                                                           |
 | `fonts/`    | Gelasio (Georgia-compatible) and Liberation Serif/Mono (Times/Courier-compatible), SIL OFL    |
@@ -16,11 +17,13 @@ Black Book for _Pseudonym Resolution and Formal Verification of an Unlinkable Tw
 
 The hardware section records the confirmed MacBook configuration used for the original OMNeT++ and ProVerif runs, separately from the Linux machine used for the report's re-runs.
 
+The paper was submitted to **SPIN 2027** through Microsoft CMT on **15 November 2026 at 23:21:57 IST (17:51:57 GMT)**, paper ID **307**, CMT track **SPIN2027**. The status is **Submitted**; under-review status and acceptance are unconfirmed. Appendix A.I reproduces the [submitted review manuscript](publication/spin2027-review.pdf), labelled **Submitted manuscript — publication pending**. The [submission record](publication/submission-record.md) preserves the team-provided acknowledgement details and links to the official conference information. The original acknowledgement email/PDF has not yet been archived.
+
 The copyright application for the software was submitted on **17 November 2026**, diary number **SW-53605/2026-CO**; registration is pending. The original Form XIV is saved as [ipr/form-xiv-sw-53605-2026-co.pdf](ipr/form-xiv-sw-53605-2026-co.pdf). It names the work _hybrid-ecc-iot-auth Reference Implementation and Evaluation Framework for an Unlinkable Two-Message IoT Authentication Protocol_ and records a ₹500 application fee. Appendix A.II includes the form's eleven nonblank pages; the archived PDF preserves all twelve original pages.
 
 The remaining submission details are:
 
-- Publication venue and submission/acceptance details, the final paper and the presentation certificate when available.
+- Original submission acknowledgement email/PDF, acceptance details, the final paper, presentation schedule/mode and certificate, and final publication details when available.
 - Publication, printing and binding expenses, and the overall estimated total.
 - Certificate completion: external examiner's name, date, place, signatures and college seal, as required by the department.
 
