@@ -21,10 +21,12 @@ The paper was submitted to **SPIN 2027** through Microsoft CMT on **15 November 
 
 The copyright application for the software was submitted on **17 November 2026**, diary number **SW-53605/2026-CO**; registration is pending. The original Form XIV is saved as [ipr/form-xiv-sw-53605-2026-co.pdf](ipr/form-xiv-sw-53605-2026-co.pdf). It names the work _hybrid-ecc-iot-auth Reference Implementation and Evaluation Framework for an Unlinkable Two-Message IoT Authentication Protocol_ and records a ₹500 application fee. Appendix A.II includes the form's eleven nonblank pages; the archived PDF preserves all twelve original pages.
 
+Section 3.8 budgets **₹6,500 plus GST on conference registration**: ₹500 for the copyright application, ₹1,000 for printing and binding (₹250 per member, four members), and ₹5,000 plus GST for one SPIN 2027 regular Indian student registration, subject to acceptance. An equal split is ₹1,625 per member plus one-fourth of the registration GST. The [official registration page](https://conferences.amity.edu/SPIN2027/registration.aspx) specifies GST extra without a percentage; its amount will follow the organiser's invoice. Printing and registration remain estimates. Extra registrations, travel and accommodation would be added if required by the team's participation arrangements.
+
 The remaining submission details are:
 
 - Original submission acknowledgement email/PDF, acceptance details, the final paper, presentation schedule/mode and certificate, and final publication details when available.
-- Publication, printing and binding expenses, and the overall estimated total.
+- Final registration invoice/GST amount and actual printing/binding costs when paid; the estimated costs and total are recorded in Section 3.8.
 - Certificate completion: external examiner's name, date, place, signatures and college seal, as required by the department.
 
 ## Build
