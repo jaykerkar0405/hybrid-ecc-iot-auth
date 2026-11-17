@@ -4,6 +4,6 @@
 - [Conformance and assumptions](conformance.md)
 - [Capstone black book](blackbook/README.md) ([PDF](blackbook/main.pdf))
 - [Reference access catalogue](references/README.md)
-- [Poster](poster/README.md) (source and finished PNG/PDF)
+- [Project poster (PDF)](pseudonym-resolution-poster.pdf)
 - [Resolution evaluation](../evaluation/resolution/README.md)
 - [Formal verification](../evaluation/formal_verification/README.md)
